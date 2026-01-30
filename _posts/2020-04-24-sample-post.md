@@ -8,6 +8,8 @@ tags:
 - sample
 - post
 - test
+price: "250 PLN"
+availability: "Dostępny na zamówienie"
 gallery:
   - href: "https://picsum.photos/id/119/1200/800"
     imgSrc: "https://picsum.photos/id/119/400/300"

@@ -8,6 +8,8 @@ tags:
 - jekyll
 - informative
 - technology
+price: "150 PLN"
+availability: "Dostępny od ręki"
 gallery:
   - href: "https://picsum.photos/id/103/1200/800"
     imgSrc: "https://picsum.photos/id/103/400/300"

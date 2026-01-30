@@ -8,6 +8,8 @@ tags:
 - how to
 - setup
 - theme
+price: "Wycena indywidualna"
+availability: "Na zamówienie"
 gallery:
   - href: "https://picsum.photos/id/111/1200/800"
     imgSrc: "https://picsum.photos/id/111/400/300"

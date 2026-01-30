@@ -9,44 +9,64 @@ layout: compress
 <body>
   {% include navbar.html %}
 
-  <section class="section has-text-centered" id="post">
+  <section class="section" id="post">
     <div class="container">
-      <a href="{{page.url | relative_url}}" class="has-text-black" id="title">
-        <h1 class="title has-text-centered is-2 has-text-weight-semibold ">{{page.title}}</h1>
-      </a>
-      <hr class="has-background-black">
-      <div class="columns is-variable is-5">
-        <div class="column is-6">
-          <figure class="image is-16by9 has-shadow">
-            <img src="{{page.post-image}}" alt="{{page.title}}" id="post-image">
+      <div class="columns is-variable is-8 is-vcentered">
+        <div class="column is-7">
+          <figure class="image is-4by3 has-shadow">
+            <img src="{{page.post-image}}" alt="{{page.title}}" id="post-image" style="object-fit: cover; border-radius: 8px;">
           </figure>
         </div>
-        <div class="subtitle column is-5 has-text-left-desktop has-text-left-fullhd has-text-left-tablet has-text-center-mobile">
+        <div class="column is-5 has-text-left">
+          <a href="{{page.url | relative_url}}" class="has-text-black" id="title">
+            <h1 class="title is-2 has-text-weight-bold mb-3">{{page.title}}</h1>
+          </a>
+          <hr class="has-background-black mb-5" style="width: 50px; margin-left: 0;">
+          
           {% if page.description %}
-          <p id="description" class="content is-small has-text-weight-medium is-uppercase">{{page.description | strip | strip_html | strip_newlines }}</p>
+          <p id="description" class="content is-medium has-text-weight-semibold is-uppercase mb-4">{{page.description | strip | strip_html | strip_newlines }}</p>
           {% endif %}
-          <p class="subtitle is-6 is-uppercase has-text-weight-normal has-text-black-ter">Published on
-            <b>{{ page.date | date: "%-B %d, %Y" }}</b> by <a href="{% if site.author-url %}{{site.author-url}}{% else %}{{site.url}}{{site.baseurl}}/#about{% endif %}" target="_blank"><b class="has-text-link"><u>{{site.author-name}}</u></b>
+          
+          {% if page.price %}
+          <div class="price-tag mb-4">
+            <span class="is-size-3 has-text-weight-bold has-text-primary">{{ page.price }}</span>
+          </div>
+          {% endif %}
+
+          {% if page.availability %}
+          <div class="availability mb-4">
+            <span class="tag is-light is-medium">{{ page.availability }}</span>
+          </div>
+          {% endif %}
+
+          <div class="product-actions mb-5">
+            <a href="mailto:{{ site.email }}?subject=Zapytanie o produkt: {{ page.title }}" class="button is-primary is-large is-fullwidth has-text-weight-bold">
+              ZAPYTAJ O PRODUKT
             </a>
-          </p>
-          {% if page.tags.size > 0 %}
-          <p class="subtitle is-uppercase">
-            <i class="fas fa-tags"></i>
-            {% for tag in page.tags %}
-            <span class="tag is-link">{{tag}}</span>
-            {% endfor %}
-          </p>
-          {% endif %}
-          {% assign words = content | number_of_words %}
-          {% if content.size > 0 %}
-          <p class="subtitle is-uppercase"><i class="fas fa-clock"></i> <b class="has-text-link">
-              {{ words | divided_by:180 }} min
-            </b>READ</p>
-          {% endif %}
+          </div>
+
+          <div class="product-meta">
+            {% if page.tags.size > 0 %}
+            <p class="is-size-7 is-uppercase mb-2">
+              <span class="has-text-weight-bold">Kategorie:</span>
+              {% for tag in page.tags %}
+              <span class="tag is-rounded is-small">{{tag}}</span>
+              {% endfor %}
+            </p>
+            {% endif %}
+            
+            <p class="is-size-7 is-uppercase">
+              <span class="has-text-weight-bold">Ostatnia aktualizacja:</span> {{ page.date | date: "%-B %d, %Y" }}
+            </p>
+          </div>
         </div>
       </div>
-      <div class="content has-text-justified-desktop has-text-justified-fullhd has-text-justified has-text-justified-tablet has-text-left-mobile">
-        {{ content }}
+
+      <div class="section px-0 mt-6">
+        <div class="content has-text-justified">
+          <h3 class="title is-4 has-text-left mb-4">Opis produktu</h3>
+          {{ content }}
+        </div>
       </div>
     </div>
   </section>
