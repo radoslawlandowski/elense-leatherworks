@@ -19,17 +19,17 @@
 
 a.navbar-item:hover,
 .navbar-link:hover {
-    background-color: rgba($color: $elense-cream, $alpha: 0.25) !important;
-    color: $elense-cream !important;
+    background-color: rgba($color: #fff, $alpha: 0.25) !important;
+    color: white !important;
 }
 
 a.navbar-item.is-active {
-    background-color: rgba($color: $elense-cream, $alpha: 0.25) !important;
-    color: $elense-cream !important;
+    background-color: rgba($color: #fff, $alpha: 0.25) !important;
+    color: white !important;
 
     &:hover {
-        background-color: rgba($color: $elense-cream, $alpha: 0.25) !important;
-        color: $elense-cream;
+        background-color: rgba($color: #fff, $alpha: 0.25) !important;
+        color: grey;
     }
 }
 
@@ -74,7 +74,7 @@ a.navbar-item.is-active {
         margin: auto;
 
         img {
-            border: 0.25rem dotted $elense-brown;
+            border: 0.25rem dotted black;
         }
     }
 
@@ -102,7 +102,7 @@ a.navbar-item.is-active {
     }
 
     hr {
-        background-color: $elense-brown;
+        background-color: black;
     }
 }
 
@@ -225,15 +225,15 @@ a.navbar-item.is-active {
             }
 
             a {
-                color: rgba($color: $elense-cream, $alpha: 0.75);
+                color: #7a7a7a;
 
                 &:hover {
-                    color: $elense-cream;
+                    color: white;
                 }
             }
 
             figure {
-                border: 1.5px solid $elense-cream;
+                border: 1.5px solid white;
                 border-radius: 50rem;
                 justify-content: center;
                 margin: auto;
@@ -252,7 +252,7 @@ a.navbar-item.is-active {
         a {
             text-decoration: underline;
             font-weight: bolder;
-            color: $elense-cream;
+            color: white;
         }
     }
 }
@@ -284,7 +284,7 @@ a.navbar-item.is-active {
     .card {
         transition: all 0.25s ease;
         &:hover {
-            background-color: rgba($color: $elense-brown, $alpha: 0.90)!important;
+            background-color: rgba($color: #000000, $alpha: 0.90)!important;
         }
     }
 }
@@ -305,6 +305,17 @@ a.navbar-item.is-active {
     #post-image {
         border-radius: 0.25rem;
     }
+
+    .gallery {
+        img {
+            filter: sepia(0.3) contrast(1.1) brightness(0.9);
+            transition: filter 0.3s ease;
+            &:hover {
+                filter: none;
+            }
+        }
+    }
+
     .subtitle {
         letter-spacing: 0.05rem;
     }
@@ -352,4 +363,18 @@ a.navbar-item.is-active {
             display: inline-block;
         }
     }
+}
+
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+    gap: 12px;
+    margin-top: 2rem;
+}
+.gallery img {
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 8px;
 }

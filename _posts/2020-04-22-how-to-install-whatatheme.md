@@ -8,6 +8,13 @@ tags:
 - how to
 - setup
 - theme
+gallery:
+  - href: "https://picsum.photos/id/106/1200/800"
+    imgSrc: "https://picsum.photos/id/106/400/300"
+    alt: "Instalacja 1"
+  - href: "https://picsum.photos/id/107/1200/800"
+    imgSrc: "https://picsum.photos/id/107/400/300"
+    alt: "Instalacja 2"
 ---
 
 # What is WhatATheme?

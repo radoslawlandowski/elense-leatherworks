@@ -1,12 +1,12 @@
 ---
 layout: compress
 ---
-
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
   {% include head.html %}
+  <link rel="stylesheet" href="https://unpkg.com/simplelightbox@2/dist/simple-lightbox.min.css">
 </head>
 
 <body>
@@ -15,21 +15,21 @@ layout: compress
   <section class="hero is-fullheight has-text-centered" id="post">
     <div class="hero-body">
       <div class="container">
-        <a href="{{page.url | relative_url}}" id="title">
+        <a href="{{page.url | relative_url}}" class="has-text-black" id="title">
           <h1 class="title has-text-centered is-2 has-text-weight-semibold ">{{page.title}}</h1>
         </a>
-        <hr>
+        <hr class="has-background-black">
         <div class="columns is-variable is-5">
           <div class="column is-6">
             <figure class="image is-16by9 has-shadow">
-              <img src="{{page.post-image}}" alt="{{post.title}}" id="post-image">
+              <img src="{{page.post-image}}" alt="{{page.title}}" id="post-image">
             </figure>
           </div>
           <div class="subtitle column is-5 has-text-left-desktop has-text-left-fullhd has-text-left-tablet has-text-center-mobile">
             {% unless page.description.size == 0 %}
             <p id="description" class="content is-small has-text-weight-medium is-uppercase">{{page.description | strip | strip_html | strip_newlines }}</p>
             {% endunless %}
-            <p class="subtitle is-6 is-uppercase has-text-weight-normal">Published on
+            <p class="subtitle is-6 is-uppercase has-text-weight-normal has-text-black-ter">Published on
               <b>{{ page.date | date: "%-B %d, %Y" }}</b> by <a href="{% if site.author-url %}{{site.author-url}}{% else %}{{site.url}}{{site.baseurl}}/#about{% endif %}" target="_blank"><b class="has-text-link"><u>{{site.author-name}}</u></b>
               </a>
             </p>
@@ -53,7 +53,25 @@ layout: compress
           </div>
         </div>
         <div class="content has-text-justified-desktop has-text-justified-fullhd has-text-justified has-text-justified-tablet has-text-left-mobile">
-          <p>{{ content }}</p>
+          {{ content }}
+        </div>
+
+        <div class="gallery">
+          {% if page.gallery %}
+            {% for item in page.gallery %}
+              <a href="{{ item.href | relative_url }}">
+                <img src="{{ item.imgSrc | relative_url }}" alt="{{ item.alt }}">
+              </a>
+            {% endfor %}
+          {% else %}
+            {% for project in site.data.projects %}
+              {% if project.href and project.imgSrc %}
+              <a href="{{ project.href | relative_url }}">
+                <img src="{{ project.imgSrc | relative_url }}" alt="{{ project.alt }}">
+              </a>
+              {% endif %}
+            {% endfor %}
+          {% endif %}
         </div>
         {% unless site.disqus-shortname == "" %}
         <div class="disqus-comments" id="disqus_thread"></div>
