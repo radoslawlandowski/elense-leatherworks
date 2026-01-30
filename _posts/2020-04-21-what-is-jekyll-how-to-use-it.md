@@ -10,6 +10,7 @@ tags:
 - technology
 price: "150 PLN"
 availability: "Dostępny od ręki"
+productVideoUrl: "https://www.youtube.com/watch?v=VfPa2c9kwhQ"
 gallery:
   - href: "https://picsum.photos/id/103/1200/800"
     imgSrc: "https://picsum.photos/id/103/400/300"

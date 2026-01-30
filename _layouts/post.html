@@ -68,6 +68,24 @@ layout: compress
           {{ content }}
         </div>
       </div>
+
+      {% if page.productVideoUrl %}
+      <div class="section px-0 mt-6">
+        <h3 class="title is-4 has-text-left mb-4">Prezentacja wideo</h3>
+        <div class="video-container">
+          {% if page.productVideoUrl contains 'youtube.com/watch?v=' %}
+            {% assign video_id = page.productVideoUrl | split: 'v=' | last | split: '&' | first %}
+          {% elsif page.productVideoUrl contains 'youtu.be/' %}
+            {% assign video_id = page.productVideoUrl | split: '/' | last | split: '?' | first %}
+          {% elsif page.productVideoUrl contains 'youtube.com/embed/' %}
+            {% assign video_id = page.productVideoUrl | split: '/' | last | split: '?' | first %}
+          {% else %}
+            {% assign video_id = page.productVideoUrl %}
+          {% endif %}
+          <iframe src="https://www.youtube.com/embed/{{ video_id }}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+      </div>
+      {% endif %}
     </div>
   </section>
 

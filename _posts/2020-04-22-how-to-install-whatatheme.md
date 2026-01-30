@@ -10,6 +10,7 @@ tags:
 - theme
 price: "Wycena indywidualna"
 availability: "Na zamówienie"
+productVideoUrl: "https://www.youtube.com/watch?v=jTPXwbDtIpA"
 gallery:
   - href: "https://picsum.photos/id/111/1200/800"
     imgSrc: "https://picsum.photos/id/111/400/300"

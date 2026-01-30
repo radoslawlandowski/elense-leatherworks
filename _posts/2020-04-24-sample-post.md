@@ -10,6 +10,7 @@ tags:
 - test
 price: "250 PLN"
 availability: "Dostępny na zamówienie"
+productVideoUrl: "https://youtu.be/dQw4w9WgXcQ"
 gallery:
   - href: "https://picsum.photos/id/119/1200/800"
     imgSrc: "https://picsum.photos/id/119/400/300"
