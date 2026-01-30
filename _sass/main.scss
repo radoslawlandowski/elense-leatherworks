@@ -1,14 +1,40 @@
 @charset "utf-8";
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
-@import url('https://cdn.jsdelivr.net/npm/bulma@0.8.2/css/bulma.min.css');
 
+// Colors from image
+$elense-cream: #e3d1bb;
+$elense-brown: #5d3a1a;
+
+// Bulma overrides
+$primary: $elense-brown;
+$body-background-color: $elense-cream;
+$body-color: $elense-brown;
+$title-color: $elense-brown;
+$subtitle-color: $elense-brown;
+$navbar-background-color: $elense-brown;
+$navbar-item-color: $elense-cream;
+$footer-background-color: $elense-brown;
+$footer-color: $elense-cream;
+$hr-background-color: $elense-brown;
+
+@import url('https://cdn.jsdelivr.net/npm/bulma@0.8.2/css/bulma.min.css');
 
 html,
 body {
     font-family: 'Poppins', sans-serif;
+    background-color: $body-background-color;
+    color: $body-color;
     scroll-behavior: smooth !important;
     transition: all 0.25s ease;
 }
+
+// Custom helper overrides
+.has-background-black { background-color: $elense-brown !important; }
+.has-background-black-ter { background-color: $elense-brown !important; }
+.has-background-grey-darker { background-color: $elense-brown !important; }
+.has-background-white-ter { background-color: $elense-cream !important; }
+.has-text-white { color: $elense-cream !important; }
+.has-text-white-bis { color: $elense-cream !important; }
 
 
 
@@ -19,17 +45,17 @@ body {
 
 /* Track */
 ::-webkit-scrollbar-track {
-    background: white !important;
+    background: $elense-cream !important;
 }
 
 /* Handle */
 ::-webkit-scrollbar-thumb {
-    background: #363636 !important;
+    background: $elense-brown !important;
 }
 
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
-    background: black !important;
+    background: lighten($elense-brown, 10%) !important;
 }
 
 ::placeholder {
