@@ -73,12 +73,14 @@ layout: compress
             {% endfor %}
           {% endif %}
         </div>
-        {% unless site.disqus-shortname == "" %}
-        <div class="disqus-comments" id="disqus_thread"></div>
-        {% endunless %}
       </div>
     </div>
   </section>
+  {% if site.disqus-shortname != "" %}
+  <div class="container">
+    <div class="disqus-comments" id="disqus_thread"></div>
+  </div>
+  {% endif %}
   {% include footer.html %}
 </body>
 <script>

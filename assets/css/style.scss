@@ -306,15 +306,6 @@ a.navbar-item.is-active {
         border-radius: 0.25rem;
     }
 
-    .gallery {
-        img {
-            filter: sepia(0.3) contrast(1.1) brightness(0.9);
-            transition: filter 0.3s ease;
-            &:hover {
-                filter: none;
-            }
-        }
-    }
 
     .subtitle {
         letter-spacing: 0.05rem;
@@ -367,14 +358,25 @@ a.navbar-item.is-active {
 
 .gallery {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
-    gap: 12px;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0;
     margin-top: 2rem;
+    width: 100vw;
+    position: relative;
+    left: 50%;
+    right: 50%;
+    margin-left: -50vw;
+    margin-right: -50vw;
+    overflow: hidden;
 }
 .gallery img {
     width: 100%;
-    max-width: 100%;
-    height: auto;
+    height: 300px;
+    object-fit: cover;
     display: block;
-    border-radius: 8px;
+    filter: sepia(0.3) contrast(1.1) brightness(0.9);
+    transition: filter 0.3s ease;
+    &:hover {
+        filter: none;
+    }
 }

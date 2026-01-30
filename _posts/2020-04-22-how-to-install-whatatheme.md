@@ -9,12 +9,30 @@ tags:
 - setup
 - theme
 gallery:
-  - href: "https://picsum.photos/id/106/1200/800"
-    imgSrc: "https://picsum.photos/id/106/400/300"
+  - href: "https://picsum.photos/id/111/1200/800"
+    imgSrc: "https://picsum.photos/id/111/400/300"
     alt: "Instalacja 1"
-  - href: "https://picsum.photos/id/107/1200/800"
-    imgSrc: "https://picsum.photos/id/107/400/300"
+  - href: "https://picsum.photos/id/112/1200/800"
+    imgSrc: "https://picsum.photos/id/112/400/300"
     alt: "Instalacja 2"
+  - href: "https://picsum.photos/id/113/1200/800"
+    imgSrc: "https://picsum.photos/id/113/400/300"
+    alt: "Instalacja 3"
+  - href: "https://picsum.photos/id/114/1200/800"
+    imgSrc: "https://picsum.photos/id/114/400/300"
+    alt: "Instalacja 4"
+  - href: "https://picsum.photos/id/115/1200/800"
+    imgSrc: "https://picsum.photos/id/115/400/300"
+    alt: "Instalacja 5"
+  - href: "https://picsum.photos/id/116/1200/800"
+    imgSrc: "https://picsum.photos/id/116/400/300"
+    alt: "Instalacja 6"
+  - href: "https://picsum.photos/id/117/1200/800"
+    imgSrc: "https://picsum.photos/id/117/400/300"
+    alt: "Instalacja 7"
+  - href: "https://picsum.photos/id/118/1200/800"
+    imgSrc: "https://picsum.photos/id/118/400/300"
+    alt: "Instalacja 8"
 ---
 
 # What is WhatATheme?

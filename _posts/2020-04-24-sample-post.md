@@ -9,12 +9,30 @@ tags:
 - post
 - test
 gallery:
-  - href: "https://picsum.photos/id/101/1200/800"
-    imgSrc: "https://picsum.photos/id/101/400/300"
+  - href: "https://picsum.photos/id/119/1200/800"
+    imgSrc: "https://picsum.photos/id/119/400/300"
     alt: "Przykładowe zdjęcie 1"
-  - href: "https://picsum.photos/id/102/1200/800"
-    imgSrc: "https://picsum.photos/id/102/400/300"
+  - href: "https://picsum.photos/id/120/1200/800"
+    imgSrc: "https://picsum.photos/id/120/400/300"
     alt: "Przykładowe zdjęcie 2"
+  - href: "https://picsum.photos/id/121/1200/800"
+    imgSrc: "https://picsum.photos/id/121/400/300"
+    alt: "Przykładowe zdjęcie 3"
+  - href: "https://picsum.photos/id/122/1200/800"
+    imgSrc: "https://picsum.photos/id/122/400/300"
+    alt: "Przykładowe zdjęcie 4"
+  - href: "https://picsum.photos/id/123/1200/800"
+    imgSrc: "https://picsum.photos/id/123/400/300"
+    alt: "Przykładowe zdjęcie 5"
+  - href: "https://picsum.photos/id/124/1200/800"
+    imgSrc: "https://picsum.photos/id/124/400/300"
+    alt: "Przykładowe zdjęcie 6"
+  - href: "https://picsum.photos/id/125/1200/800"
+    imgSrc: "https://picsum.photos/id/125/400/300"
+    alt: "Przykładowe zdjęcie 7"
+  - href: "https://picsum.photos/id/126/1200/800"
+    imgSrc: "https://picsum.photos/id/126/400/300"
+    alt: "Przykładowe zdjęcie 8"
 ---
 
 This post will show you how the content will look like in the post pages and how the headlines, quotes and quotes will be represented. Jekyll is mainly used to write simple markdown and after that it renders out a static pages, so you need to know the basics of writing markdown for that.
