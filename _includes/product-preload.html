@@ -1,0 +1,212 @@
+{% assign sorted_projects = site.projects | sort: "date" | reverse %}
+<script>
+  (function () {
+    if (window.__elenseProductPreloaderStarted) {
+      return;
+    }
+    window.__elenseProductPreloaderStarted = true;
+
+    function normalizePath(path) {
+      return (path || "/").replace(/index\.html$/, "").replace(/\/+$/, "") || "/";
+    }
+
+    var homePath = {{ "/" | relative_url | jsonify }};
+    if (normalizePath(window.location.pathname) !== normalizePath(homePath)) {
+      return;
+    }
+
+    var plan = {
+      listPage: {{ "/project" | relative_url | jsonify }},
+      products: [
+        {% for project in sorted_projects %}
+        {
+          title: {{ project.title | jsonify }},
+          url: {{ project.url | relative_url | jsonify }},
+          hero: {{ project.post-image | jsonify }},
+          gallery: [
+            {% if project.gallery and project.gallery.size > 0 %}
+              {% for item in project.gallery %}
+                {% assign item_href = item.href | default: item.imgSrc %}
+                {% assign item_src = item.imgSrc | default: item.href %}
+                {{ item_href | jsonify }},
+                {{ item_src | jsonify }}{% unless forloop.last %},{% endunless %}
+              {% endfor %}
+            {% endif %}
+          ]
+        }{% unless forloop.last %},{% endunless %}
+        {% endfor %}
+      ]
+    };
+
+    function toAbsoluteUrl(url, base) {
+      if (!url) {
+        return null;
+      }
+      try {
+        return new URL(url, base || window.location.origin).href;
+      } catch (error) {
+        return null;
+      }
+    }
+
+    function uniqueUrls(urls, base) {
+      var seen = {};
+      var result = [];
+      for (var i = 0; i < urls.length; i++) {
+        var absolute = toAbsoluteUrl(urls[i], base);
+        if (!absolute || seen[absolute]) {
+          continue;
+        }
+        seen[absolute] = true;
+        result.push(absolute);
+      }
+      return result;
+    }
+
+    function extractImageUrlsFromHtml(html, baseUrl) {
+      if (!html) {
+        return [];
+      }
+
+      var parser = new DOMParser();
+      var doc = parser.parseFromString(html, "text/html");
+      var urls = [];
+
+      var imgNodes = doc.querySelectorAll("img[src]");
+      imgNodes.forEach(function (node) {
+        urls.push(node.getAttribute("src"));
+      });
+
+      var sourceNodes = doc.querySelectorAll("source[srcset]");
+      sourceNodes.forEach(function (node) {
+        var srcset = node.getAttribute("srcset") || "";
+        srcset.split(",").forEach(function (entry) {
+          var url = entry.trim().split(/\s+/)[0];
+          if (url) {
+            urls.push(url);
+          }
+        });
+      });
+
+      return uniqueUrls(urls, baseUrl);
+    }
+
+    var fetchedPages = {};
+    function fetchPage(url) {
+      var absolute = toAbsoluteUrl(url);
+      if (!absolute || fetchedPages[absolute]) {
+        return Promise.resolve(null);
+      }
+      fetchedPages[absolute] = true;
+
+      return fetch(absolute, {
+        credentials: "same-origin",
+        cache: "force-cache"
+      })
+        .then(function (response) {
+          if (!response.ok) {
+            return null;
+          }
+          return response.text();
+        })
+        .catch(function () {
+          return null;
+        });
+    }
+
+    var preloadedImages = {};
+    function preloadImage(url) {
+      var absolute = toAbsoluteUrl(url);
+      if (!absolute || preloadedImages[absolute]) {
+        return Promise.resolve();
+      }
+      preloadedImages[absolute] = true;
+
+      return new Promise(function (resolve) {
+        var img = new Image();
+        img.decoding = "async";
+        if ("fetchPriority" in img) {
+          img.fetchPriority = "low";
+        }
+        img.onload = resolve;
+        img.onerror = resolve;
+        img.src = absolute;
+      });
+    }
+
+    function pause(ms) {
+      return new Promise(function (resolve) {
+        setTimeout(resolve, ms);
+      });
+    }
+
+    function getNetworkProfile() {
+      var conn = navigator.connection || navigator.mozConnection || navigator.webkitConnection;
+      if (!conn) {
+        return { saveData: false, slow: false };
+      }
+      var effectiveType = conn.effectiveType || "";
+      return {
+        saveData: !!conn.saveData,
+        slow: effectiveType.indexOf("2g") !== -1
+      };
+    }
+
+    async function preloadProduct(product, options) {
+      var productHtml = await fetchPage(product.url);
+      var urls = [];
+      urls.push(product.hero);
+      urls = urls.concat(product.gallery || []);
+      urls = urls.concat(extractImageUrlsFromHtml(productHtml, product.url));
+      urls = uniqueUrls(urls, product.url);
+
+      if (options.maxImagesPerProduct && urls.length > options.maxImagesPerProduct) {
+        urls = urls.slice(0, options.maxImagesPerProduct);
+      }
+
+      for (var i = 0; i < urls.length; i++) {
+        await preloadImage(urls[i]);
+      }
+    }
+
+    async function runPreload() {
+      var network = getNetworkProfile();
+      var maxProducts = plan.products.length;
+      var maxImagesPerProduct = 0;
+
+      if (network.saveData) {
+        maxProducts = Math.min(1, plan.products.length);
+        maxImagesPerProduct = 0;
+      } else if (network.slow) {
+        maxProducts = Math.min(2, plan.products.length);
+        maxImagesPerProduct = 3;
+      }
+
+      await fetchPage(plan.listPage);
+      await pause(60);
+
+      for (var i = 0; i < maxProducts; i++) {
+        await preloadProduct(plan.products[i], {
+          maxImagesPerProduct: maxImagesPerProduct
+        });
+        await pause(80);
+      }
+    }
+
+    function schedulePreload() {
+      if ("requestIdleCallback" in window) {
+        requestIdleCallback(function () {
+          runPreload();
+        }, { timeout: 2000 });
+      } else {
+        setTimeout(runPreload, 900);
+      }
+    }
+
+    if (document.readyState === "complete") {
+      schedulePreload();
+    } else {
+      window.addEventListener("load", schedulePreload, { once: true });
+    }
+  })();
+</script>
