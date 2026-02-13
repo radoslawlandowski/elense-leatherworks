@@ -8,6 +8,7 @@ layout: compress
 
 <body>
   {% include navbar.html %}
+  {% assign shopify_url = page.shopify_url | default: site.shopify_store_url %}
 
   <section class="hero is-fullheight" id="product-hero" style="background-image: url('{{ page.post-image }}');">
     <div class="product-hero-overlay"></div>
@@ -38,7 +39,8 @@ layout: compress
         </div>
         <div class="column is-4">
           <div class="product-summary-card">
-            <a href="mailto:{{ site.email }}?subject=Zapytanie o produkt: {{ page.title }}" class="button is-primary is-fullwidth is-medium has-text-weight-bold">ZAPYTAJ O PRODUKT</a>
+            <a href="{{ shopify_url }}" target="_blank" rel="noopener noreferrer" class="button is-primary is-fullwidth is-medium has-text-weight-bold">KUP W SHOPIFY</a>
+            <a href="mailto:{{ site.email }}?subject=Zapytanie o produkt: {{ page.title }}" class="button is-outlined is-primary is-fullwidth is-medium has-text-weight-bold mt-3">ZAPYTAJ O PRODUKT</a>
             {% if page.tags.size > 0 %}
             <p class="is-size-7 is-uppercase mt-4">
               <span class="has-text-weight-bold">Kategorie:</span>
@@ -59,15 +61,64 @@ layout: compress
     </div>
   </section>
 
-  {% if content and content != "" %}
-  <section class="section pt-0" id="product-details">
+  <section class="section pt-0 product-section-block" id="product-details">
     <div class="container">
+      <h3 class="title is-4 mb-4">Opis</h3>
       <div class="content has-text-justified">
-        {{ content }}
+        {% if content and content != "" %}
+          {{ content }}
+        {% elsif page.description %}
+          <p>{{ page.description }}</p>
+        {% endif %}
       </div>
     </div>
   </section>
-  {% endif %}
+
+  <section class="section pt-0 product-section-block" id="product-features">
+    <div class="container">
+      <h3 class="title is-4 mb-4">Cechy charakterystyczne</h3>
+      {% if page.features and page.features.size > 0 %}
+      <ul class="product-feature-list">
+        {% for feature in page.features %}
+        <li>{{ feature }}</li>
+        {% endfor %}
+      </ul>
+      {% else %}
+      <ul class="product-feature-list">
+        <li>Reczne wykonanie z naturalnej skory.</li>
+        <li>Trwale wykonczenie i dbalosc o detal.</li>
+        <li>Projekt dopasowany do codziennego uzycia.</li>
+      </ul>
+      {% endif %}
+    </div>
+  </section>
+
+  <section class="section pt-0 product-section-block" id="product-warranty">
+    <div class="container">
+      <h3 class="title is-4 mb-4">Gwarancja</h3>
+      <div class="content">
+        {% if page.warranty %}
+        <p>{{ page.warranty }}</p>
+        {% else %}
+        <p>Produkt objety jest 12-miesieczna gwarancja na wykonanie i szwy. W razie problemow skontaktuj sie z nami mailowo.</p>
+        {% endif %}
+      </div>
+    </div>
+  </section>
+
+  <section class="section pt-0 product-section-block" id="product-how-to-buy">
+    <div class="container">
+      <h3 class="title is-4 mb-4">Jak kupic</h3>
+      <div class="content">
+        <ol>
+          <li>Przejdz do sklepu Shopify i otworz karte produktu.</li>
+          <li>Wybierz wariant i ilosc, a nastepnie dodaj do koszyka.</li>
+          <li>Zakoncz zamowienie i potwierdz platnosc.</li>
+        </ol>
+      </div>
+      <a href="{{ shopify_url }}" target="_blank" rel="noopener noreferrer" class="button is-primary is-medium has-text-weight-bold">PRZEJDZ DO SKLEPU SHOPIFY</a>
+    </div>
+  </section>
 
   {% if page.productVideoUrl %}
   <section class="section pt-0" id="product-video-section">

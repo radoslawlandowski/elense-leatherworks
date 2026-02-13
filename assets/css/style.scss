@@ -426,6 +426,39 @@ a.navbar-item.is-active {
     }
 }
 
+.product-section-block {
+    .container {
+        max-width: 980px;
+    }
+
+    .content {
+        line-height: 1.7;
+    }
+}
+
+.product-feature-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+
+    li {
+        position: relative;
+        padding-left: 1.5rem;
+        margin-bottom: 0.65rem;
+    }
+
+    li::before {
+        content: "";
+        width: 0.55rem;
+        height: 0.55rem;
+        border-radius: 50%;
+        background: $elense-brown;
+        position: absolute;
+        left: 0;
+        top: 0.55rem;
+    }
+}
+
 @media (max-width: 1023px) {
     .product-gallery {
         grid-template-columns: repeat(2, minmax(0, 1fr));
