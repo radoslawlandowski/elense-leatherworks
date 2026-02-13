@@ -59,6 +59,10 @@ plugins:
   - jekyll-admin
   - jekyll-feed
 
+collections:
+  projects:
+    output: true
+
 # Permalink
 permalink: "blog/:title"
 
@@ -71,6 +75,15 @@ defaults:
   -
     scope:
       type: 'posts'
+    values:
+      layout: post
+      post-image: ""
+      description: ""
+      tags:
+        - ""
+  -
+    scope:
+      type: 'projects'
     values:
       layout: post
       post-image: ""
