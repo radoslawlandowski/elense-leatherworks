@@ -1,6 +1,6 @@
 ---
 title: Fourth Project
-layout: post
+layout: project-product
 permalink: /projects/fourth-project/
 post-image: "https://picsum.photos/id/40/1200/800"
 description: Everyday leather product tuned for long-term reliability

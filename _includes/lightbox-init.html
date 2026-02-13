@@ -1,0 +1,81 @@
+<script src="https://unpkg.com/simplelightbox@2/dist/simple-lightbox.min.js"></script>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    var galleries = document.querySelectorAll("[data-lightbox-gallery]");
+    if (!galleries.length) {
+      galleries = document.querySelectorAll(".gallery");
+      galleries.forEach(function (gallery) {
+        gallery.setAttribute("data-lightbox-gallery", "");
+      });
+    }
+
+    if (!galleries.length || typeof SimpleLightbox === "undefined") {
+      return;
+    }
+
+    galleries.forEach(function (gallery, index) {
+      var galleryAttr = "gallery-" + index;
+      gallery.setAttribute("data-lightbox-gallery-id", galleryAttr);
+      var selector = "[data-lightbox-gallery-id='" + galleryAttr + "'] a";
+      var anchors = Array.prototype.slice.call(gallery.querySelectorAll("a[href]"));
+      var preloaded = {};
+
+      function preloadByIndex(imageIndex) {
+        if (imageIndex < 0 || imageIndex >= anchors.length) {
+          return;
+        }
+        var href = anchors[imageIndex].getAttribute("href");
+        if (!href || preloaded[href]) {
+          return;
+        }
+        preloaded[href] = true;
+        var img = new Image();
+        img.decoding = "async";
+        img.src = href;
+      }
+
+      function preloadAround(imageIndex) {
+        preloadByIndex(imageIndex);
+        preloadByIndex(imageIndex + 1);
+        preloadByIndex(imageIndex - 1);
+        preloadByIndex(imageIndex + 2);
+      }
+
+      var lightbox = new SimpleLightbox(selector, {
+        captionsData: "alt",
+        captionDelay: 80,
+        animationSpeed: 120,
+        fadeSpeed: 120,
+        animationSlide: true,
+        preloading: true,
+        uniqueImages: false,
+        showCounter: true,
+        enableKeyboard: true,
+        close: true,
+        fileExt: false
+      });
+
+      preloadAround(0);
+
+      gallery.addEventListener("click", function (event) {
+        var clickedAnchor = event.target.closest("a[href]");
+        if (!clickedAnchor) {
+          return;
+        }
+        var clickedIndex = anchors.indexOf(clickedAnchor);
+        if (clickedIndex >= 0) {
+          preloadAround(clickedIndex);
+        }
+      });
+
+      if (typeof lightbox.on === "function") {
+        lightbox.on("shown.simplelightbox", function () {
+          preloadAround(lightbox.currentImageIndex || 0);
+        });
+        lightbox.on("changed.simplelightbox", function () {
+          preloadAround(lightbox.currentImageIndex || 0);
+        });
+      }
+    });
+  });
+</script>

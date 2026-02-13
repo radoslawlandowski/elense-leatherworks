@@ -1,6 +1,6 @@
 ---
 title: First Project
-layout: post
+layout: project-product
 permalink: /projects/first-project/
 post-image: "https://picsum.photos/id/10/1200/800"
 description: Signature handcrafted leather concept
@@ -26,6 +26,3 @@ gallery:
 
 First Project is built with the same craftsmanship standards as every Elense piece.
 Each element is selected for durability, precise finish, and long-term daily use.
-
-The detail page uses the same structure as post pages, including pricing, availability,
-tags, gallery, and optional video presentation.

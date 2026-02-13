@@ -1,0 +1,60 @@
+{% assign gallery_items = include.gallery_items %}
+{% assign fallback_gallery_items = include.fallback_gallery_items %}
+{% assign gallery_class = include.gallery_class | default: "gallery" %}
+{% assign fallback_alt = include.fallback_alt | default: "Gallery image" %}
+
+<div class="{{ gallery_class }}" data-lightbox-gallery>
+  {% if gallery_items and gallery_items.size > 0 %}
+    {% for item in gallery_items %}
+      {% assign item_href = item.href | default: item.imgSrc | default: item.image %}
+      {% assign item_src = item.imgSrc | default: item.href | default: item.image %}
+      {% assign item_alt = item.alt | default: item.title | default: item.name | default: fallback_alt %}
+      {% if item_href and item_src %}
+        {% if item_href contains '://' %}
+          {% assign resolved_href = item_href %}
+        {% else %}
+          {% assign resolved_href = item_href | relative_url %}
+        {% endif %}
+        {% if item_src contains '://' %}
+          {% assign resolved_src = item_src %}
+        {% else %}
+          {% assign resolved_src = item_src | relative_url %}
+        {% endif %}
+        <a href="{{ resolved_href }}">
+          <img src="{{ resolved_src }}" alt="{{ item_alt }}">
+        </a>
+      {% endif %}
+    {% endfor %}
+  {% elsif fallback_gallery_items and fallback_gallery_items.size > 0 %}
+    {% for item in fallback_gallery_items %}
+      {% assign item_href = item.href | default: item.imgSrc | default: item.image %}
+      {% assign item_src = item.imgSrc | default: item.href | default: item.image %}
+      {% assign item_alt = item.alt | default: item.title | default: item.name | default: fallback_alt %}
+      {% if item_href and item_src %}
+        {% if item_href contains '://' %}
+          {% assign resolved_href = item_href %}
+        {% else %}
+          {% assign resolved_href = item_href | relative_url %}
+        {% endif %}
+        {% if item_src contains '://' %}
+          {% assign resolved_src = item_src %}
+        {% else %}
+          {% assign resolved_src = item_src | relative_url %}
+        {% endif %}
+        <a href="{{ resolved_href }}">
+          <img src="{{ resolved_src }}" alt="{{ item_alt }}">
+        </a>
+      {% endif %}
+    {% endfor %}
+  {% elsif include.fallback_image %}
+    {% assign fallback_image = include.fallback_image %}
+    {% if fallback_image contains '://' %}
+      {% assign resolved_fallback_image = fallback_image %}
+    {% else %}
+      {% assign resolved_fallback_image = fallback_image | relative_url %}
+    {% endif %}
+    <a href="{{ resolved_fallback_image }}">
+      <img src="{{ resolved_fallback_image }}" alt="{{ fallback_alt }}">
+    </a>
+  {% endif %}
+</div>

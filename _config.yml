@@ -85,7 +85,7 @@ defaults:
     scope:
       type: 'projects'
     values:
-      layout: post
+      layout: project-product
       post-image: ""
       description: ""
       tags:

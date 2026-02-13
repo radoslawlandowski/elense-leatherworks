@@ -1,6 +1,6 @@
 ---
 title: Fifth Project
-layout: post
+layout: project-product
 permalink: /projects/fifth-project/
 post-image: "https://picsum.photos/id/50/1200/800"
 description: Distinct handcrafted edition with refined material selection

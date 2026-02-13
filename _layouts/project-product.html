@@ -1,0 +1,96 @@
+---
+layout: compress
+---
+<!DOCTYPE html>
+<html lang="en">
+{% include head.html %}
+{% include lightbox-assets.html %}
+
+<body>
+  {% include navbar.html %}
+
+  <section class="hero is-fullheight" id="product-hero" style="background-image: url('{{ page.post-image }}');">
+    <div class="product-hero-overlay"></div>
+    <div class="hero-body">
+      <div class="container">
+        <div class="product-hero-content">
+          {% if page.availability %}
+          <span class="tag is-light is-medium product-availability-tag">{{ page.availability }}</span>
+          {% endif %}
+          <h1 class="title is-1 has-text-white has-text-weight-bold">{{ page.title }}</h1>
+          {% if page.price %}
+          <p class="product-hero-price">{{ page.price }}</p>
+          {% endif %}
+          <a href="#product-summary" class="button is-primary is-medium has-text-weight-bold">POZNAJ PRODUKT</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="product-summary">
+    <div class="container">
+      <div class="columns is-variable is-8 is-vcentered">
+        <div class="column is-8">
+          <h2 class="title is-2 mb-4">{{ page.title }}</h2>
+          {% if page.description %}
+          <p class="subtitle is-5 product-short-description">{{ page.description | strip | strip_html | strip_newlines }}</p>
+          {% endif %}
+        </div>
+        <div class="column is-4">
+          <div class="product-summary-card">
+            <a href="mailto:{{ site.email }}?subject=Zapytanie o produkt: {{ page.title }}" class="button is-primary is-fullwidth is-medium has-text-weight-bold">ZAPYTAJ O PRODUKT</a>
+            {% if page.tags.size > 0 %}
+            <p class="is-size-7 is-uppercase mt-4">
+              <span class="has-text-weight-bold">Kategorie:</span>
+              {% for tag in page.tags %}
+              <span class="tag is-rounded is-small">{{ tag }}</span>
+              {% endfor %}
+            </p>
+            {% endif %}
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section pt-0" id="product-gallery-section">
+    <div class="container">
+      {% include gallery.html gallery_items=page.gallery fallback_image=page.post-image gallery_class="product-gallery" fallback_alt=page.title %}
+    </div>
+  </section>
+
+  {% if content and content != "" %}
+  <section class="section pt-0" id="product-details">
+    <div class="container">
+      <div class="content has-text-justified">
+        {{ content }}
+      </div>
+    </div>
+  </section>
+  {% endif %}
+
+  {% if page.productVideoUrl %}
+  <section class="section pt-0" id="product-video-section">
+    <div class="container">
+      <h3 class="title is-4 has-text-left mb-4">Prezentacja wideo</h3>
+      <div class="video-container">
+        {% if page.productVideoUrl contains 'youtube.com/watch?v=' %}
+          {% assign video_id = page.productVideoUrl | split: 'v=' | last | split: '&' | first %}
+        {% elsif page.productVideoUrl contains 'youtu.be/' %}
+          {% assign video_id = page.productVideoUrl | split: '/' | last | split: '?' | first %}
+        {% elsif page.productVideoUrl contains 'youtube.com/embed/' %}
+          {% assign video_id = page.productVideoUrl | split: '/' | last | split: '?' | first %}
+        {% else %}
+          {% assign video_id = page.productVideoUrl %}
+        {% endif %}
+        <iframe src="https://www.youtube.com/embed/{{ video_id }}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      </div>
+    </div>
+  </section>
+  {% endif %}
+
+  {% include footer.html %}
+  {% include lightbox-init.html %}
+</body>
+
+</html>

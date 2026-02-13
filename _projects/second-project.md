@@ -1,6 +1,6 @@
 ---
 title: Second Project
-layout: post
+layout: project-product
 permalink: /projects/second-project/
 post-image: "https://picsum.photos/id/20/1200/800"
 description: Contemporary leather piece with a minimal profile
@@ -26,5 +26,3 @@ gallery:
 
 Second Project focuses on clean lines and practical proportions for everyday use.
 The construction combines hand-cut details with reinforced points where wear is highest.
-
-This page is rendered with the exact post layout to keep project and post detail views consistent.

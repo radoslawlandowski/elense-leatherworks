@@ -1,6 +1,6 @@
 ---
 title: Third Project
-layout: post
+layout: project-product
 permalink: /projects/third-project/
 post-image: "https://picsum.photos/id/30/1200/800"
 description: Premium artisan model with a bold visual character
@@ -26,5 +26,3 @@ gallery:
 
 Third Project emphasizes texture and shape, while keeping the same durable build quality.
 It is designed for customers who want a stronger statement piece without compromising usability.
-
-The structure of this detail page matches post pages exactly.

@@ -4,7 +4,7 @@ layout: compress
 <!DOCTYPE html>
 <html lang="en">
 {% include head.html %}
-<link rel="stylesheet" href="https://unpkg.com/simplelightbox@2/dist/simple-lightbox.min.css">
+{% include lightbox-assets.html %}
 
 <body>
   {% include navbar.html %}
@@ -89,23 +89,8 @@ layout: compress
     </div>
   </section>
 
-  <div class="gallery">
-    {% if page.gallery %}
-      {% for item in page.gallery %}
-        <a href="{{ item.href | relative_url }}">
-          <img src="{{ item.imgSrc | relative_url }}" alt="{{ item.alt }}">
-        </a>
-      {% endfor %}
-    {% else %}
-      {% for project in site.data.projects %}
-        {% if project.href and project.imgSrc %}
-        <a href="{{ project.href | relative_url }}">
-          <img src="{{ project.imgSrc | relative_url }}" alt="{{ project.alt }}">
-        </a>
-        {% endif %}
-      {% endfor %}
-    {% endif %}
-  </div>
+  {% assign fallback_gallery_items = site.data.projects | where_exp: "item", "item.href and item.imgSrc" %}
+  {% include gallery.html gallery_items=page.gallery fallback_gallery_items=fallback_gallery_items gallery_class="gallery" fallback_alt=page.title %}
 
   <div class="section">
     <div class="container">
@@ -116,23 +101,7 @@ layout: compress
   </div>
 
   {% include footer.html %}
-  <script src="https://unpkg.com/simplelightbox@2/dist/simple-lightbox.min.js"></script>
-  <script>
-    document.addEventListener("DOMContentLoaded", function () {
-      setTimeout(function() {
-        var gallery = new SimpleLightbox('.gallery a', {
-          captionsData: 'alt',
-          captionDelay: 250,
-          uniqueImages: false,
-          showCounter: true,
-          enableKeyboard: true,
-          close: true,
-          fileExt: false
-        });
-        console.log('SimpleLightbox initialized after timeout:', gallery);
-      }, 500);
-    });
-  </script>
+  {% include lightbox-init.html %}
   <script>
     /**
      *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.

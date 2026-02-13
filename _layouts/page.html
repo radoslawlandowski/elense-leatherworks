@@ -5,6 +5,7 @@ layout: compress
 <!DOCTYPE html>
 <html>
 {% include head.html %}
+{% include lightbox-assets.html %}
 
 <body>
     {% include navbar.html %}
@@ -25,16 +26,7 @@ layout: compress
     </section>
     <!--Footer begins here-->
     {% include footer.html %}
-    <script src="https://unpkg.com/simplelightbox@2/dist/simple-lightbox.min.js"></script>
-    <script>
-        document.addEventListener("DOMContentLoaded", function () {
-            new SimpleLightbox('.gallery a', { 
-                captionsData: 'alt', 
-                captionDelay: 150,
-                fileExt: false
-            });
-        });
-    </script>
+    {% include lightbox-init.html %}
 </body>
 
 </html>
