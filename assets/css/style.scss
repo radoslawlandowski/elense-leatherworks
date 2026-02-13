@@ -289,6 +289,54 @@ a.navbar-item.is-active {
     }
 }
 
+#projects {
+    .hero-body {
+        padding: 3rem 1.5rem;
+    }
+
+    .subtitle {
+        margin-bottom: 2rem;
+    }
+}
+
+.projects-home-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1rem;
+}
+
+.projects-home-item {
+    display: block;
+    overflow: hidden;
+    border-radius: 0.5rem;
+    box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.1);
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+
+    &:hover {
+        transform: translateY(-2px);
+        box-shadow: 0px 0px 24px 0px rgba(0, 0, 0, 0.22);
+    }
+
+    img {
+        display: block;
+        width: 100%;
+        aspect-ratio: 4 / 3;
+        object-fit: cover;
+    }
+}
+
+@media (max-width: 1023px) {
+    .projects-home-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 640px) {
+    .projects-home-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
 #post {
     @media (min-width: 768px) {
         margin: auto 2.5vmax;

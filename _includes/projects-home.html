@@ -1,0 +1,15 @@
+<section class="hero has-text-centered has-background-white-ter" id="projects">
+  <div class="hero-body">
+    <div class="container">
+      <p class="subtitle is-uppercase has-text-weight-medium has-text-grey">Projects</p>
+      <div class="projects-home-grid">
+        {% assign projects = site.projects | sort: "date" | reverse %}
+        {% for project in projects %}
+          <a class="projects-home-item" href="{{ project.url | relative_url }}" aria-label="{{ project.title }}">
+            <img src="{{ project.post-image }}" alt="{{ project.title }}">
+          </a>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</section>
