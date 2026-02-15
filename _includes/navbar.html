@@ -1,11 +1,40 @@
+{% assign current_lang = page.lang | default: "en" %}
+{% assign t = site.data.i18n[current_lang] %}
+{% assign routes = t.routes %}
+{% if current_lang == "pl" %}
+  {% assign target_lang = "en" %}
+{% else %}
+  {% assign target_lang = "pl" %}
+{% endif %}
+{% assign target_t = site.data.i18n[target_lang] %}
+{% assign target_routes = target_t.routes %}
+{% assign lang_switch_url = target_routes.home %}
+
+{% if page.translation_key and page.collection == "projects" %}
+  {% assign translated_project = site.projects | where: "translation_key", page.translation_key | where: "lang", target_lang | first %}
+  {% if translated_project %}
+    {% assign lang_switch_url = translated_project.url %}
+  {% endif %}
+{% elsif page.translation_key and page.collection == "posts" %}
+  {% assign translated_post = site.posts | where: "translation_key", page.translation_key | where: "lang", target_lang | first %}
+  {% if translated_post %}
+    {% assign lang_switch_url = translated_post.url %}
+  {% endif %}
+{% elsif page.translation_key %}
+  {% assign translated_page = site.pages | where: "translation_key", page.translation_key | where: "lang", target_lang | first %}
+  {% if translated_page %}
+    {% assign lang_switch_url = translated_page.url %}
+  {% endif %}
+{% endif %}
+
+{% assign home_url = routes.home | relative_url %}
+{% assign blog_url = routes.blog | relative_url %}
+
 <nav class="navbar is-black is-fixed-top" role="navigation" aria-label="main navigation" id="navbar">
     <div class="container">
-
-        <!-- logo or branding image on left side -->
         <div class="navbar-brand">
-            <a class="navbar-item"
-                href="{% if page.layout == 'default' %}{{site.url}}{{site.baseurl}}/#{% else %}{{site.url}}{{site.baseurl}}/{% endif %}">
-                <strong>{{site.title}}</strong>
+            <a class="navbar-item" href="{{ home_url }}">
+                <strong>{{ site.title }}</strong>
             </a>
             <div class="navbar-burger" data-target="navbar-menu">
                 <span></span>
@@ -14,21 +43,14 @@
             </div>
         </div>
 
-        <!-- children of navbar-menu must be navbar-start and/or navbar-end -->
         <div class="navbar-menu has-background-black" id="navbar-menu">
-            <!-- navbar items | left side -->
-            <!-- <div class="navbar-start">
-            </div> -->
-            <!-- navbar items | right side -->
             <div class="navbar-end">
-                <a class="navbar-item {% if page.layout == 'default' %}is-active{% endif %}"
-                    href="{% if page.layout == 'default' %}{{site.url}}{{site.baseurl}}/#{% else %}{{site.url}}{{site.baseurl}}/{% endif %}">HOME</a>
-                <a class="navbar-item" href="{{site.url}}{{site.baseurl}}/#projects">PROJECTS</a>
-                <a class="navbar-item" href="{{site.url}}{{site.baseurl}}/#about">ABOUT</a>
-                <a class="navbar-item" href="{{site.url}}{{site.baseurl}}/#contact">CONTACT</a>
-                <a class="navbar-item {% if page.layout == 'blog' %}is-active{% endif %}"
-                    href="{{site.url}}{{site.baseurl}}/blog">BLOG</a>
-                {% include dropdown.html %}
+                <a class="navbar-item nav-section-link {% if page.translation_key == 'home' %}is-active{% endif %}" href="{{ home_url }}">{{ t.nav.home }}</a>
+                <a class="navbar-item nav-section-link {% if page.translation_key == 'projects_index' or page.collection == 'projects' %}is-active{% endif %}" href="{{ home_url }}#projects">{{ t.nav.projects }}</a>
+                <a class="navbar-item nav-section-link" href="{{ home_url }}#about">{{ t.nav.about }}</a>
+                <a class="navbar-item nav-section-link" href="{{ home_url }}#contact">{{ t.nav.contact }}</a>
+                <a class="navbar-item {% if page.translation_key == 'blog_index' %}is-active{% endif %}" href="{{ blog_url }}">{{ t.nav.blog }}</a>
+                <a class="navbar-item has-text-weight-bold" href="{{ lang_switch_url | relative_url }}">{{ t.lang_switch_label }}</a>
             </div>
 
         </div>
@@ -37,17 +59,12 @@
 <!-- Bulma Navbar JS -->
 <script>
     document.addEventListener('DOMContentLoaded', function () {
-        /* Get all "navbar-burger" elements */
         var $navbarBurgers = Array.prototype.slice.call(document.querySelectorAll('.navbar-burger'), 0);
-        /* Check if there are any navbar burgers */
         if ($navbarBurgers.length > 0) {
-            /* Add a click event on each of them */
             $navbarBurgers.forEach(function ($el) {
                 $el.addEventListener('click', function () {
-                    /* Get the target from the "data-target" attribute */
                     var target = $el.dataset.target;
                     var $target = document.getElementById(target);
-                    /* Toggle the class on both the "navbar-burger" and the "navbar-menu" */
                     $el.classList.toggle('is-active');
                     $target.classList.toggle('is-active');
                 });

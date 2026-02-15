@@ -1,36 +1,41 @@
 ---
-title: Podkladka Sommelier z Naturalnej Skory
+title: Podkładka Sommelier
 layout: project-product
-permalink: /projects/podkladka-sommelier/
-post-image: "https://picsum.photos/seed/wine-coaster-hero/1600/1000"
-description: Recznie szyta podkladka pod kieliszek do wina, ktora chroni blat i dodaje elegancji kazdej kolacji.
+lang: pl
+translation_key: wine-coaster
+permalink: /pl/projekty/podkladka-sommelier/
+post-image: "https://picsum.photos/seed/wine-coaster-pl-hero/1600/1000"
+description: Ręcznie szyta podkładka pod kieliszek do wina, która chroni blat i dodaje stołowi eleganckiego charakteru.
 price: "39 PLN / szt."
-availability: "Dostepne od reki"
+availability: "Dostępne od ręki"
 shopify_url: "https://shopify.com"
 features:
-  - Reczne szycie i wykonczenie krawedzi.
+  - Ręczne szycie i gładko wykończone krawędzie.
   - Stabilna podstawa pod kieliszek i ochrona blatu.
-  - Skora naturalna, ktora pieknie starzeje sie z czasem.
-warranty: "12 miesiecy gwarancji na wykonanie i laczenia materialu. W przypadku uszkodzen produkcyjnych naprawa lub wymiana jest realizowana bez dodatkowych kosztow."
+  - Naturalna skóra, która z czasem nabiera charakteru.
+warranty: "12 miesięcy gwarancji na wykonanie i łączenia materiału. W przypadku wady produkcyjnej zapewniamy naprawę lub wymianę."
 tags:
-  - Stol
+  - Stół
   - Wino
-  - Skora naturalna
+  - Skóra naturalna
 date: 2026-02-13
 gallery:
-  - href: "https://picsum.photos/seed/wine-coaster-1/1600/1000"
-    imgSrc: "https://picsum.photos/seed/wine-coaster-1/800/600"
-    alt: "Podkladka pod kieliszek do wina - ujecie 1"
-  - href: "https://picsum.photos/seed/wine-coaster-2/1600/1000"
-    imgSrc: "https://picsum.photos/seed/wine-coaster-2/800/600"
-    alt: "Podkladka pod kieliszek do wina - ujecie 2"
-  - href: "https://picsum.photos/seed/wine-coaster-3/1600/1000"
-    imgSrc: "https://picsum.photos/seed/wine-coaster-3/800/600"
-    alt: "Podkladka pod kieliszek do wina - ujecie 3"
+  - href: "https://picsum.photos/seed/wine-coaster-pl-1/1800/1200"
+    imgSrc: "https://picsum.photos/seed/wine-coaster-pl-1/900/700"
+    alt: "Podkładka Sommelier - ujęcie 1"
+  - href: "https://picsum.photos/seed/wine-coaster-pl-2/1800/1200"
+    imgSrc: "https://picsum.photos/seed/wine-coaster-pl-2/900/700"
+    alt: "Podkładka Sommelier - ujęcie 2"
+  - href: "https://picsum.photos/seed/wine-coaster-pl-3/1800/1200"
+    imgSrc: "https://picsum.photos/seed/wine-coaster-pl-3/900/700"
+    alt: "Podkładka Sommelier - ujęcie 3"
+  - href: "https://picsum.photos/seed/wine-coaster-pl-4/1800/1200"
+    imgSrc: "https://picsum.photos/seed/wine-coaster-pl-4/900/700"
+    alt: "Podkładka Sommelier - ujęcie 4"
 ---
 
-Podkladka Sommelier to subtelny detal, ktory od razu podnosi estetyke stolu.
-Jest szyta recznie ze skory naturalnej i wykanczana tak, aby dobrze znosila codzienne uzywanie.
+Podkładka Sommelier to subtelny detal, który podnosi estetykę stołu już od pierwszego spojrzenia.
+Powstaje ręcznie z naturalnej skóry i jest dopracowana tak, aby dobrze znosiła codzienne użytkowanie.
 
-Sprawdzi sie przy kieliszkach do wina, drinkow i napojow bezalkoholowych.
-To produkt praktyczny i prezentowy jednoczesnie.
+Sprawdza się przy winie, drinkach i napojach bezalkoholowych.
+To praktyczny dodatek, który dobrze wygląda zarówno na co dzień, jak i przy wyjątkowych okazjach.

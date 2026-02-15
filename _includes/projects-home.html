@@ -1,9 +1,11 @@
+{% assign current_lang = page.lang | default: "en" %}
+{% assign t = site.data.i18n[current_lang] %}
 <section class="hero has-text-centered has-background-white-ter" id="projects">
   <div class="hero-body">
     <div class="container">
-      <p class="subtitle is-uppercase has-text-weight-medium has-text-grey">Projects</p>
+      <p class="subtitle is-uppercase has-text-weight-medium has-text-grey">{{ t.home.projects_heading }}</p>
       <div class="projects-home-grid">
-        {% assign projects = site.projects | sort: "date" | reverse %}
+        {% assign projects = site.projects | where: "lang", current_lang | sort: "date" | reverse %}
         {% for project in projects %}
           <a class="projects-home-item" href="{{ project.url | relative_url }}" aria-label="{{ project.title }}">
             <img src="{{ project.post-image }}" alt="{{ project.title }}">

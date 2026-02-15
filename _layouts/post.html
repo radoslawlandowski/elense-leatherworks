@@ -1,8 +1,16 @@
 ---
 layout: compress
 ---
+{% assign current_lang = page.lang | default: "en" %}
+{% assign t = site.data.i18n[current_lang] %}
+{% assign post_subject_prefix = t.post.ask_subject_prefix | default: "Product inquiry" %}
+{% if current_lang == "pl" %}
+  {% assign post_updated_date = page.date | date: "%d.%m.%Y" %}
+{% else %}
+  {% assign post_updated_date = page.date | date: "%B %d, %Y" %}
+{% endif %}
 <!DOCTYPE html>
-<html lang="en">
+<html lang="{{ current_lang }}">
 {% include head.html %}
 {% include lightbox-assets.html %}
 
@@ -40,15 +48,15 @@ layout: compress
           {% endif %}
 
           <div class="product-actions mb-5">
-            <a href="mailto:{{ site.email }}?subject=Zapytanie o produkt: {{ page.title }}" class="button is-primary is-large is-fullwidth has-text-weight-bold">
-              ZAPYTAJ O PRODUKT
+            <a href="mailto:{{ site.email }}?subject={{ post_subject_prefix }}: {{ page.title }}" class="button is-primary is-large is-fullwidth has-text-weight-bold">
+              {{ t.post.ask_product }}
             </a>
           </div>
 
           <div class="product-meta">
             {% if page.tags.size > 0 %}
             <p class="is-size-7 is-uppercase mb-2">
-              <span class="has-text-weight-bold">Kategorie:</span>
+              <span class="has-text-weight-bold">{{ t.post.categories }}:</span>
               {% for tag in page.tags %}
               <span class="tag is-rounded is-small">{{tag}}</span>
               {% endfor %}
@@ -56,7 +64,7 @@ layout: compress
             {% endif %}
             
             <p class="is-size-7 is-uppercase">
-              <span class="has-text-weight-bold">Ostatnia aktualizacja:</span> {{ page.date | date: "%-B %d, %Y" }}
+              <span class="has-text-weight-bold">{{ t.post.updated_on }}:</span> {{ post_updated_date }}
             </p>
           </div>
         </div>
@@ -64,14 +72,14 @@ layout: compress
 
       <div class="section px-0 mt-6">
         <div class="content has-text-justified">
-          <h3 class="title is-4 has-text-left mb-4">Opis produktu</h3>
+          <h3 class="title is-4 has-text-left mb-4">{{ t.post.product_description }}</h3>
           {{ content }}
         </div>
       </div>
 
       {% if page.productVideoUrl %}
       <div class="section px-0 mt-6">
-        <h3 class="title is-4 has-text-left mb-4">Prezentacja wideo</h3>
+        <h3 class="title is-4 has-text-left mb-4">{{ t.post.video_presentation }}</h3>
         <div class="video-container">
           {% if page.productVideoUrl contains 'youtube.com/watch?v=' %}
             {% assign video_id = page.productVideoUrl | split: 'v=' | last | split: '&' | first %}
@@ -89,7 +97,7 @@ layout: compress
     </div>
   </section>
 
-  {% assign fallback_gallery_items = site.data.projects | where_exp: "item", "item.href and item.imgSrc" %}
+  {% assign fallback_gallery_items = site.data.projects | where_exp: "item", "item.href and item.imgSrc and item.lang == current_lang" %}
   {% include gallery.html gallery_items=page.gallery fallback_gallery_items=fallback_gallery_items gallery_class="gallery" fallback_alt=page.title %}
 
   <div class="section">

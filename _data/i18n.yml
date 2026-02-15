@@ -1,0 +1,137 @@
+en:
+  locale: en-US
+  lang_switch_label: PL
+  site_description: Handcrafted leather goods from Poland
+  routes:
+    home: /en/
+    projects: /en/projects/
+    blog: /en/blog/
+  nav:
+    home: HOME
+    projects: PROJECTS
+    about: ABOUT
+    contact: CONTACT
+    blog: BLOG
+  home:
+    read_more: Read More
+    projects_heading: Projects
+  about:
+    contact_me: Contact Me
+    blog: Blog
+  contact:
+    ping_messenger: Ping me on Messenger
+    send_email: Send me an Email
+    tweet_twitter: Tweet me on Twitter
+    find_me: You Can find me here
+  footer:
+    back_to_top: BACK TO TOP
+    more_links: More Links
+    subscribe_rss: Subscribe via RSS
+    recent_posts: Recent Posts
+    no_recent_posts: No posts yet in this language.
+    credits_theme: A Theme made with
+    credits_powered: Powered by
+  blog:
+    heading: Have a Good Read
+    search_placeholder: Search Here
+    no_results: No Results Found
+    published_on: Published on
+    min_read: min read
+  post:
+    ask_product: ASK ABOUT PRODUCT
+    ask_subject_prefix: Product inquiry
+    categories: Categories
+    updated_on: Last update
+    product_description: Product Description
+    video_presentation: Video Presentation
+  product:
+    discover_product: DISCOVER PRODUCT
+    buy_shopify: BUY ON SHOPIFY
+    ask_product: ASK ABOUT PRODUCT
+    categories: Categories
+    description: Description
+    features: Key Features
+    warranty: Warranty
+    how_to_buy: How to Buy
+    video_presentation: Video Presentation
+    ask_subject_prefix: Product inquiry
+    step_1: Go to Shopify and open the product page.
+    step_2: Choose variant and quantity, then add the product to cart.
+    step_3: Complete checkout and confirm payment.
+    go_to_shopify: GO TO SHOPIFY STORE
+    default_features:
+      - Handmade from genuine leather.
+      - Durable finish with attention to detail.
+      - Design intended for everyday use.
+    default_warranty: Product includes a 12-month workmanship warranty. If a production defect appears, we will repair or replace the product.
+  projects_index:
+    title: Projects
+
+pl:
+  locale: pl-PL
+  lang_switch_label: EN
+  site_description: Ręcznie wykonane wyroby skórzane z Polski
+  routes:
+    home: /pl/
+    projects: /pl/projekty/
+    blog: /pl/blog/
+  nav:
+    home: START
+    projects: PROJEKTY
+    about: O MNIE
+    contact: KONTAKT
+    blog: BLOG
+  home:
+    read_more: Czytaj więcej
+    projects_heading: Projekty
+  about:
+    contact_me: Skontaktuj się
+    blog: Blog
+  contact:
+    ping_messenger: Napisz na Messengerze
+    send_email: Wyślij e-mail
+    tweet_twitter: Napisz na Twitterze
+    find_me: Znajdziesz mnie tutaj
+  footer:
+    back_to_top: DO GÓRY
+    more_links: Więcej linków
+    subscribe_rss: Subskrybuj RSS
+    recent_posts: Ostatnie wpisy
+    no_recent_posts: Brak wpisów w tym języku.
+    credits_theme: Motyw stworzony z
+    credits_powered: Napędzane przez
+  blog:
+    heading: Miłej lektury
+    search_placeholder: Szukaj
+    no_results: Brak wyników
+    published_on: Opublikowano
+    min_read: min czytania
+  post:
+    ask_product: ZAPYTAJ O PRODUKT
+    ask_subject_prefix: Zapytanie o produkt
+    categories: Kategorie
+    updated_on: Ostatnia aktualizacja
+    product_description: Opis produktu
+    video_presentation: Prezentacja wideo
+  product:
+    discover_product: POZNAJ PRODUKT
+    buy_shopify: KUP W SHOPIFY
+    ask_product: ZAPYTAJ O PRODUKT
+    categories: Kategorie
+    description: Opis
+    features: Cechy charakterystyczne
+    warranty: Gwarancja
+    how_to_buy: Jak kupić
+    video_presentation: Prezentacja wideo
+    ask_subject_prefix: Zapytanie o produkt
+    step_1: Przejdź do sklepu Shopify i otwórz kartę produktu.
+    step_2: Wybierz wariant i ilość, a następnie dodaj produkt do koszyka.
+    step_3: Zakończ zamówienie i potwierdź płatność.
+    go_to_shopify: PRZEJDŹ DO SKLEPU SHOPIFY
+    default_features:
+      - Ręczne wykonanie z naturalnej skóry.
+      - Trwałe wykończenie i dbałość o detal.
+      - Projekt dopasowany do codziennego użycia.
+    default_warranty: Produkt objęty jest 12-miesięczną gwarancją na wykonanie. W przypadku wady produkcyjnej zapewniamy naprawę lub wymianę.
+  projects_index:
+    title: Projekty

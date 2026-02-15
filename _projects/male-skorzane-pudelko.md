@@ -1,35 +1,41 @@
 ---
-title: Male Skorzane Pudelko Organizer
+title: Małe Skórzane Pudełko
 layout: project-product
-permalink: /projects/male-skorzane-pudelko/
-post-image: "https://picsum.photos/seed/leather-box-hero/1600/1000"
-description: Kompaktowe skorzane pudelko na drobiazgi, ktore laczy estetyke recznego wykonania z codzienna funkcjonalnoscia.
+lang: pl
+translation_key: leather-box
+permalink: /pl/projekty/male-skorzane-pudelko/
+post-image: "https://picsum.photos/seed/leather-box-pl-hero/1600/1000"
+description: Kompaktowe skórzane pudełko na codzienne drobiazgi, łączące rzemieślnicze wykończenie z praktycznym zastosowaniem.
 price: "119 PLN / szt."
-availability: "Na zamowienie"
+availability: "Na zamówienie"
 shopify_url: "https://shopify.com"
 features:
-  - Kompaktowy format na codzienne drobiazgi.
-  - Sztywna forma, ktora utrzymuje ksztalt.
-  - Starannie wykonczone krawedzie i srodek.
-warranty: "12 miesiecy gwarancji na konstrukcje i wykonanie. W przypadku wad produkcyjnych zapewniamy serwis lub wymiane produktu."
+  - Kompaktowy format na klucze, biżuterię i drobne akcesoria.
+  - Sztywna forma utrzymująca kształt podczas użytkowania.
+  - Starannie wykończone krawędzie i wnętrze.
+warranty: "12 miesięcy gwarancji na konstrukcję i jakość wykonania. W przypadku wady produkcyjnej zapewniamy serwis lub wymianę produktu."
 tags:
   - Organizer
   - Przechowywanie
-  - Skora naturalna
+  - Skóra naturalna
 date: 2026-02-10
 gallery:
-  - href: "https://picsum.photos/seed/leather-box-1/1600/1000"
-    imgSrc: "https://picsum.photos/seed/leather-box-1/800/600"
-    alt: "Male skorzane pudelko - ujecie 1"
-  - href: "https://picsum.photos/seed/leather-box-2/1600/1000"
-    imgSrc: "https://picsum.photos/seed/leather-box-2/800/600"
-    alt: "Male skorzane pudelko - ujecie 2"
-  - href: "https://picsum.photos/seed/leather-box-3/1600/1000"
-    imgSrc: "https://picsum.photos/seed/leather-box-3/800/600"
-    alt: "Male skorzane pudelko - ujecie 3"
+  - href: "https://picsum.photos/seed/leather-box-pl-1/1800/1200"
+    imgSrc: "https://picsum.photos/seed/leather-box-pl-1/900/700"
+    alt: "Małe skórzane pudełko - ujęcie 1"
+  - href: "https://picsum.photos/seed/leather-box-pl-2/1800/1200"
+    imgSrc: "https://picsum.photos/seed/leather-box-pl-2/900/700"
+    alt: "Małe skórzane pudełko - ujęcie 2"
+  - href: "https://picsum.photos/seed/leather-box-pl-3/1800/1200"
+    imgSrc: "https://picsum.photos/seed/leather-box-pl-3/900/700"
+    alt: "Małe skórzane pudełko - ujęcie 3"
+  - href: "https://picsum.photos/seed/leather-box-pl-4/1800/1200"
+    imgSrc: "https://picsum.photos/seed/leather-box-pl-4/900/700"
+    alt: "Małe skórzane pudełko - ujęcie 4"
 ---
 
-To male pudeleczko pomaga utrzymac porzadek na biurku, komodzie lub w przedpokoju.
-Sprawdzi sie na klucze, bizuterie, sluchawki albo inne codzienne drobiazgi.
+To pudełko pomaga utrzymać porządek na biurku, komodzie lub w przedpokoju.
+Jest niewielkie, ale bardzo praktyczne i estetyczne.
 
-Kazdy egzemplarz ma indywidualny charakter dzieki naturalnej strukturze skory.
+Każdy egzemplarz ma indywidualny charakter dzięki naturalnej strukturze skóry.
+Świetnie sprawdza się jako funkcjonalny element wnętrza i pomysł na prezent.

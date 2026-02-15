@@ -1,4 +1,9 @@
 <!-- Include Meta Tags Here -->
+{% assign current_lang = page.lang | default: "en" %}
+{% assign t = site.data.i18n[current_lang] %}
+{% assign localized_description = t.site_description | default: site.description %}
+{% assign meta_description = page.description | default: localized_description %}
+{% assign meta_image = page.post-image | default: site.site-image %}
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta http-equiv="X-UA-Compatible" content="ie=edge">
@@ -9,28 +14,29 @@
 
 <!-- Open Graph general (Facebook, Pinterest & Google+) -->
 <meta name="og:title" content="{{site.title}}{% if page.title %} | {{page.title}}{% endif %}">
-<meta name="og:description" content="{% unless page.layout == 'post' %}{{site.description}}{% else %}{{page.description}}{% endunless %}">
-<meta name="og:image" content="{% unless page.layout == 'post' %}{{site.site-image}}{% else %}{{page.post-image}}{% endunless %}">
+<meta name="og:description" content="{{ meta_description }}">
+<meta name="og:image" content="{{ meta_image }}">
 <meta name="og:image:alt" content="{{site.title}}{% if page.title %} | {{page.title}}{% endif %}">
 <meta name="og:url" content="{{site.url}}{{site.baseurl}}{{page.url}}">
+<meta name="og:locale" content="{{ t.locale | default: 'en_US' }}">
 <meta name="article:author" content="https://www.facebook.com/{{site.facebook_username}}">
 <meta name="og:site_name" content="{{site.title}}{% if page.title %} | {{page.title}}{% endif %}">
 <meta name="og:type" content="website">
 <!-- Twitter -->
 <meta property="twitter:card" content="summary_large_image"/>
 <meta name="twitter:title" content="{{site.title}}{% if page.title %} | {{page.title}}{% endif %}">
-<meta name="twitter:description" content="{% unless page.layout == 'post' %}{{site.description}}{% else %}{{page.description}}{% endunless %}">
+<meta name="twitter:description" content="{{ meta_description }}">
 <meta name="twitter:site" content="@{{site.twitter_username}}">
 <meta name="twitter:creator" content="@{{site.twitter_username}}">
-<meta name="twitter:image:src" content="{% unless page.layout == 'post' %}{{site.site-image}}{% else %}{{page.post-image}}{% endunless %}">
+<meta name="twitter:image:src" content="{{ meta_image }}">
 <!-- Search Engine -->
-<meta name="description" content="{% unless page.layout == 'post' %}{{site.description}}{% else %}{{page.description}}{% endunless %}">
-<meta name="image" content="{% unless page.layout == 'post' %}{{site.site-image}}{% else %}{{page.post-image}}{% endunless %}">
+<meta name="description" content="{{ meta_description }}">
+<meta name="image" content="{{ meta_image }}">
 <!-- Schema.org for Google -->
 <meta itemprop="name" content="{{site.title}}{% if page.title %} | {{page.title}}{% endif %}">
 <meta name="author" content="{{site.author-name}}"/>
-<meta itemprop="description" content="{% unless page.layout == 'post' %}{{site.description}}{% else %}{{page.description}}{% endunless %}">
-<meta itemprop="image" content="{% unless page.layout == 'post' %}{{site.site-image}}{% else %}{{page.post-image}}{% endunless %}">
+<meta itemprop="description" content="{{ meta_description }}">
+<meta itemprop="image" content="{{ meta_image }}">
 
 <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id={{site.google-analytics}}"></script>

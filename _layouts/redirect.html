@@ -1,0 +1,32 @@
+---
+layout: compress
+---
+<!DOCTYPE html>
+<html lang="en">
+{% include head.html %}
+<body>
+  <script>
+    (function () {
+      function normalizePath(path) {
+        return (path || "/").replace(/index\.html$/, "").replace(/\/+$/, "") || "/";
+      }
+      var targetEn = {{ page.redirect_to_en | relative_url | jsonify }};
+      var targetPl = {{ page.redirect_to_pl | relative_url | jsonify }};
+      var target = {{ page.redirect_to | relative_url | jsonify }};
+
+      if (targetEn && targetPl) {
+        var preferred = (navigator.languages && navigator.languages[0]) || navigator.language || "en";
+        var lang = String(preferred).toLowerCase().indexOf("pl") === 0 ? "pl" : "en";
+        target = lang === "pl" ? targetPl : targetEn;
+      }
+
+      if (target && normalizePath(window.location.pathname) !== normalizePath(target)) {
+        window.location.replace(target);
+      }
+    })();
+  </script>
+  <noscript>
+    <meta http-equiv="refresh" content="0; url={{ page.redirect_to_en | default: page.redirect_to | relative_url }}">
+  </noscript>
+</body>
+</html>

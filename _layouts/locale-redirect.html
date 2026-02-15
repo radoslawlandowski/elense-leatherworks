@@ -1,0 +1,25 @@
+---
+layout: compress
+---
+<!DOCTYPE html>
+<html lang="en">
+{% include head.html %}
+<body>
+  <script>
+    (function () {
+      function normalizePath(path) {
+        return (path || "/").replace(/index\.html$/, "").replace(/\/+$/, "") || "/";
+      }
+      var preferred = (navigator.languages && navigator.languages[0]) || navigator.language || "en";
+      var lang = String(preferred).toLowerCase().indexOf("pl") === 0 ? "pl" : "en";
+      var target = lang === "pl" ? "{{ '/pl/' | relative_url }}" : "{{ '/en/' | relative_url }}";
+      if (normalizePath(window.location.pathname) !== normalizePath(target)) {
+        window.location.replace(target);
+      }
+    })();
+  </script>
+  <noscript>
+    <meta http-equiv="refresh" content="0; url={{ '/en/' | relative_url }}">
+  </noscript>
+</body>
+</html>

@@ -2,8 +2,9 @@
 layout: compress
 ---
 
+{% assign current_lang = page.lang | default: "en" %}
 <!DOCTYPE html>
-<html>
+<html lang="{{ current_lang }}">
 {% include head.html %}
 
 <body>
@@ -17,13 +18,12 @@ layout: compress
   {% include product-preload.html %}
 </body>
 <script>
-  var navItems = document.getElementsByClassName('navbar-item');
+  var navItems = document.querySelectorAll('.nav-section-link');
   var heroes = document.getElementsByClassName('hero');
-  const viewOffset = 200; 
+  const viewOffset = 200;
 
   window.addEventListener("scroll", function (event) {
     var scroll = this.scrollY;
-    var position = window.pageYOffset;
 
     for (var i = 0; i < navItems.length; i++) {
       navItems[i].classList.remove('is-active');
@@ -34,7 +34,9 @@ layout: compress
         var sectionBottom = heroes[i].offsetTop + heroes[i].offsetHeight-viewOffset;
 
         if (scroll >= sectionTop && scroll < sectionBottom) {
-          navItems[i+1].classList.add('is-active');
+          if (navItems[i]) {
+            navItems[i].classList.add('is-active');
+          }
       }
     }
   });

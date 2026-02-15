@@ -1,5 +1,6 @@
+{% assign current_lang = page.lang | default: "en" %}
 <div class="columns is-centered is-multiline is-mobile">
-  {% assign projects = site.projects | sort: "date" | reverse %}
+  {% assign projects = site.projects | where: "lang", current_lang | sort: "date" | reverse %}
   {% for project in projects %}
     <div class="column has-text-centered is-paddingless is-marginless is-one-third-widescreen is-one-third-desktop is-one-fifth-fullhd is-one-third-tablet is-two-fifths-mobile is-three-quarters-touch"
       id="project-card">

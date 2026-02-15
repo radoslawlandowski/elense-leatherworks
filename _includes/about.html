@@ -1,3 +1,6 @@
+{% assign current_lang = page.lang | default: "en" %}
+{% assign t = site.data.i18n[current_lang] %}
+{% assign home_url = t.routes.home | relative_url %}
 <section class="hero is-fullheight has-text-centered has-background-white-ter" id="about">
     <div class="hero-body">
         <div class="container">
@@ -8,19 +11,16 @@
                     </figure>
                 </div>
                 <div class="column has-text-left-desktop has-text-left-tablet has-text-left-fullhd has-text-left-widescreen">
-                    <p>{{site.author-about}}</p>
+                    <p>{% if current_lang == "pl" and site.author-about-pl %}{{ site.author-about-pl }}{% else %}{{ site.author-about }}{% endif %}</p>
                     <br>
                     <div class="container columns is-centered">
                         <div>
-                            <a href="{{site.url}}{{site.baseurl}}/#contact"
-                                class="button is-rounded is-uppercase has-text-weight-normal is-black is-outlined">Contact
-                                Me</a>
-                            </a>
+                            <a href="{{ home_url }}#contact"
+                                class="button is-rounded is-uppercase has-text-weight-normal is-black is-outlined">{{ t.about.contact_me }}</a>
                         </div>
                         <div>
-                            <a href="{{site.url}}{{site.baseurl}}/blog"
-                                class="button is-rounded is-uppercase has-text-weight-normal is-black is-outlined">Blog</a>
-                            </a>
+                            <a href="{{ t.routes.blog | relative_url }}"
+                                class="button is-rounded is-uppercase has-text-weight-normal is-black is-outlined">{{ t.about.blog }}</a>
                         </div>
                     </div>
                 </div>

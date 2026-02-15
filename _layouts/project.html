@@ -1,9 +1,11 @@
 ---
 layout: compress
 ---
+{% assign current_lang = page.lang | default: "en" %}
+{% assign t = site.data.i18n[current_lang] %}
 
 <!DOCTYPE html>
-<html>
+<html lang="{{ current_lang }}">
 
 <head>
     {% include head.html %}
@@ -17,13 +19,12 @@ layout: compress
         <div class="hero-body">
             <div class="container has-text-centered">
                 <div class="section">
-                    <p class="subtitle is-uppercase has-text-weight-medium has-text-grey">Projects</p>
+                    <p class="subtitle is-uppercase has-text-weight-medium has-text-grey">{{ t.projects_index.title }}</p>
                 </div>
                 {% include project-card.html %}
             </div>
         </div>
     </section>
-    </div>
 
     <!--Footer-->
     {% include footer.html %}

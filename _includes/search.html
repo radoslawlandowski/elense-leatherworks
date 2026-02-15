@@ -1,7 +1,9 @@
+{% assign current_lang = page.lang | default: "en" %}
+{% assign t = site.data.i18n[current_lang] %}
 <div class="field has-addons has-text-weight-medium has-text-grey" id="search">
     <p class="control">
         <input id="search-input" class="input is-shadowless is-uppercase has-text-grey has-text-weight-normal" type="text"
-            placeholder="Search Here">
+            placeholder="{{ t.blog.search_placeholder }}">
     </p>
     <p class="control">
         <button class="button">

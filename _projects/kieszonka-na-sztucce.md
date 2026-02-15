@@ -1,35 +1,41 @@
 ---
-title: Kieszonka Stolikowa na Sztucce
+title: Skórzana Kieszonka na Sztućce
 layout: project-product
-permalink: /projects/kieszonka-na-sztucce/
-post-image: "https://picsum.photos/seed/cutlery-pocket-hero/1600/1000"
-description: Skorzana kieszonka na sztucce, ktora porzadkuje nakrycie stolu i tworzy elegancki efekt restauracyjny.
+lang: pl
+translation_key: cutlery-pocket
+permalink: /pl/projekty/kieszonka-na-sztucce/
+post-image: "https://picsum.photos/seed/cutlery-pocket-pl-hero/1600/1000"
+description: Elegancka kieszonka stołowa na sztućce i serwetkę, która porządkuje nakrycie i buduje efekt premium.
 price: "49 PLN / szt."
-availability: "Na zamowienie"
+availability: "Na zamówienie"
 shopify_url: "https://shopify.com"
 features:
-  - Miejsce na sztucce i serwetke w jednej formie.
-  - Smukly ksztalt dobrze ukladajacy sie przy nakryciu.
-  - Trwale przeszycia przygotowane do regularnego uzycia.
-warranty: "12 miesiecy gwarancji na szwy i jakosc wykonania. Jesli pojawi sie wada produkcyjna, zapewniamy szybka reklamacje."
+  - Miejsce na sztućce i serwetkę w jednej, zwartej formie.
+  - Smukły kształt dobrze układający się przy nakryciu stołu.
+  - Trwałe przeszycia przygotowane do regularnego użycia.
+warranty: "12 miesięcy gwarancji na szwy i jakość wykonania. Jeżeli pojawi się wada produkcyjna, zapewniamy szybką reklamację."
 tags:
   - Jadalnia
-  - Nakrycie stolu
-  - Skora naturalna
+  - Nakrycie stołu
+  - Skóra naturalna
 date: 2026-02-12
 gallery:
-  - href: "https://picsum.photos/seed/cutlery-pocket-1/1600/1000"
-    imgSrc: "https://picsum.photos/seed/cutlery-pocket-1/800/600"
-    alt: "Kieszonka na sztucce - ujecie 1"
-  - href: "https://picsum.photos/seed/cutlery-pocket-2/1600/1000"
-    imgSrc: "https://picsum.photos/seed/cutlery-pocket-2/800/600"
-    alt: "Kieszonka na sztucce - ujecie 2"
-  - href: "https://picsum.photos/seed/cutlery-pocket-3/1600/1000"
-    imgSrc: "https://picsum.photos/seed/cutlery-pocket-3/800/600"
-    alt: "Kieszonka na sztucce - ujecie 3"
+  - href: "https://picsum.photos/seed/cutlery-pocket-pl-1/1800/1200"
+    imgSrc: "https://picsum.photos/seed/cutlery-pocket-pl-1/900/700"
+    alt: "Skórzana kieszonka na sztućce - ujęcie 1"
+  - href: "https://picsum.photos/seed/cutlery-pocket-pl-2/1800/1200"
+    imgSrc: "https://picsum.photos/seed/cutlery-pocket-pl-2/900/700"
+    alt: "Skórzana kieszonka na sztućce - ujęcie 2"
+  - href: "https://picsum.photos/seed/cutlery-pocket-pl-3/1800/1200"
+    imgSrc: "https://picsum.photos/seed/cutlery-pocket-pl-3/900/700"
+    alt: "Skórzana kieszonka na sztućce - ujęcie 3"
+  - href: "https://picsum.photos/seed/cutlery-pocket-pl-4/1800/1200"
+    imgSrc: "https://picsum.photos/seed/cutlery-pocket-pl-4/900/700"
+    alt: "Skórzana kieszonka na sztućce - ujęcie 4"
 ---
 
-Ten model porzadkuje sztucce i serwetke w jednym miejscu, dzieki czemu stol wyglada schludnie i premium.
-Kieszonka jest szyta recznie, z dbaloscia o proste linie i trwale wykonczenie.
+Ten model porządkuje sztućce i serwetkę w jednym miejscu, dzięki czemu stół wygląda spójnie i estetycznie.
+Kieszonka jest szyta ręcznie z naciskiem na czystą linię i trwałość.
 
-Idealna do domu, lokalu lub na przyjecia okolicznosciowe.
+To rozwiązanie do domu, restauracji i na przyjęcia okolicznościowe.
+Dodaje porządek, ale też podkreśla charakter całej aranżacji stołu.
