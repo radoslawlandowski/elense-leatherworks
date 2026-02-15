@@ -109,7 +109,90 @@
         justify-content: center;
     }
 
-    svg {
+    .contact-featured-socials {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 1rem;
+        margin: 1.25rem auto 1.5rem auto;
+    }
+
+    .contact-featured-icon {
+        width: 6.5rem;
+        height: 6.5rem;
+        display: inline-flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 999px;
+        border: 2px solid rgba($color: #fff, $alpha: 0.6);
+        color: #fff !important;
+        box-shadow: 0 12px 24px rgba($color: #000, $alpha: 0.18);
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .contact-featured-icon svg,
+    .contact-featured-icon i {
+        font-size: 3rem;
+        line-height: 1;
+        margin: 0 !important;
+        color: #fff !important;
+    }
+
+    .contact-featured-icon:hover {
+        transform: translateY(-2px) scale(1.05);
+        box-shadow: 0 16px 28px rgba($color: #000, $alpha: 0.24);
+    }
+
+    .contact-featured-icon--youtube {
+        background: #ff0000;
+    }
+
+    .contact-featured-icon--facebook {
+        background: #1877f2;
+    }
+
+    .contact-featured-icon--instagram {
+        background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285aeb 90%);
+    }
+
+    .contact-inline-icon {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 5.9rem;
+        height: 5.9rem;
+        margin: 0.2rem 0.35rem !important;
+        border-radius: 999px;
+        background: transparent;
+        border: transparent;
+    }
+
+    .contact-inline-icon svg,
+    .contact-inline-icon i {
+        font-size: 5.0rem;
+        color: $elense-brown !important;
+        line-height: 1;
+        margin: 0 !important;
+    }
+
+    .contact-inline-icon--youtube svg,
+    .contact-inline-icon--youtube i {
+        color: #ff0000 !important;
+    }
+
+    .contact-inline-icon--facebook svg,
+    .contact-inline-icon--facebook i {
+        color: #1877f2 !important;
+    }
+
+    .contact-inline-icon--instagram svg,
+    .contact-inline-icon--instagram i {
+        color: #d6249f !important;
+    }
+
+    #contact-button svg,
+    #contact-button i {
         transition: all 0.15s ease-in-out;
         margin: auto 0.75vmax;
 
