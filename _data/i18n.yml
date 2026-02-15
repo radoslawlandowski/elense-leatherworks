@@ -15,6 +15,7 @@ en:
   home:
     read_more: Read More
     projects_heading: Projects
+    experience_quote: We want to give everyday objects a luxurious dimension. One that does not shout with form, but gives calm satisfaction each time you reach for it.
   about:
     contact_me: Contact Me
     blog: Blog
@@ -84,6 +85,7 @@ pl:
   home:
     read_more: Czytaj więcej
     projects_heading: Projekty
+    experience_quote: Chcemy nadawać przedmiotom codziennego użytku luksusowy wymiar. Taki, który nie krzyczy formą, ale daje spokojną satysfakcję za każdym razem, gdy po niego sięgasz.
   about:
     contact_me: Skontaktuj się
     blog: Blog

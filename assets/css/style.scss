@@ -57,11 +57,18 @@
 
 
 #hero {
+    position: relative;
+    overflow: hidden;
     background: rgb(0, 0, 0);
     background: -moz-linear-gradient(0deg, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0.75) 100%);
     background: -webkit-linear-gradient(0deg, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0.75) 100%);
     background: linear-gradient(0deg, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0.75) 100%);
     filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#000000", endColorstr="#000000", GradientType=1);
+
+    .hero-body {
+        position: relative;
+        z-index: 1;
+    }
 
     &::before {
         filter: blur(0.15rem);
@@ -392,7 +399,27 @@
 
 #projects {
     .hero-body {
-        padding: 3rem 1.5rem;
+        padding: 4rem 1.5rem 3rem;
+    }
+
+    .projects-quote {
+        width: min(50rem, calc(100% - 1rem));
+        margin: 0.8rem auto 2.4rem;
+        padding: 1.5rem 3rem;
+        text-align: center;
+        background: rgba($color: #ffffff, $alpha: 0.82);
+        border: 1px solid rgba($color: $elense-brown, $alpha: 0.22);
+        box-shadow: 0 10px 26px rgba($color: #000000, $alpha: 0.12);
+        border-radius: 0.35rem;
+        position: relative;
+
+        p {
+            margin: 0;
+            font-size: 1.18rem;
+            line-height: 1.75;
+            font-style: italic;
+            color: rgba($color: #000000, $alpha: 0.78);
+        }
     }
 
     .subtitle {
@@ -433,6 +460,17 @@
 }
 
 @media (max-width: 640px) {
+    #projects .projects-quote {
+        width: calc(100% - 0.6rem);
+        margin-top: 0.6rem;
+        padding: 1.1rem 1.75rem;
+
+        p {
+            font-size: 1rem;
+            line-height: 1.6;
+        }
+    }
+
     .projects-home-grid {
         grid-template-columns: 1fr;
     }
