@@ -3,44 +3,44 @@
 <section class="hero is-fullheight has-text-centered" id="contact">
     <div class="hero-body">
         <div class="container">
-            {% unless site.facebook_username == "" %}
+            {% if site.facebook_username and site.facebook_username != "" %}
             <a id="contact-button" href="https://m.me/{{site.facebook_username}}"
                 class="button is-rounded is-uppercase has-text-weight-normal is-black is-outlined has-text-weight-semibold column is-two-fifths"
-                target="_blank">
+                target="_blank" rel="noopener noreferrer">
                 <i class="fab fa-facebook-messenger"></i>{{ t.contact.ping_messenger }}
             </a>
-            {% endunless %}
-            {% unless site.email == "" %}
+            {% endif %}
+            {% if site.email and site.email != "" %}
             <a id="contact-button" href="mailto:{{site.email}}"
                 class="button is-rounded is-uppercase has-text-weight-normal is-black is-outlined has-text-weight-semibold column is-two-fifths"
-                target="_blank">
+                target="_blank" rel="noopener noreferrer">
                 <i class="fas fa-envelope"></i>{{ t.contact.send_email }}
             </a>
-            {% endunless %}
-            {% unless site.twitter_username == "" %}
+            {% endif %}
+            {% if site.twitter_username and site.twitter_username != "" %}
             <a id="contact-button" href="https://www.twitter.com/intent/tweet?screen_name={{site.twitter_username}}"
                 class="button is-rounded is-uppercase has-text-weight-normal is-black is-outlined has-text-weight-semibold column is-two-fifths"
-                target="_blank">
+                target="_blank" rel="noopener noreferrer">
                 <i class="fab fa-twitter"></i>{{ t.contact.tweet_twitter }}
             </a>
-            {% endunless %}
+            {% endif %}
             <hr>
             <h3 class="is-size-5 is-uppercase has-text-weight-semibold has-text-black is-marginless">
                 {{ t.contact.find_me }}
             </h3>
             <div class="column is-full is-size-3">
-                {% unless site.facebook_username == "" %}
-                <a href="https://www.facebook.com/{{site.facebook_username}}" target="_blank" class="has-text-black contact-inline-icon contact-inline-icon--facebook"><i class="fab fa-facebook"></i></a>
-                {% endunless %}
-                {% unless site.instagram_username == "" %}
-                <a href="https://www.instagram.com/{{site.instagram_username}}" target="_blank" class="has-text-black contact-inline-icon contact-inline-icon--instagram"><i class="fab fa-instagram"></i></a>
-                {% endunless %}
-                {% unless site.linkedin_username == "" %}
-                <a href="https://www.linkedin.com/in/{{site.linkedin_username}}" target="_blank" class="has-text-black contact-inline-icon"><i class="fab fa-linkedin"></i></a>
-                {% endunless %}
-                {% unless site.youtube_channel_id == "" %}
-                <a href="https://www.youtube.com/channel/{{site.youtube_channel_id}}" target="_blank" class="has-text-black contact-inline-icon contact-inline-icon--youtube"><i class="fab fa-youtube"></i></a>
-                {% endunless %}
+                {% if site.facebook_username and site.facebook_username != "" %}
+                <a href="https://www.facebook.com/{{site.facebook_username}}" target="_blank" rel="noopener noreferrer" class="has-text-black contact-inline-icon contact-inline-icon--facebook"><i class="fab fa-facebook"></i></a>
+                {% endif %}
+                {% if site.instagram_username and site.instagram_username != "" %}
+                <a href="https://www.instagram.com/{{site.instagram_username}}" target="_blank" rel="noopener noreferrer" class="has-text-black contact-inline-icon contact-inline-icon--instagram"><i class="fab fa-instagram"></i></a>
+                {% endif %}
+                {% if site.linkedin_username and site.linkedin_username != "" %}
+                <a href="https://www.linkedin.com/in/{{site.linkedin_username}}" target="_blank" rel="noopener noreferrer" class="has-text-black contact-inline-icon"><i class="fab fa-linkedin"></i></a>
+                {% endif %}
+                {% if site.youtube_channel_id and site.youtube_channel_id != "" %}
+                <a href="https://www.youtube.com/channel/{{site.youtube_channel_id}}" target="_blank" rel="noopener noreferrer" class="has-text-black contact-inline-icon contact-inline-icon--youtube"><i class="fab fa-youtube"></i></a>
+                {% endif %}
             </div>
         </div>
     </div>

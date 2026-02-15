@@ -6,7 +6,7 @@
       <aside class="projects-quote" aria-label="Elense experience quote">
         <p>„{{ t.home.experience_quote }}”</p>
       </aside>
-      <p class="subtitle is-uppercase has-text-weight-medium has-text-grey">{{ t.home.projects_heading }}</p>
+      <h2 class="subtitle is-uppercase has-text-weight-medium has-text-grey">{{ t.home.projects_heading }}</h2>
       <div class="projects-home-grid">
         {% assign projects = site.projects | where: "lang", current_lang | sort: "date" | reverse %}
         {% for project in projects %}
@@ -17,7 +17,7 @@
             {% assign project_image_resolved = project_image | relative_url %}
           {% endif %}
           <a class="projects-home-item" href="{{ project.url | relative_url }}" aria-label="{{ project.title }}">
-            <img src="{{ project_image_resolved }}" alt="{{ project.title }}">
+            <img src="{{ project_image_resolved }}" alt="{{ project.title }}" loading="lazy" decoding="async">
           </a>
         {% endfor %}
       </div>

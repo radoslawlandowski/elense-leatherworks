@@ -1,0 +1,41 @@
+---
+layout: null
+permalink: /sitemap.xml
+---
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  {% assign documents = site.pages | concat: site.posts | concat: site.projects %}
+  {% for doc in documents %}
+    {% assign skip_doc = false %}
+    {% if doc.noindex
+      or doc.sitemap == false
+      or doc.url == '/404'
+      or doc.url == '/404.html'
+      or doc.url contains '/assets/'
+      or doc.url contains '.json'
+      or doc.url contains '.xml'
+      or doc.url contains '.txt'
+      or doc.url contains '.css' %}
+      {% assign skip_doc = true %}
+    {% endif %}
+    {% unless skip_doc %}
+  <url>
+    <loc>{{ doc.url | absolute_url }}</loc>
+      {% assign doc_lastmod = doc.last_modified_at | default: doc.date %}
+      {% if doc_lastmod %}
+    <lastmod>{{ doc_lastmod | date_to_xmlschema }}</lastmod>
+      {% endif %}
+      {% if doc.collection == 'posts' %}
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+      {% elsif doc.collection == 'projects' %}
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+      {% else %}
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+      {% endif %}
+  </url>
+    {% endunless %}
+  {% endfor %}
+</urlset>

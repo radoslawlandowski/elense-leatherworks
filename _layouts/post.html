@@ -58,9 +58,9 @@ layout: compress
           <span>{{ t.blog.published_on }} <strong>{{ post_date_display }}</strong></span>
           <span aria-hidden="true">•</span>
           <span><i class="fas fa-clock"></i> <strong>{{ post_read_minutes }}</strong> {{ t.blog.min_read }}</span>
-          {% if site.author-name %}
+          {% if site['author-name'] %}
             <span aria-hidden="true">•</span>
-            <span>{{ site.author-name }}</span>
+            <span>{{ site['author-name'] }}</span>
           {% endif %}
         </div>
 
@@ -122,7 +122,7 @@ layout: compress
 
   <div class="section">
     <div class="container post-article">
-      {% if site.disqus-shortname != "" %}
+      {% if site['disqus-shortname'] != "" %}
       <div class="disqus-comments" id="disqus_thread"></div>
       {% endif %}
     </div>
@@ -143,7 +143,7 @@ layout: compress
     (function () { /* DON'T EDIT BELOW THIS LINE */
       var d = document,
         s = d.createElement('script');
-      s.src = 'https://{{site.disqus-shortname}}.disqus.com/embed.js';
+      s.src = 'https://{{ site['disqus-shortname'] }}.disqus.com/embed.js';
       s.setAttribute('data-timestamp', +new Date());
       (d.head || d.body).appendChild(s);
     })();

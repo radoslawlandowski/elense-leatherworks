@@ -16,13 +16,13 @@
                     <div class="columns">
                         <div class="column is-one-fifth-desktop is-one-fifth-fullhd is-one-quarter-tablet">
                             <figure class="image is-64x64">
-                                <img class="is-rounded" src="{{ site.author-image }}">
+                                <img class="is-rounded" src="{{ site['author-image'] }}" alt="{{ site['author-name'] }}">
                             </figure>
                         </div>
                         <div class="column is-marginless">
-                            <h5 class="has-text-grey-lighter">{{ site.author-name }}</h5>
+                            <h5 class="has-text-grey-lighter">{{ site['author-name'] }}</h5>
                             <div class="content has-text-grey">
-                                <p>{% if current_lang == "pl" and site.author-about-pl %}{{ site.author-about-pl | truncate: 75 }}{% else %}{{ site.author-about | truncate: 75 }}{% endif %}</p>
+                                <p>{% if current_lang == "pl" and site['author-about-pl'] %}{{ site['author-about-pl'] | truncate: 75 }}{% else %}{{ site['author-about'] | truncate: 75 }}{% endif %}</p>
                             </div>
                         </div>
                     </div>

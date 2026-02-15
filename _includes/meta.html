@@ -1,57 +1,171 @@
-<!-- Include Meta Tags Here -->
 {% assign current_lang = page.lang | default: "en" %}
 {% assign t = site.data.i18n[current_lang] %}
+{% assign site_name = site.title %}
+{% if page.title %}
+  {% assign full_title = page.title | append: " | " | append: site_name %}
+{% else %}
+  {% assign full_title = site_name %}
+{% endif %}
 {% assign localized_description = t.site_description | default: site.description %}
-{% assign meta_description = page.description | default: localized_description %}
-{% assign meta_image = page.post-image | default: site.site-image %}
+{% assign raw_description = page.description | default: localized_description %}
+{% assign meta_description = raw_description | strip_html | strip_newlines | strip | truncate: 160 %}
+{% assign meta_keywords = page.keywords | default: t.site_keywords | default: site['site-keywords'] %}
+{% assign meta_image = page.post-image | default: site['site-image'] %}
 {% if meta_image contains '://' %}
   {% assign meta_image_resolved = meta_image %}
 {% else %}
-  {% assign meta_image_resolved = meta_image | relative_url %}
+  {% assign meta_image_resolved = meta_image | absolute_url %}
 {% endif %}
+{% assign canonical_url = page.url | absolute_url %}
+{% assign locale_code = t.locale | default: 'en-US' %}
+{% assign og_locale = locale_code | replace: '-', '_' %}
+{% assign og_type = "website" %}
+{% if page.layout == "post" %}
+  {% assign og_type = "article" %}
+{% elsif page.layout == "project-product" %}
+  {% assign og_type = "product" %}
+{% endif %}
+
+{% assign en_doc = nil %}
+{% assign pl_doc = nil %}
+{% assign en_url = nil %}
+{% assign pl_url = nil %}
+{% if page.translation_key and page.collection == "projects" %}
+  {% assign en_doc = site.projects | where: "translation_key", page.translation_key | where: "lang", "en" | first %}
+  {% assign pl_doc = site.projects | where: "translation_key", page.translation_key | where: "lang", "pl" | first %}
+{% elsif page.translation_key and page.collection == "posts" %}
+  {% assign en_doc = site.posts | where: "translation_key", page.translation_key | where: "lang", "en" | first %}
+  {% assign pl_doc = site.posts | where: "translation_key", page.translation_key | where: "lang", "pl" | first %}
+{% elsif page.translation_key %}
+  {% assign en_doc = site.pages | where: "translation_key", page.translation_key | where: "lang", "en" | first %}
+  {% assign pl_doc = site.pages | where: "translation_key", page.translation_key | where: "lang", "pl" | first %}
+{% endif %}
+
+{% if en_doc %}
+  {% assign en_url = en_doc.url | absolute_url %}
+{% elsif page.translation_key == "home" %}
+  {% assign en_url = "/en/" | absolute_url %}
+{% endif %}
+
+{% if pl_doc %}
+  {% assign pl_url = pl_doc.url | absolute_url %}
+{% elsif page.translation_key == "home" %}
+  {% assign pl_url = "/pl/" | absolute_url %}
+{% endif %}
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta http-equiv="X-UA-Compatible" content="ie=edge">
-<meta name="viewport" content="width=device-width, height=device-height, initial-scale=1 user-scalable=no, shrink-to-fit=no">
-<meta content='#000000' name='theme-color'/>
-<meta name="keywords" content="{{site.site-keywords}}">
-<title>{{site.title}}{% if page.title %} | {{page.title}}{% endif %}</title>
+<meta name="theme-color" content="#000000">
 
-<!-- Open Graph general (Facebook, Pinterest & Google+) -->
-<meta name="og:title" content="{{site.title}}{% if page.title %} | {{page.title}}{% endif %}">
-<meta name="og:description" content="{{ meta_description }}">
-<meta name="og:image" content="{{ meta_image_resolved }}">
-<meta name="og:image:alt" content="{{site.title}}{% if page.title %} | {{page.title}}{% endif %}">
-<meta name="og:url" content="{{site.url}}{{site.baseurl}}{{page.url}}">
-<meta name="og:locale" content="{{ t.locale | default: 'en_US' }}">
-<meta name="article:author" content="https://www.facebook.com/{{site.facebook_username}}">
-<meta name="og:site_name" content="{{site.title}}{% if page.title %} | {{page.title}}{% endif %}">
-<meta name="og:type" content="website">
-<!-- Twitter -->
-<meta property="twitter:card" content="summary_large_image"/>
-<meta name="twitter:title" content="{{site.title}}{% if page.title %} | {{page.title}}{% endif %}">
-<meta name="twitter:description" content="{{ meta_description }}">
-<meta name="twitter:site" content="@{{site.twitter_username}}">
-<meta name="twitter:creator" content="@{{site.twitter_username}}">
-<meta name="twitter:image:src" content="{{ meta_image_resolved }}">
-<!-- Search Engine -->
+<title>{{ full_title }}</title>
 <meta name="description" content="{{ meta_description }}">
-<meta name="image" content="{{ meta_image_resolved }}">
-<!-- Schema.org for Google -->
-<meta itemprop="name" content="{{site.title}}{% if page.title %} | {{page.title}}{% endif %}">
-<meta name="author" content="{{site.author-name}}"/>
-<meta itemprop="description" content="{{ meta_description }}">
-<meta itemprop="image" content="{{ meta_image_resolved }}">
+<meta name="keywords" content="{{ meta_keywords }}">
+{% if page.noindex %}
+<meta name="robots" content="noindex, nofollow">
+{% else %}
+<meta name="robots" content="index, follow, max-image-preview:large">
+{% endif %}
+<link rel="canonical" href="{{ canonical_url }}">
 
-<!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id={{site.google-analytics}}"></script>
-<script>
-    window.dataLayer = window.dataLayer || [];
+{% if en_url %}
+<link rel="alternate" hreflang="en" href="{{ en_url }}">
+{% endif %}
+{% if pl_url %}
+<link rel="alternate" hreflang="pl" href="{{ pl_url }}">
+{% endif %}
+{% if en_url or pl_url %}
+<link rel="alternate" hreflang="x-default" href="{{ '/' | absolute_url }}">
+{% endif %}
 
-    function gtag() {
-        dataLayer.push(arguments);
-    }
-    gtag('js', new Date());
+<meta property="og:type" content="{{ og_type }}">
+<meta property="og:title" content="{{ full_title }}">
+<meta property="og:description" content="{{ meta_description }}">
+<meta property="og:image" content="{{ meta_image_resolved }}">
+<meta property="og:image:alt" content="{{ full_title }}">
+<meta property="og:url" content="{{ canonical_url }}">
+<meta property="og:site_name" content="{{ site_name }}">
+<meta property="og:locale" content="{{ og_locale }}">
 
-    gtag('config', '{{site.google-analytics}}');
+{% if current_lang == "pl" %}
+<meta property="og:locale:alternate" content="en_US">
+{% else %}
+<meta property="og:locale:alternate" content="pl_PL">
+{% endif %}
+
+{% if page.layout == "post" and page.date %}
+<meta property="article:published_time" content="{{ page.date | date_to_xmlschema }}">
+{% endif %}
+{% if page.layout == "post" and site['author-url'] and site['author-url'] != "" %}
+<meta property="article:author" content="{{ site['author-url'] }}">
+{% endif %}
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="{{ full_title }}">
+<meta name="twitter:description" content="{{ meta_description }}">
+<meta name="twitter:image" content="{{ meta_image_resolved }}">
+{% if site.twitter_username and site.twitter_username != "" %}
+<meta name="twitter:site" content="@{{ site.twitter_username }}">
+<meta name="twitter:creator" content="@{{ site.twitter_username }}">
+{% endif %}
+
+{% if page.layout == "post" %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": {{ page.title | default: site_name | jsonify }},
+  "description": {{ meta_description | jsonify }},
+  "mainEntityOfPage": {{ canonical_url | jsonify }},
+  "inLanguage": {{ locale_code | jsonify }},
+  "datePublished": {{ page.date | date_to_xmlschema | jsonify }},
+  "dateModified": {{ page.last_modified_at | default: page.date | date_to_xmlschema | jsonify }},
+  "author": {
+    "@type": "Person",
+    "name": {{ site["author-name"] | jsonify }}
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": {{ site_name | jsonify }}
+  },
+  "image": [{{ meta_image_resolved | jsonify }}]
+}
 </script>
+{% elsif page.layout == "project-product" %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Product",
+  "name": {{ page.title | jsonify }},
+  "description": {{ meta_description | jsonify }},
+  "image": [{{ meta_image_resolved | jsonify }}],
+  "brand": {
+    "@type": "Brand",
+    "name": {{ site_name | jsonify }}
+  },
+  "url": {{ canonical_url | jsonify }},
+  "category": {{ page.tags | join: ", " | jsonify }}
+}
+</script>
+{% else %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": {{ site_name | jsonify }},
+  "description": {{ meta_description | jsonify }},
+  "url": {{ '/' | absolute_url | jsonify }},
+  "inLanguage": {{ locale_code | jsonify }}
+}
+</script>
+{% endif %}
+
+{% if site['google-analytics'] and site['google-analytics'] != "" %}
+<script async src="https://www.googletagmanager.com/gtag/js?id={{ site['google-analytics'] }}"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag() { dataLayer.push(arguments); }
+  gtag('js', new Date());
+  gtag('config', '{{ site['google-analytics'] }}');
+</script>
+{% endif %}

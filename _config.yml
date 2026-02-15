@@ -2,18 +2,18 @@
 markdown: kramdown
 
 # URL of the Site
-url: ''
+url: '' # Set your production domain, e.g. https://example.com
 # Base URL of the Site (i.e., Name of the Repository in which the Site is hosted)
 baseurl: 
 
 # Title of the Site
 title: Elense Leatherworks
 # Description of the Site
-description: Handcrafted leather goods from Poland
+description: Handmade leather home decor accessories crafted in Poland for everyday rituals.
 # URL of Image of the Site
-site-image: /WhatATheme/assets/images/meta.jpg
+site-image: /assets/images/meta.jpg
 # Keywords of the Site
-site-keywords: Site, Template, Theme
+site-keywords: skorzane akcesoria, leather home decor, elense experience, recznie szyte, home decor, skora naturalna, codzienne rytualy
 # URL for the Image of custom Favicon
 favicon-url: 
 
@@ -29,15 +29,15 @@ linkedin_username: thedevslot
 youtube_channel_id: UCk_93NXYP-U_AOB5GfWlOow
 
 # Google Analytics
-google-analytics: UA-163806439-1
+google-analytics: ""
 
 # Name of the Author
 author-name: Radosław Landowski
 # URL for the Image of the Author
 author-image: https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png
 # 60 Words About the Author
-author-about: Handcrafter from Gdańsk in Poland with a great passion for creating quality products.
-author-about-pl: Rzemieślnik z Gdańska, fascynat ręcznie produkowanych wyrobów z wykorzystaniem tradycyjnych technik i materiałów.
+author-about: Founder of Elense Leatherworks, creating handcrafted leather accessories for home decor, built around quality, personalization, and everyday comfort.
+author-about-pl: Twórca Elense Leatherworks. Projektuję ręcznie wykonane akcesoria skórzane do home decor, oparte na jakości, personalizacji i komforcie codziennego użytkowania.
 # URL to the Author's Profile (i.e., Github, Twitter, Stackoverflow, etc)
 author-url: https://github.com/thedevslot
 

@@ -6,10 +6,7 @@ layout: compress
 
 <!DOCTYPE html>
 <html lang="{{ current_lang }}">
-
-<head>
-    {% include head.html %}
-</head>
+{% include head.html %}
 
 <body>
     {% include navbar.html %}
@@ -19,7 +16,7 @@ layout: compress
         <div class="hero-body">
             <div class="container has-text-centered">
                 <div class="section">
-                    <p class="subtitle is-uppercase has-text-weight-medium has-text-grey">{{ t.projects_index.title }}</p>
+                    <h1 class="subtitle is-uppercase has-text-weight-medium has-text-grey">{{ t.projects_index.title }}</h1>
                 </div>
                 {% include project-card.html %}
             </div>

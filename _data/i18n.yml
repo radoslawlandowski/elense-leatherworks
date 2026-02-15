@@ -1,7 +1,8 @@
 en:
   locale: en-US
   lang_switch_label: PL
-  site_description: Handcrafted leather goods from Poland
+  site_description: Handcrafted leather home decor from Poland
+  site_keywords: leather home decor, handcrafted leather accessories, leather table decor, leather coaster, leather cutlery pocket, Elense Experience
   routes:
     home: /en/
     projects: /en/projects/
@@ -15,8 +16,12 @@ en:
   home:
     read_more: Read More
     projects_heading: Projects
-    experience_quote: We want to give everyday objects a luxurious dimension. One that does not shout with form, but gives calm satisfaction each time you reach for it.
+    experience_quote: Elense Experience transforms everyday objects into daily rituals through leather craftsmanship, personalization, and tactile comfort.
   about:
+    heading: About Elense Experience
+    lead: I create leather accessories for home decor because quality of life is built by small rituals repeated every day.
+    body_primary: "Elenze Experience is a design philosophy focused on three pillars: durable craftsmanship, personalization, and comfort in use."
+    body_secondary: From cutlery pockets and coasters to glass sleeves and decorative covers, each piece is made to elevate ordinary gestures into satisfying moments.
     contact_me: Contact Me
     blog: Blog
   contact:
@@ -33,7 +38,7 @@ en:
     credits_theme: A Theme made with
     credits_powered: Powered by
   blog:
-    heading: Have a Good Read
+    heading: Leather Craft & Design Journal
     search_placeholder: Search Here
     no_results: No Results Found
     published_on: Published on
@@ -66,12 +71,13 @@ en:
       - Design intended for everyday use.
     default_warranty: Product includes a 12-month workmanship warranty. If a production defect appears, we will repair or replace the product.
   projects_index:
-    title: Projects
+    title: Leather Home Decor Projects
 
 pl:
   locale: pl-PL
   lang_switch_label: EN
-  site_description: Ręcznie wykonane wyroby skórzane z Polski
+  site_description: Ręcznie szyte akcesoria skórzane do home decor
+  site_keywords: akcesoria skórzane, home decor, ręcznie szyte, skóra naturalna, podkładki skórzane, kieszonki na sztućce, Elense Experience
   routes:
     home: /pl/
     projects: /pl/projekty/
@@ -85,8 +91,12 @@ pl:
   home:
     read_more: Czytaj więcej
     projects_heading: Projekty
-    experience_quote: Chcemy nadawać przedmiotom codziennego użytku luksusowy wymiar. Taki, który nie krzyczy formą, ale daje spokojną satysfakcję za każdym razem, gdy po niego sięgasz.
+    experience_quote: Elense Experience nadaje codziennym przedmiotom wyższą jakość poprzez rzemiosło skórzane, personalizację i komfort użytkowania.
   about:
+    heading: O Elense Experience
+    lead: Tworzę akcesoria skórzane do home decor, bo to codzienne rytuały budują jakość życia.
+    body_primary: "Elenze Experience to filozofia projektowania oparta na trzech filarach: trwałym rzemiośle, personalizacji i wygodzie codziennego użytkowania."
+    body_secondary: Od kieszonek na sztućce i podkładek po uchwyty i oprawy, każdy produkt powstaje po to, aby zwykłe gesty dawały większą satysfakcję.
     contact_me: Skontaktuj się
     blog: Blog
   contact:
@@ -103,7 +113,7 @@ pl:
     credits_theme: Motyw stworzony z
     credits_powered: Napędzane przez
   blog:
-    heading: Miłej lektury
+    heading: Dziennik Rzemiosła i Designu
     search_placeholder: Szukaj
     no_results: Brak wyników
     published_on: Opublikowano
@@ -136,4 +146,4 @@ pl:
       - Projekt dopasowany do codziennego użycia.
     default_warranty: Produkt objęty jest 12-miesięczną gwarancją na wykonanie. W przypadku wady produkcyjnej zapewniamy naprawę lub wymianę.
   projects_index:
-    title: Projekty
+    title: Projekty Skórzane Home Decor
