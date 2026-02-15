@@ -2,11 +2,17 @@
 <div class="columns is-centered is-multiline is-mobile">
   {% assign projects = site.projects | where: "lang", current_lang | sort: "date" | reverse %}
   {% for project in projects %}
+    {% assign project_image = project.post-image %}
+    {% if project_image contains '://' %}
+      {% assign project_image_resolved = project_image %}
+    {% else %}
+      {% assign project_image_resolved = project_image | relative_url %}
+    {% endif %}
     <div class="column has-text-centered is-paddingless is-marginless is-one-third-widescreen is-one-third-desktop is-one-fifth-fullhd is-one-third-tablet is-two-fifths-mobile is-three-quarters-touch"
       id="project-card">
       <a href="{{ project.url | relative_url }}">
       <div class="has-background-black card">
-        <figure class="image is-3by1" style="background-image: url({{ project.post-image }});">
+        <figure class="image is-3by1" style="background-image: url('{{ project_image_resolved }}');">
         </figure>
         <div class="card-content">
           <h1 class="title has-text-white is-size-4">{{ project.title }}</h1>

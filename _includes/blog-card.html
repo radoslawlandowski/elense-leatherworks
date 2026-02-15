@@ -6,9 +6,15 @@
 {% else %}
   {% assign post_date_display = post.date | date: "%B %d, %Y" %}
 {% endif %}
+{% assign post_image = post.post-image %}
+{% if post_image contains '://' %}
+  {% assign post_image_resolved = post_image %}
+{% else %}
+  {% assign post_image_resolved = post_image | relative_url %}
+{% endif %}
 <div class="columns has-text-centered" id="blog-card">
     <div class="column is-marginless is-paddingless is-one-third-desktop is-one-third-fullhd is-one-third-tablet">
-        <div class="image is-16by9" style="background-image: url({{post.post-image}});"></div>
+        <div class="image is-16by9" style="background-image: url('{{ post_image_resolved }}');"></div>
     </div>
     <a href="{{ post.url | relative_url }}">
         <div class="column has-text-left-desktop has-text-left-tablet">

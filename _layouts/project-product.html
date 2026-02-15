@@ -6,6 +6,12 @@ layout: compress
 {% assign p = t.product %}
 {% assign shopify_url = page.shopify_url | default: site.shopify_store_url %}
 {% assign inquiry_subject = p.ask_subject_prefix | default: "Product inquiry" %}
+{% assign project_hero_image = page.post-image %}
+{% if project_hero_image contains '://' %}
+  {% assign project_hero_image_resolved = project_hero_image %}
+{% else %}
+  {% assign project_hero_image_resolved = project_hero_image | relative_url %}
+{% endif %}
 
 <!DOCTYPE html>
 <html lang="{{ current_lang }}">
@@ -15,7 +21,7 @@ layout: compress
 <body>
   {% include navbar.html %}
 
-  <section class="hero is-fullheight" id="product-hero" style="background-image: url('{{ page.post-image }}');">
+  <section class="hero is-fullheight" id="product-hero" style="background-image: url('{{ project_hero_image_resolved }}');">
     <div class="product-hero-overlay"></div>
     <div class="hero-body">
       <div class="container">

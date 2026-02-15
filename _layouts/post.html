@@ -9,6 +9,12 @@ layout: compress
 {% else %}
   {% assign post_updated_date = page.date | date: "%B %d, %Y" %}
 {% endif %}
+{% assign post_hero_image = page.post-image %}
+{% if post_hero_image contains '://' %}
+  {% assign post_hero_image_resolved = post_hero_image %}
+{% else %}
+  {% assign post_hero_image_resolved = post_hero_image | relative_url %}
+{% endif %}
 <!DOCTYPE html>
 <html lang="{{ current_lang }}">
 {% include head.html %}
@@ -22,7 +28,7 @@ layout: compress
       <div class="columns is-variable is-8 is-vcentered">
         <div class="column is-7">
           <figure class="image is-4by3 has-shadow">
-            <img src="{{page.post-image}}" alt="{{page.title}}" id="post-image" style="object-fit: cover; border-radius: 8px;">
+            <img src="{{ post_hero_image_resolved }}" alt="{{page.title}}" id="post-image" style="object-fit: cover; border-radius: 8px;">
           </figure>
         </div>
         <div class="column is-5 has-text-left">
@@ -97,8 +103,7 @@ layout: compress
     </div>
   </section>
 
-  {% assign fallback_gallery_items = site.data.projects | where_exp: "item", "item.href and item.imgSrc and item.lang == current_lang" %}
-  {% include gallery.html gallery_items=page.gallery fallback_gallery_items=fallback_gallery_items gallery_class="gallery" fallback_alt=page.title %}
+  {% include gallery.html gallery_items=page.gallery fallback_image=page.post-image gallery_class="gallery" fallback_alt=page.title %}
 
   <div class="section">
     <div class="container">

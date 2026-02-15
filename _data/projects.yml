@@ -1,71 +1,64 @@
 - lang: en
   name: Sommelier Wine Coaster
-  link: /en/projects/wine-coaster/
-  image: https://picsum.photos/seed/wine-coaster-en-hero/1600/1000
-  href: "https://picsum.photos/seed/wine-coaster-en-1/1800/1200"
-  imgSrc: "https://picsum.photos/seed/wine-coaster-en-1/900/700"
-  alt: "Sommelier Wine Coaster"
+  link: "/en/projects/wine-coaster/"
+  image: "/projects/en/wine-coaster/hero.svg"
+  href: "/projects/en/wine-coaster/gallery-1.svg"
+  imgSrc: "/projects/en/wine-coaster/gallery-1.svg"
+  alt: Sommelier Wine Coaster
   description: Hand-stitched coaster for wine glasses.
-
 - lang: en
   name: Leather Cutlery Pocket
-  link: /en/projects/cutlery-pocket/
-  image: https://picsum.photos/seed/cutlery-pocket-en-hero/1600/1000
-  href: "https://picsum.photos/seed/cutlery-pocket-en-1/1800/1200"
-  imgSrc: "https://picsum.photos/seed/cutlery-pocket-en-1/900/700"
-  alt: "Leather Cutlery Pocket"
+  link: "/en/projects/cutlery-pocket/"
+  image: "/projects/en/cutlery-pocket/hero.svg"
+  href: "/projects/en/cutlery-pocket/gallery-1.svg"
+  imgSrc: "/projects/en/cutlery-pocket/gallery-1.svg"
+  alt: Leather Cutlery Pocket
   description: Elegant pocket for cutlery and napkin.
-
 - lang: en
   name: Leather Glass Sleeve
-  link: /en/projects/leather-glass-sleeve/
-  image: https://picsum.photos/seed/glass-holder-en-hero/1600/1000
-  href: "https://picsum.photos/seed/glass-holder-en-1/1800/1200"
-  imgSrc: "https://picsum.photos/seed/glass-holder-en-1/900/700"
-  alt: "Leather Glass Sleeve"
+  link: "/en/projects/leather-glass-sleeve/"
+  image: "/projects/en/leather-glass-sleeve/hero.svg"
+  href: "/projects/en/leather-glass-sleeve/gallery-1.svg"
+  imgSrc: "/projects/en/leather-glass-sleeve/gallery-1.svg"
+  alt: Leather Glass Sleeve
   description: Comfortable sleeve for holding glasses.
-
 - lang: en
   name: Small Leather Box
-  link: /en/projects/small-leather-box/
-  image: https://picsum.photos/seed/leather-box-en-hero/1600/1000
-  href: "https://picsum.photos/seed/leather-box-en-1/1800/1200"
-  imgSrc: "https://picsum.photos/seed/leather-box-en-1/900/700"
-  alt: "Small Leather Box"
+  link: "/en/projects/small-leather-box/"
+  image: "/projects/en/small-leather-box/hero.svg"
+  href: "/projects/en/small-leather-box/gallery-1.svg"
+  imgSrc: "/projects/en/small-leather-box/gallery-1.svg"
+  alt: Small Leather Box
   description: Compact leather organizer for essentials.
-
 - lang: pl
   name: Podkładka Sommelier
-  link: /pl/projekty/podkladka-sommelier/
-  image: https://picsum.photos/seed/wine-coaster-pl-hero/1600/1000
-  href: "https://picsum.photos/seed/wine-coaster-pl-1/1800/1200"
-  imgSrc: "https://picsum.photos/seed/wine-coaster-pl-1/900/700"
-  alt: "Podkładka Sommelier"
+  link: "/pl/projekty/podkladka-sommelier/"
+  image: "/projects/pl/podkladka-sommelier/hero.svg"
+  href: "/projects/pl/podkladka-sommelier/gallery-1.svg"
+  imgSrc: "/projects/pl/podkladka-sommelier/gallery-1.svg"
+  alt: Podkładka Sommelier
   description: Ręcznie szyta podkładka pod kieliszek do wina.
-
 - lang: pl
   name: Skórzana Kieszonka na Sztućce
-  link: /pl/projekty/kieszonka-na-sztucce/
-  image: https://picsum.photos/seed/cutlery-pocket-pl-hero/1600/1000
-  href: "https://picsum.photos/seed/cutlery-pocket-pl-1/1800/1200"
-  imgSrc: "https://picsum.photos/seed/cutlery-pocket-pl-1/900/700"
-  alt: "Skórzana kieszonka na sztućce"
+  link: "/pl/projekty/kieszonka-na-sztucce/"
+  image: "/projects/pl/kieszonka-na-sztucce/hero.svg"
+  href: "/projects/pl/kieszonka-na-sztucce/gallery-1.svg"
+  imgSrc: "/projects/pl/kieszonka-na-sztucce/gallery-1.svg"
+  alt: Skórzana kieszonka na sztućce
   description: Elegancka kieszonka stołowa na sztućce i serwetkę.
-
 - lang: pl
   name: Skórzany Uchwyt na Szklankę
-  link: /pl/projekty/skorzany-uchwyt-na-szklanke/
-  image: https://picsum.photos/seed/glass-holder-pl-hero/1600/1000
-  href: "https://picsum.photos/seed/glass-holder-pl-1/1800/1200"
-  imgSrc: "https://picsum.photos/seed/glass-holder-pl-1/900/700"
-  alt: "Skórzany uchwyt na szklankę"
+  link: "/pl/projekty/skorzany-uchwyt-na-szklanke/"
+  image: "/projects/pl/skorzany-uchwyt-na-szklanke/hero.svg"
+  href: "/projects/pl/skorzany-uchwyt-na-szklanke/gallery-1.svg"
+  imgSrc: "/projects/pl/skorzany-uchwyt-na-szklanke/gallery-1.svg"
+  alt: Skórzany uchwyt na szklankę
   description: Ergonomiczny uchwyt poprawiający komfort trzymania.
-
 - lang: pl
   name: Małe Skórzane Pudełko
-  link: /pl/projekty/male-skorzane-pudelko/
-  image: https://picsum.photos/seed/leather-box-pl-hero/1600/1000
-  href: "https://picsum.photos/seed/leather-box-pl-1/1800/1200"
-  imgSrc: "https://picsum.photos/seed/leather-box-pl-1/900/700"
-  alt: "Małe skórzane pudełko"
+  link: "/pl/projekty/male-skorzane-pudelko/"
+  image: "/projects/pl/male-skorzane-pudelko/hero.svg"
+  href: "/projects/pl/male-skorzane-pudelko/gallery-1.svg"
+  imgSrc: "/projects/pl/male-skorzane-pudelko/gallery-1.svg"
+  alt: Małe skórzane pudełko
   description: Kompaktowe pudełko na codzienne drobiazgi.

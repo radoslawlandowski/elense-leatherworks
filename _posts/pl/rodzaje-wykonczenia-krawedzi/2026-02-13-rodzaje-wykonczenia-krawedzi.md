@@ -3,13 +3,13 @@ title: Rodzaje Wykończenia Krawędzi
 layout: post
 lang: pl
 translation_key: edge-finishing-types
-permalink: /pl/blog/rodzaje-wykonczenia-krawedzi/
-post-image: "https://picsum.photos/seed/edge-finishing-pl-hero/1600/1000"
+permalink: "/pl/blog/rodzaje-wykonczenia-krawedzi/"
+post-image: "/posts/pl/rodzaje-wykonczenia-krawedzi/hero.svg"
 description: Krótki przewodnik po najpopularniejszych rodzajach wykończenia krawędzi w wyrobach skórzanych i ich praktycznym zastosowaniu.
 tags:
-  - skora
-  - wykonczenie
-  - rzemioslo
+- skora
+- wykonczenie
+- rzemioslo
 date: 2026-02-13
 ---
 

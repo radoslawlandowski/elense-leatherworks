@@ -3,13 +3,13 @@ title: Types of Edge Finishing
 layout: post
 lang: en
 translation_key: edge-finishing-types
-permalink: /en/blog/types-of-edge-finishing/
-post-image: "https://picsum.photos/seed/edge-finishing-en-hero/1600/1000"
+permalink: "/en/blog/types-of-edge-finishing/"
+post-image: "/posts/en/types-of-edge-finishing/hero.svg"
 description: A short guide to common edge finishing methods in leather goods and where each one works best.
 tags:
-  - leather
-  - finishing
-  - craftsmanship
+- leather
+- finishing
+- craftsmanship
 date: 2026-02-13
 ---
 

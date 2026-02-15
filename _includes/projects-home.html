@@ -7,8 +7,14 @@
       <div class="projects-home-grid">
         {% assign projects = site.projects | where: "lang", current_lang | sort: "date" | reverse %}
         {% for project in projects %}
+          {% assign project_image = project.post-image %}
+          {% if project_image contains '://' %}
+            {% assign project_image_resolved = project_image %}
+          {% else %}
+            {% assign project_image_resolved = project_image | relative_url %}
+          {% endif %}
           <a class="projects-home-item" href="{{ project.url | relative_url }}" aria-label="{{ project.title }}">
-            <img src="{{ project.post-image }}" alt="{{ project.title }}">
+            <img src="{{ project_image_resolved }}" alt="{{ project.title }}">
           </a>
         {% endfor %}
       </div>
