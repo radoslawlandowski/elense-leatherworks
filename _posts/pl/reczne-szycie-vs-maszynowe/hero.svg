@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 900" role="img" aria-labelledby="title desc">
+  <title id="title">Reczne szycie kontra maszynowe</title>
+  <desc id="desc">Ilustracja nici i szydla symbolizujaca reczne szycie skory.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#f7efe2" />
+      <stop offset="100%" stop-color="#e2c9a3" />
+    </linearGradient>
+    <linearGradient id="card" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#6f4b2f" />
+      <stop offset="100%" stop-color="#4a2f1c" />
+    </linearGradient>
+  </defs>
+
+  <rect width="1200" height="900" fill="url(#bg)" />
+  <rect x="120" y="110" width="960" height="680" rx="32" fill="url(#card)" opacity="0.95" />
+
+  <path d="M220 610 C 360 500, 500 480, 640 580 C 740 650, 840 650, 980 560" fill="none" stroke="#f2dcc2" stroke-width="12" stroke-linecap="round" />
+  <circle cx="260" cy="585" r="9" fill="#f2dcc2" />
+  <circle cx="350" cy="540" r="9" fill="#f2dcc2" />
+  <circle cx="445" cy="520" r="9" fill="#f2dcc2" />
+  <circle cx="540" cy="540" r="9" fill="#f2dcc2" />
+  <circle cx="635" cy="585" r="9" fill="#f2dcc2" />
+  <circle cx="735" cy="625" r="9" fill="#f2dcc2" />
+  <circle cx="835" cy="620" r="9" fill="#f2dcc2" />
+  <circle cx="930" cy="585" r="9" fill="#f2dcc2" />
+
+  <rect x="770" y="300" width="240" height="20" rx="10" fill="#d7b487" transform="rotate(-25 770 300)" />
+  <rect x="960" y="220" width="52" height="20" rx="10" fill="#f2dcc2" transform="rotate(-25 960 220)" />
+
+  <text x="180" y="250" fill="#f7efe2" font-family="Georgia, 'Times New Roman', serif" font-size="66" font-weight="700">
+    Reczne szycie
+  </text>
+  <text x="180" y="325" fill="#f7efe2" font-family="Georgia, 'Times New Roman', serif" font-size="44">
+    dlaczego wygrywa z maszynowym
+  </text>
+</svg>

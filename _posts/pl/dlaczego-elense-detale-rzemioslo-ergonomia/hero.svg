@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 900" role="img" aria-labelledby="title desc">
+  <title id="title">Dlaczego Elense</title>
+  <desc id="desc">Grafika hero akcentujaca detale, rzemioslo i ergonomie.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#efe3d0" />
+      <stop offset="100%" stop-color="#cda47a" />
+    </linearGradient>
+    <linearGradient id="card" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#6d4529" />
+      <stop offset="100%" stop-color="#402717" />
+    </linearGradient>
+  </defs>
+
+  <rect width="1200" height="900" fill="url(#bg)" />
+  <rect x="110" y="120" width="980" height="660" rx="30" fill="url(#card)" />
+
+  <text x="170" y="240" fill="#f5e8d8" font-family="Georgia, 'Times New Roman', serif" font-size="74" font-weight="700">
+    Dlaczego Elense?
+  </text>
+
+  <g fill="#efd7bb">
+    <rect x="180" y="340" width="280" height="84" rx="14" />
+    <rect x="480" y="340" width="280" height="84" rx="14" />
+    <rect x="780" y="340" width="280" height="84" rx="14" />
+  </g>
+
+  <g fill="#4a2f1d" font-family="Georgia, 'Times New Roman', serif" font-size="34" font-weight="700">
+    <text x="230" y="395">Detale</text>
+    <text x="519" y="395">Rzemioslo</text>
+    <text x="824" y="395">Ergonomia</text>
+  </g>
+
+  <path d="M190 560 C 310 505, 430 505, 550 560" fill="none" stroke="#efd7bb" stroke-width="9" stroke-linecap="round" />
+  <path d="M470 620 C 620 530, 760 530, 910 620" fill="none" stroke="#efd7bb" stroke-width="9" stroke-linecap="round" />
+  <circle cx="255" cy="535" r="8" fill="#efd7bb" />
+  <circle cx="330" cy="520" r="8" fill="#efd7bb" />
+  <circle cx="405" cy="525" r="8" fill="#efd7bb" />
+  <circle cx="540" cy="580" r="8" fill="#efd7bb" />
+  <circle cx="640" cy="558" r="8" fill="#efd7bb" />
+  <circle cx="740" cy="558" r="8" fill="#efd7bb" />
+  <circle cx="840" cy="585" r="8" fill="#efd7bb" />
+</svg>
