@@ -7,7 +7,10 @@ permalink: "/pl/projekty/kieszonka-na-sztucce/"
 post-image: "/projects/pl/kieszonka-na-sztucce/hero.svg"
 description: Elegancka kieszonka stołowa na sztućce i serwetkę, która porządkuje nakrycie i buduje efekt premium.
 price: 49 PLN / szt.
+price_amount: 49
+price_currency: PLN
 availability: Na zamówienie
+availability_schema: https://schema.org/PreOrder
 shopify_url: https://shopify.com
 features:
 - Miejsce na sztućce i serwetkę w jednej, zwartej formie.

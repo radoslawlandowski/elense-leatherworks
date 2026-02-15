@@ -859,3 +859,97 @@
         height: 100%;
     }
 }
+
+.elense-breadcrumbs {
+    background: rgba($color: $elense-cream, $alpha: 0.88);
+    border-bottom: 1px solid rgba($color: $elense-brown, $alpha: 0.2);
+    margin-top: 3.25rem;
+
+    .container {
+        padding-top: 0.65rem;
+        padding-bottom: 0.65rem;
+    }
+
+    ul {
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 0.55rem;
+        margin: 0;
+        padding: 0;
+        list-style: none;
+    }
+
+    li {
+        display: inline-flex;
+        align-items: center;
+        font-size: 0.78rem;
+        text-transform: uppercase;
+        letter-spacing: 0.06rem;
+        color: rgba($color: #000000, $alpha: 0.58);
+    }
+
+    li + li::before {
+        content: "/";
+        margin-right: 0.55rem;
+        color: rgba($color: #000000, $alpha: 0.4);
+    }
+
+    a {
+        color: $elense-brown;
+        text-decoration: none;
+
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+
+    .is-active span {
+        color: rgba($color: #000000, $alpha: 0.8);
+        font-weight: 600;
+    }
+}
+
+#post {
+    .post-related-products {
+        margin-top: 2rem;
+        padding: 1rem 1.2rem;
+        border: 1px solid rgba($color: $elense-brown, $alpha: 0.18);
+        border-radius: 0.5rem;
+        background: rgba($color: $elense-cream, $alpha: 0.45);
+
+        .title {
+            margin: 0 0 0.75rem 0 !important;
+        }
+
+        ul {
+            margin: 0;
+            padding-left: 1.2rem;
+        }
+    }
+}
+
+#product-faq {
+    .faq-list {
+        display: grid;
+        gap: 0.7rem;
+    }
+
+    .faq-item {
+        border: 1px solid rgba($color: $elense-brown, $alpha: 0.2);
+        border-radius: 0.45rem;
+        padding: 0.75rem 0.9rem;
+        background: rgba($color: #ffffff, $alpha: 0.85);
+
+        summary {
+            cursor: pointer;
+            font-weight: 600;
+            color: $elense-brown;
+        }
+
+        p {
+            margin: 0.55rem 0 0 0;
+            color: rgba($color: #000000, $alpha: 0.8);
+        }
+    }
+}

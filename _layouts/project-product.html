@@ -6,6 +6,8 @@ layout: compress
 {% assign p = t.product %}
 {% assign shopify_url = page.shopify_url | default: site.shopify_store_url %}
 {% assign inquiry_subject = p.ask_subject_prefix | default: "Product inquiry" %}
+{% assign faq_items = page.faq | default: p.default_faq %}
+{% assign localized_posts = site.posts | where: "lang", current_lang %}
 {% assign project_hero_image = page.post-image %}
 {% if project_hero_image contains '://' %}
   {% assign project_hero_image_resolved = project_hero_image %}
@@ -20,6 +22,7 @@ layout: compress
 
 <body>
   {% include navbar.html %}
+  {% include breadcrumbs.html %}
 
   <section class="hero is-fullheight" id="product-hero" style="background-image: url('{{ project_hero_image_resolved }}');">
     <div class="product-hero-overlay"></div>
@@ -33,7 +36,7 @@ layout: compress
           {% if page.price %}
           <p class="product-hero-price">{{ page.price }}</p>
           {% endif %}
-          <a href="#product-summary" class="button is-primary is-medium has-text-weight-bold">{{ p.discover_product }}</a>
+          <a href="#product-summary" class="button is-primary is-medium has-text-weight-bold" data-analytics-event="product_discover_click" data-analytics-label="{{ page.title }}">{{ p.discover_product }}</a>
         </div>
       </div>
     </div>
@@ -50,8 +53,8 @@ layout: compress
         </div>
         <div class="column is-4">
           <div class="product-summary-card">
-            <a href="{{ shopify_url }}" target="_blank" rel="noopener noreferrer" class="button is-primary is-fullwidth is-medium has-text-weight-bold">{{ p.buy_shopify }}</a>
-            <a href="mailto:{{ site.email }}?subject={{ inquiry_subject }}: {{ page.title }}" class="button is-outlined is-primary is-fullwidth is-medium has-text-weight-bold mt-3">{{ p.ask_product }}</a>
+            <a href="{{ shopify_url }}" target="_blank" rel="noopener noreferrer" class="button is-primary is-fullwidth is-medium has-text-weight-bold" data-analytics-event="shopify_click" data-analytics-label="{{ page.title }}">{{ p.buy_shopify }}</a>
+            <a href="mailto:{{ site.email }}?subject={{ inquiry_subject }}: {{ page.title }}" class="button is-outlined is-primary is-fullwidth is-medium has-text-weight-bold mt-3" data-analytics-event="contact_email_click" data-analytics-label="{{ page.title }}">{{ p.ask_product }}</a>
             {% if page.tags.size > 0 %}
             <p class="is-size-7 is-uppercase mt-4">
               <span class="has-text-weight-bold">{{ p.categories }}:</span>
@@ -118,6 +121,35 @@ layout: compress
     </div>
   </section>
 
+  <section class="section pt-0 product-section-block" id="product-care">
+    <div class="container">
+      <h3 class="title is-4 mb-4">{{ p.care_heading }}</h3>
+      <div class="content">
+        {% if page.care %}
+        <p>{{ page.care }}</p>
+        {% else %}
+        <p>{{ p.default_care }}</p>
+        {% endif %}
+      </div>
+    </div>
+  </section>
+
+  {% if faq_items and faq_items.size > 0 %}
+  <section class="section pt-0 product-section-block" id="product-faq">
+    <div class="container">
+      <h3 class="title is-4 mb-4">{{ p.faq_heading }}</h3>
+      <div class="faq-list">
+        {% for faq in faq_items %}
+        <details class="faq-item">
+          <summary>{{ faq.question }}</summary>
+          <p>{{ faq.answer }}</p>
+        </details>
+        {% endfor %}
+      </div>
+    </div>
+  </section>
+  {% endif %}
+
   <section class="section pt-0 product-section-block" id="product-how-to-buy">
     <div class="container">
       <h3 class="title is-4 mb-4">{{ p.how_to_buy }}</h3>
@@ -128,7 +160,7 @@ layout: compress
           <li>{{ p.step_3 }}</li>
         </ol>
       </div>
-      <a href="{{ shopify_url }}" target="_blank" rel="noopener noreferrer" class="button is-primary is-medium has-text-weight-bold">{{ p.go_to_shopify }}</a>
+      <a href="{{ shopify_url }}" target="_blank" rel="noopener noreferrer" class="button is-primary is-medium has-text-weight-bold" data-analytics-event="shopify_click" data-analytics-label="{{ page.title }}">{{ p.go_to_shopify }}</a>
     </div>
   </section>
 
@@ -150,6 +182,56 @@ layout: compress
       </div>
     </div>
   </section>
+  {% endif %}
+
+  <section class="section pt-0 product-section-block" id="product-related-articles">
+    <div class="container">
+      <h3 class="title is-4 mb-4">{{ p.related_articles_heading }}</h3>
+      <div class="content">
+        <ul>
+          {% assign related_posts_count = 0 %}
+          {% for post in localized_posts %}
+            {% assign has_matching_tag = false %}
+            {% for tag in page.tags %}
+              {% if post.tags contains tag %}
+                {% assign has_matching_tag = true %}
+              {% endif %}
+            {% endfor %}
+            {% if has_matching_tag and related_posts_count < 3 %}
+              <li><a href="{{ post.url | relative_url }}">{{ post.title }}</a></li>
+              {% assign related_posts_count = related_posts_count | plus: 1 %}
+            {% endif %}
+          {% endfor %}
+
+          {% if related_posts_count == 0 %}
+            {% for post in localized_posts limit:3 %}
+              <li><a href="{{ post.url | relative_url }}">{{ post.title }}</a></li>
+            {% endfor %}
+          {% endif %}
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  {% if faq_items and faq_items.size > 0 %}
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {% for faq in faq_items %}
+      {
+        "@type": "Question",
+        "name": {{ faq.question | jsonify }},
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": {{ faq.answer | strip_html | strip_newlines | jsonify }}
+        }
+      }{% unless forloop.last %},{% endunless %}
+      {% endfor %}
+    ]
+  }
+  </script>
   {% endif %}
 
   {% include footer.html %}

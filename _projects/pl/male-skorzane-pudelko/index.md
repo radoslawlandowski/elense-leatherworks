@@ -7,7 +7,10 @@ permalink: "/pl/projekty/male-skorzane-pudelko/"
 post-image: "/projects/pl/male-skorzane-pudelko/hero.svg"
 description: Kompaktowe skórzane pudełko na codzienne drobiazgi, łączące rzemieślnicze wykończenie z praktycznym zastosowaniem.
 price: 119 PLN / szt.
+price_amount: 119
+price_currency: PLN
 availability: Na zamówienie
+availability_schema: https://schema.org/PreOrder
 shopify_url: https://shopify.com
 features:
 - Kompaktowy format na klucze, biżuterię i drobne akcesoria.

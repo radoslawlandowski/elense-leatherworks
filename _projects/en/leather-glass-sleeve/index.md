@@ -7,7 +7,10 @@ permalink: "/en/projects/leather-glass-sleeve/"
 post-image: "/projects/en/leather-glass-sleeve/hero.svg"
 description: Ergonomic leather sleeve that improves grip and reduces heat or cold transfer while holding your glass.
 price: 59 PLN / piece
+price_amount: 59
+price_currency: PLN
 availability: In stock
+availability_schema: https://schema.org/InStock
 shopify_url: https://shopify.com
 features:
 - Secure non-slip grip.

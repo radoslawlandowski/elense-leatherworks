@@ -13,6 +13,10 @@ en:
     about: ABOUT
     contact: CONTACT
     blog: BLOG
+  breadcrumbs:
+    home: Home
+    blog: Blog
+    projects: Projects
   home:
     read_more: Read More
     projects_heading: Projects
@@ -50,6 +54,7 @@ en:
     updated_on: Last update
     product_description: Product Description
     video_presentation: Video Presentation
+    related_products_heading: Related Products
   product:
     discover_product: DISCOVER PRODUCT
     buy_shopify: BUY ON SHOPIFY
@@ -65,6 +70,17 @@ en:
     step_2: Choose variant and quantity, then add the product to cart.
     step_3: Complete checkout and confirm payment.
     go_to_shopify: GO TO SHOPIFY STORE
+    faq_heading: Frequently Asked Questions
+    related_articles_heading: Related Articles
+    care_heading: Material & Care
+    default_care: Genuine leather develops character over time. Wipe with a dry or slightly damp cloth, avoid prolonged moisture, and condition periodically with leather balm.
+    default_faq:
+      - question: Is this product made from genuine leather?
+        answer: Yes. Every piece is handcrafted from genuine leather selected for everyday durability and tactile comfort.
+      - question: Can I order personalization?
+        answer: Yes. Selected products can be personalized. Contact us before ordering and we will confirm available options.
+      - question: How long does production and shipping take?
+        answer: In-stock products ship quickly. Made-to-order products typically need a few business days for production before shipment.
     default_features:
       - Handmade from genuine leather.
       - Durable finish with attention to detail.
@@ -88,6 +104,10 @@ pl:
     about: O MNIE
     contact: KONTAKT
     blog: BLOG
+  breadcrumbs:
+    home: Start
+    blog: Blog
+    projects: Projekty
   home:
     read_more: Czytaj więcej
     projects_heading: Projekty
@@ -125,6 +145,7 @@ pl:
     updated_on: Ostatnia aktualizacja
     product_description: Opis produktu
     video_presentation: Prezentacja wideo
+    related_products_heading: Powiązane Produkty
   product:
     discover_product: POZNAJ PRODUKT
     buy_shopify: KUP W SHOPIFY
@@ -140,6 +161,17 @@ pl:
     step_2: Wybierz wariant i ilość, a następnie dodaj produkt do koszyka.
     step_3: Zakończ zamówienie i potwierdź płatność.
     go_to_shopify: PRZEJDŹ DO SKLEPU SHOPIFY
+    faq_heading: Najczęściej Zadawane Pytania
+    related_articles_heading: Powiązane Artykuły
+    care_heading: Materiał i Pielęgnacja
+    default_care: Skóra naturalna z czasem nabiera charakteru. Czyść suchą lub lekko wilgotną ściereczką, unikaj długiego kontaktu z wilgocią i okresowo stosuj balsam do skóry.
+    default_faq:
+      - question: Czy produkt jest wykonany ze skóry naturalnej?
+        answer: Tak. Każdy egzemplarz szyjemy ręcznie ze skóry naturalnej dobranej pod kątem trwałości i komfortu codziennego użytkowania.
+      - question: Czy mogę zamówić personalizację?
+        answer: Tak. Wybrane produkty możemy personalizować. Napisz do nas przed zamówieniem, aby potwierdzić dostępne opcje.
+      - question: Ile trwa realizacja i wysyłka?
+        answer: Produkty dostępne od ręki wysyłamy szybko. Produkty na zamówienie wymagają kilku dni roboczych na wykonanie przed wysyłką.
     default_features:
       - Ręczne wykonanie z naturalnej skóry.
       - Trwałe wykończenie i dbałość o detal.

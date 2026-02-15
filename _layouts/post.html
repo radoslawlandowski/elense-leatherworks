@@ -21,6 +21,7 @@ layout: compress
 {% endif %}
 {% assign blog_route = t.routes.blog | default: "/blog/" %}
 {% assign localized_posts = site.posts | where: "lang", current_lang %}
+{% assign localized_projects = site.projects | where: "lang", current_lang %}
 {% assign newer_post = nil %}
 {% assign older_post = nil %}
 {% assign found_current = false %}
@@ -42,6 +43,7 @@ layout: compress
 
 <body>
   {% include navbar.html %}
+  {% include breadcrumbs.html %}
 
   <section class="section" id="post">
     <article class="container post-article">
@@ -107,6 +109,31 @@ layout: compress
       </div>
       {% endif %}
 
+      <section class="post-related-products">
+        <h2 class="title is-4">{{ t.post.related_products_heading }}</h2>
+        <ul>
+          {% assign related_projects_count = 0 %}
+          {% for project in localized_projects %}
+            {% assign has_matching_tag = false %}
+            {% for tag in page.tags %}
+              {% if project.tags contains tag %}
+                {% assign has_matching_tag = true %}
+              {% endif %}
+            {% endfor %}
+            {% if has_matching_tag and related_projects_count < 3 %}
+              <li><a href="{{ project.url | relative_url }}">{{ project.title }}</a></li>
+              {% assign related_projects_count = related_projects_count | plus: 1 %}
+            {% endif %}
+          {% endfor %}
+
+          {% if related_projects_count == 0 %}
+            {% for project in localized_projects limit:3 %}
+              <li><a href="{{ project.url | relative_url }}">{{ project.title }}</a></li>
+            {% endfor %}
+          {% endif %}
+        </ul>
+      </section>
+
       {% if older_post or newer_post %}
       <nav class="post-pagination" aria-label="Post navigation">
         {% if newer_post %}
@@ -130,6 +157,7 @@ layout: compress
 
   {% include footer.html %}
   {% include lightbox-init.html %}
+  {% if site['disqus-shortname'] != "" %}
   <script>
     /**
      *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
@@ -148,6 +176,7 @@ layout: compress
       (d.head || d.body).appendChild(s);
     })();
   </script>
+  {% endif %}
 </body>
 
 </html>

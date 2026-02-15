@@ -20,6 +20,18 @@
 {% assign locale_code = t.locale | default: 'en-US' %}
 {% assign og_locale = locale_code | replace: '-', '_' %}
 {% assign og_type = "website" %}
+{% assign product_price_amount = page.price_amount %}
+{% if product_price_amount == nil and page.price %}
+  {% assign product_price_amount = page.price | split: ' ' | first | replace: ',', '.' %}
+{% endif %}
+{% assign product_price_currency = page.price_currency | default: "PLN" %}
+{% assign product_availability_schema = page.availability_schema | default: "https://schema.org/InStock" %}
+{% assign product_purchase_url_raw = page.shopify_url | default: site.shopify_store_url | default: canonical_url %}
+{% if product_purchase_url_raw contains '://' %}
+  {% assign product_purchase_url = product_purchase_url_raw %}
+{% else %}
+  {% assign product_purchase_url = product_purchase_url_raw | absolute_url %}
+{% endif %}
 {% if page.layout == "post" %}
   {% assign og_type = "article" %}
 {% elsif page.layout == "project-product" %}
@@ -67,6 +79,12 @@
 <meta name="robots" content="index, follow, max-image-preview:large">
 {% endif %}
 <link rel="canonical" href="{{ canonical_url }}">
+{% if site['google-site-verification'] and site['google-site-verification'] != "" %}
+<meta name="google-site-verification" content="{{ site['google-site-verification'] }}">
+{% endif %}
+{% if site['bing-site-verification'] and site['bing-site-verification'] != "" %}
+<meta name="msvalidate.01" content="{{ site['bing-site-verification'] }}">
+{% endif %}
 
 {% if en_url %}
 <link rel="alternate" hreflang="en" href="{{ en_url }}">
@@ -126,7 +144,11 @@
   },
   "publisher": {
     "@type": "Organization",
-    "name": {{ site_name | jsonify }}
+    "name": {{ site_name | jsonify }},
+    "logo": {
+      "@type": "ImageObject",
+      "url": {{ '/assets/images/logo.png' | absolute_url | jsonify }}
+    }
   },
   "image": [{{ meta_image_resolved | jsonify }}]
 }
@@ -143,8 +165,21 @@
     "@type": "Brand",
     "name": {{ site_name | jsonify }}
   },
+  "sku": {{ page.sku | default: page.translation_key | default: page.title | slugify | jsonify }},
   "url": {{ canonical_url | jsonify }},
-  "category": {{ page.tags | join: ", " | jsonify }}
+  "category": {{ page.tags | join: ", " | jsonify }},
+  "offers": {
+    "@type": "Offer",
+    "priceCurrency": {{ product_price_currency | jsonify }},
+    "price": {{ product_price_amount | jsonify }},
+    "availability": {{ product_availability_schema | jsonify }},
+    "url": {{ product_purchase_url | jsonify }},
+    "itemCondition": "https://schema.org/NewCondition",
+    "seller": {
+      "@type": "Organization",
+      "name": {{ site_name | jsonify }}
+    }
+  }
 }
 </script>
 {% else %}
@@ -160,12 +195,40 @@
 </script>
 {% endif %}
 
+{% capture organization_same_as %}{% assign has_social = false %}{% if site.instagram_username and site.instagram_username != "" %}{% if has_social %},{% endif %}"https://www.instagram.com/{{ site.instagram_username }}"{% assign has_social = true %}{% endif %}{% if site.linkedin_username and site.linkedin_username != "" %}{% if has_social %},{% endif %}"https://www.linkedin.com/in/{{ site.linkedin_username }}"{% assign has_social = true %}{% endif %}{% if site.youtube_channel_id and site.youtube_channel_id != "" %}{% if has_social %},{% endif %}"https://www.youtube.com/channel/{{ site.youtube_channel_id }}"{% assign has_social = true %}{% endif %}{% if site.facebook_username and site.facebook_username != "" %}{% if has_social %},{% endif %}"https://www.facebook.com/{{ site.facebook_username }}"{% assign has_social = true %}{% endif %}{% endcapture %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": {{ site_name | jsonify }},
+  "url": {{ '/' | absolute_url | jsonify }},
+  "logo": {{ '/assets/images/logo.png' | absolute_url | jsonify }},
+  "sameAs": [{{ organization_same_as | strip }}]
+}
+</script>
+
 {% if site['google-analytics'] and site['google-analytics'] != "" %}
 <script async src="https://www.googletagmanager.com/gtag/js?id={{ site['google-analytics'] }}"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag() { dataLayer.push(arguments); }
   gtag('js', new Date());
-  gtag('config', '{{ site['google-analytics'] }}');
+  gtag('config', '{{ site['google-analytics'] }}', { anonymize_ip: true });
+</script>
+<script>
+  document.addEventListener('click', function (event) {
+    var clickable = event.target.closest('[data-analytics-event]');
+    if (!clickable || typeof window.gtag !== 'function') {
+      return;
+    }
+
+    var eventName = clickable.getAttribute('data-analytics-event');
+    var label = clickable.getAttribute('data-analytics-label') || clickable.getAttribute('href') || '';
+    var category = clickable.getAttribute('data-analytics-category') || 'engagement';
+    window.gtag('event', eventName, {
+      event_category: category,
+      event_label: label
+    });
+  });
 </script>
 {% endif %}

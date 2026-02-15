@@ -7,7 +7,10 @@ permalink: "/pl/projekty/skorzany-uchwyt-na-szklanke/"
 post-image: "/projects/pl/skorzany-uchwyt-na-szklanke/hero.svg"
 description: Ergonomiczny uchwyt skórzany, który poprawia komfort trzymania szklanki i ogranicza odczuwanie temperatury.
 price: 59 PLN / szt.
+price_amount: 59
+price_currency: PLN
 availability: Dostępne od ręki
+availability_schema: https://schema.org/InStock
 shopify_url: https://shopify.com
 features:
 - Pewny chwyt bez poślizgu.
