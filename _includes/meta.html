@@ -1,6 +1,24 @@
 {% assign current_lang = page.lang | default: "en" %}
 {% assign t = site.data.i18n[current_lang] %}
 {% assign site_name = site.title %}
+{% assign instagram_username = site.instagram_username %}
+{% assign linkedin_username = site.linkedin_username %}
+{% assign youtube_channel_id = site.youtube_channel_id %}
+{% assign facebook_username = site.facebook_username %}
+{% assign twitter_username = site.twitter_username %}
+{% assign author_profile_url = site['author-url'] %}
+{% assign has_placeholder_identity = false %}
+{% if instagram_username == "thedevslot" or linkedin_username == "thedevslot" or site.email == "thedevslot@gmail.com" %}
+  {% assign has_placeholder_identity = true %}
+{% endif %}
+{% if has_placeholder_identity %}
+  {% assign instagram_username = "" %}
+  {% assign linkedin_username = "" %}
+  {% assign youtube_channel_id = "" %}
+  {% assign facebook_username = "" %}
+  {% assign twitter_username = "" %}
+  {% assign author_profile_url = "" %}
+{% endif %}
 {% if page.title %}
   {% assign full_title = page.title | append: " | " | append: site_name %}
 {% else %}
@@ -27,6 +45,9 @@
 {% assign product_price_currency = page.price_currency | default: "PLN" %}
 {% assign product_availability_schema = page.availability_schema | default: "https://schema.org/InStock" %}
 {% assign product_purchase_url_raw = page.shopify_url | default: site.shopify_store_url | default: canonical_url %}
+{% if product_purchase_url_raw == "https://shopify.com" %}
+  {% assign product_purchase_url_raw = canonical_url %}
+{% endif %}
 {% if product_purchase_url_raw contains '://' %}
   {% assign product_purchase_url = product_purchase_url_raw %}
 {% else %}
@@ -69,10 +90,12 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta http-equiv="X-UA-Compatible" content="ie=edge">
 <meta name="theme-color" content="#000000">
+<meta name="language" content="{{ locale_code }}">
 
 <title>{{ full_title }}</title>
 <meta name="description" content="{{ meta_description }}">
 <meta name="keywords" content="{{ meta_keywords }}">
+<meta name="author" content="{{ site['author-name'] }}">
 {% if page.noindex %}
 <meta name="robots" content="noindex, nofollow">
 {% else %}
@@ -113,18 +136,20 @@
 
 {% if page.layout == "post" and page.date %}
 <meta property="article:published_time" content="{{ page.date | date_to_xmlschema }}">
+<meta property="article:modified_time" content="{{ page.last_modified_at | default: page.date | date_to_xmlschema }}">
 {% endif %}
-{% if page.layout == "post" and site['author-url'] and site['author-url'] != "" %}
-<meta property="article:author" content="{{ site['author-url'] }}">
+{% if page.layout == "post" and author_profile_url and author_profile_url != "" %}
+<meta property="article:author" content="{{ author_profile_url }}">
 {% endif %}
 
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="{{ full_title }}">
 <meta name="twitter:description" content="{{ meta_description }}">
 <meta name="twitter:image" content="{{ meta_image_resolved }}">
-{% if site.twitter_username and site.twitter_username != "" %}
-<meta name="twitter:site" content="@{{ site.twitter_username }}">
-<meta name="twitter:creator" content="@{{ site.twitter_username }}">
+<meta name="twitter:image:alt" content="{{ full_title }}">
+{% if twitter_username and twitter_username != "" %}
+<meta name="twitter:site" content="@{{ twitter_username }}">
+<meta name="twitter:creator" content="@{{ twitter_username }}">
 {% endif %}
 
 {% if page.layout == "post" %}
@@ -153,6 +178,28 @@
   "image": [{{ meta_image_resolved | jsonify }}]
 }
 </script>
+{% elsif page.layout == "blog" %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Blog",
+  "name": {{ full_title | jsonify }},
+  "description": {{ meta_description | jsonify }},
+  "url": {{ canonical_url | jsonify }},
+  "inLanguage": {{ locale_code | jsonify }},
+  "blogPost": [
+    {% assign localized_posts = site.posts | where: "lang", current_lang %}
+    {% for post in localized_posts limit:10 %}
+    {
+      "@type": "BlogPosting",
+      "headline": {{ post.title | jsonify }},
+      "url": {{ post.url | absolute_url | jsonify }},
+      "datePublished": {{ post.date | date_to_xmlschema | jsonify }}
+    }{% unless forloop.last %},{% endunless %}
+    {% endfor %}
+  ]
+}
+</script>
 {% elsif page.layout == "project-product" %}
 <script type="application/ld+json">
 {
@@ -167,7 +214,7 @@
   },
   "sku": {{ page.sku | default: page.translation_key | default: page.title | slugify | jsonify }},
   "url": {{ canonical_url | jsonify }},
-  "category": {{ page.tags | join: ", " | jsonify }},
+  "category": {{ page.tags | join: ", " | jsonify }}{% if product_price_amount %},
   "offers": {
     "@type": "Offer",
     "priceCurrency": {{ product_price_currency | jsonify }},
@@ -179,31 +226,61 @@
       "@type": "Organization",
       "name": {{ site_name | jsonify }}
     }
-  }
+  }{% endif %}
+}
+</script>
+{% elsif page.layout == "project" %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "CollectionPage",
+  "name": {{ full_title | jsonify }},
+  "description": {{ meta_description | jsonify }},
+  "url": {{ canonical_url | jsonify }},
+  "inLanguage": {{ locale_code | jsonify }},
+  "hasPart": [
+    {% assign localized_projects = site.projects | where: "lang", current_lang %}
+    {% for project in localized_projects limit:20 %}
+    {
+      "@type": "Product",
+      "name": {{ project.title | jsonify }},
+      "url": {{ project.url | absolute_url | jsonify }}
+    }{% unless forloop.last %},{% endunless %}
+    {% endfor %}
+  ]
 }
 </script>
 {% else %}
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "WebSite",
+  "@type": "WebPage",
   "name": {{ site_name | jsonify }},
   "description": {{ meta_description | jsonify }},
-  "url": {{ '/' | absolute_url | jsonify }},
+  "url": {{ canonical_url | jsonify }},
   "inLanguage": {{ locale_code | jsonify }}
 }
 </script>
 {% endif %}
 
-{% capture organization_same_as %}{% assign has_social = false %}{% if site.instagram_username and site.instagram_username != "" %}{% if has_social %},{% endif %}"https://www.instagram.com/{{ site.instagram_username }}"{% assign has_social = true %}{% endif %}{% if site.linkedin_username and site.linkedin_username != "" %}{% if has_social %},{% endif %}"https://www.linkedin.com/in/{{ site.linkedin_username }}"{% assign has_social = true %}{% endif %}{% if site.youtube_channel_id and site.youtube_channel_id != "" %}{% if has_social %},{% endif %}"https://www.youtube.com/channel/{{ site.youtube_channel_id }}"{% assign has_social = true %}{% endif %}{% if site.facebook_username and site.facebook_username != "" %}{% if has_social %},{% endif %}"https://www.facebook.com/{{ site.facebook_username }}"{% assign has_social = true %}{% endif %}{% endcapture %}
+{% capture organization_same_as %}{% assign has_social = false %}{% if instagram_username and instagram_username != "" %}{% if has_social %},{% endif %}"https://www.instagram.com/{{ instagram_username }}"{% assign has_social = true %}{% endif %}{% if linkedin_username and linkedin_username != "" %}{% if has_social %},{% endif %}"https://www.linkedin.com/in/{{ linkedin_username }}"{% assign has_social = true %}{% endif %}{% if youtube_channel_id and youtube_channel_id != "" %}{% if has_social %},{% endif %}"https://www.youtube.com/channel/{{ youtube_channel_id }}"{% assign has_social = true %}{% endif %}{% if facebook_username and facebook_username != "" %}{% if has_social %},{% endif %}"https://www.facebook.com/{{ facebook_username }}"{% assign has_social = true %}{% endif %}{% endcapture %}
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "Organization",
   "name": {{ site_name | jsonify }},
   "url": {{ '/' | absolute_url | jsonify }},
-  "logo": {{ '/assets/images/logo.png' | absolute_url | jsonify }},
-  "sameAs": [{{ organization_same_as | strip }}]
+  "logo": {{ '/assets/images/logo.png' | absolute_url | jsonify }}{% if organization_same_as | strip != "" %},
+  "sameAs": [{{ organization_same_as | strip }}]{% endif %}
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": {{ site_name | jsonify }},
+  "url": {{ '/' | absolute_url | jsonify }},
+  "inLanguage": [{{ 'en-US' | jsonify }}, {{ 'pl-PL' | jsonify }}]
 }
 </script>
 

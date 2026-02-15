@@ -3,7 +3,16 @@ layout: null
 permalink: /sitemap.xml
 ---
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  {% assign has_site_origin = false %}
+  {% if site.url and site.url != "" %}
+    {% assign has_site_origin = true %}
+  {% endif %}
+  {% unless has_site_origin %}
+  <!-- Set `url` in _config.yml to generate absolute sitemap URLs. -->
+  {% endunless %}
+  {% if has_site_origin %}
   {% assign documents = site.pages | concat: site.posts | concat: site.projects %}
   {% for doc in documents %}
     {% assign skip_doc = false %}
@@ -18,9 +27,38 @@ permalink: /sitemap.xml
       or doc.url contains '.css' %}
       {% assign skip_doc = true %}
     {% endif %}
+
+    {% assign en_alt = nil %}
+    {% assign pl_alt = nil %}
+    {% if doc.translation_key and doc.collection == "posts" %}
+      {% assign en_alt_doc = site.posts | where: "translation_key", doc.translation_key | where: "lang", "en" | first %}
+      {% assign pl_alt_doc = site.posts | where: "translation_key", doc.translation_key | where: "lang", "pl" | first %}
+      {% if en_alt_doc %}{% assign en_alt = en_alt_doc.url | absolute_url %}{% endif %}
+      {% if pl_alt_doc %}{% assign pl_alt = pl_alt_doc.url | absolute_url %}{% endif %}
+    {% elsif doc.translation_key and doc.collection == "projects" %}
+      {% assign en_alt_doc = site.projects | where: "translation_key", doc.translation_key | where: "lang", "en" | first %}
+      {% assign pl_alt_doc = site.projects | where: "translation_key", doc.translation_key | where: "lang", "pl" | first %}
+      {% if en_alt_doc %}{% assign en_alt = en_alt_doc.url | absolute_url %}{% endif %}
+      {% if pl_alt_doc %}{% assign pl_alt = pl_alt_doc.url | absolute_url %}{% endif %}
+    {% elsif doc.translation_key %}
+      {% assign en_alt_doc = site.pages | where: "translation_key", doc.translation_key | where: "lang", "en" | first %}
+      {% assign pl_alt_doc = site.pages | where: "translation_key", doc.translation_key | where: "lang", "pl" | first %}
+      {% if en_alt_doc %}{% assign en_alt = en_alt_doc.url | absolute_url %}{% endif %}
+      {% if pl_alt_doc %}{% assign pl_alt = pl_alt_doc.url | absolute_url %}{% endif %}
+    {% endif %}
+
     {% unless skip_doc %}
   <url>
     <loc>{{ doc.url | absolute_url }}</loc>
+      {% if en_alt %}
+    <xhtml:link rel="alternate" hreflang="en" href="{{ en_alt }}" />
+      {% endif %}
+      {% if pl_alt %}
+    <xhtml:link rel="alternate" hreflang="pl" href="{{ pl_alt }}" />
+      {% endif %}
+      {% if en_alt or pl_alt %}
+    <xhtml:link rel="alternate" hreflang="x-default" href="{{ '/' | absolute_url }}" />
+      {% endif %}
       {% assign doc_lastmod = doc.last_modified_at | default: doc.date %}
       {% if doc_lastmod %}
     <lastmod>{{ doc_lastmod | date_to_xmlschema }}</lastmod>
@@ -38,4 +76,5 @@ permalink: /sitemap.xml
   </url>
     {% endunless %}
   {% endfor %}
+  {% endif %}
 </urlset>

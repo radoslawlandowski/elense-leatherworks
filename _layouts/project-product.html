@@ -5,6 +5,13 @@ layout: compress
 {% assign t = site.data.i18n[current_lang] %}
 {% assign p = t.product %}
 {% assign shopify_url = page.shopify_url | default: site.shopify_store_url %}
+{% assign contact_email = site.email %}
+{% if shopify_url == "https://shopify.com" %}
+  {% assign shopify_url = "" %}
+{% endif %}
+{% if contact_email == "thedevslot@gmail.com" %}
+  {% assign contact_email = "" %}
+{% endif %}
 {% assign inquiry_subject = p.ask_subject_prefix | default: "Product inquiry" %}
 {% assign faq_items = page.faq | default: p.default_faq %}
 {% assign localized_posts = site.posts | where: "lang", current_lang %}
@@ -53,8 +60,12 @@ layout: compress
         </div>
         <div class="column is-4">
           <div class="product-summary-card">
+            {% if shopify_url and shopify_url != "" %}
             <a href="{{ shopify_url }}" target="_blank" rel="noopener noreferrer" class="button is-primary is-fullwidth is-medium has-text-weight-bold" data-analytics-event="shopify_click" data-analytics-label="{{ page.title }}">{{ p.buy_shopify }}</a>
-            <a href="mailto:{{ site.email }}?subject={{ inquiry_subject }}: {{ page.title }}" class="button is-outlined is-primary is-fullwidth is-medium has-text-weight-bold mt-3" data-analytics-event="contact_email_click" data-analytics-label="{{ page.title }}">{{ p.ask_product }}</a>
+            {% endif %}
+            {% if contact_email and contact_email != "" %}
+            <a href="mailto:{{ contact_email }}?subject={{ inquiry_subject }}: {{ page.title }}" class="button is-outlined is-primary is-fullwidth is-medium has-text-weight-bold {% if shopify_url and shopify_url != '' %}mt-3{% endif %}" data-analytics-event="contact_email_click" data-analytics-label="{{ page.title }}">{{ p.ask_product }}</a>
+            {% endif %}
             {% if page.tags.size > 0 %}
             <p class="is-size-7 is-uppercase mt-4">
               <span class="has-text-weight-bold">{{ p.categories }}:</span>
@@ -160,7 +171,9 @@ layout: compress
           <li>{{ p.step_3 }}</li>
         </ol>
       </div>
+      {% if shopify_url and shopify_url != "" %}
       <a href="{{ shopify_url }}" target="_blank" rel="noopener noreferrer" class="button is-primary is-medium has-text-weight-bold" data-analytics-event="shopify_click" data-analytics-label="{{ page.title }}">{{ p.go_to_shopify }}</a>
+      {% endif %}
     </div>
   </section>
 

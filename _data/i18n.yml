@@ -32,7 +32,8 @@ en:
     ping_messenger: Ping me on Messenger
     send_email: Send me an Email
     tweet_twitter: Tweet me on Twitter
-    find_me: You Can find me here
+    find_me: You can find me here
+    unavailable: Contact details will be available soon.
   footer:
     back_to_top: BACK TO TOP
     more_links: More Links
@@ -124,6 +125,7 @@ pl:
     send_email: Wyślij e-mail
     tweet_twitter: Napisz na Twitterze
     find_me: Znajdziesz mnie tutaj
+    unavailable: Dane kontaktowe będą dostępne wkrótce.
   footer:
     back_to_top: DO GÓRY
     more_links: Więcej linków

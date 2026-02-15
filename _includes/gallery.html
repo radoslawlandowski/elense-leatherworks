@@ -21,7 +21,7 @@
           {% assign resolved_src = item_src | relative_url %}
         {% endif %}
         <a href="{{ resolved_href }}">
-          <img src="{{ resolved_src }}" alt="{{ item_alt }}">
+          <img src="{{ resolved_src }}" alt="{{ item_alt }}" loading="lazy" decoding="async">
         </a>
       {% endif %}
     {% endfor %}
@@ -42,7 +42,7 @@
           {% assign resolved_src = item_src | relative_url %}
         {% endif %}
         <a href="{{ resolved_href }}">
-          <img src="{{ resolved_src }}" alt="{{ item_alt }}">
+          <img src="{{ resolved_src }}" alt="{{ item_alt }}" loading="lazy" decoding="async">
         </a>
       {% endif %}
     {% endfor %}
@@ -54,7 +54,7 @@
       {% assign resolved_fallback_image = fallback_image | relative_url %}
     {% endif %}
     <a href="{{ resolved_fallback_image }}">
-      <img src="{{ resolved_fallback_image }}" alt="{{ fallback_alt }}">
+      <img src="{{ resolved_fallback_image }}" alt="{{ fallback_alt }}" loading="lazy" decoding="async">
     </a>
   {% endif %}
 </div>

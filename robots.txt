@@ -6,4 +6,6 @@ User-agent: *
 Allow: /
 Disallow: /admin/
 
+{% if site.url and site.url != "" %}
 Sitemap: {{ '/sitemap.xml' | absolute_url }}
+{% endif %}

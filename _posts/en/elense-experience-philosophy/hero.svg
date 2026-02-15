@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 900" role="img" aria-labelledby="title desc">
+  <title id="title">Filozofia Elense Experience</title>
+  <desc id="desc">Grafika hero przedstawiajaca codzienny luksus w podejsciu Elense.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#f4eadc" />
+      <stop offset="100%" stop-color="#d8b089" />
+    </linearGradient>
+    <linearGradient id="panel" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#704a2f" />
+      <stop offset="100%" stop-color="#472c1a" />
+    </linearGradient>
+  </defs>
+
+  <rect width="1200" height="900" fill="url(#bg)" />
+  <rect x="120" y="130" width="960" height="640" rx="28" fill="url(#panel)" />
+
+  <text x="170" y="250" fill="#f7ecde" font-family="Georgia, 'Times New Roman', serif" font-size="68" font-weight="700">
+    Elense Experience
+  </text>
+  <text x="170" y="320" fill="#f0dcc5" font-family="Georgia, 'Times New Roman', serif" font-size="40">
+    codzienny luksus przedmiotow
+  </text>
+
+  <rect x="180" y="390" width="840" height="120" rx="18" fill="#e9d2b5" opacity="0.95" />
+  <text x="220" y="452" fill="#4a2f1d" font-family="Georgia, 'Times New Roman', serif" font-size="34" font-weight="700">
+    Detale. Rzemioslo. Ergonomia. Przyjemnosc na co dzien.
+  </text>
+
+  <path d="M200 620 C 330 560, 460 560, 590 620" fill="none" stroke="#f2dcc2" stroke-width="9" stroke-linecap="round" />
+  <path d="M560 620 C 700 560, 840 560, 980 620" fill="none" stroke="#f2dcc2" stroke-width="9" stroke-linecap="round" />
+  <circle cx="260" cy="595" r="8" fill="#f2dcc2" />
+  <circle cx="350" cy="580" r="8" fill="#f2dcc2" />
+  <circle cx="440" cy="585" r="8" fill="#f2dcc2" />
+  <circle cx="660" cy="585" r="8" fill="#f2dcc2" />
+  <circle cx="760" cy="580" r="8" fill="#f2dcc2" />
+  <circle cx="860" cy="595" r="8" fill="#f2dcc2" />
+</svg>

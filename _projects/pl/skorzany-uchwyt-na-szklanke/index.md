@@ -11,7 +11,7 @@ price_amount: 59
 price_currency: PLN
 availability: Dostępne od ręki
 availability_schema: https://schema.org/InStock
-shopify_url: https://shopify.com
+shopify_url: ""
 features:
 - Pewny chwyt bez poślizgu.
 - Lepsza izolacja dłoni od gorącej lub zimnej powierzchni.

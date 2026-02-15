@@ -1,50 +1,78 @@
 {% assign current_lang = page.lang | default: "en" %}
 {% assign t = site.data.i18n[current_lang] %}
+{% assign contact_email = site.email %}
+{% assign facebook_username = site.facebook_username %}
+{% assign twitter_username = site.twitter_username %}
+{% assign instagram_username = site.instagram_username %}
+{% assign linkedin_username = site.linkedin_username %}
+{% assign youtube_channel_id = site.youtube_channel_id %}
+{% assign has_primary_contact_actions = false %}
+{% assign has_social_links = false %}
+{% if contact_email == "thedevslot@gmail.com" or instagram_username == "thedevslot" or linkedin_username == "thedevslot" %}
+  {% assign contact_email = "" %}
+  {% assign facebook_username = "" %}
+  {% assign twitter_username = "" %}
+  {% assign instagram_username = "" %}
+  {% assign linkedin_username = "" %}
+  {% assign youtube_channel_id = "" %}
+{% endif %}
+{% if facebook_username and facebook_username != "" or contact_email and contact_email != "" or twitter_username and twitter_username != "" %}
+  {% assign has_primary_contact_actions = true %}
+{% endif %}
+{% if facebook_username and facebook_username != "" or instagram_username and instagram_username != "" or linkedin_username and linkedin_username != "" or youtube_channel_id and youtube_channel_id != "" %}
+  {% assign has_social_links = true %}
+{% endif %}
+{% assign has_any_contact = false %}
+{% if has_primary_contact_actions or has_social_links %}
+  {% assign has_any_contact = true %}
+{% endif %}
 <section class="hero is-fullheight has-text-centered" id="contact">
     <div class="hero-body">
         <div class="container">
-            {% if site.facebook_username and site.facebook_username != "" %}
-            <a id="contact-button" href="https://m.me/{{site.facebook_username}}"
-                class="button is-rounded is-uppercase has-text-weight-normal is-black is-outlined has-text-weight-semibold column is-two-fifths"
+            {% if facebook_username and facebook_username != "" %}
+            <a class="contact-button button is-rounded is-uppercase has-text-weight-normal is-black is-outlined has-text-weight-semibold column is-two-fifths" href="https://m.me/{{ facebook_username }}"
                 target="_blank" rel="noopener noreferrer"
                 data-analytics-event="messenger_click" data-analytics-category="contact" data-analytics-label="messenger">
                 <i class="fab fa-facebook-messenger"></i>{{ t.contact.ping_messenger }}
             </a>
             {% endif %}
-            {% if site.email and site.email != "" %}
-            <a id="contact-button" href="mailto:{{site.email}}"
-                class="button is-rounded is-uppercase has-text-weight-normal is-black is-outlined has-text-weight-semibold column is-two-fifths"
-                target="_blank" rel="noopener noreferrer"
-                data-analytics-event="contact_email_click" data-analytics-category="contact" data-analytics-label="{{ site.email }}">
+            {% if contact_email and contact_email != "" %}
+            <a class="contact-button button is-rounded is-uppercase has-text-weight-normal is-black is-outlined has-text-weight-semibold column is-two-fifths" href="mailto:{{ contact_email }}"
+                rel="noopener noreferrer"
+                data-analytics-event="contact_email_click" data-analytics-category="contact" data-analytics-label="{{ contact_email }}">
                 <i class="fas fa-envelope"></i>{{ t.contact.send_email }}
             </a>
             {% endif %}
-            {% if site.twitter_username and site.twitter_username != "" %}
-            <a id="contact-button" href="https://www.twitter.com/intent/tweet?screen_name={{site.twitter_username}}"
-                class="button is-rounded is-uppercase has-text-weight-normal is-black is-outlined has-text-weight-semibold column is-two-fifths"
+            {% if twitter_username and twitter_username != "" %}
+            <a class="contact-button button is-rounded is-uppercase has-text-weight-normal is-black is-outlined has-text-weight-semibold column is-two-fifths" href="https://www.twitter.com/intent/tweet?screen_name={{ twitter_username }}"
                 target="_blank" rel="noopener noreferrer"
-                data-analytics-event="twitter_click" data-analytics-category="contact" data-analytics-label="{{ site.twitter_username }}">
+                data-analytics-event="twitter_click" data-analytics-category="contact" data-analytics-label="{{ twitter_username }}">
                 <i class="fab fa-twitter"></i>{{ t.contact.tweet_twitter }}
             </a>
             {% endif %}
+            {% if has_social_links %}
             <hr>
             <h3 class="is-size-5 is-uppercase has-text-weight-semibold has-text-black is-marginless">
                 {{ t.contact.find_me }}
             </h3>
             <div class="column is-full is-size-3">
-                {% if site.facebook_username and site.facebook_username != "" %}
-                <a href="https://www.facebook.com/{{site.facebook_username}}" target="_blank" rel="noopener noreferrer" class="has-text-black contact-inline-icon contact-inline-icon--facebook" data-analytics-event="facebook_click" data-analytics-category="social" data-analytics-label="{{ site.facebook_username }}"><i class="fab fa-facebook"></i></a>
+                {% if facebook_username and facebook_username != "" %}
+                <a href="https://www.facebook.com/{{ facebook_username }}" target="_blank" rel="noopener noreferrer" class="has-text-black contact-inline-icon contact-inline-icon--facebook" aria-label="Facebook" data-analytics-event="facebook_click" data-analytics-category="social" data-analytics-label="{{ facebook_username }}"><i class="fab fa-facebook"></i></a>
                 {% endif %}
-                {% if site.instagram_username and site.instagram_username != "" %}
-                <a href="https://www.instagram.com/{{site.instagram_username}}" target="_blank" rel="noopener noreferrer" class="has-text-black contact-inline-icon contact-inline-icon--instagram" data-analytics-event="instagram_click" data-analytics-category="social" data-analytics-label="{{ site.instagram_username }}"><i class="fab fa-instagram"></i></a>
+                {% if instagram_username and instagram_username != "" %}
+                <a href="https://www.instagram.com/{{ instagram_username }}" target="_blank" rel="noopener noreferrer" class="has-text-black contact-inline-icon contact-inline-icon--instagram" aria-label="Instagram" data-analytics-event="instagram_click" data-analytics-category="social" data-analytics-label="{{ instagram_username }}"><i class="fab fa-instagram"></i></a>
                 {% endif %}
-                {% if site.linkedin_username and site.linkedin_username != "" %}
-                <a href="https://www.linkedin.com/in/{{site.linkedin_username}}" target="_blank" rel="noopener noreferrer" class="has-text-black contact-inline-icon" data-analytics-event="linkedin_click" data-analytics-category="social" data-analytics-label="{{ site.linkedin_username }}"><i class="fab fa-linkedin"></i></a>
+                {% if linkedin_username and linkedin_username != "" %}
+                <a href="https://www.linkedin.com/in/{{ linkedin_username }}" target="_blank" rel="noopener noreferrer" class="has-text-black contact-inline-icon" aria-label="LinkedIn" data-analytics-event="linkedin_click" data-analytics-category="social" data-analytics-label="{{ linkedin_username }}"><i class="fab fa-linkedin"></i></a>
                 {% endif %}
-                {% if site.youtube_channel_id and site.youtube_channel_id != "" %}
-                <a href="https://www.youtube.com/channel/{{site.youtube_channel_id}}" target="_blank" rel="noopener noreferrer" class="has-text-black contact-inline-icon contact-inline-icon--youtube" data-analytics-event="youtube_click" data-analytics-category="social" data-analytics-label="{{ site.youtube_channel_id }}"><i class="fab fa-youtube"></i></a>
+                {% if youtube_channel_id and youtube_channel_id != "" %}
+                <a href="https://www.youtube.com/channel/{{ youtube_channel_id }}" target="_blank" rel="noopener noreferrer" class="has-text-black contact-inline-icon contact-inline-icon--youtube" aria-label="YouTube" data-analytics-event="youtube_click" data-analytics-category="social" data-analytics-label="{{ youtube_channel_id }}"><i class="fab fa-youtube"></i></a>
                 {% endif %}
             </div>
+            {% endif %}
+            {% unless has_any_contact %}
+            <p class="is-size-6 has-text-grey-dark mt-3">{{ t.contact.unavailable }}</p>
+            {% endunless %}
         </div>
     </div>
 </section>

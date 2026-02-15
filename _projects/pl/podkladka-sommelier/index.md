@@ -11,7 +11,7 @@ price_amount: 39
 price_currency: PLN
 availability: Dostępne od ręki
 availability_schema: https://schema.org/InStock
-shopify_url: https://shopify.com
+shopify_url: ""
 features:
 - Ręczne szycie i gładko wykończone krawędzie.
 - Stabilna podstawa pod kieliszek i ochrona blatu.

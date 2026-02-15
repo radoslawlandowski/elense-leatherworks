@@ -1,9 +1,12 @@
 ---
 layout: compress
 ---
+{% assign current_lang = page.lang | default: "en" %}
+{% assign t = site.data.i18n[current_lang] %}
+{% assign home_url = t.routes.home | default: "/" %}
 
 <!DOCTYPE html>
-<html>
+<html lang="{{ current_lang }}">
 {% include head.html %}
 
 <body>
@@ -18,9 +21,8 @@ layout: compress
                 </h3>
                 <hr>
                 <div class="columns is-marginless is-inline-flex-desktop">
-                    <a href="{{site.url}}{{site.baseurl}}/"
-                        class="button is-white column is-rounded is-outlined is-uppercase has-text-weight-normal">Home</a>
-                    </a>
+                    <a href="{{ home_url | relative_url }}"
+                        class="button is-white column is-rounded is-outlined is-uppercase has-text-weight-normal">{{ t.nav.home }}</a>
                 </div>
             </div>
         </div>

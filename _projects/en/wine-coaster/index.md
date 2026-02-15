@@ -11,7 +11,7 @@ price_amount: 39
 price_currency: PLN
 availability: In stock
 availability_schema: https://schema.org/InStock
-shopify_url: https://shopify.com
+shopify_url: ""
 features:
 - Hand stitching with smooth edge finishing.
 - Stable base for wine glasses and tabletop protection.

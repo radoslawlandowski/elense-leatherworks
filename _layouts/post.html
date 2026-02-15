@@ -149,7 +149,7 @@ layout: compress
 
   <div class="section">
     <div class="container post-article">
-      {% if site['disqus-shortname'] != "" %}
+      {% if site['disqus-shortname'] and site['disqus-shortname'] != "" %}
       <div class="disqus-comments" id="disqus_thread"></div>
       {% endif %}
     </div>
@@ -157,7 +157,7 @@ layout: compress
 
   {% include footer.html %}
   {% include lightbox-init.html %}
-  {% if site['disqus-shortname'] != "" %}
+  {% if site['disqus-shortname'] and site['disqus-shortname'] != "" %}
   <script>
     /**
      *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.

@@ -1,0 +1,62 @@
+{% assign current_lang = page.lang | default: "en" %}
+{% assign t = site.data.i18n[current_lang] %}
+{% assign home_url = t.routes.home | relative_url %}
+{% assign blog_url = t.routes.blog | relative_url %}
+{% assign projects_url = t.routes.projects | relative_url %}
+{% assign show_breadcrumbs = true %}
+{% if page.translation_key == "home" or page.layout == "redirect" or page.layout == "locale-redirect" %}
+  {% assign show_breadcrumbs = false %}
+{% endif %}
+
+{% if show_breadcrumbs %}
+{% assign position = 1 %}
+{% capture breadcrumb_items %}{"@type":"ListItem","position":{{ position }},"name":{{ t.breadcrumbs.home | jsonify }},"item":{{ home_url | absolute_url | jsonify }}}{% endcapture %}
+
+<nav class="elense-breadcrumbs" aria-label="Breadcrumb">
+  <div class="container">
+    <ul>
+      <li><a href="{{ home_url }}">{{ t.breadcrumbs.home }}</a></li>
+
+      {% if page.collection == "posts" or page.translation_key == "blog_index" %}
+        {% assign position = position | plus: 1 %}
+        {% capture breadcrumb_items %}{{ breadcrumb_items }},{"@type":"ListItem","position":{{ position }},"name":{{ t.breadcrumbs.blog | jsonify }},"item":{{ blog_url | absolute_url | jsonify }}}{% endcapture %}
+
+        {% if page.collection == "posts" %}
+          <li><a href="{{ blog_url }}">{{ t.breadcrumbs.blog }}</a></li>
+          <li class="is-active" aria-current="page"><span>{{ page.title }}</span></li>
+          {% assign position = position | plus: 1 %}
+          {% capture breadcrumb_items %}{{ breadcrumb_items }},{"@type":"ListItem","position":{{ position }},"name":{{ page.title | jsonify }},"item":{{ page.url | absolute_url | jsonify }}}{% endcapture %}
+        {% else %}
+          <li class="is-active" aria-current="page"><span>{{ t.breadcrumbs.blog }}</span></li>
+        {% endif %}
+
+      {% elsif page.collection == "projects" or page.translation_key == "projects_index" %}
+        {% assign position = position | plus: 1 %}
+        {% capture breadcrumb_items %}{{ breadcrumb_items }},{"@type":"ListItem","position":{{ position }},"name":{{ t.breadcrumbs.projects | jsonify }},"item":{{ projects_url | absolute_url | jsonify }}}{% endcapture %}
+
+        {% if page.collection == "projects" %}
+          <li><a href="{{ projects_url }}">{{ t.breadcrumbs.projects }}</a></li>
+          <li class="is-active" aria-current="page"><span>{{ page.title }}</span></li>
+          {% assign position = position | plus: 1 %}
+          {% capture breadcrumb_items %}{{ breadcrumb_items }},{"@type":"ListItem","position":{{ position }},"name":{{ page.title | jsonify }},"item":{{ page.url | absolute_url | jsonify }}}{% endcapture %}
+        {% else %}
+          <li class="is-active" aria-current="page"><span>{{ t.breadcrumbs.projects }}</span></li>
+        {% endif %}
+
+      {% else %}
+        <li class="is-active" aria-current="page"><span>{{ page.title }}</span></li>
+        {% assign position = position | plus: 1 %}
+        {% capture breadcrumb_items %}{{ breadcrumb_items }},{"@type":"ListItem","position":{{ position }},"name":{{ page.title | jsonify }},"item":{{ page.url | absolute_url | jsonify }}}{% endcapture %}
+      {% endif %}
+    </ul>
+  </div>
+</nav>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [{{ breadcrumb_items }}]
+}
+</script>
+{% endif %}

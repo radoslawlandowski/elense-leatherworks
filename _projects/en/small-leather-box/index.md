@@ -11,7 +11,7 @@ price_amount: 119
 price_currency: PLN
 availability: Made to order
 availability_schema: https://schema.org/PreOrder
-shopify_url: https://shopify.com
+shopify_url: ""
 features:
 - Compact size for keys, jewelry, and daily accessories.
 - Structured body that keeps its shape over time.
