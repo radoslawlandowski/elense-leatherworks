@@ -3,18 +3,38 @@ layout: compress
 ---
 {% assign current_lang = page.lang | default: "en" %}
 {% assign t = site.data.i18n[current_lang] %}
-{% assign post_subject_prefix = t.post.ask_subject_prefix | default: "Product inquiry" %}
 {% if current_lang == "pl" %}
-  {% assign post_updated_date = page.date | date: "%d.%m.%Y" %}
+  {% assign post_date_display = page.date | date: "%d.%m.%Y" %}
 {% else %}
-  {% assign post_updated_date = page.date | date: "%B %d, %Y" %}
+  {% assign post_date_display = page.date | date: "%B %d, %Y" %}
 {% endif %}
-{% assign post_hero_image = page.post-image %}
-{% if post_hero_image contains '://' %}
-  {% assign post_hero_image_resolved = post_hero_image %}
-{% else %}
-  {% assign post_hero_image_resolved = post_hero_image | relative_url %}
+{% assign post_words = content | number_of_words %}
+{% assign post_read_minutes = post_words | divided_by: 180 | at_least: 1 %}
+{% assign post_hero_image = page.post-image | default: "" %}
+{% assign post_hero_image_resolved = "" %}
+{% if post_hero_image != "" %}
+  {% if post_hero_image contains '://' %}
+    {% assign post_hero_image_resolved = post_hero_image %}
+  {% else %}
+    {% assign post_hero_image_resolved = post_hero_image | relative_url %}
+  {% endif %}
 {% endif %}
+{% assign blog_route = t.routes.blog | default: "/blog/" %}
+{% assign localized_posts = site.posts | where: "lang", current_lang %}
+{% assign newer_post = nil %}
+{% assign older_post = nil %}
+{% assign found_current = false %}
+{% for post_item in localized_posts %}
+  {% if found_current == false %}
+    {% if post_item.url == page.url %}
+      {% assign found_current = true %}
+    {% else %}
+      {% assign newer_post = post_item %}
+    {% endif %}
+  {% elsif older_post == nil %}
+    {% assign older_post = post_item %}
+  {% endif %}
+{% endfor %}
 <!DOCTYPE html>
 <html lang="{{ current_lang }}">
 {% include head.html %}
@@ -24,68 +44,48 @@ layout: compress
   {% include navbar.html %}
 
   <section class="section" id="post">
-    <div class="container">
-      <div class="columns is-variable is-8 is-vcentered">
-        <div class="column is-7">
-          <figure class="image is-4by3 has-shadow">
-            <img src="{{ post_hero_image_resolved }}" alt="{{page.title}}" id="post-image" style="object-fit: cover; border-radius: 8px;">
-          </figure>
-        </div>
-        <div class="column is-5 has-text-left">
-          <a href="{{page.url | relative_url}}" class="has-text-black" id="title">
-            <h1 class="title is-2 has-text-weight-bold mb-3">{{page.title}}</h1>
-          </a>
-          <hr class="has-background-black mb-5" style="width: 50px; margin-left: 0;">
-          
-          {% if page.description %}
-          <p id="description" class="content is-medium has-text-weight-semibold is-uppercase mb-4">{{page.description | strip | strip_html | strip_newlines }}</p>
+    <article class="container post-article">
+      <header class="post-header">
+        <a href="{{ blog_route | relative_url }}" class="post-back-link">
+          &larr; {{ t.nav.blog }}
+        </a>
+        <h1 class="title is-2 post-title">{{ page.title }}</h1>
+        {% if page.description %}
+          <p class="post-lead">{{ page.description | strip | strip_html | strip_newlines }}</p>
+        {% endif %}
+
+        <div class="post-meta">
+          <span>{{ t.blog.published_on }} <strong>{{ post_date_display }}</strong></span>
+          <span aria-hidden="true">•</span>
+          <span><i class="fas fa-clock"></i> <strong>{{ post_read_minutes }}</strong> {{ t.blog.min_read }}</span>
+          {% if site.author-name %}
+            <span aria-hidden="true">•</span>
+            <span>{{ site.author-name }}</span>
           {% endif %}
-          
-          {% if page.price %}
-          <div class="price-tag mb-4">
-            <span class="is-size-3 has-text-weight-bold has-text-primary">{{ page.price }}</span>
-          </div>
-          {% endif %}
-
-          {% if page.availability %}
-          <div class="availability mb-4">
-            <span class="tag is-light is-medium">{{ page.availability }}</span>
-          </div>
-          {% endif %}
-
-          <div class="product-actions mb-5">
-            <a href="mailto:{{ site.email }}?subject={{ post_subject_prefix }}: {{ page.title }}" class="button is-primary is-large is-fullwidth has-text-weight-bold">
-              {{ t.post.ask_product }}
-            </a>
-          </div>
-
-          <div class="product-meta">
-            {% if page.tags.size > 0 %}
-            <p class="is-size-7 is-uppercase mb-2">
-              <span class="has-text-weight-bold">{{ t.post.categories }}:</span>
-              {% for tag in page.tags %}
-              <span class="tag is-rounded is-small">{{tag}}</span>
-              {% endfor %}
-            </p>
-            {% endif %}
-            
-            <p class="is-size-7 is-uppercase">
-              <span class="has-text-weight-bold">{{ t.post.updated_on }}:</span> {{ post_updated_date }}
-            </p>
-          </div>
         </div>
-      </div>
 
-      <div class="section px-0 mt-6">
-        <div class="content has-text-justified">
-          <h3 class="title is-4 has-text-left mb-4">{{ t.post.product_description }}</h3>
-          {{ content }}
-        </div>
+        {% if page.tags.size > 0 %}
+          <div class="post-tags" aria-label="{{ t.post.categories }}">
+            {% for tag in page.tags %}
+              <span class="tag is-rounded">{{ tag }}</span>
+            {% endfor %}
+          </div>
+        {% endif %}
+      </header>
+
+      {% if post_hero_image_resolved != "" %}
+        <figure class="post-hero">
+          <img src="{{ post_hero_image_resolved }}" alt="{{ page.title }}">
+        </figure>
+      {% endif %}
+
+      <div class="post-content content">
+        {{ content }}
       </div>
 
       {% if page.productVideoUrl %}
-      <div class="section px-0 mt-6">
-        <h3 class="title is-4 has-text-left mb-4">{{ t.post.video_presentation }}</h3>
+      <section class="post-video">
+        <h2 class="title is-4">{{ t.post.video_presentation }}</h2>
         <div class="video-container">
           {% if page.productVideoUrl contains 'youtube.com/watch?v=' %}
             {% assign video_id = page.productVideoUrl | split: 'v=' | last | split: '&' | first %}
@@ -98,15 +98,30 @@ layout: compress
           {% endif %}
           <iframe src="https://www.youtube.com/embed/{{ video_id }}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
         </div>
+      </section>
+      {% endif %}
+
+      {% if page.gallery and page.gallery.size > 0 %}
+      <div class="post-gallery-wrap">
+        {% include gallery.html gallery_items=page.gallery gallery_class="gallery" fallback_alt=page.title %}
       </div>
       {% endif %}
-    </div>
+
+      {% if older_post or newer_post %}
+      <nav class="post-pagination" aria-label="Post navigation">
+        {% if newer_post %}
+        <a class="post-pagination-link" href="{{ newer_post.url | relative_url }}">{{ newer_post.title }}</a>
+        {% endif %}
+        {% if older_post %}
+        <a class="post-pagination-link" href="{{ older_post.url | relative_url }}">{{ older_post.title }}</a>
+        {% endif %}
+      </nav>
+      {% endif %}
+    </article>
   </section>
 
-  {% include gallery.html gallery_items=page.gallery fallback_image=page.post-image gallery_class="gallery" fallback_alt=page.title %}
-
   <div class="section">
-    <div class="container">
+    <div class="container post-article">
       {% if site.disqus-shortname != "" %}
       <div class="disqus-comments" id="disqus_thread"></div>
       {% endif %}
