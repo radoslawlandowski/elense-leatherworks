@@ -79,21 +79,43 @@ defaults:
       type: 'posts'
     values:
       layout: post
-      lang: en
       post-image: ""
       description: ""
       tags:
         - ""
   -
     scope:
+      path: "_posts/en"
+      type: 'posts'
+    values:
+      lang: en
+  -
+    scope:
+      path: "_posts/pl"
+      type: 'posts'
+    values:
+      lang: pl
+  -
+    scope:
       type: 'projects'
     values:
       layout: project-product
-      lang: en
       post-image: ""
       description: ""
       tags:
         - ""
+  -
+    scope:
+      path: "_projects/en"
+      type: 'projects'
+    values:
+      lang: en
+  -
+    scope:
+      path: "_projects/pl"
+      type: 'projects'
+    values:
+      lang: pl
   -
     scope:
       type: 'pages'
