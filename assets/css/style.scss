@@ -5,10 +5,18 @@
 
 #navbar {
     opacity: 0.95;
+    background-color: $elense-cream !important;
+    border-bottom: 1px solid rgba($color: $elense-brown, $alpha: 0.25);
+    box-shadow: 0 4px 18px rgba($color: $elense-brown, $alpha: 0.08);
 }
 
 .is-active {
     font-weight: 600;
+}
+
+.elense-navbar-menu,
+.elense-navbar-dropdown {
+    background-color: $elense-cream !important;
 }
 
 .navbar-dropdown {
@@ -17,24 +25,34 @@
     left: auto;
 }
 
-a.navbar-item:hover,
-.navbar-link:hover {
-    background-color: rgba($color: #fff, $alpha: 0.25) !important;
-    color: white !important;
+#navbar .navbar-item,
+#navbar .navbar-link,
+#navbar strong {
+    color: $elense-brown !important;
 }
 
-a.navbar-item.is-active {
-    background-color: rgba($color: #fff, $alpha: 0.25) !important;
-    color: white !important;
+#navbar .navbar-burger span {
+    background-color: $elense-brown !important;
+}
+
+#navbar a.navbar-item:hover,
+#navbar .navbar-link:hover {
+    background-color: rgba($color: $elense-brown, $alpha: 0.12) !important;
+    color: $elense-brown !important;
+}
+
+#navbar a.navbar-item.is-active {
+    background-color: rgba($color: $elense-brown, $alpha: 0.16) !important;
+    color: $elense-brown !important;
 
     &:hover {
-        background-color: rgba($color: #fff, $alpha: 0.25) !important;
-        color: grey;
+        background-color: rgba($color: $elense-brown, $alpha: 0.2) !important;
+        color: $elense-brown !important;
     }
 }
 
 .navbar-link:not(.is-arrowless)::after {
-    border-color: grey;
+    border-color: $elense-brown;
 }
 
 

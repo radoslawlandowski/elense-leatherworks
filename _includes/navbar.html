@@ -30,7 +30,7 @@
 {% assign home_url = routes.home | relative_url %}
 {% assign blog_url = routes.blog | relative_url %}
 
-<nav class="navbar is-black is-fixed-top" role="navigation" aria-label="main navigation" id="navbar">
+<nav class="navbar is-fixed-top elense-navbar" role="navigation" aria-label="main navigation" id="navbar">
     <div class="container">
         <div class="navbar-brand">
             <a class="navbar-item" href="{{ home_url }}">
@@ -43,7 +43,7 @@
             </div>
         </div>
 
-        <div class="navbar-menu has-background-black" id="navbar-menu">
+        <div class="navbar-menu elense-navbar-menu" id="navbar-menu">
             <div class="navbar-end">
                 <a class="navbar-item nav-section-link {% if page.translation_key == 'home' %}is-active{% endif %}" href="{{ home_url }}">{{ t.nav.home }}</a>
                 <a class="navbar-item nav-section-link {% if page.translation_key == 'projects_index' or page.collection == 'projects' %}is-active{% endif %}" href="{{ home_url }}#projects">{{ t.nav.projects }}</a>
