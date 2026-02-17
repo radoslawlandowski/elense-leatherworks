@@ -9,17 +9,17 @@ en:
     blog: /en/blog/
   nav:
     home: HOME
-    projects: PROJECTS
+    projects: PRODUCTS
     about: ABOUT
     contact: CONTACT
     blog: BLOG
   breadcrumbs:
     home: Home
     blog: Blog
-    projects: Projects
+    projects: Products
   home:
     read_more: Read More
-    projects_heading: Projects
+    projects_heading: Products
     experience_quote: Elense Experience transforms everyday objects into daily rituals through leather craftsmanship, personalization, and tactile comfort.
   about:
     heading: About Elense Experience
@@ -88,7 +88,7 @@ en:
       - Design intended for everyday use.
     default_warranty: Product includes a 12-month workmanship warranty. If a production defect appears, we will repair or replace the product.
   projects_index:
-    title: Leather Home Decor Projects
+    title: Leather Home Decor Products
 
 pl:
   locale: pl-PL
