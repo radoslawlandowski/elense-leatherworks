@@ -3,6 +3,11 @@ layout: compress
 ---
 {% assign current_lang = page.lang | default: "en" %}
 {% assign t = site.data.i18n[current_lang] %}
+{% assign products = site.projects | where: "lang", current_lang | sort: "date" | reverse %}
+{% capture tag_buffer %}{% for product in products %}{% if product.tags %}{% for tag in product.tags %}{{ tag | strip }}|||{% endfor %}{% endif %}{% endfor %}{% endcapture %}
+{% assign product_tags = tag_buffer | split: "|||" | sort | uniq %}
+{% capture availability_buffer %}{% for product in products %}{% if product.availability %}{{ product.availability | strip }}|||{% endif %}{% endfor %}{% endcapture %}
+{% assign product_availability_values = availability_buffer | split: "|||" | sort | uniq %}
 
 <!DOCTYPE html>
 <html lang="{{ current_lang }}">
@@ -13,19 +18,210 @@ layout: compress
     {% include breadcrumbs.html %}
 
     <!--Main Section-->
-    <section class="hero is-fullheight" id="project">
+    <section class="hero" id="project">
         <div class="hero-body">
             <div class="container has-text-centered">
-                <div class="section">
-                    <h1 class="subtitle is-uppercase has-text-weight-medium has-text-grey">{{ t.projects_index.title }}</h1>
+                <section class="products-toolbar" aria-label="{{ t.projects_index.filters_aria_label }}">
+                    <div class="products-toolbar-grid">
+                        <div class="products-toolbar-group">
+                            <label class="label has-text-left">{{ t.projects_index.tag_filter_label }}</label>
+                            <div class="products-badge-list" role="group" aria-label="{{ t.projects_index.tag_filter_label }}">
+                                {% for tag in product_tags %}
+                                    {% assign clean_tag = tag | strip %}
+                                    {% if clean_tag != "" %}
+                                <button
+                                    type="button"
+                                    class="products-filter-badge"
+                                    data-filter-group="tag"
+                                    data-filter-value="{{ clean_tag | downcase | escape }}"
+                                    aria-pressed="false">{{ clean_tag }}</button>
+                                    {% endif %}
+                                {% endfor %}
+                            </div>
+                        </div>
+                        <div class="products-toolbar-group">
+                            <label class="label has-text-left">{{ t.projects_index.availability_filter_label }}</label>
+                            <div class="products-badge-list" role="group" aria-label="{{ t.projects_index.availability_filter_label }}">
+                                {% for availability in product_availability_values %}
+                                    {% assign clean_availability = availability | strip %}
+                                    {% if clean_availability != "" %}
+                                <button
+                                    type="button"
+                                    class="products-filter-badge"
+                                    data-filter-group="availability"
+                                    data-filter-value="{{ clean_availability | downcase | escape }}"
+                                    aria-pressed="false">{{ clean_availability }}</button>
+                                    {% endif %}
+                                {% endfor %}
+                            </div>
+                        </div>
+                        <div class="products-toolbar-actions">
+                            <button id="products-clear-filters" class="products-clear-filters" type="button">{{ t.projects_index.clear_filters }}</button>
+                        </div>
+                    </div>
+                    <p id="products-results-count" class="products-results-count" data-count-template="{{ t.projects_index.results_count | escape }}"></p>
+                </section>
+
+                <div id="products-catalog">
+                    {% include project-card.html projects=products %}
                 </div>
-                {% include project-card.html %}
+
+                <p id="products-no-results" class="products-no-results is-hidden">{{ t.projects_index.no_results }}</p>
             </div>
         </div>
     </section>
 
     <!--Footer-->
     {% include footer.html %}
+
+    <script>
+        (function () {
+            var catalog = document.getElementById('products-catalog');
+            if (!catalog) {
+                return;
+            }
+
+            var tagBadges = Array.prototype.slice.call(document.querySelectorAll('[data-filter-group="tag"]'));
+            var availabilityBadges = Array.prototype.slice.call(document.querySelectorAll('[data-filter-group="availability"]'));
+            var clearFiltersButton = document.getElementById('products-clear-filters');
+            var resultCount = document.getElementById('products-results-count');
+            var emptyState = document.getElementById('products-no-results');
+            var cards = Array.prototype.slice.call(catalog.querySelectorAll('[data-product-tile]'));
+            var selectedTag = '';
+            var selectedAvailability = '';
+            var gridAnimationTimer = null;
+            var GRID_FADE_MS = 160;
+            var prefersReducedMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+            function normalize(value) {
+                return (value || '').toString().toLowerCase().trim();
+            }
+
+            function setActiveBadge(badges, activeValue) {
+                badges.forEach(function (badge) {
+                    var isActive = normalize(badge.dataset.filterValue) === activeValue && activeValue !== '';
+                    badge.classList.toggle('is-active', isActive);
+                    badge.setAttribute('aria-pressed', isActive ? 'true' : 'false');
+                });
+            }
+
+            function hasBadgeWithValue(badges, value) {
+                return badges.some(function (badge) {
+                    return normalize(badge.dataset.filterValue) === value;
+                });
+            }
+
+            function applyFilters() {
+                var visibleCount = 0;
+
+                cards.forEach(function (card) {
+                    var cardTags = normalize(card.dataset.tags).split('|').filter(Boolean);
+                    var cardAvailability = normalize(card.dataset.availability);
+                    var matchesTag = !selectedTag || cardTags.indexOf(selectedTag) !== -1;
+                    var matchesAvailability = !selectedAvailability || cardAvailability === selectedAvailability;
+                    var isVisible = matchesTag && matchesAvailability;
+
+                    if (isVisible) {
+                        card.classList.remove('is-hidden');
+                        visibleCount += 1;
+                    } else {
+                        card.classList.add('is-hidden');
+                    }
+                });
+
+                if (resultCount) {
+                    var countTemplate = resultCount.getAttribute('data-count-template') || '{count}';
+                    resultCount.textContent = countTemplate.replace('{count}', visibleCount);
+                }
+
+                if (emptyState) {
+                    emptyState.classList.toggle('is-hidden', visibleCount > 0);
+                }
+
+                if (window.URLSearchParams && window.history && window.history.replaceState) {
+                    var params = new URLSearchParams(window.location.search);
+                    params.delete('q');
+                    if (selectedTag) {
+                        params.set('tag', selectedTag);
+                    } else {
+                        params.delete('tag');
+                    }
+                    if (selectedAvailability) {
+                        params.set('availability', selectedAvailability);
+                    } else {
+                        params.delete('availability');
+                    }
+                    var queryString = params.toString();
+                    var nextUrl = queryString ? window.location.pathname + '?' + queryString : window.location.pathname;
+                    window.history.replaceState({}, '', nextUrl);
+                }
+            }
+
+            function animateGridRefresh() {
+                if (prefersReducedMotion) {
+                    applyFilters();
+                    return;
+                }
+
+                if (gridAnimationTimer) {
+                    window.clearTimeout(gridAnimationTimer);
+                    gridAnimationTimer = null;
+                }
+
+                catalog.classList.add('is-grid-fading');
+
+                gridAnimationTimer = window.setTimeout(function () {
+                    applyFilters();
+                    window.requestAnimationFrame(function () {
+                        catalog.classList.remove('is-grid-fading');
+                    });
+                    gridAnimationTimer = null;
+                }, GRID_FADE_MS);
+            }
+
+            if (window.URLSearchParams) {
+                var params = new URLSearchParams(window.location.search);
+                var initialTag = params.get('tag');
+                var initialAvailability = params.get('availability');
+
+                if (initialTag && hasBadgeWithValue(tagBadges, normalize(initialTag))) {
+                    selectedTag = normalize(initialTag);
+                }
+                if (initialAvailability && hasBadgeWithValue(availabilityBadges, normalize(initialAvailability))) {
+                    selectedAvailability = normalize(initialAvailability);
+                }
+            }
+
+            setActiveBadge(tagBadges, selectedTag);
+            setActiveBadge(availabilityBadges, selectedAvailability);
+
+            tagBadges.forEach(function (badge) {
+                badge.addEventListener('click', function () {
+                    var clickedValue = normalize(badge.dataset.filterValue);
+                    selectedTag = selectedTag === clickedValue ? '' : clickedValue;
+                    setActiveBadge(tagBadges, selectedTag);
+                    animateGridRefresh();
+                });
+            });
+            availabilityBadges.forEach(function (badge) {
+                badge.addEventListener('click', function () {
+                    var clickedValue = normalize(badge.dataset.filterValue);
+                    selectedAvailability = selectedAvailability === clickedValue ? '' : clickedValue;
+                    setActiveBadge(availabilityBadges, selectedAvailability);
+                    animateGridRefresh();
+                });
+            });
+            clearFiltersButton.addEventListener('click', function () {
+                selectedTag = '';
+                selectedAvailability = '';
+                setActiveBadge(tagBadges, selectedTag);
+                setActiveBadge(availabilityBadges, selectedAvailability);
+                animateGridRefresh();
+            });
+
+            applyFilters();
+        }());
+    </script>
 </body>
 
 </html>

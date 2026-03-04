@@ -28,6 +28,7 @@
 {% endif %}
 
 {% assign home_url = routes.home | relative_url %}
+{% assign projects_url = routes.projects | relative_url %}
 {% assign blog_url = routes.blog | relative_url %}
 
 <nav class="navbar is-fixed-top elense-navbar" role="navigation" aria-label="main navigation" id="navbar">
@@ -46,7 +47,7 @@
         <div class="navbar-menu elense-navbar-menu" id="navbar-menu">
             <div class="navbar-end">
                 <a class="navbar-item nav-section-link {% if page.translation_key == 'home' %}is-active{% endif %}" href="{{ home_url }}">{{ t.nav.home }}</a>
-                <a class="navbar-item nav-section-link {% if page.translation_key == 'projects_index' or page.collection == 'projects' %}is-active{% endif %}" href="{{ home_url }}#projects">{{ t.nav.projects }}</a>
+                <a class="navbar-item nav-section-link {% if page.translation_key == 'projects_index' or page.collection == 'projects' %}is-active{% endif %}" href="{{ projects_url }}">{{ t.nav.projects }}</a>
                 <a class="navbar-item nav-section-link" href="{{ home_url }}#about">{{ t.nav.about }}</a>
                 <a class="navbar-item nav-section-link" href="{{ home_url }}#contact">{{ t.nav.contact }}</a>
                 <a class="navbar-item {% if page.translation_key == 'blog_index' %}is-active{% endif %}" href="{{ blog_url }}">{{ t.nav.blog }}</a>

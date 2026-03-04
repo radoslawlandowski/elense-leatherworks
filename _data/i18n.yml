@@ -21,6 +21,8 @@ en:
     read_more: Read More
     projects_heading: Products
     experience_quote: Elense Experience transforms everyday objects into daily rituals through leather craftsmanship, personalization, and tactile comfort.
+    view_all_products: View all products
+    view_all_products_note: Browse the complete catalog with filters, availability, and detailed product pages.
   about:
     heading: About Elense Experience
     lead: I create leather accessories for home decor because quality of life is built by small rituals repeated every day.
@@ -29,6 +31,10 @@ en:
     contact_me: Contact Me
     blog: Blog
   contact:
+    heading: Contact
+    whatsapp: WhatsApp
+    email: Email
+    instagram: Instagram
     ping_messenger: Ping me on Messenger
     send_email: Send me an Email
     tweet_twitter: Tweet me on Twitter
@@ -89,6 +95,17 @@ en:
     default_warranty: Product includes a 12-month workmanship warranty. If a production defect appears, we will repair or replace the product.
   projects_index:
     title: Leather Home Decor Products
+    description: Browse handcrafted leather products and narrow the catalog with instant search and filters.
+    filters_aria_label: Product filters
+    search_label: Search
+    search_placeholder: Search by product name, tag, or price
+    tag_filter_label: Tag
+    availability_filter_label: Availability
+    all_tags: All tags
+    all_availability: All availability
+    clear_filters: Clear
+    results_count: "{count} products found"
+    no_results: No products match your current search and filters.
 
 pl:
   locale: pl-PL
@@ -113,6 +130,8 @@ pl:
     read_more: Czytaj więcej
     projects_heading: Projekty
     experience_quote: Elense Experience nadaje codziennym przedmiotom wyższą jakość poprzez rzemiosło skórzane, personalizację i komfort użytkowania.
+    view_all_products: Zobacz wszystkie produkty
+    view_all_products_note: Przeglądaj pełny katalog z filtrami, dostępnością i szczegółowymi kartami produktów.
   about:
     heading: O Elense Experience
     lead: Tworzę akcesoria skórzane do home decor, bo to codzienne rytuały budują jakość życia.
@@ -121,6 +140,10 @@ pl:
     contact_me: Skontaktuj się
     blog: Blog
   contact:
+    heading: Kontakt
+    whatsapp: WhatsApp
+    email: E-mail
+    instagram: Instagram
     ping_messenger: Napisz na Messengerze
     send_email: Wyślij e-mail
     tweet_twitter: Napisz na Twitterze
@@ -181,3 +204,14 @@ pl:
     default_warranty: Produkt objęty jest 12-miesięczną gwarancją na wykonanie. W przypadku wady produkcyjnej zapewniamy naprawę lub wymianę.
   projects_index:
     title: Projekty Skórzane Home Decor
+    description: Przeglądaj ręcznie szyte produkty skórzane i zawężaj listę dzięki wyszukiwarce oraz filtrom.
+    filters_aria_label: Filtry produktów
+    search_label: Szukaj
+    search_placeholder: Szukaj po nazwie, tagu lub cenie
+    tag_filter_label: Tag
+    availability_filter_label: Dostępność
+    all_tags: Wszystkie tagi
+    all_availability: Każda dostępność
+    clear_filters: Wyczyść
+    results_count: "Znaleziono produktów: {count}"
+    no_results: Brak produktów pasujących do bieżącego wyszukiwania i filtrów.

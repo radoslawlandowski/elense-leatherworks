@@ -1,5 +1,6 @@
 {% assign current_lang = page.lang | default: "en" %}
 {% assign t = site.data.i18n[current_lang] %}
+{% assign products_page_url = t.routes.projects | relative_url %}
 <section class="hero has-text-centered has-background-white-ter" id="projects">
   <div class="hero-body">
     <div class="container">
@@ -9,7 +10,7 @@
       <h2 class="subtitle is-uppercase has-text-weight-medium has-text-grey">{{ t.home.projects_heading }}</h2>
       <div class="projects-home-grid">
         {% assign projects = site.projects | where: "lang", current_lang | sort: "date" | reverse %}
-        {% for project in projects %}
+        {% for project in projects limit: 3 %}
           {% assign project_image = project.post-image %}
           {% if project_image contains '://' %}
             {% assign project_image_resolved = project_image %}
@@ -20,6 +21,10 @@
             <img src="{{ project_image_resolved }}" alt="{{ project.title }}" loading="lazy" decoding="async">
           </a>
         {% endfor %}
+      </div>
+      <div class="projects-home-footer">
+        <a class="projects-home-view-all" href="{{ products_page_url }}">{{ t.home.view_all_products }}</a>
+        <p class="projects-home-view-all-note">{{ t.home.view_all_products_note }}</p>
       </div>
     </div>
   </div>

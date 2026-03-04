@@ -1,6 +1,10 @@
 {% assign current_lang = page.lang | default: "en" %}
-<div class="columns is-centered is-multiline is-mobile">
+{% if include.projects %}
+  {% assign projects = include.projects %}
+{% else %}
   {% assign projects = site.projects | where: "lang", current_lang | sort: "date" | reverse %}
+{% endif %}
+<div class="projects-home-grid">
   {% for project in projects %}
     {% assign project_image = project.post-image %}
     {% if project_image contains '://' %}
@@ -8,18 +12,18 @@
     {% else %}
       {% assign project_image_resolved = project_image | relative_url %}
     {% endif %}
-    <div class="column has-text-centered is-paddingless is-marginless is-one-third-widescreen is-one-third-desktop is-one-fifth-fullhd is-one-third-tablet is-two-fifths-mobile is-three-quarters-touch project-card">
-      <a href="{{ project.url | relative_url }}">
-      <div class="has-background-black card">
-        <figure class="image is-3by1">
-          <img src="{{ project_image_resolved }}" alt="{{ project.title }}" loading="lazy" decoding="async">
-        </figure>
-        <div class="card-content">
-          <h2 class="title has-text-white is-size-4">{{ project.title }}</h2>
-          <p class="has-text-white has-text-weight-light content">{{ project.description | strip | strip_html | strip_newlines | truncate: 80 }}</p>
-        </div>
-      </div>
-      </a>
-    </div>
+    {% capture project_search_blob %}
+      {{ project.title }} {{ project.description | strip_html }} {% if project.tags %}{{ project.tags | join: " " }}{% endif %} {{ project.availability }} {{ project.price }}
+    {% endcapture %}
+    <a
+      class="projects-home-item"
+      href="{{ project.url | relative_url }}"
+      aria-label="{{ project.title }}"
+      data-product-tile
+      data-search="{{ project_search_blob | strip_html | strip_newlines | downcase | strip | escape }}"
+      data-tags="{% if project.tags %}{{ project.tags | join: '|' | downcase | strip | escape }}{% endif %}"
+      data-availability="{{ project.availability | default: '' | downcase | strip | escape }}">
+      <img src="{{ project_image_resolved }}" alt="{{ project.title }}" loading="lazy" decoding="async">
+    </a>
   {% endfor %}
 </div>

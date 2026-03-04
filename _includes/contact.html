@@ -1,75 +1,62 @@
 {% assign current_lang = page.lang | default: "en" %}
 {% assign t = site.data.i18n[current_lang] %}
 {% assign contact_email = site.email %}
-{% assign facebook_username = site.facebook_username %}
-{% assign twitter_username = site.twitter_username %}
 {% assign instagram_username = site.instagram_username %}
-{% assign linkedin_username = site.linkedin_username %}
-{% assign youtube_channel_id = site.youtube_channel_id %}
-{% assign has_primary_contact_actions = false %}
-{% assign has_social_links = false %}
-{% if contact_email == "thedevslot@gmail.com" or instagram_username == "thedevslot" or linkedin_username == "thedevslot" %}
+{% assign whatsapp_number = site.whatsapp_number %}
+{% assign whatsapp_url = site.whatsapp_url %}
+{% if contact_email == "thedevslot@gmail.com" or instagram_username == "thedevslot" %}
   {% assign contact_email = "" %}
-  {% assign facebook_username = "" %}
-  {% assign twitter_username = "" %}
   {% assign instagram_username = "" %}
-  {% assign linkedin_username = "" %}
-  {% assign youtube_channel_id = "" %}
 {% endif %}
-{% if facebook_username and facebook_username != "" or contact_email and contact_email != "" or twitter_username and twitter_username != "" %}
-  {% assign has_primary_contact_actions = true %}
+{% assign whatsapp_digits = whatsapp_number | default: "" | remove: " " | remove: "-" | remove: "(" | remove: ")" | remove: "+" %}
+{% if whatsapp_url and whatsapp_url != "" %}
+  {% assign whatsapp_href = whatsapp_url %}
+{% elsif whatsapp_digits != "" %}
+  {% assign whatsapp_href = "https://wa.me/" | append: whatsapp_digits %}
+{% else %}
+  {% assign whatsapp_href = "" %}
 {% endif %}
-{% if facebook_username and facebook_username != "" or instagram_username and instagram_username != "" or linkedin_username and linkedin_username != "" or youtube_channel_id and youtube_channel_id != "" %}
-  {% assign has_social_links = true %}
+
+{% if instagram_username contains "://" %}
+  {% assign instagram_href = instagram_username %}
+{% elsif instagram_username and instagram_username != "" %}
+  {% assign instagram_href = "https://www.instagram.com/" | append: instagram_username %}
+{% else %}
+  {% assign instagram_href = "" %}
 {% endif %}
+
 {% assign has_any_contact = false %}
-{% if has_primary_contact_actions or has_social_links %}
+{% if whatsapp_href != "" or contact_email != "" or instagram_href != "" %}
   {% assign has_any_contact = true %}
 {% endif %}
+
 <section class="hero is-fullheight has-text-centered" id="contact">
     <div class="hero-body">
         <div class="container">
-            {% if facebook_username and facebook_username != "" %}
-            <a class="contact-button button is-rounded is-uppercase has-text-weight-normal is-black is-outlined has-text-weight-semibold column is-two-fifths" href="https://m.me/{{ facebook_username }}"
-                target="_blank" rel="noopener noreferrer"
-                data-analytics-event="messenger_click" data-analytics-category="contact" data-analytics-label="messenger">
-                <i class="fab fa-facebook-messenger"></i>{{ t.contact.ping_messenger }}
-            </a>
-            {% endif %}
-            {% if contact_email and contact_email != "" %}
-            <a class="contact-button button is-rounded is-uppercase has-text-weight-normal is-black is-outlined has-text-weight-semibold column is-two-fifths" href="mailto:{{ contact_email }}"
-                rel="noopener noreferrer"
-                data-analytics-event="contact_email_click" data-analytics-category="contact" data-analytics-label="{{ contact_email }}">
-                <i class="fas fa-envelope"></i>{{ t.contact.send_email }}
-            </a>
-            {% endif %}
-            {% if twitter_username and twitter_username != "" %}
-            <a class="contact-button button is-rounded is-uppercase has-text-weight-normal is-black is-outlined has-text-weight-semibold column is-two-fifths" href="https://www.twitter.com/intent/tweet?screen_name={{ twitter_username }}"
-                target="_blank" rel="noopener noreferrer"
-                data-analytics-event="twitter_click" data-analytics-category="contact" data-analytics-label="{{ twitter_username }}">
-                <i class="fab fa-twitter"></i>{{ t.contact.tweet_twitter }}
-            </a>
-            {% endif %}
-            {% if has_social_links %}
-            <hr>
-            <h3 class="is-size-5 is-uppercase has-text-weight-semibold has-text-black is-marginless">
-                {{ t.contact.find_me }}
-            </h3>
-            <div class="column is-full is-size-3">
-                {% if facebook_username and facebook_username != "" %}
-                <a href="https://www.facebook.com/{{ facebook_username }}" target="_blank" rel="noopener noreferrer" class="has-text-black contact-inline-icon contact-inline-icon--facebook" aria-label="Facebook" data-analytics-event="facebook_click" data-analytics-category="social" data-analytics-label="{{ facebook_username }}"><i class="fab fa-facebook"></i></a>
+            <h2 class="subtitle is-uppercase has-text-weight-medium has-text-grey">{{ t.contact.heading }}</h2>
+            <div class="contact-channels">
+                {% if whatsapp_href != "" %}
+                <a class="contact-channel contact-channel--whatsapp" href="{{ whatsapp_href }}" target="_blank" rel="noopener noreferrer" data-analytics-event="whatsapp_click" data-analytics-category="contact" data-analytics-label="{{ whatsapp_href }}">
+                    <span class="contact-channel-icon"><i class="fab fa-whatsapp" aria-hidden="true"></i></span>
+                    <span class="contact-channel-label">{{ t.contact.whatsapp }}</span>
+                </a>
                 {% endif %}
-                {% if instagram_username and instagram_username != "" %}
-                <a href="https://www.instagram.com/{{ instagram_username }}" target="_blank" rel="noopener noreferrer" class="has-text-black contact-inline-icon contact-inline-icon--instagram" aria-label="Instagram" data-analytics-event="instagram_click" data-analytics-category="social" data-analytics-label="{{ instagram_username }}"><i class="fab fa-instagram"></i></a>
+
+                {% if contact_email and contact_email != "" %}
+                <a class="contact-channel contact-channel--email" href="mailto:{{ contact_email }}" rel="noopener noreferrer" data-analytics-event="contact_email_click" data-analytics-category="contact" data-analytics-label="{{ contact_email }}">
+                    <span class="contact-channel-icon"><i class="fas fa-envelope" aria-hidden="true"></i></span>
+                    <span class="contact-channel-label">{{ t.contact.email }}</span>
+                </a>
                 {% endif %}
-                {% if linkedin_username and linkedin_username != "" %}
-                <a href="https://www.linkedin.com/in/{{ linkedin_username }}" target="_blank" rel="noopener noreferrer" class="has-text-black contact-inline-icon" aria-label="LinkedIn" data-analytics-event="linkedin_click" data-analytics-category="social" data-analytics-label="{{ linkedin_username }}"><i class="fab fa-linkedin"></i></a>
-                {% endif %}
-                {% if youtube_channel_id and youtube_channel_id != "" %}
-                <a href="https://www.youtube.com/channel/{{ youtube_channel_id }}" target="_blank" rel="noopener noreferrer" class="has-text-black contact-inline-icon contact-inline-icon--youtube" aria-label="YouTube" data-analytics-event="youtube_click" data-analytics-category="social" data-analytics-label="{{ youtube_channel_id }}"><i class="fab fa-youtube"></i></a>
+
+                {% if instagram_href != "" %}
+                <a class="contact-channel contact-channel--instagram" href="{{ instagram_href }}" target="_blank" rel="noopener noreferrer" data-analytics-event="instagram_click" data-analytics-category="contact" data-analytics-label="{{ instagram_username }}">
+                    <span class="contact-channel-icon"><i class="fab fa-instagram" aria-hidden="true"></i></span>
+                    <span class="contact-channel-label">{{ t.contact.instagram }}</span>
+                </a>
                 {% endif %}
             </div>
-            {% endif %}
+
             {% unless has_any_contact %}
             <p class="is-size-6 has-text-grey-dark mt-3">{{ t.contact.unavailable }}</p>
             {% endunless %}
