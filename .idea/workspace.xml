@@ -4,18 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="25c37f1c-2044-4918-9cdf-057ee5ec21c9" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/elense-leatherworks.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
+    <list default="true" id="25c37f1c-2044-4918-9cdf-057ee5ec21c9" name="Changes" comment="Refactor `.idea` configs, update navigation for project routing, and enhance contact section styling and behavior.">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/_config.yml" beforeDir="false" afterPath="$PROJECT_DIR$/_config.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/_data/i18n.yml" beforeDir="false" afterPath="$PROJECT_DIR$/_data/i18n.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_includes/contact.html" beforeDir="false" afterPath="$PROJECT_DIR$/_includes/contact.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_includes/footer.html" beforeDir="false" afterPath="$PROJECT_DIR$/_includes/footer.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_includes/head.html" beforeDir="false" afterPath="$PROJECT_DIR$/_includes/head.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/_includes/navbar.html" beforeDir="false" afterPath="$PROJECT_DIR$/_includes/navbar.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/_includes/project-card.html" beforeDir="false" afterPath="$PROJECT_DIR$/_includes/project-card.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/_includes/projects-home.html" beforeDir="false" afterPath="$PROJECT_DIR$/_includes/projects-home.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_layouts/project.html" beforeDir="false" afterPath="$PROJECT_DIR$/_layouts/project.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_layouts/project-product.html" beforeDir="false" afterPath="$PROJECT_DIR$/_layouts/project-product.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/assets/css/style.scss" beforeDir="false" afterPath="$PROJECT_DIR$/assets/css/style.scss" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -49,6 +47,7 @@
     "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
     "RunOnceActivity.git.unshallow": "true",
     "RunOnceActivity.typescript.service.memoryLimit.init": "true",
+    "Shell Script.Run.executor": "Run",
     "com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1": "true",
     "git-widget-placeholder": "master",
     "junie.onboarding.icon.badge.shown": "true",
@@ -64,7 +63,7 @@
 }]]></component>
   <component name="RunManager">
     <configuration name="Run" type="ShConfigurationType">
-      <option name="SCRIPT_TEXT" value="arch -x86_64 bundle exec jekyll serve --interactive" />
+      <option name="SCRIPT_TEXT" value="arch -x86_64 bundle exec jekyll serve" />
       <option name="INDEPENDENT_SCRIPT_PATH" value="true" />
       <option name="SCRIPT_PATH" value="" />
       <option name="SCRIPT_OPTIONS" value="" />
@@ -94,11 +93,24 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1772642512250</updated>
-      <workItem from="1772642513237" duration="996000" />
+      <workItem from="1772642513237" duration="2230000" />
     </task>
+    <task id="LOCAL-00001" summary="Refactor `.idea` configs, update navigation for project routing, and enhance contact section styling and behavior.">
+      <option name="closed" value="true" />
+      <created>1772650463873</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1772650463873</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Refactor `.idea` configs, update navigation for project routing, and enhance contact section styling and behavior." />
+    <option name="LAST_COMMIT_MESSAGE" value="Refactor `.idea` configs, update navigation for project routing, and enhance contact section styling and behavior." />
   </component>
 </project>

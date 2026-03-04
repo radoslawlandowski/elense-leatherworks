@@ -55,6 +55,36 @@
     border-color: $elense-brown;
 }
 
+#navbar .elense-cart-trigger {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    border: 0;
+    background: transparent;
+    color: $elense-brown !important;
+    font-weight: 600;
+    font-size: 0.92rem;
+}
+
+#navbar .elense-cart-trigger:hover {
+    background-color: rgba($color: $elense-brown, $alpha: 0.12) !important;
+}
+
+#navbar .elense-cart-count {
+    min-width: 1.55rem;
+    height: 1.55rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 999px;
+    background: rgba($color: $elense-brown, $alpha: 0.14);
+    border: 1px solid rgba($color: $elense-brown, $alpha: 0.22);
+    color: $elense-brown;
+    font-size: 0.76rem;
+    font-weight: 700;
+    line-height: 1;
+}
+
 
 #hero {
     position: relative;
@@ -523,6 +553,12 @@
     gap: 1rem;
 }
 
+.projects-home-entry {
+    display: flex;
+    flex-direction: column;
+    gap: 0.55rem;
+}
+
 .projects-home-item {
     display: block;
     overflow: hidden;
@@ -541,6 +577,13 @@
         aspect-ratio: 4 / 3;
         object-fit: cover;
     }
+}
+
+.projects-home-add-to-cart {
+    border-radius: 999px;
+    letter-spacing: 0.04rem;
+    font-weight: 700;
+    min-height: 2.35rem;
 }
 
 .projects-home-footer {

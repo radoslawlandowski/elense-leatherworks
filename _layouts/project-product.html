@@ -5,6 +5,10 @@ layout: compress
 {% assign t = site.data.i18n[current_lang] %}
 {% assign p = t.product %}
 {% assign shopify_url = page.shopify_url | default: site.shopify_store_url %}
+{% assign snipcart_enabled = false %}
+{% if site.snipcart_api_key and site.snipcart_api_key != "" %}
+  {% assign snipcart_enabled = true %}
+{% endif %}
 {% assign contact_email = site.email %}
 {% if shopify_url == "https://shopify.com" %}
   {% assign shopify_url = "" %}
@@ -15,11 +19,31 @@ layout: compress
 {% assign inquiry_subject = p.ask_subject_prefix | default: "Product inquiry" %}
 {% assign faq_items = page.faq | default: p.default_faq %}
 {% assign localized_posts = site.posts | where: "lang", current_lang %}
+{% assign how_to_buy_step_1 = p.step_1 %}
+{% assign how_to_buy_step_2 = p.step_2 %}
+{% assign how_to_buy_step_3 = p.step_3 %}
+{% assign product_price_amount = page.price_amount %}
+{% if product_price_amount == nil and page.price %}
+  {% assign product_price_amount = page.price | split: ' ' | first | replace: ',', '.' %}
+{% endif %}
+{% assign product_id = page.translation_key | default: page.slug | default: page.title | slugify %}
+{% assign product_url = page.url | relative_url %}
+{% assign product_description = page.description | strip_html | strip_newlines | strip %}
 {% assign project_hero_image = page.post-image %}
 {% if project_hero_image contains '://' %}
   {% assign project_hero_image_resolved = project_hero_image %}
 {% else %}
   {% assign project_hero_image_resolved = project_hero_image | relative_url %}
+{% endif %}
+{% assign has_primary_purchase_cta = false %}
+{% if shopify_url and shopify_url != "" %}
+  {% assign has_primary_purchase_cta = true %}
+{% endif %}
+{% if snipcart_enabled and product_price_amount %}
+  {% assign has_primary_purchase_cta = true %}
+  {% assign how_to_buy_step_1 = p.step_1_cart | default: how_to_buy_step_1 %}
+  {% assign how_to_buy_step_2 = p.step_2_cart | default: how_to_buy_step_2 %}
+  {% assign how_to_buy_step_3 = p.step_3_cart | default: how_to_buy_step_3 %}
 {% endif %}
 
 <!DOCTYPE html>
@@ -60,11 +84,23 @@ layout: compress
         </div>
         <div class="column is-4">
           <div class="product-summary-card">
+            {% if snipcart_enabled and product_price_amount %}
+            <button
+              type="button"
+              class="button is-primary is-fullwidth is-medium has-text-weight-bold snipcart-add-item"
+              data-item-id="{{ product_id | escape }}"
+              data-item-name="{{ page.title | strip | escape }}"
+              data-item-price="{{ product_price_amount }}"
+              data-item-url="{{ product_url | escape }}"
+              data-item-description="{{ product_description | escape }}"
+              data-item-image="{{ project_hero_image_resolved | escape }}"
+              data-item-quantity="1">{{ p.add_to_cart }}</button>
+            {% endif %}
             {% if shopify_url and shopify_url != "" %}
-            <a href="{{ shopify_url }}" target="_blank" rel="noopener noreferrer" class="button is-primary is-fullwidth is-medium has-text-weight-bold" data-analytics-event="shopify_click" data-analytics-label="{{ page.title }}">{{ p.buy_shopify }}</a>
+            <a href="{{ shopify_url }}" target="_blank" rel="noopener noreferrer" class="button is-primary is-fullwidth is-medium has-text-weight-bold {% if snipcart_enabled and product_price_amount %}mt-3{% endif %}" data-analytics-event="shopify_click" data-analytics-label="{{ page.title }}">{{ p.buy_shopify }}</a>
             {% endif %}
             {% if contact_email and contact_email != "" %}
-            <a href="mailto:{{ contact_email }}?subject={{ inquiry_subject }}: {{ page.title }}" class="button is-outlined is-primary is-fullwidth is-medium has-text-weight-bold {% if shopify_url and shopify_url != '' %}mt-3{% endif %}" data-analytics-event="contact_email_click" data-analytics-label="{{ page.title }}">{{ p.ask_product }}</a>
+            <a href="mailto:{{ contact_email }}?subject={{ inquiry_subject }}: {{ page.title }}" class="button is-outlined is-primary is-fullwidth is-medium has-text-weight-bold {% if has_primary_purchase_cta %}mt-3{% endif %}" data-analytics-event="contact_email_click" data-analytics-label="{{ page.title }}">{{ p.ask_product }}</a>
             {% endif %}
             {% if page.tags.size > 0 %}
             <p class="is-size-7 is-uppercase mt-4">
@@ -166,9 +202,9 @@ layout: compress
       <h3 class="title is-4 mb-4">{{ p.how_to_buy }}</h3>
       <div class="content">
         <ol>
-          <li>{{ p.step_1 }}</li>
-          <li>{{ p.step_2 }}</li>
-          <li>{{ p.step_3 }}</li>
+          <li>{{ how_to_buy_step_1 }}</li>
+          <li>{{ how_to_buy_step_2 }}</li>
+          <li>{{ how_to_buy_step_3 }}</li>
         </ol>
       </div>
       {% if shopify_url and shopify_url != "" %}

@@ -30,6 +30,10 @@
 {% assign home_url = routes.home | relative_url %}
 {% assign projects_url = routes.projects | relative_url %}
 {% assign blog_url = routes.blog | relative_url %}
+{% assign snipcart_enabled = false %}
+{% if site.snipcart_api_key and site.snipcart_api_key != "" %}
+  {% assign snipcart_enabled = true %}
+{% endif %}
 
 <nav class="navbar is-fixed-top elense-navbar" role="navigation" aria-label="main navigation" id="navbar">
     <div class="container">
@@ -51,6 +55,12 @@
                 <a class="navbar-item nav-section-link" href="{{ home_url }}#about">{{ t.nav.about }}</a>
                 <a class="navbar-item nav-section-link" href="{{ home_url }}#contact">{{ t.nav.contact }}</a>
                 <a class="navbar-item {% if page.translation_key == 'blog_index' %}is-active{% endif %}" href="{{ blog_url }}">{{ t.nav.blog }}</a>
+                {% if snipcart_enabled %}
+                <button class="navbar-item elense-cart-trigger snipcart-checkout" type="button" aria-label="{{ t.nav.cart }}">
+                    <span>{{ t.nav.cart }}</span>
+                    <span class="elense-cart-count snipcart-items-count">0</span>
+                </button>
+                {% endif %}
                 <a class="navbar-item has-text-weight-bold" href="{{ lang_switch_url | relative_url }}">{{ t.lang_switch_label }}</a>
             </div>
 

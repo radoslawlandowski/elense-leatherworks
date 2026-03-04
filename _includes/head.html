@@ -1,6 +1,9 @@
 <head>
     {% include meta.html %}
     <link rel="stylesheet" href="{% if site.baseurl %}{{site.baseurl}}{% else %}{% endif %}/assets/css/style.css">
+    {% if site.snipcart_api_key and site.snipcart_api_key != "" %}
+    <link rel="stylesheet" href="https://cdn.snipcart.com/themes/v3.3.1/default/snipcart.css">
+    {% endif %}
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" referrerpolicy="no-referrer">
     <link rel="shortcut icon" href="{% if site['favicon-url'] %}{{ site['favicon-url'] }}{% else %}{{ '/assets/images/logo.png' | absolute_url }}{% endif %}" type="image/x-icon">
     <link rel="alternate" type="application/atom+xml" title="{{ site.title }} Feed" href="{{ '/feed.xml' | absolute_url }}">
