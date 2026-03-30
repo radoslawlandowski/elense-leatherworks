@@ -32,18 +32,6 @@
             <a class="projects-home-item" href="{{ project_url }}" aria-label="{{ project.title }}">
               <img src="{{ project_image_resolved }}" alt="{{ project.title }}" loading="lazy" decoding="async">
             </a>
-            {% if snipcart_enabled and project_price_amount %}
-            <button
-              type="button"
-              class="button is-primary is-small is-fullwidth projects-home-add-to-cart snipcart-add-item"
-              data-item-id="{{ project_id | escape }}"
-              data-item-name="{{ project.title | strip | escape }}"
-              data-item-price="{{ project_price_amount }}"
-              data-item-url="{{ project_url | escape }}"
-              data-item-description="{{ project_description | escape }}"
-              data-item-image="{{ project_image_resolved | escape }}"
-              data-item-quantity="1">{{ t.product.add_to_cart }}</button>
-            {% endif %}
           </div>
         {% endfor %}
       </div>

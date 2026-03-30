@@ -60,9 +60,6 @@ layout: compress
     <div class="hero-body">
       <div class="container">
         <div class="product-hero-content">
-          {% if page.availability %}
-          <span class="tag is-light is-medium product-availability-tag">{{ page.availability }}</span>
-          {% endif %}
           <h1 class="title is-1 has-text-white has-text-weight-bold">{{ page.title }}</h1>
           {% if page.price %}
           <p class="product-hero-price">{{ page.price }}</p>
@@ -77,9 +74,8 @@ layout: compress
     <div class="container">
       <div class="columns is-variable is-8 is-vcentered">
         <div class="column is-8">
-          <h2 class="title is-2 mb-4">{{ page.title }}</h2>
           {% if page.description %}
-          <p class="subtitle is-5 product-short-description">{{ page.description | strip | strip_html | strip_newlines }}</p>
+          <p class="subtitle is-5 product-short-description has-text-left">{{ page.description | strip | strip_html | strip_newlines }}</p>
           {% endif %}
         </div>
         <div class="column is-4">
@@ -101,14 +97,6 @@ layout: compress
             {% endif %}
             {% if contact_email and contact_email != "" %}
             <a href="mailto:{{ contact_email }}?subject={{ inquiry_subject }}: {{ page.title }}" class="button is-outlined is-primary is-fullwidth is-medium has-text-weight-bold {% if has_primary_purchase_cta %}mt-3{% endif %}" data-analytics-event="contact_email_click" data-analytics-label="{{ page.title }}">{{ p.ask_product }}</a>
-            {% endif %}
-            {% if page.tags.size > 0 %}
-            <p class="is-size-7 is-uppercase mt-4">
-              <span class="has-text-weight-bold">{{ p.categories }}:</span>
-              {% for tag in page.tags %}
-              <span class="tag is-rounded is-small">{{ tag }}</span>
-              {% endfor %}
-            </p>
             {% endif %}
           </div>
         </div>
@@ -197,21 +185,13 @@ layout: compress
   </section>
   {% endif %}
 
+  {% if shopify_url and shopify_url != "" %}
   <section class="section pt-0 product-section-block" id="product-how-to-buy">
     <div class="container">
-      <h3 class="title is-4 mb-4">{{ p.how_to_buy }}</h3>
-      <div class="content">
-        <ol>
-          <li>{{ how_to_buy_step_1 }}</li>
-          <li>{{ how_to_buy_step_2 }}</li>
-          <li>{{ how_to_buy_step_3 }}</li>
-        </ol>
-      </div>
-      {% if shopify_url and shopify_url != "" %}
       <a href="{{ shopify_url }}" target="_blank" rel="noopener noreferrer" class="button is-primary is-medium has-text-weight-bold" data-analytics-event="shopify_click" data-analytics-label="{{ page.title }}">{{ p.go_to_shopify }}</a>
-      {% endif %}
     </div>
   </section>
+  {% endif %}
 
   {% if page.productVideoUrl %}
   <section class="section pt-0" id="product-video-section">

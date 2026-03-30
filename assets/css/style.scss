@@ -716,6 +716,10 @@
     .container {
         max-width: 1120px;
     }
+
+    .title {
+        margin-bottom: 2rem !important;
+    }
 }
 
 .product-short-description {
@@ -728,6 +732,7 @@
     border: 1px solid rgba(93, 58, 26, 0.2);
     border-radius: 0.75rem;
     padding: 1.25rem;
+    margin: 0 auto;
 }
 
 .product-gallery {
@@ -762,10 +767,16 @@
         margin: 0 auto;
     }
 }
-
+    
 .product-section-block {
+    padding-bottom: 2rem;
+
     .container {
         max-width: 980px;
+    }
+
+    .title {
+        margin-bottom: 1.5rem !important;
     }
 
     .content {
@@ -1131,6 +1142,7 @@
     .faq-list {
         display: grid;
         gap: 0.7rem;
+        padding-top: 1rem;
     }
 
     .faq-item {

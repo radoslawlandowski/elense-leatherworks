@@ -21,14 +21,14 @@ en:
   home:
     read_more: Read More
     projects_heading: Products
-    experience_quote: Elense Experience transforms everyday objects into daily rituals through leather craftsmanship, personalization, and tactile comfort.
+    experience_quote: Elense transforms everyday objects into daily rituals through leather craftsmanship, personalization, and tactile comfort.
     view_all_products: View all products
     view_all_products_note: Browse the complete catalog with filters, availability, and detailed product pages.
   about:
-    heading: About Elense Experience
+    heading: About Elense
     lead: I create leather accessories for home decor because quality of life is built by small rituals repeated every day.
-    body_primary: "Elenze Experience is a design philosophy focused on three pillars: durable craftsmanship, personalization, and comfort in use."
-    body_secondary: From cutlery pockets and coasters to glass sleeves and decorative covers, each piece is made to elevate ordinary gestures into satisfying moments.
+    body_primary:
+    body_secondary:
     contact_me: Contact Me
     blog: Blog
   contact:
@@ -98,6 +98,9 @@ en:
       - Durable finish with attention to detail.
       - Design intended for everyday use.
     default_warranty: Product includes a 12-month workmanship warranty. If a production defect appears, we will repair or replace the product.
+  cart:
+    order_note_label: "Order note"
+    order_note_placeholder: "Add a note to your order (optional)..."
   projects_index:
     title: Leather Home Decor Products
     description: Browse handcrafted leather products and narrow the catalog with instant search and filters.
@@ -212,6 +215,9 @@ pl:
       - Trwałe wykończenie i dbałość o detal.
       - Projekt dopasowany do codziennego użycia.
     default_warranty: Produkt objęty jest 12-miesięczną gwarancją na wykonanie. W przypadku wady produkcyjnej zapewniamy naprawę lub wymianę.
+  cart:
+    order_note_label: "Uwaga do zamówienia"
+    order_note_placeholder: "Dodaj uwagę do zamówienia (opcjonalnie)..."
   projects_index:
     title: Projekty Skórzane Home Decor
     description: Przeglądaj ręcznie szyte produkty skórzane i zawężaj listę dzięki wyszukiwarce oraz filtrom.

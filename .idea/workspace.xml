@@ -4,16 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="25c37f1c-2044-4918-9cdf-057ee5ec21c9" name="Changes" comment="Refactor `.idea` configs, update navigation for project routing, and enhance contact section styling and behavior.">
+    <list default="true" id="25c37f1c-2044-4918-9cdf-057ee5ec21c9" name="Changes" comment="Integrate Snipcart for e-commerce functionality:&#10;&#10;- Added Snipcart support via API key in `_config.yml` and `_includes/snipcart.html`.&#10;- Enabled cart button in `navbar` and product pages when Snipcart is active.&#10;- Updated project layout templates to integrate &quot;Add to Cart&quot; buttons and dynamic Snipcart data attributes.&#10;- Enhanced styling for cart buttons and counters in `style.scss`.&#10;- Added new i18n translation keys for cart-related features (English/Polish).">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/_config.yml" beforeDir="false" afterPath="$PROJECT_DIR$/_config.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/_data/i18n.yml" beforeDir="false" afterPath="$PROJECT_DIR$/_data/i18n.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_includes/footer.html" beforeDir="false" afterPath="$PROJECT_DIR$/_includes/footer.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_includes/head.html" beforeDir="false" afterPath="$PROJECT_DIR$/_includes/head.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_includes/navbar.html" beforeDir="false" afterPath="$PROJECT_DIR$/_includes/navbar.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/_includes/project-card.html" beforeDir="false" afterPath="$PROJECT_DIR$/_includes/project-card.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/_includes/projects-home.html" beforeDir="false" afterPath="$PROJECT_DIR$/_includes/projects-home.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/_layouts/project-product.html" beforeDir="false" afterPath="$PROJECT_DIR$/_layouts/project-product.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_layouts/project.html" beforeDir="false" afterPath="$PROJECT_DIR$/_layouts/project.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/assets/css/style.scss" beforeDir="false" afterPath="$PROJECT_DIR$/assets/css/style.scss" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -31,36 +29,37 @@
     <commands />
     <urls />
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "customColor": "",
-  "associatedIndex": 3
-}]]></component>
+  <component name="ProjectColorInfo">{
+  &quot;customColor&quot;: &quot;&quot;,
+  &quot;associatedIndex&quot;: 3
+}</component>
   <component name="ProjectId" id="3AUM5PQRyRL89Ch0edgPPGuSVFD" />
   <component name="ProjectViewState">
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ModuleVcsDetector.initialDetectionPerformed": "true",
-    "RunOnceActivity.MCP Project settings loaded": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "RunOnceActivity.typescript.service.memoryLimit.init": "true",
-    "Shell Script.Run.executor": "Run",
-    "com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1": "true",
-    "git-widget-placeholder": "master",
-    "junie.onboarding.icon.badge.shown": "true",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "/Users/bright/Documents/repos/elense-leatherworks/elense-leatherworks",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "to.speed.mode.migration.done": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.MCP Project settings loaded&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.typescript.service.memoryLimit.init&quot;: &quot;true&quot;,
+    &quot;Shell Script.Run.executor&quot;: &quot;Run&quot;,
+    &quot;com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;junie.onboarding.icon.badge.shown&quot;: &quot;true&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/bright/Documents/repos/elense-leatherworks/elense-leatherworks&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;to.speed.mode.migration.done&quot;: &quot;true&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RunManager">
     <configuration name="Run" type="ShConfigurationType">
       <option name="SCRIPT_TEXT" value="arch -x86_64 bundle exec jekyll serve" />
@@ -81,8 +80,8 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-jdk-30f59d01ecdd-2fc7cc6b9a17-intellij.indexing.shared.core-IU-253.30387.90" />
-        <option value="bundled-js-predefined-d6986cc7102b-9b0f141eb926-JavaScript-IU-253.30387.90" />
+        <option value="bundled-jdk-30f59d01ecdd-2fc7cc6b9a17-intellij.indexing.shared.core-IU-253.31033.145" />
+        <option value="bundled-js-predefined-d6986cc7102b-9b0f141eb926-JavaScript-IU-253.31033.145" />
       </set>
     </attachedChunks>
   </component>
@@ -93,7 +92,18 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1772642512250</updated>
-      <workItem from="1772642513237" duration="2230000" />
+      <workItem from="1772642513237" duration="2278000" />
+      <workItem from="1772657858887" duration="2653000" />
+      <workItem from="1773130593443" duration="1521000" />
+      <workItem from="1773217236739" duration="604000" />
+      <workItem from="1773229155968" duration="854000" />
+      <workItem from="1773230174228" duration="4007000" />
+      <workItem from="1773747839599" duration="593000" />
+      <workItem from="1773748482776" duration="369000" />
+      <workItem from="1773748997122" duration="481000" />
+      <workItem from="1774878230366" duration="5125000" />
+      <workItem from="1774884226703" duration="774000" />
+      <workItem from="1774885213590" duration="1490000" />
     </task>
     <task id="LOCAL-00001" summary="Refactor `.idea` configs, update navigation for project routing, and enhance contact section styling and behavior.">
       <option name="closed" value="true" />
@@ -103,7 +113,15 @@
       <option name="project" value="LOCAL" />
       <updated>1772650463873</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Integrate Snipcart for e-commerce functionality:&#10;&#10;- Added Snipcart support via API key in `_config.yml` and `_includes/snipcart.html`.&#10;- Enabled cart button in `navbar` and product pages when Snipcart is active.&#10;- Updated project layout templates to integrate &quot;Add to Cart&quot; buttons and dynamic Snipcart data attributes.&#10;- Enhanced styling for cart buttons and counters in `style.scss`.&#10;- Added new i18n translation keys for cart-related features (English/Polish).">
+      <option name="closed" value="true" />
+      <created>1772651989344</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1772651989344</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -111,6 +129,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Refactor `.idea` configs, update navigation for project routing, and enhance contact section styling and behavior." />
-    <option name="LAST_COMMIT_MESSAGE" value="Refactor `.idea` configs, update navigation for project routing, and enhance contact section styling and behavior." />
+    <MESSAGE value="Integrate Snipcart for e-commerce functionality:&#10;&#10;- Added Snipcart support via API key in `_config.yml` and `_includes/snipcart.html`.&#10;- Enabled cart button in `navbar` and product pages when Snipcart is active.&#10;- Updated project layout templates to integrate &quot;Add to Cart&quot; buttons and dynamic Snipcart data attributes.&#10;- Enhanced styling for cart buttons and counters in `style.scss`.&#10;- Added new i18n translation keys for cart-related features (English/Polish)." />
+    <option name="LAST_COMMIT_MESSAGE" value="Integrate Snipcart for e-commerce functionality:&#10;&#10;- Added Snipcart support via API key in `_config.yml` and `_includes/snipcart.html`.&#10;- Enabled cart button in `navbar` and product pages when Snipcart is active.&#10;- Updated project layout templates to integrate &quot;Add to Cart&quot; buttons and dynamic Snipcart data attributes.&#10;- Enhanced styling for cart buttons and counters in `style.scss`.&#10;- Added new i18n translation keys for cart-related features (English/Polish)." />
   </component>
 </project>

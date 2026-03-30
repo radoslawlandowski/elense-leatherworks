@@ -21,47 +21,6 @@ layout: compress
     <section class="hero" id="project">
         <div class="hero-body">
             <div class="container has-text-centered">
-                <section class="products-toolbar" aria-label="{{ t.projects_index.filters_aria_label }}">
-                    <div class="products-toolbar-grid">
-                        <div class="products-toolbar-group">
-                            <label class="label has-text-left">{{ t.projects_index.tag_filter_label }}</label>
-                            <div class="products-badge-list" role="group" aria-label="{{ t.projects_index.tag_filter_label }}">
-                                {% for tag in product_tags %}
-                                    {% assign clean_tag = tag | strip %}
-                                    {% if clean_tag != "" %}
-                                <button
-                                    type="button"
-                                    class="products-filter-badge"
-                                    data-filter-group="tag"
-                                    data-filter-value="{{ clean_tag | downcase | escape }}"
-                                    aria-pressed="false">{{ clean_tag }}</button>
-                                    {% endif %}
-                                {% endfor %}
-                            </div>
-                        </div>
-                        <div class="products-toolbar-group">
-                            <label class="label has-text-left">{{ t.projects_index.availability_filter_label }}</label>
-                            <div class="products-badge-list" role="group" aria-label="{{ t.projects_index.availability_filter_label }}">
-                                {% for availability in product_availability_values %}
-                                    {% assign clean_availability = availability | strip %}
-                                    {% if clean_availability != "" %}
-                                <button
-                                    type="button"
-                                    class="products-filter-badge"
-                                    data-filter-group="availability"
-                                    data-filter-value="{{ clean_availability | downcase | escape }}"
-                                    aria-pressed="false">{{ clean_availability }}</button>
-                                    {% endif %}
-                                {% endfor %}
-                            </div>
-                        </div>
-                        <div class="products-toolbar-actions">
-                            <button id="products-clear-filters" class="products-clear-filters" type="button">{{ t.projects_index.clear_filters }}</button>
-                        </div>
-                    </div>
-                    <p id="products-results-count" class="products-results-count" data-count-template="{{ t.projects_index.results_count | escape }}"></p>
-                </section>
-
                 <div id="products-catalog">
                     {% include project-card.html projects=products %}
                 </div>
