@@ -3,6 +3,10 @@
 
 @import "main.scss";
 
+:root {
+    --elense-navbar-offset: 5rem;
+}
+
 #navbar {
     opacity: 0.95;
     background-color: $elense-cream !important;
@@ -93,6 +97,27 @@
     font-size: 0.76rem;
     font-weight: 700;
     line-height: 1;
+}
+
+html body .snipcart-modal__container {
+    top: var(--elense-navbar-offset) !important;
+    height: calc(100% - var(--elense-navbar-offset)) !important;
+    min-height: calc(100% - var(--elense-navbar-offset)) !important;
+}
+
+html body .snipcart-modal__overlay {
+    top: var(--elense-navbar-offset) !important;
+    height: calc(100% - var(--elense-navbar-offset)) !important;
+}
+
+html body .snipcart-cart-header--fixed {
+    top: var(--elense-navbar-offset) !important;
+}
+
+@media (max-width: 1023px) {
+    :root {
+        --elense-navbar-offset: 4.25rem;
+    }
 }
 
 
