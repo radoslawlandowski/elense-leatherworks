@@ -4,7 +4,34 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="25c37f1c-2044-4918-9cdf-057ee5ec21c9" name="Changes" comment="Adjust Snipcart modal and overlay styling for navbar offset&#10;&#10;- Introduced `--elense-navbar-offset`" />
+    <list default="true" id="25c37f1c-2044-4918-9cdf-057ee5ec21c9" name="Changes" comment="Rename &quot;Projects&quot; to &quot;Products&quot; across all content&#10;&#10;- Updated URLs, navigation, and metadata to reflect the change.&#10;- Adjusted i18n keys, breadcrumbs, and YAML configurations.&#10;- Updated links in blog posts, project pages, and product descriptions for consistency.">
+      <change afterPath="$PROJECT_DIR$/en/products.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pl/produkty.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_data/i18n.yml" beforeDir="false" afterPath="$PROJECT_DIR$/_data/i18n.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_data/projects.yml" beforeDir="false" afterPath="$PROJECT_DIR$/_data/projects.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_posts/en/elense-experience-philosophy/2026-02-15-elense-experience-philosophy.md" beforeDir="false" afterPath="$PROJECT_DIR$/_posts/en/elense-experience-philosophy/2026-02-15-elense-experience-philosophy.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_posts/en/hand-stitching-vs-machine-stitching/2026-02-15-hand-stitching-vs-machine-stitching.md" beforeDir="false" afterPath="$PROJECT_DIR$/_posts/en/hand-stitching-vs-machine-stitching/2026-02-15-hand-stitching-vs-machine-stitching.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_posts/en/how-to-choose-leather-table-accessories/2026-02-15-how-to-choose-leather-table-accessories.md" beforeDir="false" afterPath="$PROJECT_DIR$/_posts/en/how-to-choose-leather-table-accessories/2026-02-15-how-to-choose-leather-table-accessories.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_posts/en/leather-home-decor-guide/2026-02-15-leather-home-decor-guide.md" beforeDir="false" afterPath="$PROJECT_DIR$/_posts/en/leather-home-decor-guide/2026-02-15-leather-home-decor-guide.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_posts/en/vegetable-tanned-vs-chrome-tanned-leather/2026-02-15-vegetable-tanned-vs-chrome-tanned-leather.md" beforeDir="false" afterPath="$PROJECT_DIR$/_posts/en/vegetable-tanned-vs-chrome-tanned-leather/2026-02-15-vegetable-tanned-vs-chrome-tanned-leather.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_posts/en/why-elense-details-craft-ergonomics/2026-02-15-why-elense-details-craft-ergonomics.md" beforeDir="false" afterPath="$PROJECT_DIR$/_posts/en/why-elense-details-craft-ergonomics/2026-02-15-why-elense-details-craft-ergonomics.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_posts/pl/akcesoria-skorzane-home-decor-przewodnik/2026-02-15-akcesoria-skorzane-home-decor-przewodnik.md" beforeDir="false" afterPath="$PROJECT_DIR$/_posts/pl/akcesoria-skorzane-home-decor-przewodnik/2026-02-15-akcesoria-skorzane-home-decor-przewodnik.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_posts/pl/jak-wybrac-skorzane-akcesoria-na-stol/2026-02-15-jak-wybrac-skorzane-akcesoria-na-stol.md" beforeDir="false" afterPath="$PROJECT_DIR$/_posts/pl/jak-wybrac-skorzane-akcesoria-na-stol/2026-02-15-jak-wybrac-skorzane-akcesoria-na-stol.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_projects/en/cutlery-pocket/index.md" beforeDir="false" afterPath="$PROJECT_DIR$/_projects/en/cutlery-pocket/index.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_projects/en/leather-glass-sleeve/index.md" beforeDir="false" afterPath="$PROJECT_DIR$/_projects/en/leather-glass-sleeve/index.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_projects/en/leather-tray/index.md" beforeDir="false" afterPath="$PROJECT_DIR$/_projects/en/leather-tray/index.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_projects/en/small-leather-box/index.md" beforeDir="false" afterPath="$PROJECT_DIR$/_projects/en/small-leather-box/index.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_projects/en/wine-coaster/index.md" beforeDir="false" afterPath="$PROJECT_DIR$/_projects/en/wine-coaster/index.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_projects/pl/kieszonka-na-sztucce/index.md" beforeDir="false" afterPath="$PROJECT_DIR$/_projects/pl/kieszonka-na-sztucce/index.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_projects/pl/male-skorzane-pudelko/index.md" beforeDir="false" afterPath="$PROJECT_DIR$/_projects/pl/male-skorzane-pudelko/index.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_projects/pl/podkladka-sommelier/index.md" beforeDir="false" afterPath="$PROJECT_DIR$/_projects/pl/podkladka-sommelier/index.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_projects/pl/skorzany-uchwyt-na-szklanke/index.md" beforeDir="false" afterPath="$PROJECT_DIR$/_projects/pl/skorzany-uchwyt-na-szklanke/index.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_projects/pl/taca-skorzana/index.md" beforeDir="false" afterPath="$PROJECT_DIR$/_projects/pl/taca-skorzana/index.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/en/projects.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pl/projekty.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/project.md" beforeDir="false" afterPath="$PROJECT_DIR$/project.md" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -94,7 +121,7 @@
       <workItem from="1773748997122" duration="481000" />
       <workItem from="1774878230366" duration="5125000" />
       <workItem from="1774884226703" duration="774000" />
-      <workItem from="1774885213590" duration="8178000" />
+      <workItem from="1774885213590" duration="8635000" />
     </task>
     <task id="LOCAL-00001" summary="Refactor `.idea` configs, update navigation for project routing, and enhance contact section styling and behavior.">
       <option name="closed" value="true" />
@@ -157,6 +184,8 @@
     <MESSAGE value="Add &quot;Leather Tray&quot; project with multilingual support  &#10;&#10;- Created project pages for &quot;Leather Tray&quot;/&quot;Taca Skórzana&quot; in English and Polish, including hero and gallery SVGs.  &#10;- Added detailed product descriptions, features, pricing, and warranty information.  &#10;- Updated i18n keys and metadata to support multilingual navigation and project consistency.  &#10;- Enhanced styling for project layout and gallery images.  &#10;- Included the Elense logo SVG and adjusted favicon logic." />
     <MESSAGE value="Update &quot;About&quot; and &quot;Contact&quot; sections with refined content and styling&#10;&#10;- Introduced a new subtitle in the &quot;About&quot; section for improved navigation.&#10;- Refined and expanded &quot;Contact&quot; section text to enhance clarity and user engagement.&#10;- Updated i18n keys for additional multilingual support.&#10;- Added responsive styling for the &quot;Contact&quot; section's introduction text." />
     <MESSAGE value="Adjust Snipcart modal and overlay styling for navbar offset&#10;&#10;- Introduced `--elense-navbar-offset`" />
-    <option name="LAST_COMMIT_MESSAGE" value="Adjust Snipcart modal and overlay styling for navbar offset&#10;&#10;- Introduced `--elense-navbar-offset`" />
+    <MESSAGE value="Adjust Snipcart modal and overlay styling for navbar offset&#10;&#10;- Introduced `--elense-navbar-offset` cart header positions using the new variable.&#10;- Added responsive adjustments for smaller screens." />
+    <MESSAGE value="Rename &quot;Projects&quot; to &quot;Products&quot; across all content&#10;&#10;- Updated URLs, navigation, and metadata to reflect the change.&#10;- Adjusted i18n keys, breadcrumbs, and YAML configurations.&#10;- Updated links in blog posts, project pages, and product descriptions for consistency." />
+    <option name="LAST_COMMIT_MESSAGE" value="Rename &quot;Projects&quot; to &quot;Products&quot; across all content&#10;&#10;- Updated URLs, navigation, and metadata to reflect the change.&#10;- Adjusted i18n keys, breadcrumbs, and YAML configurations.&#10;- Updated links in blog posts, project pages, and product descriptions for consistency." />
   </component>
 </project>

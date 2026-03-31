@@ -7,6 +7,71 @@
     --elense-navbar-offset: 5rem;
 }
 
+html body .snipcart {
+    --color-default: #5d3a1a;
+    --color-alt: rgba(93, 58, 26, 0.72);
+    --color-link: #5d3a1a;
+    --color-link-hover: #6e4621;
+    --color-link-focus: #5d3a1a;
+    --color-link-active: #5d3a1a;
+    --color-icon: #5d3a1a;
+    --color-error: #7a3f22;
+
+    --bgColor-modal: #e3d1bb;
+    --bgColor-modalVeil: rgba(227, 209, 187, 0.72);
+    --bgColor-default: #f6ece0;
+    --bgColor-alt: #ecddca;
+    --borderColor-default: rgba(93, 58, 26, 0.2);
+    --shadow-default: 0 18px 20px -18px rgba(93, 58, 26, 0.28);
+
+    --color-input: #5d3a1a;
+    --color-input-hover: #5d3a1a;
+    --color-input-focus: #5d3a1a;
+    --color-inputPlaceholder: rgba(93, 58, 26, 0.65);
+    --color-inputLabel: #5d3a1a;
+    --color-inputIcon: rgba(93, 58, 26, 0.72);
+    --color-inputIcon-hover: #5d3a1a;
+    --color-inputIcon-focus: #5d3a1a;
+    --bgColor-input: #f8efe4;
+    --bgColor-input-hover: #f8efe4;
+    --bgColor-input-focus: #fbf4eb;
+    --borderColor-input: rgba(93, 58, 26, 0.22);
+    --borderColor-input-hover: rgba(93, 58, 26, 0.35);
+    --borderColor-input-focus: rgba(93, 58, 26, 0.5);
+    --shadow-input-focus: 0 4px 10px -5px rgba(93, 58, 26, 0.45);
+
+    --color-badge: #5d3a1a;
+    --bgColor-badge: #efe3d2;
+    --borderColor-badge: rgba(93, 58, 26, 0.28);
+
+    --color-buttonPrimary: #e3d1bb;
+    --color-buttonPrimary-hover: #f1e4d4;
+    --color-buttonPrimary-focus: #f1e4d4;
+    --color-buttonPrimary-active: #e3d1bb;
+    --bgColor-buttonPrimary: #5d3a1a;
+    --bgColor-buttonPrimary-hover: #6e4621;
+    --bgColor-buttonPrimary-focus: #5d3a1a;
+    --bgColor-buttonPrimary-active: #4f3216;
+    --shadow-buttonPrimary-hover: 0 10px 6px -8px rgba(93, 58, 26, 0.45);
+    --shadow-buttonPrimary-focus: 0 0 0 2px rgba(93, 58, 26, 0.3);
+
+    --color-buttonSecondary: #5d3a1a;
+    --color-buttonSecondary-hover: #6e4621;
+    --color-buttonSecondary-focus: #5d3a1a;
+    --color-buttonSecondary-active: #5d3a1a;
+    --bgColor-buttonSecondary: #efe3d2;
+    --bgColor-buttonSecondary-hover: #f4eadc;
+    --bgColor-buttonSecondary-focus: #f4eadc;
+    --bgColor-buttonSecondary-active: #ecdfce;
+    --shadow-buttonSecondary-hover: 0 8px 6px -8px rgba(93, 58, 26, 0.32);
+    --shadow-buttonSecondary-focus: 0 0 0 2px rgba(93, 58, 26, 0.22);
+
+    --color-buttonDanger: #5d3a1a;
+    --color-buttonDanger-hover: #6e4621;
+    --bgColor-buttonDanger: #efe3d2;
+    --bgColor-buttonDanger-hover: #f4eadc;
+}
+
 #navbar {
     opacity: 0.95;
     background-color: $elense-cream !important;
