@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 900" role="img" aria-labelledby="title desc">
+  <title id="title">leather-tray-gallery-2</title>
+  <desc id="desc">gallery image 2</desc>
+  <defs>
+    <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#374151" />
+      <stop offset="100%" stop-color="#6b7280" />
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="900" fill="url(#g)" />
+  <circle cx="200" cy="700" r="160" fill="#9ca3af" opacity="0.15" />
+  <text x="100" y="420" fill="#f9fafb" font-size="60" font-family="Arial, sans-serif" font-weight="700">Leather Tray</text>
+  <text x="100" y="500" fill="#d1d5db" font-size="36" font-family="Arial, sans-serif">gallery — shot 2</text>
+</svg>

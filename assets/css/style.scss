@@ -31,6 +31,16 @@
     color: $elense-brown !important;
 }
 
+#navbar .navbar-brand .navbar-item {
+    padding-top: 0.35rem;
+    padding-bottom: 0.35rem;
+}
+
+#navbar .elense-navbar-logo {
+    max-height: 3rem !important;
+    width: auto;
+}
+
 #navbar .navbar-burger span {
     background-color: $elense-brown !important;
 }
@@ -125,11 +135,12 @@
 
 #about {
     .image {
-        max-width: 20vmax;
+        max-width: 22rem;
         margin: auto;
 
         img {
-            border: 0.25rem dotted black;
+            border: 0;
+            border-radius: 0;
         }
     }
 
@@ -150,10 +161,10 @@
     }
 
     .contact-channels {
-        display: grid;
-        grid-template-columns: repeat(3, minmax(0, 1fr));
-        gap: 1rem;
-        width: min(56rem, 100%);
+        display: flex;
+        flex-wrap: nowrap;
+        justify-content: center;
+        gap: 3rem;
         margin: 0 auto;
     }
 
@@ -161,28 +172,25 @@
         display: flex;
         align-items: center;
         justify-content: center;
-        gap: 0.7rem;
-        min-height: 4.25rem;
-        padding: 0.8rem 1rem;
-        border-radius: 0.8rem;
-        border: 1px solid rgba($color: $elense-brown, $alpha: 0.26);
-        background: rgba($color: #ffffff, $alpha: 0.88);
+        gap: 0.6rem;
+        padding: 0.5rem 0;
+        margin: 0;
+        min-width: auto;
+        background: transparent;
         color: $elense-brown !important;
         font-weight: 600;
         letter-spacing: 0.01rem;
-        transition: transform 0.16s ease, box-shadow 0.16s ease, border-color 0.16s ease;
-        box-shadow: 0 4px 12px rgba($color: #000000, $alpha: 0.06);
+        transition: opacity 0.16s ease, transform 0.16s ease;
     }
 
     .contact-channel:hover {
+        opacity: 0.7;
         transform: translateY(-2px);
-        border-color: rgba($color: $elense-brown, $alpha: 0.42);
-        box-shadow: 0 8px 18px rgba($color: #000000, $alpha: 0.1);
     }
 
     .contact-channel-icon {
-        width: 2.2rem;
-        height: 2.2rem;
+        width: 2.8rem;
+        height: 2.8rem;
         display: inline-flex;
         align-items: center;
         justify-content: center;
@@ -191,7 +199,7 @@
     }
 
     .contact-channel-icon i {
-        font-size: 1.2rem;
+        font-size: 1.55rem;
         line-height: 1;
     }
 
@@ -207,11 +215,9 @@
         color: #c13584;
     }
 
-    @media (max-width: 900px) {
+    @media (max-width: 600px) {
         .contact-channels {
-            grid-template-columns: 1fr;
-            gap: 0.75rem;
-            width: min(28rem, 100%);
+            gap: 1rem;
         }
     }
 }
@@ -348,15 +354,25 @@
             }
 
             figure {
-                border: 1.5px solid white;
-                border-radius: 50rem;
+                border: 0;
+                border-radius: 0;
                 justify-content: center;
                 margin: auto;
                 transition: all 0.25s ease;
                 &:hover{
-                    transform: scale(1.15);
+                    transform: scale(1.04);
                 }
             }
+        }
+    }
+
+    .elense-footer-logo {
+        width: 10rem;
+
+        img {
+            width: 100%;
+            height: auto;
+            display: block;
         }
     }
 
@@ -369,6 +385,12 @@
             font-weight: bolder;
             color: white;
         }
+    }
+}
+
+@media (max-width: 1023px) {
+    #navbar .elense-navbar-logo {
+        max-height: 2.55rem !important;
     }
 }
 

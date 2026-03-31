@@ -5,6 +5,11 @@
     <link rel="stylesheet" href="https://cdn.snipcart.com/themes/v3.3.1/default/snipcart.css">
     {% endif %}
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" referrerpolicy="no-referrer">
-    <link rel="shortcut icon" href="{% if site['favicon-url'] %}{{ site['favicon-url'] }}{% else %}{{ '/assets/images/logo.png' | absolute_url }}{% endif %}" type="image/x-icon">
+    {% assign favicon_url = site['favicon-url'] | default: site['logo-image'] | default: '/assets/images/logo-exact.png' %}
+    {% if favicon_url contains '.svg' %}
+    <link rel="icon" href="{{ favicon_url | absolute_url }}" type="image/svg+xml">
+    {% else %}
+    <link rel="shortcut icon" href="{{ favicon_url | absolute_url }}" type="image/x-icon">
+    {% endif %}
     <link rel="alternate" type="application/atom+xml" title="{{ site.title }} Feed" href="{{ '/feed.xml' | absolute_url }}">
 </head>
