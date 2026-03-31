@@ -4,17 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="25c37f1c-2044-4918-9cdf-057ee5ec21c9" name="Changes" comment="Add debugging configuration and update i18n keys and content  &#10;&#10;- Added `.claude/launch.json` and `.claude/settings.json` for Jekyll debugging setup.  &#10;- Updated i18n keys and content to refine branding and introduce cart-related translations (English/Polish).  &#10;- Adjusted `.scss` for improved layout and responsiveness.  &#10;- Simplified layouts by removing unused tags and redundant buttons.">
+    <list default="true" id="25c37f1c-2044-4918-9cdf-057ee5ec21c9" name="Changes" comment="Add &quot;Leather Tray&quot; project with multilingual support  &#10;&#10;- Created project pages for &quot;Leather Tray&quot;/&quot;Taca Skórzana&quot; in English and Polish, including hero and gallery SVGs.  &#10;- Added detailed product descriptions, features, pricing, and warranty information.  &#10;- Updated i18n keys and metadata to support multilingual navigation and project consistency.  &#10;- Enhanced styling for project layout and gallery images.  &#10;- Included the Elense logo SVG and adjusted favicon logic.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_config.yml" beforeDir="false" afterPath="$PROJECT_DIR$/_config.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/_data/i18n.yml" beforeDir="false" afterPath="$PROJECT_DIR$/_data/i18n.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/_includes/about.html" beforeDir="false" afterPath="$PROJECT_DIR$/_includes/about.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_includes/footer.html" beforeDir="false" afterPath="$PROJECT_DIR$/_includes/footer.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_includes/head.html" beforeDir="false" afterPath="$PROJECT_DIR$/_includes/head.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_includes/meta.html" beforeDir="false" afterPath="$PROJECT_DIR$/_includes/meta.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_includes/navbar.html" beforeDir="false" afterPath="$PROJECT_DIR$/_includes/navbar.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_includes/projects-home.html" beforeDir="false" afterPath="$PROJECT_DIR$/_includes/projects-home.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_layouts/default.html" beforeDir="false" afterPath="$PROJECT_DIR$/_layouts/default.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_includes/contact.html" beforeDir="false" afterPath="$PROJECT_DIR$/_includes/contact.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/assets/css/style.scss" beforeDir="false" afterPath="$PROJECT_DIR$/assets/css/style.scss" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -106,7 +100,7 @@
       <workItem from="1773748997122" duration="481000" />
       <workItem from="1774878230366" duration="5125000" />
       <workItem from="1774884226703" duration="774000" />
-      <workItem from="1774885213590" duration="7161000" />
+      <workItem from="1774885213590" duration="7812000" />
     </task>
     <task id="LOCAL-00001" summary="Refactor `.idea` configs, update navigation for project routing, and enhance contact section styling and behavior.">
       <option name="closed" value="true" />
@@ -132,7 +126,15 @@
       <option name="project" value="LOCAL" />
       <updated>1774886967516</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Add &quot;Leather Tray&quot; project with multilingual support  &#10;&#10;- Created project pages for &quot;Leather Tray&quot;/&quot;Taca Skórzana&quot; in English and Polish, including hero and gallery SVGs.  &#10;- Added detailed product descriptions, features, pricing, and warranty information.  &#10;- Updated i18n keys and metadata to support multilingual navigation and project consistency.  &#10;- Enhanced styling for project layout and gallery images.  &#10;- Included the Elense logo SVG and adjusted favicon logic.">
+      <option name="closed" value="true" />
+      <created>1774984943317</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1774984943317</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -142,6 +144,7 @@
     <MESSAGE value="Refactor `.idea` configs, update navigation for project routing, and enhance contact section styling and behavior." />
     <MESSAGE value="Integrate Snipcart for e-commerce functionality:&#10;&#10;- Added Snipcart support via API key in `_config.yml` and `_includes/snipcart.html`.&#10;- Enabled cart button in `navbar` and product pages when Snipcart is active.&#10;- Updated project layout templates to integrate &quot;Add to Cart&quot; buttons and dynamic Snipcart data attributes.&#10;- Enhanced styling for cart buttons and counters in `style.scss`.&#10;- Added new i18n translation keys for cart-related features (English/Polish)." />
     <MESSAGE value="Add debugging configuration and update i18n keys and content  &#10;&#10;- Added `.claude/launch.json` and `.claude/settings.json` for Jekyll debugging setup.  &#10;- Updated i18n keys and content to refine branding and introduce cart-related translations (English/Polish).  &#10;- Adjusted `.scss` for improved layout and responsiveness.  &#10;- Simplified layouts by removing unused tags and redundant buttons." />
-    <option name="LAST_COMMIT_MESSAGE" value="Add debugging configuration and update i18n keys and content  &#10;&#10;- Added `.claude/launch.json` and `.claude/settings.json` for Jekyll debugging setup.  &#10;- Updated i18n keys and content to refine branding and introduce cart-related translations (English/Polish).  &#10;- Adjusted `.scss` for improved layout and responsiveness.  &#10;- Simplified layouts by removing unused tags and redundant buttons." />
+    <MESSAGE value="Add &quot;Leather Tray&quot; project with multilingual support  &#10;&#10;- Created project pages for &quot;Leather Tray&quot;/&quot;Taca Skórzana&quot; in English and Polish, including hero and gallery SVGs.  &#10;- Added detailed product descriptions, features, pricing, and warranty information.  &#10;- Updated i18n keys and metadata to support multilingual navigation and project consistency.  &#10;- Enhanced styling for project layout and gallery images.  &#10;- Included the Elense logo SVG and adjusted favicon logic." />
+    <option name="LAST_COMMIT_MESSAGE" value="Add &quot;Leather Tray&quot; project with multilingual support  &#10;&#10;- Created project pages for &quot;Leather Tray&quot;/&quot;Taca Skórzana&quot; in English and Polish, including hero and gallery SVGs.  &#10;- Added detailed product descriptions, features, pricing, and warranty information.  &#10;- Updated i18n keys and metadata to support multilingual navigation and project consistency.  &#10;- Enhanced styling for project layout and gallery images.  &#10;- Included the Elense logo SVG and adjusted favicon logic." />
   </component>
 </project>

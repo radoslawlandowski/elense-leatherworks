@@ -26,13 +26,14 @@ en:
     view_all_products_note: Browse the complete catalog with filters, availability, and detailed product pages.
   about:
     heading: About Elense
-    lead: My name is Radosław Landowski and since 2020 I create leather goods based on traditionally manufactured vegetable-tanned leathers using historical techniques of leathercraft. Buying Elense leather goods items helps to support traditional craftsmanship and bringing handcrafted quality to the modern world.
+    lead: My name is Radosław Landowski and since 2020 I create leather goods based on traditionally manufactured vegetable-tanned leathers using historical techniques of leathercraft. Reaching for Elense leather goods helps to support traditional craftsmanship and bring back handcrafted quality to the modern world.
     body_primary:
     body_secondary:
     contact_me: Contact Me
     blog: Blog
   contact:
     heading: Contact
+    intro: Would you like to know more about Elense products? Do you have a customization idea or even your own project on your mind? Or maybe you're wondering on how to buy a product of your liking? Reach me anywhere you like.
     whatsapp: WhatsApp
     email: Email
     instagram: Instagram
@@ -150,6 +151,7 @@ pl:
     blog: Poczytaj o standardach skórnictwa Elense
   contact:
     heading: Kontakt
+    intro: Chcesz dowiedzieć się więcej o produktach Elense? Masz pomysł na personalizację albo własny projekt? A może zastanawiasz się, jak kupić produkt, który najbardziej Ci odpowiada? Napisz do mnie tam, gdzie Ci najwygodniej.
     whatsapp: WhatsApp
     email: E-mail
     instagram: Instagram

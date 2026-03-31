@@ -160,6 +160,15 @@
         margin-bottom: 1.5rem;
     }
 
+    .contact-intro {
+        max-width: 62rem;
+        margin: 0 auto 1.2rem;
+        color: rgba($color: #000000, $alpha: 0.72);
+        line-height: 1.7;
+        letter-spacing: normal;
+        font-size: 1.05rem;
+    }
+
     .contact-channels {
         display: flex;
         flex-wrap: nowrap;
@@ -216,6 +225,11 @@
     }
 
     @media (max-width: 600px) {
+        .contact-intro {
+            font-size: 0.98rem;
+            margin-bottom: 1rem;
+        }
+
         .contact-channels {
             gap: 1rem;
         }

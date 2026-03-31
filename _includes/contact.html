@@ -34,6 +34,7 @@
     <div class="hero-body">
         <div class="container">
             <h2 class="subtitle is-uppercase has-text-weight-medium has-text-grey">{{ t.contact.heading }}</h2>
+            <p class="contact-intro">{{ t.contact.intro }}</p>
             <div class="contact-channels">
                 {% if whatsapp_href != "" %}
                 <a class="contact-channel contact-channel--whatsapp" href="{{ whatsapp_href }}" target="_blank" rel="noopener noreferrer" data-analytics-event="whatsapp_click" data-analytics-category="contact" data-analytics-label="{{ whatsapp_href }}">
