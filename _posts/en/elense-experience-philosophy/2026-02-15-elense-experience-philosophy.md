@@ -35,7 +35,7 @@ Home decor is not only visual decoration.
 It is the environment of your repeated daily interactions.
 When those interactions happen with thoughtful, handcrafted pieces, routine becomes more satisfying.
 
-For example, products like the [Leather Cutlery Pocket](/en/projects/cutlery-pocket/) or [Sommelier Wine Coaster](/en/projects/wine-coaster/) add both function and calm visual consistency to the table.
+For example, products like the [Leather Cutlery Pocket](/en/products/cutlery-pocket/) or [Sommelier Wine Coaster](/en/products/wine-coaster/) add both function and calm visual consistency to the table.
 
 ## Summary
 

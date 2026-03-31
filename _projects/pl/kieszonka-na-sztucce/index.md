@@ -3,7 +3,7 @@ title: Skórzana Kieszonka na Sztućce
 layout: project-product
 lang: pl
 translation_key: cutlery-pocket
-permalink: "/pl/projekty/kieszonka-na-sztucce/"
+permalink: "/pl/produkty/kieszonka-na-sztucce/"
 post-image: "/projects/pl/kieszonka-na-sztucce/hero.svg"
 description: Elegancka kieszonka stołowa na sztućce i serwetkę, która porządkuje nakrycie i buduje efekt premium.
 price: 49 PLN / szt.

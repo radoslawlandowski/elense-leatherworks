@@ -37,4 +37,4 @@ We evaluate proportions, material thickness, edge behavior, and tactile comfort 
 Quality is cumulative.
 It does not come from one visible feature, but from many decisions made correctly across the full product lifecycle.
 
-This is the foundation behind pieces like the [Leather Glass Sleeve](/en/projects/leather-glass-sleeve/) and [Small Leather Box](/en/projects/small-leather-box/), where form and utility are designed together.
+This is the foundation behind pieces like the [Leather Glass Sleeve](/en/products/leather-glass-sleeve/) and [Small Leather Box](/en/products/small-leather-box/), where form and utility are designed together.

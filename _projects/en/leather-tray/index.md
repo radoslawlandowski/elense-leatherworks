@@ -3,7 +3,7 @@ title: Leather Tray
 layout: project-product
 lang: en
 translation_key: leather-tray
-permalink: "/en/projects/leather-tray/"
+permalink: "/en/products/leather-tray/"
 post-image: "/projects/en/leather-tray/hero.svg"
 description: A handcrafted leather tray that keeps your desk or dresser organised while adding a refined, natural touch to any surface.
 price: 89 PLN / piece

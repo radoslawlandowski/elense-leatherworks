@@ -23,9 +23,9 @@ To one powinny dostać priorytet jakości.
 
 Przykłady:
 
-- nakrywanie stołu: [Skórzana Kieszonka na Sztućce](/pl/projekty/kieszonka-na-sztucce/)
-- serwowanie napojów: [Podkładka Sommelier](/pl/projekty/podkladka-sommelier/)
-- codzienne przechowywanie: [Małe Skórzane Pudełko](/pl/projekty/male-skorzane-pudelko/)
+- nakrywanie stołu: [Skórzana Kieszonka na Sztućce](/pl/produkty/kieszonka-na-sztucce/)
+- serwowanie napojów: [Podkładka Sommelier](/pl/produkty/podkladka-sommelier/)
+- codzienne przechowywanie: [Małe Skórzane Pudełko](/pl/produkty/male-skorzane-pudelko/)
 
 ## 2. Sprawdź materiał i wykończenie
 

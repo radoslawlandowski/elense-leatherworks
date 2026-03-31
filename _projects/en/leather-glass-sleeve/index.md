@@ -3,7 +3,7 @@ title: Leather Glass Sleeve
 layout: project-product
 lang: en
 translation_key: glass-holder
-permalink: "/en/projects/leather-glass-sleeve/"
+permalink: "/en/products/leather-glass-sleeve/"
 post-image: "/projects/en/leather-glass-sleeve/hero.svg"
 description: Ergonomic leather sleeve that improves grip and reduces heat or cold transfer while holding your glass.
 price: 59 PLN / piece

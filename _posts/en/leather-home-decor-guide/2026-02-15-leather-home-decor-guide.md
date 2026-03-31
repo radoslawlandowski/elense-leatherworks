@@ -23,9 +23,9 @@ Those are the items that influence your real quality of life the most.
 
 Examples:
 
-- table setting: [Leather Cutlery Pocket](/en/projects/cutlery-pocket/)
-- drink service: [Sommelier Wine Coaster](/en/projects/wine-coaster/)
-- everyday organization: [Small Leather Box](/en/projects/small-leather-box/)
+- table setting: [Leather Cutlery Pocket](/en/products/cutlery-pocket/)
+- drink service: [Sommelier Wine Coaster](/en/products/wine-coaster/)
+- everyday organization: [Small Leather Box](/en/products/small-leather-box/)
 
 ## 2. Evaluate material and finishing
 

@@ -24,12 +24,12 @@ Jeśli używasz produktu codziennie, stawiaj na wyższą trwałość i łatwą p
 ## 2. Zadbaj o spójność zestawu
 
 Najlepszy efekt dają produkty utrzymane w jednej estetyce i materiale.
-Połączenie [Podkładki Sommelier](/pl/projekty/podkladka-sommelier/) z [Kieszonką na sztućce](/pl/projekty/kieszonka-na-sztucce/) tworzy spójny rytm na stole.
+Połączenie [Podkładki Sommelier](/pl/produkty/podkladka-sommelier/) z [Kieszonką na sztućce](/pl/produkty/kieszonka-na-sztucce/) tworzy spójny rytm na stole.
 
 ## 3. Sprawdź ergonomię przy realnym użyciu
 
 Uchwyt, grubość, stabilność i praca krawędzi mają znaczenie przy każdym kontakcie.
-Przykładem produktu, który rozwiązuje problem komfortu chwytu, jest [Skórzany Uchwyt na Szklankę](/pl/projekty/skorzany-uchwyt-na-szklanke/).
+Przykładem produktu, który rozwiązuje problem komfortu chwytu, jest [Skórzany Uchwyt na Szklankę](/pl/produkty/skorzany-uchwyt-na-szklanke/).
 
 ## 4. Wybieraj produkty z gwarancją i serwisem
 

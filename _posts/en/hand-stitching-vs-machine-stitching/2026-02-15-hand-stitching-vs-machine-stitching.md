@@ -43,4 +43,4 @@ That reduces risk of edge weakening and helps preserve shape over time.
 If you prioritize speed and scale, machine stitching has a role.
 If you prioritize durability, repairability, and craftsmanship character, hand stitching is the better choice.
 
-Products like the [Leather Glass Sleeve](/en/projects/leather-glass-sleeve/) and [Small Leather Box](/en/projects/small-leather-box/) benefit strongly from this approach in daily use.
+Products like the [Leather Glass Sleeve](/en/products/leather-glass-sleeve/) and [Small Leather Box](/en/products/small-leather-box/) benefit strongly from this approach in daily use.

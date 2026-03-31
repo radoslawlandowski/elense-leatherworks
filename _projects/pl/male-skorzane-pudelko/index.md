@@ -3,7 +3,7 @@ title: Małe Skórzane Pudełko
 layout: project-product
 lang: pl
 translation_key: leather-box
-permalink: "/pl/projekty/male-skorzane-pudelko/"
+permalink: "/pl/produkty/male-skorzane-pudelko/"
 post-image: "/projects/pl/male-skorzane-pudelko/hero.svg"
 description: Kompaktowe skórzane pudełko na codzienne drobiazgi, łączące rzemieślnicze wykończenie z praktycznym zastosowaniem.
 price: 119 PLN / szt.

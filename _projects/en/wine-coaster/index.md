@@ -3,7 +3,7 @@ title: Sommelier Wine Coaster
 layout: project-product
 lang: en
 translation_key: wine-coaster
-permalink: "/en/projects/wine-coaster/"
+permalink: "/en/products/wine-coaster/"
 post-image: "/projects/en/wine-coaster/hero.svg"
 description: Hand-stitched leather coaster for wine glasses that protects the table and adds a refined look to every setting.
 price: 39 PLN / piece

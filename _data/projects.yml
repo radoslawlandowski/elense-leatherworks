@@ -1,6 +1,6 @@
 - lang: en
   name: Sommelier Wine Coaster
-  link: "/en/projects/wine-coaster/"
+  link: "/en/products/wine-coaster/"
   image: "/projects/en/wine-coaster/hero.svg"
   href: "/projects/en/wine-coaster/gallery-1.svg"
   imgSrc: "/projects/en/wine-coaster/gallery-1.svg"
@@ -8,7 +8,7 @@
   description: Hand-stitched coaster for wine glasses.
 - lang: en
   name: Leather Cutlery Pocket
-  link: "/en/projects/cutlery-pocket/"
+  link: "/en/products/cutlery-pocket/"
   image: "/projects/en/cutlery-pocket/hero.svg"
   href: "/projects/en/cutlery-pocket/gallery-1.svg"
   imgSrc: "/projects/en/cutlery-pocket/gallery-1.svg"
@@ -16,7 +16,7 @@
   description: Elegant pocket for cutlery and napkin.
 - lang: en
   name: Leather Glass Sleeve
-  link: "/en/projects/leather-glass-sleeve/"
+  link: "/en/products/leather-glass-sleeve/"
   image: "/projects/en/leather-glass-sleeve/hero.svg"
   href: "/projects/en/leather-glass-sleeve/gallery-1.svg"
   imgSrc: "/projects/en/leather-glass-sleeve/gallery-1.svg"
@@ -24,7 +24,7 @@
   description: Comfortable sleeve for holding glasses.
 - lang: en
   name: Small Leather Box
-  link: "/en/projects/small-leather-box/"
+  link: "/en/products/small-leather-box/"
   image: "/projects/en/small-leather-box/hero.svg"
   href: "/projects/en/small-leather-box/gallery-1.svg"
   imgSrc: "/projects/en/small-leather-box/gallery-1.svg"
@@ -32,7 +32,7 @@
   description: Compact leather organizer for essentials.
 - lang: pl
   name: Podkładka Sommelier
-  link: "/pl/projekty/podkladka-sommelier/"
+  link: "/pl/produkty/podkladka-sommelier/"
   image: "/projects/pl/podkladka-sommelier/hero.svg"
   href: "/projects/pl/podkladka-sommelier/gallery-1.svg"
   imgSrc: "/projects/pl/podkladka-sommelier/gallery-1.svg"
@@ -40,7 +40,7 @@
   description: Ręcznie szyta podkładka pod kieliszek do wina.
 - lang: pl
   name: Skórzana Kieszonka na Sztućce
-  link: "/pl/projekty/kieszonka-na-sztucce/"
+  link: "/pl/produkty/kieszonka-na-sztucce/"
   image: "/projects/pl/kieszonka-na-sztucce/hero.svg"
   href: "/projects/pl/kieszonka-na-sztucce/gallery-1.svg"
   imgSrc: "/projects/pl/kieszonka-na-sztucce/gallery-1.svg"
@@ -48,7 +48,7 @@
   description: Elegancka kieszonka stołowa na sztućce i serwetkę.
 - lang: pl
   name: Skórzany Uchwyt na Szklankę
-  link: "/pl/projekty/skorzany-uchwyt-na-szklanke/"
+  link: "/pl/produkty/skorzany-uchwyt-na-szklanke/"
   image: "/projects/pl/skorzany-uchwyt-na-szklanke/hero.svg"
   href: "/projects/pl/skorzany-uchwyt-na-szklanke/gallery-1.svg"
   imgSrc: "/projects/pl/skorzany-uchwyt-na-szklanke/gallery-1.svg"
@@ -56,7 +56,7 @@
   description: Ergonomiczny uchwyt poprawiający komfort trzymania.
 - lang: pl
   name: Małe Skórzane Pudełko
-  link: "/pl/projekty/male-skorzane-pudelko/"
+  link: "/pl/produkty/male-skorzane-pudelko/"
   image: "/projects/pl/male-skorzane-pudelko/hero.svg"
   href: "/projects/pl/male-skorzane-pudelko/gallery-1.svg"
   imgSrc: "/projects/pl/male-skorzane-pudelko/gallery-1.svg"

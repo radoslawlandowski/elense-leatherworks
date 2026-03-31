@@ -5,7 +5,7 @@ en:
   site_keywords: leather home decor, handcrafted leather accessories, leather table decor, leather coaster, leather cutlery pocket, Elense Experience
   routes:
     home: /en/
-    projects: /en/projects/
+    projects: /en/products/
     blog: /en/blog/
   nav:
     home: HOME
@@ -123,11 +123,11 @@ pl:
   site_keywords: akcesoria skórzane, home decor, ręcznie szyte, skóra naturalna, podkładki skórzane, kieszonki na sztućce, Elense Experience
   routes:
     home: /pl/
-    projects: /pl/projekty/
+    projects: /pl/produkty/
     blog: /pl/blog/
   nav:
     home: START
-    projects: PROJEKTY
+    projects: PRODUKTY
     about: O MNIE
     contact: KONTAKT
     blog: BLOG
@@ -135,10 +135,10 @@ pl:
   breadcrumbs:
     home: Start
     blog: Blog
-    projects: Projekty
+    projects: Produkty
   home:
     read_more: Czytaj więcej
-    projects_heading: Projekty
+    projects_heading: Produkty
     experience_quote: Elense Experience nadaje codziennym przedmiotom wyższą jakość poprzez rzemiosło skórzane, personalizację i komfort użytkowania.
     view_all_products: Zobacz wszystkie produkty
     view_all_products_note: Przeglądaj pełny katalog z filtrami, dostępnością i szczegółowymi kartami produktów.
@@ -221,7 +221,7 @@ pl:
     order_note_label: "Uwaga do zamówienia"
     order_note_placeholder: "Dodaj uwagę do zamówienia (opcjonalnie)..."
   projects_index:
-    title: Projekty Skórzane Home Decor
+    title: Produkty Skórzane Home Decor
     description: Przeglądaj ręcznie szyte produkty skórzane i zawężaj listę dzięki wyszukiwarce oraz filtrom.
     filters_aria_label: Filtry produktów
     search_label: Szukaj

@@ -48,4 +48,4 @@ Choose chrome-tanned leather if you prioritize immediate softness and high flexi
 
 For table accessories and home decor, both can work when the design and finishing are matched to intended daily use.
 
-If you want to compare real applications, see [Sommelier Wine Coaster](/en/projects/wine-coaster/) and [Leather Cutlery Pocket](/en/projects/cutlery-pocket/).
+If you want to compare real applications, see [Sommelier Wine Coaster](/en/products/wine-coaster/) and [Leather Cutlery Pocket](/en/products/cutlery-pocket/).

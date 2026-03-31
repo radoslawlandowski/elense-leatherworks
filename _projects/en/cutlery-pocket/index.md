@@ -3,7 +3,7 @@ title: Leather Cutlery Pocket
 layout: project-product
 lang: en
 translation_key: cutlery-pocket
-permalink: "/en/projects/cutlery-pocket/"
+permalink: "/en/products/cutlery-pocket/"
 post-image: "/projects/en/cutlery-pocket/hero.svg"
 description: Elegant leather pocket for cutlery and napkin, designed to keep place settings tidy and visually premium.
 price: 49 PLN / piece

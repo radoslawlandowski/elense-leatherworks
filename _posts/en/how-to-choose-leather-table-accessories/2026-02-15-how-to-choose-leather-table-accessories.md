@@ -24,12 +24,12 @@ If usage is frequent, prioritize construction quality and maintenance simplicity
 ## 2. Build a coherent set
 
 A matching set creates visual consistency and functional flow.
-Combining the [Sommelier Wine Coaster](/en/projects/wine-coaster/) with the [Leather Cutlery Pocket](/en/projects/cutlery-pocket/) is a reliable baseline.
+Combining the [Sommelier Wine Coaster](/en/products/wine-coaster/) with the [Leather Cutlery Pocket](/en/products/cutlery-pocket/) is a reliable baseline.
 
 ## 3. Test ergonomics in real interactions
 
 Grip feel, thickness, edge behavior, and stability matter every time you touch the product.
-For drink handling comfort, the [Leather Glass Sleeve](/en/projects/leather-glass-sleeve/) is a practical example.
+For drink handling comfort, the [Leather Glass Sleeve](/en/products/leather-glass-sleeve/) is a practical example.
 
 ## 4. Choose products with clear warranty terms
 

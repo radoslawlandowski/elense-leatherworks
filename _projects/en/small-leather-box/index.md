@@ -3,7 +3,7 @@ title: Small Leather Box
 layout: project-product
 lang: en
 translation_key: leather-box
-permalink: "/en/projects/small-leather-box/"
+permalink: "/en/products/small-leather-box/"
 post-image: "/projects/en/small-leather-box/hero.svg"
 description: Compact leather storage box for everyday essentials, combining handcrafted detail with practical utility.
 price: 119 PLN / piece
