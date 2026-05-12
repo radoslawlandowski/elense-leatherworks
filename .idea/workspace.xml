@@ -4,9 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="25c37f1c-2044-4918-9cdf-057ee5ec21c9" name="Changes" comment="Remove `noindex` directive, add canonical links, and clean up meta tags">
+    <list default="true" id="25c37f1c-2044-4918-9cdf-057ee5ec21c9" name="Changes" comment="Update site meta image and refine `.idea` workspace configuration">
+      <change beforePath="$PROJECT_DIR$/.github/workflows/jekyll.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.github/workflows/jekyll.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_config.yml" beforeDir="false" afterPath="$PROJECT_DIR$/_config.yml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -39,6 +40,7 @@
     "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
     "RunOnceActivity.git.unshallow": "true",
     "RunOnceActivity.typescript.service.memoryLimit.init": "true",
+    "Shell Script.Build.executor": "Run",
     "Shell Script.Run.executor": "Run",
     "com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1": "true",
     "git-widget-placeholder": "master",
@@ -59,7 +61,22 @@
     ]
   }
 }]]></component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Shell Script.Build">
+    <configuration name="Build" type="ShConfigurationType">
+      <option name="SCRIPT_TEXT" value="arch -x86_64 bundle exec jekyll build" />
+      <option name="INDEPENDENT_SCRIPT_PATH" value="true" />
+      <option name="SCRIPT_PATH" value="" />
+      <option name="SCRIPT_OPTIONS" value="" />
+      <option name="INDEPENDENT_SCRIPT_WORKING_DIRECTORY" value="true" />
+      <option name="SCRIPT_WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="INDEPENDENT_INTERPRETER_PATH" value="true" />
+      <option name="INTERPRETER_PATH" value="/bin/zsh" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="EXECUTE_IN_TERMINAL" value="true" />
+      <option name="EXECUTE_SCRIPT_FILE" value="false" />
+      <envs />
+      <method v="2" />
+    </configuration>
     <configuration name="Run" type="ShConfigurationType">
       <option name="SCRIPT_TEXT" value="arch -x86_64 bundle exec jekyll serve" />
       <option name="INDEPENDENT_SCRIPT_PATH" value="true" />
@@ -75,6 +92,10 @@
       <envs />
       <method v="2" />
     </configuration>
+    <list>
+      <item itemvalue="Shell Script.Run" />
+      <item itemvalue="Shell Script.Build" />
+    </list>
   </component>
   <component name="SharedIndexes">
     <attachedChunks>
@@ -114,7 +135,7 @@
       <workItem from="1777450974056" duration="1192000" />
       <workItem from="1777966570396" duration="598000" />
       <workItem from="1778069095256" duration="2079000" />
-      <workItem from="1778480444981" duration="10305000" />
+      <workItem from="1778480444981" duration="12118000" />
     </task>
     <task id="LOCAL-00001" summary="Refactor `.idea` configs, update navigation for project routing, and enhance contact section styling and behavior.">
       <option name="closed" value="true" />
@@ -204,7 +225,15 @@
       <option name="project" value="LOCAL" />
       <updated>1778602517647</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="Update site meta image and refine `.idea` workspace configuration">
+      <option name="closed" value="true" />
+      <created>1778606046233</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1778606046233</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -223,6 +252,7 @@
     <MESSAGE value="Integrate Etsy shop links and update branding elements  &#10;&#10;- Added Etsy URLs to product pages, &quot;Contact,&quot; and &quot;About&quot; sections.  &#10;- Updated favicon assets with new designs and sizes.  &#10;- Refined CSS for Etsy button styling and product layout adjustments.  &#10;- Updated branding elements, including new logos and email addresses." />
     <MESSAGE value="Allow Facebook crawler in `robots.txt` and update `.idea` workspace configuration" />
     <MESSAGE value="Remove `noindex` directive, add canonical links, and clean up meta tags" />
-    <option name="LAST_COMMIT_MESSAGE" value="Remove `noindex` directive, add canonical links, and clean up meta tags" />
+    <MESSAGE value="Update site meta image and refine `.idea` workspace configuration" />
+    <option name="LAST_COMMIT_MESSAGE" value="Update site meta image and refine `.idea` workspace configuration" />
   </component>
 </project>
