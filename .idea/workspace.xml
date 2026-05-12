@@ -4,27 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="25c37f1c-2044-4918-9cdf-057ee5ec21c9" name="Changes" comment="Refine Snipcart styling with">
-      <change beforePath="$PROJECT_DIR$/.claude/launch.json" beforeDir="false" afterPath="$PROJECT_DIR$/.claude/launch.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_config.yml" beforeDir="false" afterPath="$PROJECT_DIR$/_config.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_data/i18n.yml" beforeDir="false" afterPath="$PROJECT_DIR$/_data/i18n.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_includes/about.html" beforeDir="false" afterPath="$PROJECT_DIR$/_includes/about.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_includes/contact.html" beforeDir="false" afterPath="$PROJECT_DIR$/_includes/contact.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_includes/head.html" beforeDir="false" afterPath="$PROJECT_DIR$/_includes/head.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_layouts/project-product.html" beforeDir="false" afterPath="$PROJECT_DIR$/_layouts/project-product.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_projects/en/cutlery-pocket/index.md" beforeDir="false" afterPath="$PROJECT_DIR$/_projects/en/cutlery-pocket/index.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_projects/en/leather-glass-sleeve/index.md" beforeDir="false" afterPath="$PROJECT_DIR$/_projects/en/leather-glass-sleeve/index.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_projects/en/leather-tray/index.md" beforeDir="false" afterPath="$PROJECT_DIR$/_projects/en/leather-tray/index.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_projects/en/small-leather-box/index.md" beforeDir="false" afterPath="$PROJECT_DIR$/_projects/en/small-leather-box/index.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_projects/en/wine-coaster/index.md" beforeDir="false" afterPath="$PROJECT_DIR$/_projects/en/wine-coaster/index.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_projects/pl/kieszonka-na-sztucce/index.md" beforeDir="false" afterPath="$PROJECT_DIR$/_projects/pl/kieszonka-na-sztucce/index.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_projects/pl/male-skorzane-pudelko/index.md" beforeDir="false" afterPath="$PROJECT_DIR$/_projects/pl/male-skorzane-pudelko/index.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_projects/pl/podkladka-sommelier/index.md" beforeDir="false" afterPath="$PROJECT_DIR$/_projects/pl/podkladka-sommelier/index.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_projects/pl/skorzany-uchwyt-na-szklanke/index.md" beforeDir="false" afterPath="$PROJECT_DIR$/_projects/pl/skorzany-uchwyt-na-szklanke/index.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_projects/pl/taca-skorzana/index.md" beforeDir="false" afterPath="$PROJECT_DIR$/_projects/pl/taca-skorzana/index.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/css/style.scss" beforeDir="false" afterPath="$PROJECT_DIR$/assets/css/style.scss" afterDir="false" />
-    </list>
+    <list default="true" id="25c37f1c-2044-4918-9cdf-057ee5ec21c9" name="Changes" comment="Integrate Etsy shop links and update branding elements  &#10;&#10;- Added Etsy URLs to product pages, &quot;Contact,&quot; and &quot;About&quot; sections.  &#10;- Updated favicon assets with new designs and sizes.  &#10;- Refined CSS for Etsy button styling and product layout adjustments.  &#10;- Updated branding elements, including new logos and email addresses." />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -126,7 +106,7 @@
       <workItem from="1777450974056" duration="1192000" />
       <workItem from="1777966570396" duration="598000" />
       <workItem from="1778069095256" duration="2079000" />
-      <workItem from="1778480444981" duration="7870000" />
+      <workItem from="1778480444981" duration="8095000" />
     </task>
     <task id="LOCAL-00001" summary="Refactor `.idea` configs, update navigation for project routing, and enhance contact section styling and behavior.">
       <option name="closed" value="true" />
@@ -192,7 +172,15 @@
       <option name="project" value="LOCAL" />
       <updated>1774986745470</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="Integrate Etsy shop links and update branding elements  &#10;&#10;- Added Etsy URLs to product pages, &quot;Contact,&quot; and &quot;About&quot; sections.  &#10;- Updated favicon assets with new designs and sizes.  &#10;- Refined CSS for Etsy button styling and product layout adjustments.  &#10;- Updated branding elements, including new logos and email addresses.">
+      <option name="closed" value="true" />
+      <created>1778601716564</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1778601716564</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -208,6 +196,7 @@
     <MESSAGE value="Adjust Snipcart modal and overlay styling for navbar offset&#10;&#10;- Introduced `--elense-navbar-offset` cart header positions using the new variable.&#10;- Added responsive adjustments for smaller screens." />
     <MESSAGE value="Rename &quot;Projects&quot; to &quot;Products&quot; across all content&#10;&#10;- Updated URLs, navigation, and metadata to reflect the change.&#10;- Adjusted i18n keys, breadcrumbs, and YAML configurations.&#10;- Updated links in blog posts, project pages, and product descriptions for consistency." />
     <MESSAGE value="Refine Snipcart styling with" />
-    <option name="LAST_COMMIT_MESSAGE" value="Refine Snipcart styling with" />
+    <MESSAGE value="Integrate Etsy shop links and update branding elements  &#10;&#10;- Added Etsy URLs to product pages, &quot;Contact,&quot; and &quot;About&quot; sections.  &#10;- Updated favicon assets with new designs and sizes.  &#10;- Refined CSS for Etsy button styling and product layout adjustments.  &#10;- Updated branding elements, including new logos and email addresses." />
+    <option name="LAST_COMMIT_MESSAGE" value="Integrate Etsy shop links and update branding elements  &#10;&#10;- Added Etsy URLs to product pages, &quot;Contact,&quot; and &quot;About&quot; sections.  &#10;- Updated favicon assets with new designs and sizes.  &#10;- Refined CSS for Etsy button styling and product layout adjustments.  &#10;- Updated branding elements, including new logos and email addresses." />
   </component>
 </project>

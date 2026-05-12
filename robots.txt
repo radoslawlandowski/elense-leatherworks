@@ -2,6 +2,9 @@
 layout: null
 permalink: /robots.txt
 ---
+User-agent: facebookexternalhit
+Allow: /
+
 User-agent: *
 Allow: /
 Disallow: /admin/
