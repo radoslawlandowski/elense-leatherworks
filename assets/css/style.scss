@@ -314,6 +314,10 @@ html body .snipcart-cart-header--fixed {
         color: #c13584;
     }
 
+    .contact-channel--etsy .contact-channel-icon i {
+        color: #f1641e;
+    }
+
     @media (max-width: 600px) {
         .contact-intro {
             font-size: 0.98rem;
@@ -472,6 +476,8 @@ html body .snipcart-cart-header--fixed {
 
     .elense-footer-logo {
         width: 10rem;
+        background-color: var(--bgColor-default);
+        border-radius: 0.25rem;
 
         img {
             width: 100%;
@@ -859,6 +865,22 @@ html body .snipcart-cart-header--fixed {
     border-radius: 0.75rem;
     padding: 1.25rem;
     margin: 0 auto;
+}
+
+.product-btn-etsy {
+    background-color: #f1641e;
+    border-color: transparent;
+    color: #fff;
+
+    &:hover, &:focus {
+        background-color: darken(#f1641e, 8%);
+        border-color: transparent;
+        color: #fff;
+    }
+
+    .icon i {
+        font-size: 1.1rem;
+    }
 }
 
 .product-gallery {

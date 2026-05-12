@@ -3,8 +3,8 @@
   "configurations": [
     {
       "name": "jekyll",
-      "runtimeExecutable": "/usr/bin/env",
-      "runtimeArgs": ["-C", "/Users/bright/Documents/repos/elense-leatherworks/elense-leatherworks", "arch", "-x86_64", "bundle", "exec", "jekyll", "serve", "--port", "4000"],
+      "runtimeExecutable": "/bin/bash",
+      "runtimeArgs": ["-c", "cd /Users/bright/Documents/repos/elense-leatherworks/elense-leatherworks && arch -x86_64 bundle exec jekyll serve --port 4000"],
       "port": 4000
     }
   ]

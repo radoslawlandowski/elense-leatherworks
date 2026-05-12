@@ -10,7 +10,7 @@ title: Elense Leatherworks
 # Description of the Site
 description: Handmade leather home decor accessories crafted in Poland for everyday rituals.
 # URL of Image of the Site
-site-image: /assets/images/meta.jpg
+site-image: /assets/images/logo.png
 # Keywords of the Site
 site-keywords: skorzane akcesoria, leather home decor, elense experience, recznie szyte, home decor, skora naturalna, codzienne rytualy
 # URL for the Image of custom Favicon
@@ -21,12 +21,13 @@ heroimage: /assets/images/meta.jpg
 
 # Social Media and Contact
 # If you don't want to use any icon, you can leave them blank.
-email: "radoslaw.landowski@gmail.com"
-whatsapp_number: "889815275"
+email: "radoslaw@elenseleatherworks.com"
+whatsapp_number: "+48889815275"
 whatsapp_url: ""
 shopify_store_url: ""
 snipcart_api_key: "MDQ1YzJmMGEtMzIzMi00YjM3LThkNzQtMGJjNDZlNWY1ZTU4NjM5MDgyNDgxODQyNjEwMDQ2"
 instagram_username: "elenseleatherworks"
+etsy_url: "https://www.etsy.com/shop/ElenseLeatherworks"
 linkedin_username: ""
 youtube_channel_id: ""
 
@@ -38,8 +39,8 @@ bing-site-verification: ""
 # Name of the Author
 author-name: Radosław Landowski
 # URL for the Image of the Author
-logo-image: /assets/images/logo-exact.png
-author-image: /assets/images/logo-exact.png
+logo-image: /assets/images/logo-exact-transparent.png
+author-image: /assets/images/logo-exact-transparent.png
 # 60 Words About the Author
 author-about: Founder, designer and crafter in Elense Leatherworks.
 author-about-pl: Twórca, projektant i rzemieślnik Elense Leatherworks.

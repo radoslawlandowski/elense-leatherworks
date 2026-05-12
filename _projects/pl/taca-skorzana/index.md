@@ -12,6 +12,7 @@ price_currency: PLN
 availability: Dostępne od ręki
 availability_schema: https://schema.org/InStock
 shopify_url: ""
+etsy_url: ""
 features:
 - Ręcznie szyte krawędzie zapewniające estetykę i trwałość.
 - Sztywna podstawa, która zachowuje kształt przez lata.

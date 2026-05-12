@@ -23,8 +23,10 @@
 {% else %}
   {% assign instagram_href = "" %}
 {% endif %}
+{% assign etsy_url = site.etsy_url | default: "" %}
+
 {% assign has_any_contact = false %}
-{% if whatsapp_href != "" or contact_email != "" or instagram_href != "" %}
+{% if whatsapp_href != "" or contact_email != "" or instagram_href != "" or etsy_url != "" %}
   {% assign has_any_contact = true %}
 {% endif %}
 
@@ -61,6 +63,12 @@
                     <a class="contact-channel contact-channel--email" href="mailto:{{ contact_email }}" rel="noopener noreferrer" data-analytics-event="contact_email_click" data-analytics-category="contact" data-analytics-label="{{ contact_email }}">
                         <span class="contact-channel-icon"><i class="fas fa-envelope" aria-hidden="true"></i></span>
                         <span class="contact-channel-label">{{ t.contact.email }}</span>
+                    </a>
+                    {% endif %}
+                    {% if etsy_url != "" %}
+                    <a class="contact-channel contact-channel--etsy" href="{{ etsy_url }}" target="_blank" rel="noopener noreferrer" data-analytics-event="etsy_click" data-analytics-category="contact" data-analytics-label="{{ etsy_url }}">
+                        <span class="contact-channel-icon"><i class="fab fa-etsy" aria-hidden="true"></i></span>
+                        <span class="contact-channel-label">{{ t.contact.etsy }}</span>
                     </a>
                     {% endif %}
                     {% if instagram_href != "" %}

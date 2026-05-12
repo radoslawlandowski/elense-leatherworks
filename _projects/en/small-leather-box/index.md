@@ -12,6 +12,7 @@ price_currency: PLN
 availability: Made to order
 availability_schema: https://schema.org/PreOrder
 shopify_url: ""
+etsy_url: "https://www.etsy.com/listing/820959309/leather-valet-tray-office-desk-organizer"
 features:
 - Compact size for keys, jewelry, and daily accessories.
 - Structured body that keeps its shape over time.

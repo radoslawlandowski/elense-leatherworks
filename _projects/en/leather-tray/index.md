@@ -12,6 +12,7 @@ price_currency: PLN
 availability: In stock
 availability_schema: https://schema.org/InStock
 shopify_url: ""
+etsy_url: "https://www.etsy.com/listing/4488945131/leather-valet-tray-office-desk-organizer"
 features:
 - Hand-stitched edges for a clean, durable finish.
 - Rigid base that holds its shape over time.

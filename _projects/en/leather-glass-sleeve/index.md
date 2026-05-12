@@ -12,6 +12,7 @@ price_currency: PLN
 availability: In stock
 availability_schema: https://schema.org/InStock
 shopify_url: ""
+etsy_url: ""
 features:
 - Secure non-slip grip.
 - Better insulation from hot or cold glass surfaces.

@@ -4,20 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="25c37f1c-2044-4918-9cdf-057ee5ec21c9" name="Changes" comment="Rename &quot;Projects&quot; to &quot;Products&quot; across all content&#10;&#10;- Updated URLs, navigation, and metadata to reflect the change.&#10;- Adjusted i18n keys, breadcrumbs, and YAML configurations.&#10;- Updated links in blog posts, project pages, and product descriptions for consistency.">
-      <change afterPath="$PROJECT_DIR$/en/products.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pl/produkty.md" afterDir="false" />
+    <list default="true" id="25c37f1c-2044-4918-9cdf-057ee5ec21c9" name="Changes" comment="Refine Snipcart styling with">
+      <change beforePath="$PROJECT_DIR$/.claude/launch.json" beforeDir="false" afterPath="$PROJECT_DIR$/.claude/launch.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_config.yml" beforeDir="false" afterPath="$PROJECT_DIR$/_config.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/_data/i18n.yml" beforeDir="false" afterPath="$PROJECT_DIR$/_data/i18n.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_data/projects.yml" beforeDir="false" afterPath="$PROJECT_DIR$/_data/projects.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_posts/en/elense-experience-philosophy/2026-02-15-elense-experience-philosophy.md" beforeDir="false" afterPath="$PROJECT_DIR$/_posts/en/elense-experience-philosophy/2026-02-15-elense-experience-philosophy.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_posts/en/hand-stitching-vs-machine-stitching/2026-02-15-hand-stitching-vs-machine-stitching.md" beforeDir="false" afterPath="$PROJECT_DIR$/_posts/en/hand-stitching-vs-machine-stitching/2026-02-15-hand-stitching-vs-machine-stitching.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_posts/en/how-to-choose-leather-table-accessories/2026-02-15-how-to-choose-leather-table-accessories.md" beforeDir="false" afterPath="$PROJECT_DIR$/_posts/en/how-to-choose-leather-table-accessories/2026-02-15-how-to-choose-leather-table-accessories.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_posts/en/leather-home-decor-guide/2026-02-15-leather-home-decor-guide.md" beforeDir="false" afterPath="$PROJECT_DIR$/_posts/en/leather-home-decor-guide/2026-02-15-leather-home-decor-guide.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_posts/en/vegetable-tanned-vs-chrome-tanned-leather/2026-02-15-vegetable-tanned-vs-chrome-tanned-leather.md" beforeDir="false" afterPath="$PROJECT_DIR$/_posts/en/vegetable-tanned-vs-chrome-tanned-leather/2026-02-15-vegetable-tanned-vs-chrome-tanned-leather.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_posts/en/why-elense-details-craft-ergonomics/2026-02-15-why-elense-details-craft-ergonomics.md" beforeDir="false" afterPath="$PROJECT_DIR$/_posts/en/why-elense-details-craft-ergonomics/2026-02-15-why-elense-details-craft-ergonomics.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_posts/pl/akcesoria-skorzane-home-decor-przewodnik/2026-02-15-akcesoria-skorzane-home-decor-przewodnik.md" beforeDir="false" afterPath="$PROJECT_DIR$/_posts/pl/akcesoria-skorzane-home-decor-przewodnik/2026-02-15-akcesoria-skorzane-home-decor-przewodnik.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_posts/pl/jak-wybrac-skorzane-akcesoria-na-stol/2026-02-15-jak-wybrac-skorzane-akcesoria-na-stol.md" beforeDir="false" afterPath="$PROJECT_DIR$/_posts/pl/jak-wybrac-skorzane-akcesoria-na-stol/2026-02-15-jak-wybrac-skorzane-akcesoria-na-stol.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_includes/about.html" beforeDir="false" afterPath="$PROJECT_DIR$/_includes/about.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_includes/contact.html" beforeDir="false" afterPath="$PROJECT_DIR$/_includes/contact.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_includes/head.html" beforeDir="false" afterPath="$PROJECT_DIR$/_includes/head.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_layouts/project-product.html" beforeDir="false" afterPath="$PROJECT_DIR$/_layouts/project-product.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/_projects/en/cutlery-pocket/index.md" beforeDir="false" afterPath="$PROJECT_DIR$/_projects/en/cutlery-pocket/index.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/_projects/en/leather-glass-sleeve/index.md" beforeDir="false" afterPath="$PROJECT_DIR$/_projects/en/leather-glass-sleeve/index.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/_projects/en/leather-tray/index.md" beforeDir="false" afterPath="$PROJECT_DIR$/_projects/en/leather-tray/index.md" afterDir="false" />
@@ -28,9 +23,7 @@
       <change beforePath="$PROJECT_DIR$/_projects/pl/podkladka-sommelier/index.md" beforeDir="false" afterPath="$PROJECT_DIR$/_projects/pl/podkladka-sommelier/index.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/_projects/pl/skorzany-uchwyt-na-szklanke/index.md" beforeDir="false" afterPath="$PROJECT_DIR$/_projects/pl/skorzany-uchwyt-na-szklanke/index.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/_projects/pl/taca-skorzana/index.md" beforeDir="false" afterPath="$PROJECT_DIR$/_projects/pl/taca-skorzana/index.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/en/projects.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pl/projekty.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/project.md" beforeDir="false" afterPath="$PROJECT_DIR$/project.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/css/style.scss" beforeDir="false" afterPath="$PROJECT_DIR$/assets/css/style.scss" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -121,7 +114,19 @@
       <workItem from="1773748997122" duration="481000" />
       <workItem from="1774878230366" duration="5125000" />
       <workItem from="1774884226703" duration="774000" />
-      <workItem from="1774885213590" duration="8635000" />
+      <workItem from="1774885213590" duration="12959000" />
+      <workItem from="1775030606455" duration="1905000" />
+      <workItem from="1775824651201" duration="1197000" />
+      <workItem from="1776086998974" duration="1198000" />
+      <workItem from="1776184553221" duration="597000" />
+      <workItem from="1776325619774" duration="2411000" />
+      <workItem from="1776687275196" duration="597000" />
+      <workItem from="1776766800925" duration="598000" />
+      <workItem from="1777021808715" duration="3497000" />
+      <workItem from="1777450974056" duration="1192000" />
+      <workItem from="1777966570396" duration="598000" />
+      <workItem from="1778069095256" duration="2079000" />
+      <workItem from="1778480444981" duration="7870000" />
     </task>
     <task id="LOCAL-00001" summary="Refactor `.idea` configs, update navigation for project routing, and enhance contact section styling and behavior.">
       <option name="closed" value="true" />
@@ -171,7 +176,23 @@
       <option name="project" value="LOCAL" />
       <updated>1774985909283</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Rename &quot;Projects&quot; to &quot;Products&quot; across all content&#10;&#10;- Updated URLs, navigation, and metadata to reflect the change.&#10;- Adjusted i18n keys, breadcrumbs, and YAML configurations.&#10;- Updated links in blog posts, project pages, and product descriptions for consistency.">
+      <option name="closed" value="true" />
+      <created>1774986370864</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1774986370864</updated>
+    </task>
+    <task id="LOCAL-00008" summary="Refine Snipcart styling with new color variables and modal adjustments&#10;&#10;- Introduced custom CSS variables for Snipcart components to align with brand aesthetics.&#10;- Updated modal, input, button, and badge styling for improved consistency and responsiveness.&#10;- Included minor adjustments to `.idea` configuration.">
+      <option name="closed" value="true" />
+      <created>1774986745470</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1774986745470</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -186,6 +207,7 @@
     <MESSAGE value="Adjust Snipcart modal and overlay styling for navbar offset&#10;&#10;- Introduced `--elense-navbar-offset`" />
     <MESSAGE value="Adjust Snipcart modal and overlay styling for navbar offset&#10;&#10;- Introduced `--elense-navbar-offset` cart header positions using the new variable.&#10;- Added responsive adjustments for smaller screens." />
     <MESSAGE value="Rename &quot;Projects&quot; to &quot;Products&quot; across all content&#10;&#10;- Updated URLs, navigation, and metadata to reflect the change.&#10;- Adjusted i18n keys, breadcrumbs, and YAML configurations.&#10;- Updated links in blog posts, project pages, and product descriptions for consistency." />
-    <option name="LAST_COMMIT_MESSAGE" value="Rename &quot;Projects&quot; to &quot;Products&quot; across all content&#10;&#10;- Updated URLs, navigation, and metadata to reflect the change.&#10;- Adjusted i18n keys, breadcrumbs, and YAML configurations.&#10;- Updated links in blog posts, project pages, and product descriptions for consistency." />
+    <MESSAGE value="Refine Snipcart styling with" />
+    <option name="LAST_COMMIT_MESSAGE" value="Refine Snipcart styling with" />
   </component>
 </project>

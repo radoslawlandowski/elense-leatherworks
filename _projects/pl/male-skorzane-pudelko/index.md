@@ -12,6 +12,7 @@ price_currency: PLN
 availability: Na zamówienie
 availability_schema: https://schema.org/PreOrder
 shopify_url: ""
+etsy_url: ""
 features:
 - Kompaktowy format na klucze, biżuterię i drobne akcesoria.
 - Sztywna forma utrzymująca kształt podczas użytkowania.

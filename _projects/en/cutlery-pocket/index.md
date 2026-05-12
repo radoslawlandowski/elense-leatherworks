@@ -12,6 +12,7 @@ price_currency: PLN
 availability: Made to order
 availability_schema: https://schema.org/PreOrder
 shopify_url: ""
+etsy_url: ""
 features:
 - Space for cutlery and napkin in one clean form.
 - Slim profile that fits naturally on a prepared table.

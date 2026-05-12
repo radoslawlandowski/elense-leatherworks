@@ -35,6 +35,11 @@ layout: compress
 {% else %}
   {% assign project_hero_image_resolved = project_hero_image | relative_url %}
 {% endif %}
+{% assign product_etsy_url = page.etsy_url | default: "" %}
+{% if product_etsy_url == "" %}
+  {% assign product_etsy_url = site.etsy_url | default: "" %}
+{% endif %}
+
 {% assign has_primary_purchase_cta = false %}
 {% if shopify_url and shopify_url != "" %}
   {% assign has_primary_purchase_cta = true %}
@@ -80,10 +85,16 @@ layout: compress
         </div>
         <div class="column is-4">
           <div class="product-summary-card">
+            {% if product_etsy_url != "" %}
+            <a href="{{ product_etsy_url }}" target="_blank" rel="noopener noreferrer" class="button is-fullwidth is-medium has-text-weight-bold product-btn-etsy" data-analytics-event="etsy_click" data-analytics-category="product" data-analytics-label="{{ page.title }}">
+              <span class="icon"><i class="fab fa-etsy" aria-hidden="true"></i></span>
+              <span>{{ p.buy_etsy }}</span>
+            </a>
+            {% endif %}
             {% if snipcart_enabled and product_price_amount %}
             <button
               type="button"
-              class="button is-primary is-fullwidth is-medium has-text-weight-bold snipcart-add-item"
+              class="button is-primary is-fullwidth is-medium has-text-weight-bold snipcart-add-item {% if product_etsy_url != "" %}mt-3{% endif %}"
               data-item-id="{{ product_id | escape }}"
               data-item-name="{{ page.title | strip | escape }}"
               data-item-price="{{ product_price_amount }}"

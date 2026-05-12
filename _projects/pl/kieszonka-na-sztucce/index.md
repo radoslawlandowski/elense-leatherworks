@@ -12,6 +12,7 @@ price_currency: PLN
 availability: Na zamówienie
 availability_schema: https://schema.org/PreOrder
 shopify_url: ""
+etsy_url: ""
 features:
 - Miejsce na sztućce i serwetkę w jednej, zwartej formie.
 - Smukły kształt dobrze układający się przy nakryciu stołu.
