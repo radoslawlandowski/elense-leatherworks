@@ -4,7 +4,7 @@ layout: project-product
 lang: pl
 translation_key: leather-valet-tray-organizer
 permalink: "/pl/produkty/skorzany-organizer-biurkowy/"
-post-image: "/projects/pl/skorzany-organizer-biurkowy/hero.jpg"
+post-image: "/projects/pl/skorzany-organizer-biurkowy/1-DSCF1286.jpg"
 description: "Ręcznie wykonany skórzany organizer z tacą, który porządkuje klucze, portfel i drobiazgi na biurku, komodzie lub w przedpokoju."
 price: 24 USD  # TODO: cena testowa (fixture) — zweryfikuj przed publikacją
 price_amount: 24
@@ -24,17 +24,17 @@ tags:
 - "Skóra naturalna"
 date: 2026-07-06
 gallery:
-- href: "/projects/pl/skorzany-organizer-biurkowy/gallery-1.jpg"
-  imgSrc: "/projects/pl/skorzany-organizer-biurkowy/gallery-1.jpg"
+- href: "/projects/pl/skorzany-organizer-biurkowy/5-DSCF1270.jpg"
+  imgSrc: "/projects/pl/skorzany-organizer-biurkowy/5-DSCF1270.jpg"
   alt: "Skórzany Organizer Biurkowy z Tacą - 1"
-- href: "/projects/pl/skorzany-organizer-biurkowy/gallery-2.jpg"
-  imgSrc: "/projects/pl/skorzany-organizer-biurkowy/gallery-2.jpg"
+- href: "/projects/pl/skorzany-organizer-biurkowy/7-DSCF1255.jpg"
+  imgSrc: "/projects/pl/skorzany-organizer-biurkowy/7-DSCF1255.jpg"
   alt: "Skórzany Organizer Biurkowy z Tacą - 2"
-- href: "/projects/pl/skorzany-organizer-biurkowy/gallery-3.jpg"
-  imgSrc: "/projects/pl/skorzany-organizer-biurkowy/gallery-3.jpg"
+- href: "/projects/pl/skorzany-organizer-biurkowy/4-DSCF1279.jpg"
+  imgSrc: "/projects/pl/skorzany-organizer-biurkowy/4-DSCF1279.jpg"
   alt: "Skórzany Organizer Biurkowy z Tacą - 3"
-- href: "/projects/pl/skorzany-organizer-biurkowy/gallery-4.jpg"
-  imgSrc: "/projects/pl/skorzany-organizer-biurkowy/gallery-4.jpg"
+- href: "/projects/pl/skorzany-organizer-biurkowy/6-DSCF1262.jpg"
+  imgSrc: "/projects/pl/skorzany-organizer-biurkowy/6-DSCF1262.jpg"
   alt: "Skórzany Organizer Biurkowy z Tacą - 4"
 ---
 
