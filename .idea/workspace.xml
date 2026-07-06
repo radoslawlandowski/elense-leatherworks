@@ -4,9 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="25c37f1c-2044-4918-9cdf-057ee5ec21c9" name="Changes" comment="Update site meta image and refine `.idea` workspace configuration">
-      <change beforePath="$PROJECT_DIR$/.github/workflows/jekyll.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.github/workflows/jekyll.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+    <list default="true" id="25c37f1c-2044-4918-9cdf-057ee5ec21c9" name="Changes" comment="Migrate deployment workflow from AWS S3 to Cloudflare Pages and update branch configuration.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -43,7 +41,7 @@
     "Shell Script.Build.executor": "Run",
     "Shell Script.Run.executor": "Run",
     "com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1": "true",
-    "git-widget-placeholder": "master",
+    "git-widget-placeholder": "content/skorzany-organizer-biurkowy",
     "junie.onboarding.icon.badge.shown": "true",
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "/Users/bright/Documents/repos/elense-leatherworks/elense-leatherworks",
@@ -61,40 +59,10 @@
     ]
   }
 }]]></component>
-  <component name="RunManager" selected="Shell Script.Build">
-    <configuration name="Build" type="ShConfigurationType">
-      <option name="SCRIPT_TEXT" value="arch -x86_64 bundle exec jekyll build" />
-      <option name="INDEPENDENT_SCRIPT_PATH" value="true" />
-      <option name="SCRIPT_PATH" value="" />
-      <option name="SCRIPT_OPTIONS" value="" />
-      <option name="INDEPENDENT_SCRIPT_WORKING_DIRECTORY" value="true" />
-      <option name="SCRIPT_WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="INDEPENDENT_INTERPRETER_PATH" value="true" />
-      <option name="INTERPRETER_PATH" value="/bin/zsh" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="EXECUTE_IN_TERMINAL" value="true" />
-      <option name="EXECUTE_SCRIPT_FILE" value="false" />
-      <envs />
-      <method v="2" />
-    </configuration>
-    <configuration name="Run" type="ShConfigurationType">
-      <option name="SCRIPT_TEXT" value="arch -x86_64 bundle exec jekyll serve" />
-      <option name="INDEPENDENT_SCRIPT_PATH" value="true" />
-      <option name="SCRIPT_PATH" value="" />
-      <option name="SCRIPT_OPTIONS" value="" />
-      <option name="INDEPENDENT_SCRIPT_WORKING_DIRECTORY" value="true" />
-      <option name="SCRIPT_WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="INDEPENDENT_INTERPRETER_PATH" value="true" />
-      <option name="INTERPRETER_PATH" value="/bin/zsh" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="EXECUTE_IN_TERMINAL" value="true" />
-      <option name="EXECUTE_SCRIPT_FILE" value="false" />
-      <envs />
-      <method v="2" />
-    </configuration>
+  <component name="RunManager" selected="Shell Script.Run">
     <list>
-      <item itemvalue="Shell Script.Run" />
       <item itemvalue="Shell Script.Build" />
+      <item itemvalue="Shell Script.Run" />
     </list>
   </component>
   <component name="SharedIndexes">
@@ -135,7 +103,13 @@
       <workItem from="1777450974056" duration="1192000" />
       <workItem from="1777966570396" duration="598000" />
       <workItem from="1778069095256" duration="2079000" />
-      <workItem from="1778480444981" duration="12118000" />
+      <workItem from="1778480444981" duration="37626000" />
+      <workItem from="1779205980787" duration="529000" />
+      <workItem from="1779348188044" duration="587000" />
+      <workItem from="1779710763487" duration="518000" />
+      <workItem from="1780038043452" duration="469000" />
+      <workItem from="1780647009850" duration="588000" />
+      <workItem from="1783339525173" duration="5010000" />
     </task>
     <task id="LOCAL-00001" summary="Refactor `.idea` configs, update navigation for project routing, and enhance contact section styling and behavior.">
       <option name="closed" value="true" />
@@ -233,7 +207,15 @@
       <option name="project" value="LOCAL" />
       <updated>1778606046233</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="Migrate deployment workflow from AWS S3 to Cloudflare Pages and update branch configuration.">
+      <option name="closed" value="true" />
+      <created>1778608018097</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1778608018097</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -253,6 +235,8 @@
     <MESSAGE value="Allow Facebook crawler in `robots.txt` and update `.idea` workspace configuration" />
     <MESSAGE value="Remove `noindex` directive, add canonical links, and clean up meta tags" />
     <MESSAGE value="Update site meta image and refine `.idea` workspace configuration" />
-    <option name="LAST_COMMIT_MESSAGE" value="Update site meta image and refine `.idea` workspace configuration" />
+    <MESSAGE value="Migrate deployment workflow from AWS S3 to Cloudflare Pages and update associated configurations." />
+    <MESSAGE value="Migrate deployment workflow from AWS S3 to Cloudflare Pages and update branch configuration." />
+    <option name="LAST_COMMIT_MESSAGE" value="Migrate deployment workflow from AWS S3 to Cloudflare Pages and update branch configuration." />
   </component>
 </project>
