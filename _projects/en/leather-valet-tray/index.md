@@ -4,7 +4,7 @@ layout: project-product
 lang: en
 translation_key: leather-valet-tray-organizer
 permalink: "/en/products/leather-valet-tray/"
-post-image: "/projects/en/leather-valet-tray/hero.jpg"
+post-image: "/projects/en/leather-valet-tray/1-DSCF1286.jpg"
 description: "A handmade leather valet tray that keeps keys, wallet, and everyday essentials organized on any desk, dresser, or entryway surface."
 price: 24 USD  # TODO: cena testowa (fixture) — zweryfikuj przed publikacją
 price_amount: 24
@@ -24,17 +24,17 @@ tags:
 - "Genuine leather"
 date: 2026-07-06
 gallery:
-- href: "/projects/en/leather-valet-tray/gallery-1.jpg"
-  imgSrc: "/projects/en/leather-valet-tray/gallery-1.jpg"
+- href: "/projects/en/leather-valet-tray/5-DSCF1270.jpg"
+  imgSrc: "/projects/en/leather-valet-tray/5-DSCF1270.jpg"
   alt: "Leather Valet Tray & Desk Organizer - 1"
-- href: "/projects/en/leather-valet-tray/gallery-2.jpg"
-  imgSrc: "/projects/en/leather-valet-tray/gallery-2.jpg"
+- href: "/projects/en/leather-valet-tray/7-DSCF1255.jpg"
+  imgSrc: "/projects/en/leather-valet-tray/7-DSCF1255.jpg"
   alt: "Leather Valet Tray & Desk Organizer - 2"
-- href: "/projects/en/leather-valet-tray/gallery-3.jpg"
-  imgSrc: "/projects/en/leather-valet-tray/gallery-3.jpg"
+- href: "/projects/en/leather-valet-tray/4-DSCF1279.jpg"
+  imgSrc: "/projects/en/leather-valet-tray/4-DSCF1279.jpg"
   alt: "Leather Valet Tray & Desk Organizer - 3"
-- href: "/projects/en/leather-valet-tray/gallery-4.jpg"
-  imgSrc: "/projects/en/leather-valet-tray/gallery-4.jpg"
+- href: "/projects/en/leather-valet-tray/6-DSCF1262.jpg"
+  imgSrc: "/projects/en/leather-valet-tray/6-DSCF1262.jpg"
   alt: "Leather Valet Tray & Desk Organizer - 4"
 ---
 
