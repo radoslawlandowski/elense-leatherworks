@@ -26,6 +26,12 @@ whatsapp_number: "+48889815275"
 whatsapp_url: ""
 shopify_store_url: ""
 snipcart_api_key: "MDQ1YzJmMGEtMzIzMi00YjM3LThkNzQtMGJjNDZlNWY1ZTU4NjM5MDgyNDgxODQyNjEwMDQ2"
+# Currencies enabled in the Snipcart dashboard (Regional settings).
+# The cart of each language uses the currency set in _data/i18n.yml (en: USD, pl: PLN).
+# Add a currency here only after enabling it in Snipcart, otherwise the cart fails to load.
+snipcart_currencies:
+  - usd
+  - pln
 instagram_username: "elenseleatherworks"
 etsy_url: "https://www.etsy.com/shop/ElenseLeatherworks"
 linkedin_username: ""

@@ -170,13 +170,15 @@ layout: compress
                     animateGridRefresh();
                 });
             });
-            clearFiltersButton.addEventListener('click', function () {
-                selectedTag = '';
-                selectedAvailability = '';
-                setActiveBadge(tagBadges, selectedTag);
-                setActiveBadge(availabilityBadges, selectedAvailability);
-                animateGridRefresh();
-            });
+            if (clearFiltersButton) {
+                clearFiltersButton.addEventListener('click', function () {
+                    selectedTag = '';
+                    selectedAvailability = '';
+                    setActiveBadge(tagBadges, selectedTag);
+                    setActiveBadge(availabilityBadges, selectedAvailability);
+                    animateGridRefresh();
+                });
+            }
 
             applyFilters();
         }());

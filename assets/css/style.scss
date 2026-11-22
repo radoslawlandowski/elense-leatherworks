@@ -114,6 +114,29 @@ html body .snipcart {
     background-color: $elense-brown !important;
 }
 
+#navbar .navbar-burger {
+    -webkit-appearance: none;
+    appearance: none;
+    background: transparent;
+    border: 0;
+    padding: 0;
+    margin-left: 0;
+    color: $elense-brown;
+    cursor: pointer;
+}
+
+#navbar .navbar-brand .elense-cart-trigger {
+    margin-left: auto;
+    cursor: pointer;
+}
+
+@media (max-width: 1023px) {
+    #navbar .navbar-menu .navbar-item {
+        padding-top: 0.75rem;
+        padding-bottom: 0.75rem;
+    }
+}
+
 #navbar a.navbar-item:hover,
 #navbar .navbar-link:hover {
     background-color: rgba($color: $elense-brown, $alpha: 0.12) !important;
@@ -325,7 +348,8 @@ html body .snipcart-cart-header--fixed {
         }
 
         .contact-channels {
-            gap: 1rem;
+            flex-wrap: wrap;
+            gap: 0.5rem 1.5rem;
         }
     }
 }
@@ -851,6 +875,12 @@ html body .snipcart-cart-header--fixed {
 
     .title {
         margin-bottom: 2rem !important;
+    }
+
+    @media (max-width: 768px) {
+        .columns.is-variable {
+            --columnGap: 0.75rem;
+        }
     }
 }
 
