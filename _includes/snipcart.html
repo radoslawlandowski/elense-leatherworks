@@ -2,8 +2,25 @@
 {% if site.snipcart_api_key and site.snipcart_api_key != "" %}
   {% assign snipcart_enabled = true %}
 {% endif %}
+{% assign current_lang = page.lang | default: "en" %}
+{% assign cart_currency = site.data.i18n[current_lang].currency | default: "USD" | downcase %}
+{% assign cart_currency_enabled = false %}
+{% if site.snipcart_currencies contains cart_currency %}
+  {% assign cart_currency_enabled = true %}
+{% endif %}
 
 {% if snipcart_enabled %}
-<div hidden id="snipcart" data-api-key="{{ site.snipcart_api_key }}" data-config-modal-style="side"></div>
+<div hidden id="snipcart" data-api-key="{{ site.snipcart_api_key }}" data-config-modal-style="side"{% if cart_currency_enabled %} data-currency="{{ cart_currency }}"{% endif %}></div>
+{% if cart_currency_enabled %}
+<script>
+  document.addEventListener('snipcart.ready', function () {
+    var wantedCurrency = {{ cart_currency | jsonify }};
+    var state = window.Snipcart.store.getState();
+    if (state.cart.currency !== wantedCurrency) {
+      window.Snipcart.api.session.setCurrency(wantedCurrency);
+    }
+  });
+</script>
+{% endif %}
 <script src="https://cdn.snipcart.com/themes/v3.3.1/default/snipcart.js" defer></script>
 {% endif %}

@@ -1,5 +1,6 @@
 en:
   locale: en-US
+  currency: USD
   lang_switch_label: PL
   site_description: Handcrafted leather home decor from Poland
   site_keywords: leather home decor, handcrafted leather accessories, leather table decor, leather coaster, leather cutlery pocket, Elense Experience
@@ -14,6 +15,7 @@ en:
     contact: CONTACT
     blog: BLOG
     cart: CART
+    menu: Menu
   breadcrumbs:
     home: Home
     blog: Blog
@@ -120,6 +122,7 @@ en:
 
 pl:
   locale: pl-PL
+  currency: PLN
   lang_switch_label: EN
   site_description: Ręcznie szyte akcesoria skórzane do home decor
   site_keywords: akcesoria skórzane, home decor, ręcznie szyte, skóra naturalna, podkładki skórzane, kieszonki na sztućce, Elense Experience
@@ -134,6 +137,7 @@ pl:
     contact: KONTAKT
     blog: BLOG
     cart: KOSZYK
+    menu: Menu
   breadcrumbs:
     home: Start
     blog: Blog

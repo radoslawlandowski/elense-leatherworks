@@ -37,6 +37,19 @@
 
 <nav class="navbar is-fixed-top elense-navbar" role="navigation" aria-label="main navigation" id="navbar">
     <div class="container">
+        <div class="navbar-brand">
+            <button class="navbar-burger" type="button" aria-label="{{ t.nav.menu }}" aria-expanded="false" aria-controls="navbar-menu" data-target="navbar-menu">
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+            </button>
+            {% if snipcart_enabled %}
+            <button class="navbar-item elense-cart-trigger snipcart-checkout is-hidden-desktop" type="button" aria-label="{{ t.nav.cart }}">
+                <span>{{ t.nav.cart }}</span>
+                <span class="elense-cart-count snipcart-items-count">0</span>
+            </button>
+            {% endif %}
+        </div>
 
         <div class="navbar-menu elense-navbar-menu" id="navbar-menu">
             <div class="navbar-end">
@@ -46,7 +59,7 @@
                 <a class="navbar-item nav-section-link" href="{{ home_url }}#contact">{{ t.nav.contact }}</a>
                 <a class="navbar-item {% if page.translation_key == 'blog_index' %}is-active{% endif %}" href="{{ blog_url }}">{{ t.nav.blog }}</a>
                 {% if snipcart_enabled %}
-                <button class="navbar-item elense-cart-trigger snipcart-checkout" type="button" aria-label="{{ t.nav.cart }}">
+                <button class="navbar-item elense-cart-trigger snipcart-checkout is-hidden-touch" type="button" aria-label="{{ t.nav.cart }}">
                     <span>{{ t.nav.cart }}</span>
                     <span class="elense-cart-count snipcart-items-count">0</span>
                 </button>
@@ -60,16 +73,28 @@
 <!-- Bulma Navbar JS -->
 <script>
     document.addEventListener('DOMContentLoaded', function () {
-        var $navbarBurgers = Array.prototype.slice.call(document.querySelectorAll('.navbar-burger'), 0);
-        if ($navbarBurgers.length > 0) {
-            $navbarBurgers.forEach(function ($el) {
-                $el.addEventListener('click', function () {
-                    var target = $el.dataset.target;
-                    var $target = document.getElementById(target);
-                    $el.classList.toggle('is-active');
-                    $target.classList.toggle('is-active');
-                });
-            });
+        var burger = document.querySelector('#navbar .navbar-burger');
+        var menu = burger ? document.getElementById(burger.dataset.target) : null;
+        if (!burger || !menu) {
+            return;
         }
+        function setOpen(open) {
+            burger.classList.toggle('is-active', open);
+            menu.classList.toggle('is-active', open);
+            burger.setAttribute('aria-expanded', open ? 'true' : 'false');
+        }
+        burger.addEventListener('click', function () {
+            setOpen(!menu.classList.contains('is-active'));
+        });
+        menu.addEventListener('click', function (event) {
+            if (event.target.closest('a')) {
+                setOpen(false);
+            }
+        });
+        document.addEventListener('keydown', function (event) {
+            if (event.key === 'Escape') {
+                setOpen(false);
+            }
+        });
     });
 </script>
