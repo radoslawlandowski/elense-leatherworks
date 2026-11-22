@@ -4,10 +4,8 @@ layout: compress
 {% assign current_lang = page.lang | default: "en" %}
 {% assign t = site.data.i18n[current_lang] %}
 {% assign products = site.projects | where: "lang", current_lang | sort: "date" | reverse %}
-{% capture tag_buffer %}{% for product in products %}{% if product.tags %}{% for tag in product.tags %}{{ tag | strip }}|||{% endfor %}{% endif %}{% endfor %}{% endcapture %}
-{% assign product_tags = tag_buffer | split: "|||" | sort | uniq %}
-{% capture availability_buffer %}{% for product in products %}{% if product.availability %}{{ product.availability | strip }}|||{% endif %}{% endfor %}{% endcapture %}
-{% assign product_availability_values = availability_buffer | split: "|||" | sort | uniq %}
+{% capture category_buffer %}{% for product in products %}{% assign first_tag = product.tags | first | strip %}{% if first_tag != "" %}{{ first_tag }}|||{% endif %}{% endfor %}{% endcapture %}
+{% assign product_categories = category_buffer | split: "|||" | sort | uniq %}
 
 <!DOCTYPE html>
 <html lang="{{ current_lang }}">
@@ -17,20 +15,40 @@ layout: compress
     {% include navbar.html %}
     {% include breadcrumbs.html %}
 
-    <!--Main Section-->
-    <section class="hero" id="project">
-        <div class="hero-body">
-            <div class="container has-text-centered">
-                <div id="products-catalog">
-                    {% include project-card.html projects=products %}
-                </div>
+    <main id="main">
+        <header class="catalog-head">
+            <div>
+                <p class="eyebrow">{{ t.home.collection_eyebrow }}</p>
+                <h1 class="catalog-head__title">{{ page.title }}</h1>
+            </div>
+            {% if page.description %}<p class="catalog-head__intro">{{ page.description }}</p>{% endif %}
+        </header>
 
-                <p id="products-no-results" class="products-no-results is-hidden">{{ t.projects_index.no_results }}</p>
+        <div class="catalog-filters">
+            <div class="catalog-filters__inner">
+                <div class="catalog-filters__chips" role="group" aria-label="{{ t.projects_index.filters_aria_label }}">
+                    <button type="button" class="filter-chip" data-filter-category="" aria-pressed="true">{{ t.projects_index.all }} · {{ products.size }}</button>
+                    {% for category in product_categories %}
+                    <button type="button" class="filter-chip" data-filter-category="{{ category | downcase | escape }}" aria-pressed="false">{{ category }}</button>
+                    {% endfor %}
+                </div>
+                <label class="catalog-filters__stock">
+                    <input type="checkbox" id="catalog-in-stock">
+                    <span>{{ t.projects_index.in_stock_only }}</span>
+                </label>
             </div>
         </div>
-    </section>
 
-    <!--Footer-->
+        <section class="catalog-grid" aria-live="polite">
+            <div class="product-grid" id="products-catalog">
+                {% for project in products %}
+                  {% include product-tile.html project=project %}
+                {% endfor %}
+            </div>
+            <p id="products-no-results" class="catalog-empty" hidden>{{ t.projects_index.no_results }}</p>
+        </section>
+    </main>
+
     {% include footer.html %}
 
     <script>
@@ -39,148 +57,63 @@ layout: compress
             if (!catalog) {
                 return;
             }
-
-            var tagBadges = Array.prototype.slice.call(document.querySelectorAll('[data-filter-group="tag"]'));
-            var availabilityBadges = Array.prototype.slice.call(document.querySelectorAll('[data-filter-group="availability"]'));
-            var clearFiltersButton = document.getElementById('products-clear-filters');
-            var resultCount = document.getElementById('products-results-count');
+            var chips = Array.prototype.slice.call(document.querySelectorAll('[data-filter-category]'));
+            var stockToggle = document.getElementById('catalog-in-stock');
             var emptyState = document.getElementById('products-no-results');
-            var cards = Array.prototype.slice.call(catalog.querySelectorAll('[data-product-tile]'));
-            var selectedTag = '';
-            var selectedAvailability = '';
-            var gridAnimationTimer = null;
-            var GRID_FADE_MS = 160;
-            var prefersReducedMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+            var tiles = Array.prototype.slice.call(catalog.querySelectorAll('[data-product-tile]'));
+            var category = '';
 
-            function normalize(value) {
-                return (value || '').toString().toLowerCase().trim();
-            }
-
-            function setActiveBadge(badges, activeValue) {
-                badges.forEach(function (badge) {
-                    var isActive = normalize(badge.dataset.filterValue) === activeValue && activeValue !== '';
-                    badge.classList.toggle('is-active', isActive);
-                    badge.setAttribute('aria-pressed', isActive ? 'true' : 'false');
+            function hasCategory(value) {
+                return chips.some(function (chip) {
+                    return chip.getAttribute('data-filter-category') === value;
                 });
             }
 
-            function hasBadgeWithValue(badges, value) {
-                return badges.some(function (badge) {
-                    return normalize(badge.dataset.filterValue) === value;
-                });
-            }
-
-            function applyFilters() {
-                var visibleCount = 0;
-
-                cards.forEach(function (card) {
-                    var cardTags = normalize(card.dataset.tags).split('|').filter(Boolean);
-                    var cardAvailability = normalize(card.dataset.availability);
-                    var matchesTag = !selectedTag || cardTags.indexOf(selectedTag) !== -1;
-                    var matchesAvailability = !selectedAvailability || cardAvailability === selectedAvailability;
-                    var isVisible = matchesTag && matchesAvailability;
-
-                    if (isVisible) {
-                        card.classList.remove('is-hidden');
-                        visibleCount += 1;
-                    } else {
-                        card.classList.add('is-hidden');
+            function apply() {
+                var onlyStock = stockToggle && stockToggle.checked;
+                var visible = 0;
+                tiles.forEach(function (tile) {
+                    var show = (!category || tile.getAttribute('data-category') === category) && (!onlyStock || tile.getAttribute('data-in-stock') === 'true');
+                    tile.hidden = !show;
+                    if (show) {
+                        visible += 1;
                     }
                 });
-
-                if (resultCount) {
-                    var countTemplate = resultCount.getAttribute('data-count-template') || '{count}';
-                    resultCount.textContent = countTemplate.replace('{count}', visibleCount);
-                }
-
+                chips.forEach(function (chip) {
+                    chip.setAttribute('aria-pressed', chip.getAttribute('data-filter-category') === category ? 'true' : 'false');
+                });
                 if (emptyState) {
-                    emptyState.classList.toggle('is-hidden', visibleCount > 0);
+                    emptyState.hidden = visible > 0;
                 }
-
                 if (window.URLSearchParams && window.history && window.history.replaceState) {
                     var params = new URLSearchParams(window.location.search);
-                    params.delete('q');
-                    if (selectedTag) {
-                        params.set('tag', selectedTag);
+                    if (category) {
+                        params.set('tag', category);
                     } else {
                         params.delete('tag');
                     }
-                    if (selectedAvailability) {
-                        params.set('availability', selectedAvailability);
-                    } else {
-                        params.delete('availability');
-                    }
-                    var queryString = params.toString();
-                    var nextUrl = queryString ? window.location.pathname + '?' + queryString : window.location.pathname;
-                    window.history.replaceState({}, '', nextUrl);
+                    var query = params.toString();
+                    window.history.replaceState({}, '', query ? window.location.pathname + '?' + query : window.location.pathname);
                 }
-            }
-
-            function animateGridRefresh() {
-                if (prefersReducedMotion) {
-                    applyFilters();
-                    return;
-                }
-
-                if (gridAnimationTimer) {
-                    window.clearTimeout(gridAnimationTimer);
-                    gridAnimationTimer = null;
-                }
-
-                catalog.classList.add('is-grid-fading');
-
-                gridAnimationTimer = window.setTimeout(function () {
-                    applyFilters();
-                    window.requestAnimationFrame(function () {
-                        catalog.classList.remove('is-grid-fading');
-                    });
-                    gridAnimationTimer = null;
-                }, GRID_FADE_MS);
             }
 
             if (window.URLSearchParams) {
-                var params = new URLSearchParams(window.location.search);
-                var initialTag = params.get('tag');
-                var initialAvailability = params.get('availability');
-
-                if (initialTag && hasBadgeWithValue(tagBadges, normalize(initialTag))) {
-                    selectedTag = normalize(initialTag);
-                }
-                if (initialAvailability && hasBadgeWithValue(availabilityBadges, normalize(initialAvailability))) {
-                    selectedAvailability = normalize(initialAvailability);
+                var initial = (new URLSearchParams(window.location.search).get('tag') || '').toLowerCase().trim();
+                if (initial && hasCategory(initial)) {
+                    category = initial;
                 }
             }
 
-            setActiveBadge(tagBadges, selectedTag);
-            setActiveBadge(availabilityBadges, selectedAvailability);
-
-            tagBadges.forEach(function (badge) {
-                badge.addEventListener('click', function () {
-                    var clickedValue = normalize(badge.dataset.filterValue);
-                    selectedTag = selectedTag === clickedValue ? '' : clickedValue;
-                    setActiveBadge(tagBadges, selectedTag);
-                    animateGridRefresh();
+            chips.forEach(function (chip) {
+                chip.addEventListener('click', function () {
+                    category = chip.getAttribute('data-filter-category');
+                    apply();
                 });
             });
-            availabilityBadges.forEach(function (badge) {
-                badge.addEventListener('click', function () {
-                    var clickedValue = normalize(badge.dataset.filterValue);
-                    selectedAvailability = selectedAvailability === clickedValue ? '' : clickedValue;
-                    setActiveBadge(availabilityBadges, selectedAvailability);
-                    animateGridRefresh();
-                });
-            });
-            if (clearFiltersButton) {
-                clearFiltersButton.addEventListener('click', function () {
-                    selectedTag = '';
-                    selectedAvailability = '';
-                    setActiveBadge(tagBadges, selectedTag);
-                    setActiveBadge(availabilityBadges, selectedAvailability);
-                    animateGridRefresh();
-                });
+            if (stockToggle) {
+                stockToggle.addEventListener('change', apply);
             }
-
-            applyFilters();
+            apply();
         }());
     </script>
 </body>

@@ -1,0 +1,20 @@
+<section class="home-trust" aria-label="{{ t.home.eyebrow }}">
+  <ul class="home-trust__list">
+    {% for item in t.home.trust %}
+    <li class="home-trust__item">
+      <svg aria-hidden="true" class="home-trust__icon" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round">
+        {% case forloop.index %}
+        {% when 1 %}<path d="M5 19c0-8 5-13 14-14 0 9-5 14-14 14z"></path><path d="M5 19l9-9"></path>
+        {% when 2 %}<path d="M3 7h18"></path><path d="M3 12h3M9 12h3M15 12h3"></path><path d="M3 17h18"></path>
+        {% when 3 %}<rect x="4" y="4" width="16" height="16"></rect><path d="M9 15.5l3-7 3 7M10.2 13h3.6"></path>
+        {% else %}<path d="M12 3l7 3v5c0 5-3 8-7 10-4-2-7-5-7-10V6l7-3z"></path><path d="M9 12l2 2 4-4"></path>
+        {% endcase %}
+      </svg>
+      <span class="home-trust__text">
+        <strong>{{ item.title }}</strong>
+        <span>{{ item.text }}</span>
+      </span>
+    </li>
+    {% endfor %}
+  </ul>
+</section>

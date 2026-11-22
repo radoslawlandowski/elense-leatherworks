@@ -10,23 +10,13 @@ layout: compress
 {% include head.html %}
 
 <body>
-    <section class="hero is-fullheight has-text-centered has-background-black-ter">
-        <div class="hero-body">
-            <div class="container">
-                <h1 class="title is-1 is-uppercase has-text-weight-bold has-text-white">
-                    {{page.title}}
-                </h1>
-                <h3 class="is-uppercase has-text-weight-medium is-marginless has-text-grey-light">
-                    {{content}}
-                </h3>
-                <hr>
-                <div class="columns is-marginless is-inline-flex-desktop">
-                    <a href="{{ home_url | relative_url }}"
-                        class="button is-white column is-rounded is-outlined is-uppercase has-text-weight-normal">{{ t.nav.home }}</a>
-                </div>
-            </div>
-        </div>
-    </section>
+    {% include navbar.html %}
+    <main id="main" class="notfound">
+        <p class="eyebrow">{{ page.title }}</p>
+        <h1 class="article__title">{{ content | strip_html | strip }}</h1>
+        <a href="{{ home_url | relative_url }}" class="button is-primary">{{ t.blog.back_home }}</a>
+    </main>
+    {% include footer.html %}
 </body>
 
 </html>

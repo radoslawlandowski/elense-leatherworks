@@ -1,0 +1,14 @@
+# Photos used by the home page sections.
+images:
+  hero_main: /projects/pl/skorzany-organizer-biurkowy/1-DSCF1286.jpg
+  hero_detail: /projects/pl/skorzany-organizer-biurkowy/7-DSCF1255.jpg
+  pillars: /projects/pl/skorzany-organizer-biurkowy/4-DSCF1279.jpg
+  about: /projects/pl/skorzany-organizer-biurkowy/5-DSCF1270.jpg
+  contact: /projects/pl/skorzany-organizer-biurkowy/6-DSCF1262.jpg
+
+# Post linked from the pillars section.
+philosophy_post_key: elense-experience-philosophy
+
+# How many products and posts the home page shows.
+featured_products: 3
+journal_posts: 3

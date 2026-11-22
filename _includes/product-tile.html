@@ -1,0 +1,33 @@
+{% comment %}Product tile: photo 4:5, availability badge, name, price, tags. Pass project=<document>.{% endcomment %}
+{% assign tile = include.project %}
+{% assign tile_lang = page.lang | default: "en" %}
+{% assign tile_t = site.data.i18n[tile_lang] %}
+{% assign tile_image = tile.post-image | default: "" %}
+{% assign tile_image_ext = tile_image | slice: -4, 4 | downcase %}
+{% unless tile_image contains '://' %}{% assign tile_image = tile_image | relative_url %}{% endunless %}
+{% include price-format.html amount=tile.price_amount currency=tile.price_currency %}
+{% assign tile_price = formatted_price %}
+{% assign tile_tags = "" %}
+{% if tile.tags %}
+  {% for tag in tile.tags limit: 2 %}
+    {% if tag != "" %}{% capture tile_tags %}{{ tile_tags }}{% if tile_tags != "" %} · {% endif %}{{ tag }}{% endcapture %}{% endif %}
+  {% endfor %}
+{% endif %}
+{% assign tile_in_stock = false %}{% if tile.availability_schema contains "InStock" %}{% assign tile_in_stock = true %}{% endif %}
+<a class="product-tile" href="{{ tile.url | relative_url }}" data-product-tile data-category="{{ tile.tags | first | downcase | strip | escape }}" data-in-stock="{{ tile_in_stock }}">
+  <span class="product-tile__media{% if tile_image_ext == '.svg' or tile.post-image == '' %} product-tile__media--empty{% endif %}">
+    {% if tile_image_ext == '.svg' or tile.post-image == '' %}
+    <span class="product-tile__placeholder">{{ tile_t.home.photo_placeholder }}</span>
+    {% else %}
+    <img src="{{ tile_image }}" alt="{{ tile.title | escape }}" loading="lazy" decoding="async">
+    {% endif %}
+    {% if tile.availability and tile.availability != "" %}
+    <span class="product-tile__badge">{{ tile.availability }}</span>
+    {% endif %}
+  </span>
+  <span class="product-tile__head">
+    <span class="product-tile__name">{{ tile.title }}</span>
+    {% if tile_price != "" %}<span class="product-tile__price">{{ tile_price | strip }}</span>{% endif %}
+  </span>
+  {% if tile_tags != "" %}<span class="product-tile__tags">{{ tile_tags | strip }}</span>{% endif %}
+</a>
