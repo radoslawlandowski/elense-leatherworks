@@ -1,0 +1,10 @@
+{% comment %}Journal card. Pass post=<document>.{% endcomment %}
+{% assign card = include.post %}
+{% if page.lang == "pl" %}{% assign card_date = card.date | date: "%d.%m.%Y" %}{% else %}{% assign card_date = card.date | date: "%B %-d, %Y" %}{% endif %}
+{% assign card_excerpt = card.description | default: card.excerpt | strip_html | strip_newlines | strip | truncate: 170 %}
+<a class="journal-card" href="{{ card.url | relative_url }}">
+  <time class="journal-card__date" datetime="{{ card.date | date: '%Y-%m-%d' }}">{{ card_date }}</time>
+  <span class="journal-card__title">{{ card.title }}</span>
+  <span class="journal-card__excerpt">{{ card_excerpt | escape }}</span>
+  <span class="journal-card__more">{{ site.data.i18n[page.lang].home.read_post }}</span>
+</a>

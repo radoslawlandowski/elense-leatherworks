@@ -2,66 +2,59 @@
 {% assign t = site.data.i18n[current_lang] %}
 {% assign routes = t.routes %}
 {% assign home_url = routes.home | relative_url %}
-{% assign recent_posts = site.posts | where: "lang", current_lang %}
+{% assign snipcart_enabled = false %}
+{% if site.snipcart_api_key and site.snipcart_api_key != "" %}
+  {% assign snipcart_enabled = true %}
+{% endif %}
+{% include contact-vars.html %}
 
-<footer id="footer">
-    <div class="container has-text-centered has-background-grey-darker" id="backtotop">
-        <a class="has-text-white" href="#navbar" onclick="window.scroll({ top: 0, behavior: 'smooth' }); return false;">{{ t.footer.back_to_top }}</a>
-    </div>
-
-    <div class="has-background-grey-darker">
-        <div class="container columns">
-            <div class="column has-text-left-desktop has-text-centered-mobile">
-                <a href="{{ home_url }}#about">
-                    <div class="columns">
-                        <div class="column is-one-fifth-desktop is-one-fifth-fullhd is-one-quarter-tablet">
-                            <figure class="image elense-footer-logo">
-                                <img src="{{ site['author-image'] | relative_url }}" alt="{{ site['author-name'] }}">
-                            </figure>
-                        </div>
-                        <div class="column is-marginless">
-                            <h5 class="has-text-grey-lighter">{{ site['author-name'] }}</h5>
-                            <div class="content has-text-grey">
-                                <p>{% if current_lang == "pl" and site['author-about-pl'] %}{{ site['author-about-pl'] | truncate: 75 }}{% else %}{{ site['author-about'] | truncate: 75 }}{% endif %}</p>
-                            </div>
-                        </div>
-                    </div>
+<footer class="site-footer" id="footer">
+    <div class="site-footer__inner">
+        <div class="site-footer__grid">
+            <div class="site-footer__brand">
+                <a href="{{ home_url }}" aria-label="{{ site.title }}">
+                    <span class="elense-logo elense-logo--footer"><img src="{{ site['logo-image'] | relative_url }}" alt="{{ site.title }}" width="759" height="952" loading="lazy"></span>
                 </a>
+                <p>{{ t.site_description }}</p>
             </div>
 
-            <div class="column has-text-white">
-                <h3>{{ t.footer.more_links }}</h3>
-                <ul>
-                    <li>
-                        <a href="{{ routes.projects | relative_url }}">{{ t.nav.projects }}</a>
-                    </li>
-                    <li>
-                        <a href="{{ routes.blog | relative_url }}">{{ t.nav.blog }}</a>
-                    </li>
-                    <li>
-                        <a target="_blank" rel="noopener noreferrer" href="{{ '/feed.xml' | relative_url }}">{{ t.footer.subscribe_rss }}</a>
-                    </li>
-                </ul>
-            </div>
-
-            <div class="column has-text-white">
-                <h3>{{ t.footer.recent_posts }}</h3>
-                {% if recent_posts.size > 0 %}
-                    <ul>
-                        {% for post in recent_posts limit:3 %}
-                        <li>
-                            <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
-                        </li>
-                        {% endfor %}
-                    </ul>
-                {% else %}
-                    <p>{{ t.footer.no_recent_posts }}</p>
+            <nav class="site-footer__col" aria-label="{{ t.footer.shop }}">
+                <span class="site-footer__heading">{{ t.footer.shop }}</span>
+                <a href="{{ routes.projects | relative_url }}">{{ t.nav.projects }}</a>
+                {% if snipcart_enabled %}
+                <button class="snipcart-checkout" type="button">{{ t.nav.cart }}</button>
                 {% endif %}
-            </div>
+                {% if elense_etsy_href != "" %}
+                <a href="{{ elense_etsy_href }}" target="_blank" rel="noopener noreferrer" data-analytics-event="etsy_click" data-analytics-category="footer">{{ t.footer.etsy_shop }}</a>
+                {% endif %}
+            </nav>
+
+            <nav class="site-footer__col" aria-label="{{ t.footer.studio }}">
+                <span class="site-footer__heading">{{ t.footer.studio }}</span>
+                <a href="{{ home_url }}#about">{{ t.nav.about }}</a>
+                <a href="{{ routes.blog | relative_url }}">{{ t.nav.blog }}</a>
+                <a href="{{ home_url }}#contact">{{ t.nav.contact }}</a>
+                {% if elense_instagram_href != "" %}
+                <a href="{{ elense_instagram_href }}" target="_blank" rel="noopener noreferrer" data-analytics-event="instagram_click" data-analytics-category="footer">{{ t.contact.instagram }}</a>
+                {% endif %}
+            </nav>
+
+            <nav class="site-footer__col" aria-label="{{ t.footer.information }}">
+                <span class="site-footer__heading">{{ t.footer.information }}</span>
+                {% if elense_privacy_page %}
+                <a href="{{ elense_privacy_page.url | relative_url }}">{{ t.footer.privacy_policy }}</a>
+                {% endif %}
+                {% if elense_email != "" %}
+                <a href="mailto:{{ elense_email }}" data-analytics-event="contact_email_click" data-analytics-category="footer">{{ elense_email }}</a>
+                {% endif %}
+                <a href="{{ '/feed.xml' | relative_url }}" target="_blank" rel="noopener noreferrer">{{ t.footer.subscribe_rss }}</a>
+            </nav>
         </div>
-    </div>
-    <div class="has-background-black has-text-centered has-text-white" id="credits">
-        <i class="far fa-copyright"></i> {{ "now" | date: "%Y" }} {{ site.title }}. {{ t.footer.credits_powered }} <a href="https://jekyllrb.com/" target="_blank" rel="noopener noreferrer">Jekyll</a>.
+
+        <div class="site-footer__bottom">
+            <span>&copy; {{ "now" | date: "%Y" }} {{ site.title }}</span>
+            <a href="#navbar" onclick="window.scroll({ top: 0, behavior: 'smooth' }); return false;">{{ t.footer.back_to_top }}</a>
+        </div>
     </div>
 </footer>
 {% include snipcart.html %}

@@ -1,0 +1,21 @@
+{% assign elense_email = site.email | default: "" %}
+{% assign elense_instagram = site.instagram_username | default: "" %}
+{% if elense_email == "thedevslot@gmail.com" %}{% assign elense_email = "" %}{% endif %}
+{% if elense_instagram == "thedevslot" %}{% assign elense_instagram = "" %}{% endif %}
+{% assign elense_whatsapp_digits = site.whatsapp_number | default: "" | remove: " " | remove: "-" | remove: "(" | remove: ")" | remove: "+" %}
+{% if site.whatsapp_url and site.whatsapp_url != "" %}
+  {% assign elense_whatsapp_href = site.whatsapp_url %}
+{% elsif elense_whatsapp_digits != "" %}
+  {% assign elense_whatsapp_href = "https://wa.me/" | append: elense_whatsapp_digits %}
+{% else %}
+  {% assign elense_whatsapp_href = "" %}
+{% endif %}
+{% if elense_instagram contains "://" %}
+  {% assign elense_instagram_href = elense_instagram %}
+{% elsif elense_instagram != "" %}
+  {% assign elense_instagram_href = "https://www.instagram.com/" | append: elense_instagram %}
+{% else %}
+  {% assign elense_instagram_href = "" %}
+{% endif %}
+{% assign elense_etsy_href = site.etsy_url | default: "" %}
+{% assign elense_privacy_page = site.pages | where: "translation_key", "privacy-policy" | where: "lang", current_lang | first %}

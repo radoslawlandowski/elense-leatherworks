@@ -1,0 +1,23 @@
+{% include contact-vars.html %}
+<section class="home-contact" id="contact">
+  <img class="home-contact__bg" src="{{ site.data.home.images.contact | relative_url }}" alt="" aria-hidden="true" width="2048" height="1365" loading="lazy" decoding="async">
+  <div class="home-contact__inner">
+    <p class="eyebrow eyebrow--brass">{{ t.home.contact_eyebrow }}</p>
+    <h2 class="home-section__title">{{ t.home.contact_heading }}</h2>
+    <p class="home-contact__text">{{ t.home.contact_text }}</p>
+    <div class="home-contact__actions">
+      {% if elense_whatsapp_href != "" %}
+      <a class="button is-white" href="{{ elense_whatsapp_href }}" target="_blank" rel="noopener noreferrer" data-analytics-event="whatsapp_click" data-analytics-category="contact" data-analytics-label="{{ elense_whatsapp_href }}">{{ t.contact.whatsapp }}</a>
+      {% endif %}
+      {% if elense_email != "" %}
+      <a class="button is-white is-outlined" href="mailto:{{ elense_email }}" data-analytics-event="contact_email_click" data-analytics-category="contact" data-analytics-label="{{ elense_email }}">{{ t.contact.email }}</a>
+      {% endif %}
+      {% if elense_instagram_href != "" %}
+      <a class="button is-white is-outlined" href="{{ elense_instagram_href }}" target="_blank" rel="noopener noreferrer" data-analytics-event="instagram_click" data-analytics-category="contact" data-analytics-label="{{ elense_instagram_href }}">{{ t.contact.instagram }}</a>
+      {% endif %}
+    </div>
+    {% if elense_whatsapp_href == "" and elense_email == "" and elense_instagram_href == "" %}
+    <p class="home-contact__text">{{ t.contact.unavailable }}</p>
+    {% endif %}
+  </div>
+</section>

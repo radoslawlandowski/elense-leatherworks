@@ -61,6 +61,26 @@ layout: compress
   {% assign how_to_buy_step_3 = p.step_3_cart | default: how_to_buy_step_3 %}
 {% endif %}
 
+{% assign hero_ext = project_hero_image | slice: -4, 4 | downcase %}
+{% assign has_photos = true %}
+{% if project_hero_image == "" or hero_ext == ".svg" %}{% assign has_photos = false %}{% endif %}
+{% assign photo_count = 0 %}
+{% if has_photos %}
+  {% assign photo_count = 1 %}
+  {% for item in page.gallery %}
+    {% assign item_src = item.href | default: item.imgSrc | default: item.image %}
+    {% if item_src and item_src != project_hero_image %}{% assign photo_count = photo_count | plus: 1 %}{% endif %}
+  {% endfor %}
+{% endif %}
+{% include price-format.html amount=product_price_amount currency=product_price_currency %}
+{% assign product_tags_line = "" %}
+{% for tag in page.tags limit: 2 %}
+  {% if tag != "" %}{% capture product_tags_line %}{{ product_tags_line }}{% if product_tags_line != "" %} · {% endif %}{{ tag }}{% endcapture %}{% endif %}
+{% endfor %}
+{% assign product_in_stock = false %}
+{% if page.availability_schema contains "InStock" %}{% assign product_in_stock = true %}{% endif %}
+{% assign other_products = site.projects | where: "lang", current_lang | where_exp: "item", "item.url != page.url" | sort: "date" | reverse %}
+
 <!DOCTYPE html>
 <html lang="{{ current_lang }}">
 {% include head.html %}
@@ -70,154 +90,145 @@ layout: compress
   {% include navbar.html %}
   {% include breadcrumbs.html %}
 
-  <section class="hero is-fullheight" id="product-hero" style="background-image: url('{{ project_hero_image_resolved }}');">
-    <div class="product-hero-overlay"></div>
-    <div class="hero-body">
-      <div class="container">
-        <div class="product-hero-content">
-          <h1 class="title is-1 has-text-white has-text-weight-bold">{{ page.title }}</h1>
-          {% if page.price %}
-          <p class="product-hero-price">{{ page.price }}</p>
+  <main id="main">
+  <section class="product" id="product-summary">
+    <div class="product__gallery{% unless has_photos %} product__gallery--empty{% endunless %}" {% if has_photos %}data-lightbox-gallery aria-label="{{ p.gallery_label }}"{% endif %}>
+      {% if has_photos %}
+        <a href="{{ project_hero_image_resolved }}">
+          <img src="{{ project_hero_image_resolved }}" alt="{{ page.title | escape }}" fetchpriority="high">
+          {% if photo_count > 1 %}<span class="product__gallery-count" aria-hidden="true">1 / {{ photo_count }}</span>{% endif %}
+        </a>
+        {% for item in page.gallery %}
+          {% assign item_src = item.href | default: item.imgSrc | default: item.image %}
+          {% if item_src and item_src != project_hero_image %}
+            {% if item_src contains '://' %}{% assign item_resolved = item_src %}{% else %}{% assign item_resolved = item_src | relative_url %}{% endif %}
+            <a href="{{ item_resolved }}"><img src="{{ item_resolved }}" alt="{{ item.alt | default: page.title | escape }}" loading="lazy" decoding="async"></a>
           {% endif %}
-          <a href="#product-summary" class="button is-primary is-medium has-text-weight-bold" data-analytics-event="product_discover_click" data-analytics-label="{{ page.title }}">{{ p.discover_product }}</a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="section" id="product-summary">
-    <div class="container">
-      <div class="columns is-variable is-8 is-vcentered">
-        <div class="column is-8">
-          {% if page.description %}
-          <p class="subtitle is-5 product-short-description has-text-left">{{ page.description | strip | strip_html | strip_newlines }}</p>
-          {% endif %}
-        </div>
-        <div class="column is-4">
-          <div class="product-summary-card">
-            {% if product_etsy_url != "" %}
-            <a href="{{ product_etsy_url }}" target="_blank" rel="noopener noreferrer" class="button is-fullwidth is-medium has-text-weight-bold product-btn-etsy" data-analytics-event="etsy_click" data-analytics-category="product" data-analytics-label="{{ page.title }}">
-              <span class="icon"><i class="fab fa-etsy" aria-hidden="true"></i></span>
-              <span>{{ p.buy_etsy }}</span>
-            </a>
-            {% endif %}
-            {% if can_add_to_cart %}
-            <button
-              type="button"
-              class="button is-primary is-fullwidth is-medium has-text-weight-bold snipcart-add-item {% if product_etsy_url != "" %}mt-3{% endif %}"
-              data-item-id="{{ product_id | escape }}"
-              data-item-name="{{ page.title | strip | escape }}"
-              data-item-price="{{ product_price_json | strip | escape }}"
-              data-item-url="{{ product_url | escape }}"
-              data-item-description="{{ product_description | escape }}"
-              data-item-image="{{ project_hero_image_resolved | escape }}"
-              data-item-quantity="1">{{ p.add_to_cart }}</button>
-            {% endif %}
-            {% if shopify_url and shopify_url != "" %}
-            <a href="{{ shopify_url }}" target="_blank" rel="noopener noreferrer" class="button is-primary is-fullwidth is-medium has-text-weight-bold {% if can_add_to_cart %}mt-3{% endif %}" data-analytics-event="shopify_click" data-analytics-label="{{ page.title }}">{{ p.buy_shopify }}</a>
-            {% endif %}
-            {% if contact_email and contact_email != "" %}
-            <a href="mailto:{{ contact_email }}?subject={{ inquiry_subject }}: {{ page.title }}" class="button is-outlined is-primary is-fullwidth is-medium has-text-weight-bold {% if has_primary_purchase_cta %}mt-3{% endif %}" data-analytics-event="contact_email_click" data-analytics-label="{{ page.title }}">{{ p.ask_product }}</a>
-            {% endif %}
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="section pt-0" id="product-gallery-section">
-    <div class="container">
-      {% include gallery.html gallery_items=page.gallery fallback_image=page.post-image gallery_class="product-gallery" fallback_alt=page.title %}
-    </div>
-  </section>
-
-  <section class="section pt-0 product-section-block" id="product-details">
-    <div class="container">
-      <h3 class="title is-4 mb-4">{{ p.description }}</h3>
-      <div class="content has-text-justified">
-        {% assign trimmed_content = content | strip %}
-        {% if trimmed_content != "" %}
-          {{ content }}
-        {% elsif page.description %}
-          <p>{{ page.description }}</p>
-        {% endif %}
-      </div>
-    </div>
-  </section>
-
-  <section class="section pt-0 product-section-block" id="product-features">
-    <div class="container">
-      <h3 class="title is-4 mb-4">{{ p.features }}</h3>
-      {% if page.features and page.features.size > 0 %}
-      <ul class="product-feature-list">
-        {% for feature in page.features %}
-        <li>{{ feature }}</li>
         {% endfor %}
-      </ul>
       {% else %}
-      <ul class="product-feature-list">
-        {% for feature in p.default_features %}
-        <li>{{ feature }}</li>
-        {% endfor %}
-      </ul>
+        <span class="product-tile__placeholder">{{ t.home.photo_placeholder }}</span>
       {% endif %}
     </div>
-  </section>
 
-  <section class="section pt-0 product-section-block" id="product-warranty">
-    <div class="container">
-      <h3 class="title is-4 mb-4">{{ p.warranty }}</h3>
-      <div class="content">
-        {% if page.warranty %}
-        <p>{{ page.warranty }}</p>
-        {% else %}
-        <p>{{ p.default_warranty }}</p>
+    <div class="product__info">
+      {% if product_tags_line != "" %}<p class="eyebrow">{{ product_tags_line | strip }}</p>{% endif %}
+      <h1 class="product__title">{{ page.title }}</h1>
+      {% if formatted_price != "" %}
+      <p class="product__price">
+        <span>{{ formatted_price | strip }}</span>
+        {% if page.price contains "/" %}<small>{{ p.per_piece }}</small>{% endif %}
+      </p>
+      {% endif %}
+      {% if page.availability and page.availability != "" %}
+      <p class="product__availability{% if product_in_stock %} is-in-stock{% endif %}">{{ page.availability }}</p>
+      {% endif %}
+      {% if page.description %}
+      <p class="product__lead">{{ page.description | strip_html | strip_newlines | strip }}</p>
+      {% endif %}
+
+      <div class="product__buy">
+        {% if can_add_to_cart and page.personalization %}
+        <div class="product__field">
+          <label for="product-personalization">{{ p.personalization }} <span>— {{ p.personalization_optional }}</span></label>
+          <input id="product-personalization" type="text" maxlength="60" placeholder="{{ p.personalization_placeholder }}">
+          <small>{{ p.personalization_note }}</small>
+        </div>
+        {% endif %}
+        {% if can_add_to_cart %}
+        <div class="product__cart-row">
+          <div class="qty" role="group" aria-label="{{ p.quantity }}">
+            <button type="button" data-qty-step="-1" aria-label="{{ p.decrease_quantity }}">−</button>
+            <span id="product-qty" aria-live="polite">1</span>
+            <button type="button" data-qty-step="1" aria-label="{{ p.increase_quantity }}">+</button>
+          </div>
+          <button
+            type="button"
+            id="product-add-to-cart"
+            class="button is-primary snipcart-add-item"
+            data-item-id="{{ product_id | escape }}"
+            data-item-name="{{ page.title | strip | escape }}"
+            data-item-price="{{ product_price_json | strip | escape }}"
+            data-item-url="{{ product_url | escape }}"
+            data-item-description="{{ product_description | escape }}"
+            {% if has_photos %}data-item-image="{{ project_hero_image_resolved | escape }}"{% endif %}
+            {% if page.personalization %}data-item-custom1-name="{{ p.personalization }}" data-item-custom1-value=""{% endif %}
+            data-item-quantity="1">{{ p.add_to_cart }}</button>
+        </div>
+        {% endif %}
+        {% if shopify_url and shopify_url != "" %}
+        <a href="{{ shopify_url }}" target="_blank" rel="noopener noreferrer" class="button is-primary" data-analytics-event="shopify_click" data-analytics-label="{{ page.title }}">{{ p.buy_shopify }}</a>
+        {% endif %}
+        {% if contact_email and contact_email != "" %}
+        <a href="mailto:{{ contact_email }}?subject={{ inquiry_subject }}: {{ page.title }}" class="button{% unless has_primary_purchase_cta %} is-primary{% endunless %}" data-analytics-event="contact_email_click" data-analytics-label="{{ page.title }}">{{ p.ask_product }}</a>
+        {% endif %}
+        {% if product_etsy_url != "" %}
+        <a href="{{ product_etsy_url }}" target="_blank" rel="noopener noreferrer" class="product__etsy" data-analytics-event="etsy_click" data-analytics-category="product" data-analytics-label="{{ page.title }}">{{ p.also_on_etsy }}</a>
         {% endif %}
       </div>
-    </div>
-  </section>
 
-  <section class="section pt-0 product-section-block" id="product-care">
-    <div class="container">
-      <h3 class="title is-4 mb-4">{{ p.care_heading }}</h3>
-      <div class="content">
-        {% if page.care %}
-        <p>{{ page.care }}</p>
-        {% else %}
-        <p>{{ p.default_care }}</p>
-        {% endif %}
-      </div>
-    </div>
-  </section>
-
-  {% if faq_items and faq_items.size > 0 %}
-  <section class="section pt-0 product-section-block" id="product-faq">
-    <div class="container">
-      <h3 class="title is-4 mb-4">{{ p.faq_heading }}</h3>
-      <div class="faq-list">
-        {% for faq in faq_items %}
-        <details class="faq-item">
-          <summary>{{ faq.question }}</summary>
-          <p>{{ faq.answer }}</p>
-        </details>
+      <ul class="product__assurances">
+        {% for line in p.assurances %}
+        <li>
+          <svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round">
+            {% case forloop.index %}
+            {% when 1 %}<path d="M12 3l7 3v5c0 5-3 8-7 10-4-2-7-5-7-10V6l7-3z"></path><path d="M9 12l2 2 4-4"></path>
+            {% when 2 %}<path d="M3 7h18"></path><path d="M3 12h3M9 12h3M15 12h3"></path><path d="M3 17h18"></path>
+            {% else %}<rect x="4" y="4" width="16" height="16"></rect><path d="M9 15.5l3-7 3 7M10.2 13h3.6"></path>
+            {% endcase %}
+          </svg>
+          <span>{{ line }}</span>
+        </li>
         {% endfor %}
+      </ul>
+
+      <div class="accordion">
+        <details open id="product-features">
+          <summary>{{ p.features }}</summary>
+          <ul>
+            {% if page.features and page.features.size > 0 %}
+              {% for feature in page.features %}<li>{{ feature }}</li>{% endfor %}
+            {% else %}
+              {% for feature in p.default_features %}<li>{{ feature }}</li>{% endfor %}
+            {% endif %}
+          </ul>
+        </details>
+        <details id="product-care">
+          <summary>{{ p.care_heading }}</summary>
+          <p>{{ page.care | default: p.default_care }}</p>
+        </details>
+        <details id="product-warranty">
+          <summary>{{ p.warranty }}</summary>
+          <p>{{ page.warranty | default: p.default_warranty }}</p>
+        </details>
+        {% if faq_items and faq_items.size > 0 %}
+        <details id="product-faq">
+          <summary>{{ p.faq_heading }}</summary>
+          <dl>
+            {% for faq in faq_items %}
+            <dt>{{ faq.question }}</dt>
+            <dd>{{ faq.answer }}</dd>
+            {% endfor %}
+          </dl>
+        </details>
+        {% endif %}
       </div>
     </div>
   </section>
-  {% endif %}
 
-  {% if shopify_url and shopify_url != "" %}
-  <section class="section pt-0 product-section-block" id="product-how-to-buy">
-    <div class="container">
-      <a href="{{ shopify_url }}" target="_blank" rel="noopener noreferrer" class="button is-primary is-medium has-text-weight-bold" data-analytics-event="shopify_click" data-analytics-label="{{ page.title }}">{{ p.go_to_shopify }}</a>
+  {% assign trimmed_content = content | strip %}
+  {% if trimmed_content != "" %}
+  <section class="product-story" id="product-details">
+    <div class="product-story__inner">
+      <h2 class="home-section__title">{{ p.description }}</h2>
+      <div class="product-story__body">{{ content }}</div>
     </div>
   </section>
   {% endif %}
 
   {% if page.productVideoUrl %}
-  <section class="section pt-0" id="product-video-section">
-    <div class="container">
-      <h3 class="title is-4 has-text-left mb-4">{{ p.video_presentation }}</h3>
+  <section class="product-video" id="product-video-section">
+    <div class="product-video__inner">
+      <h2 class="home-section__title">{{ p.video_presentation }}</h2>
       <div class="video-container">
         {% if page.productVideoUrl contains 'youtube.com/watch?v=' %}
           {% assign video_id = page.productVideoUrl | split: 'v=' | last | split: '&' | first %}
@@ -234,34 +245,73 @@ layout: compress
   </section>
   {% endif %}
 
-  <section class="section pt-0 product-section-block" id="product-related-articles">
-    <div class="container">
-      <h3 class="title is-4 mb-4">{{ p.related_articles_heading }}</h3>
-      <div class="content">
-        <ul>
-          {% assign related_posts_count = 0 %}
-          {% for post in localized_posts %}
-            {% assign has_matching_tag = false %}
-            {% for tag in page.tags %}
-              {% if post.tags contains tag %}
-                {% assign has_matching_tag = true %}
-              {% endif %}
-            {% endfor %}
-            {% if has_matching_tag and related_posts_count < 3 %}
-              <li><a href="{{ post.url | relative_url }}">{{ post.title }}</a></li>
-              {% assign related_posts_count = related_posts_count | plus: 1 %}
+
+  {% if other_products.size > 0 %}
+  <section class="home-section" id="product-related">
+    <div class="home-section__head">
+      <h2 class="home-section__title">{{ p.you_may_like }}</h2>
+      <a class="text-link" href="{{ t.routes.projects | relative_url }}">{{ t.home.all_products }}</a>
+    </div>
+    <div class="product-grid">
+      {% for project in other_products limit: 3 %}
+        {% include product-tile.html project=project %}
+      {% endfor %}
+    </div>
+  </section>
+  {% endif %}
+
+  <section class="product-journal" id="product-related-articles">
+    <div class="product-journal__inner">
+      <p class="eyebrow">{{ p.from_journal }}</p>
+      <div class="product-journal__list">
+        {% assign related_posts_count = 0 %}
+        {% for post in localized_posts %}
+          {% assign has_matching_tag = false %}
+          {% for tag in page.tags %}
+            {% if post.tags contains tag %}
+              {% assign has_matching_tag = true %}
             {% endif %}
           {% endfor %}
-
-          {% if related_posts_count == 0 %}
-            {% for post in localized_posts limit:3 %}
-              <li><a href="{{ post.url | relative_url }}">{{ post.title }}</a></li>
-            {% endfor %}
+          {% if has_matching_tag and related_posts_count < 3 %}
+            <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
+            {% assign related_posts_count = related_posts_count | plus: 1 %}
           {% endif %}
-        </ul>
+        {% endfor %}
+        {% if related_posts_count == 0 %}
+          {% for post in localized_posts limit:3 %}
+            <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
+          {% endfor %}
+        {% endif %}
       </div>
     </div>
   </section>
+  </main>
+
+  {% if can_add_to_cart %}
+  <script>
+    (function () {
+      var button = document.getElementById('product-add-to-cart');
+      var qtyLabel = document.getElementById('product-qty');
+      var note = document.getElementById('product-personalization');
+      if (!button) {
+        return;
+      }
+      var qty = 1;
+      Array.prototype.slice.call(document.querySelectorAll('[data-qty-step]')).forEach(function (step) {
+        step.addEventListener('click', function () {
+          qty = Math.min(20, Math.max(1, qty + parseInt(step.getAttribute('data-qty-step'), 10)));
+          qtyLabel.textContent = qty;
+          button.setAttribute('data-item-quantity', qty);
+        });
+      });
+      if (note) {
+        note.addEventListener('input', function () {
+          button.setAttribute('data-item-custom1-value', note.value.trim());
+        });
+      }
+    }());
+  </script>
+  {% endif %}
 
   {% if faq_items and faq_items.size > 0 %}
   <script type="application/ld+json">

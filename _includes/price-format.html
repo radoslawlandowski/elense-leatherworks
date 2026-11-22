@@ -1,0 +1,12 @@
+{% comment %}Sets `formatted_price` from amount= and currency= for the current page language.{% endcomment %}
+{% assign formatted_price = "" %}
+{% assign price_format_currency = include.currency | default: "PLN" | upcase %}
+{% if include.amount %}
+  {% if price_format_currency == "PLN" and page.lang == "pl" %}
+    {% capture formatted_price %}{{ include.amount }} zł{% endcapture %}
+  {% elsif price_format_currency == "USD" and page.lang != "pl" %}
+    {% capture formatted_price %}${{ include.amount }}{% endcapture %}
+  {% else %}
+    {% capture formatted_price %}{{ include.amount }} {{ price_format_currency }}{% endcapture %}
+  {% endif %}
+{% endif %}

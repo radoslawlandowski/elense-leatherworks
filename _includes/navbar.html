@@ -35,66 +35,139 @@
   {% assign snipcart_enabled = true %}
 {% endif %}
 
-<nav class="navbar is-fixed-top elense-navbar" role="navigation" aria-label="main navigation" id="navbar">
-    <div class="container">
-        <div class="navbar-brand">
-            <button class="navbar-burger" type="button" aria-label="{{ t.nav.menu }}" aria-expanded="false" aria-controls="navbar-menu" data-target="navbar-menu">
-                <span aria-hidden="true"></span>
-                <span aria-hidden="true"></span>
-                <span aria-hidden="true"></span>
-            </button>
+{% include contact-vars.html %}
+{% assign products_count = site.projects | where: "lang", current_lang | size %}
+{% assign is_products_page = false %}
+{% if page.translation_key == 'projects_index' or page.collection == 'projects' %}{% assign is_products_page = true %}{% endif %}
+{% assign is_blog_page = false %}
+{% if page.translation_key == 'blog_index' or page.collection == 'posts' %}{% assign is_blog_page = true %}{% endif %}
+
+<div class="site-topbar">
+    {% for item in t.header.topbar %}<span>{{ item }}</span>{% endfor %}
+</div>
+<header class="site-header" id="navbar">
+    <div class="site-header__inner">
+        <button class="site-header__burger" type="button" aria-label="{{ t.nav.menu }}" aria-expanded="false" aria-controls="site-menu">
+            <svg class="site-icon site-icon--open" aria-hidden="true" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M4 7h16M4 12h16M4 17h16"></path></svg>
+            <svg class="site-icon site-icon--close" aria-hidden="true" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M6 6l12 12M18 6L6 18"></path></svg>
+        </button>
+
+        <nav class="site-nav" aria-label="{{ t.nav.main_label }}">
+            <a href="{{ projects_url }}"{% if is_products_page %} class="is-current" aria-current="page"{% endif %}>{{ t.nav.projects }}</a>
+            <a href="{{ home_url }}#about">{{ t.nav.about }}</a>
+            <a href="{{ blog_url }}"{% if is_blog_page %} class="is-current" aria-current="page"{% endif %}>{{ t.nav.blog }}</a>
+            <a href="{{ home_url }}#contact">{{ t.nav.contact }}</a>
+        </nav>
+
+        <a class="site-header__logo" href="{{ home_url }}" aria-label="{{ site.title }}">
+            <span class="elense-logo"><img src="{{ site['logo-image'] | relative_url }}" alt="{{ site.title }}" width="759" height="952"></span>
+        </a>
+
+        <div class="site-header__tools">
+            <div class="site-lang" role="group" aria-label="{{ t.nav.language }}">
+                {% if current_lang == "pl" %}
+                <span aria-current="true">PL</span><span aria-hidden="true">/</span><a href="{{ lang_switch_url | relative_url }}" lang="en" hreflang="en">EN</a>
+                {% else %}
+                <a href="{{ lang_switch_url | relative_url }}" lang="pl" hreflang="pl">PL</a><span aria-hidden="true">/</span><span aria-current="true">EN</span>
+                {% endif %}
+            </div>
             {% if snipcart_enabled %}
-            <button class="navbar-item elense-cart-trigger snipcart-checkout is-hidden-desktop" type="button" aria-label="{{ t.nav.cart }}">
-                <span>{{ t.nav.cart }}</span>
-                <span class="elense-cart-count snipcart-items-count">0</span>
+            <button class="site-cart snipcart-checkout" type="button" aria-label="{{ t.nav.cart }}">
+                <svg class="site-icon" aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M6 8h12l1 12H5L6 8z"></path><path d="M9 8V6a3 3 0 0 1 6 0v2"></path></svg>
+                <span class="site-cart__label">{{ t.nav.cart }}</span>
+                <span class="site-cart__count snipcart-items-count">0</span>
             </button>
             {% endif %}
         </div>
+    </div>
 
-        <div class="navbar-menu elense-navbar-menu" id="navbar-menu">
-            <div class="navbar-end">
-                <a class="navbar-item nav-section-link {% if page.translation_key == 'home' %}is-active{% endif %}" href="{{ home_url }}">{{ t.nav.home }}</a>
-                <a class="navbar-item nav-section-link {% if page.translation_key == 'projects_index' or page.collection == 'projects' %}is-active{% endif %}" href="{{ projects_url }}">{{ t.nav.projects }}</a>
-                <a class="navbar-item nav-section-link" href="{{ home_url }}#about">{{ t.nav.about }}</a>
-                <a class="navbar-item nav-section-link" href="{{ home_url }}#contact">{{ t.nav.contact }}</a>
-                <a class="navbar-item {% if page.translation_key == 'blog_index' %}is-active{% endif %}" href="{{ blog_url }}">{{ t.nav.blog }}</a>
-                {% if snipcart_enabled %}
-                <button class="navbar-item elense-cart-trigger snipcart-checkout is-hidden-touch" type="button" aria-label="{{ t.nav.cart }}">
-                    <span>{{ t.nav.cart }}</span>
-                    <span class="elense-cart-count snipcart-items-count">0</span>
-                </button>
-                {% endif %}
-                <a class="navbar-item has-text-weight-bold" href="{{ lang_switch_url | relative_url }}">{{ t.lang_switch_label }}</a>
+    <div class="site-menu" id="site-menu" hidden>
+        <nav class="site-menu__nav" aria-label="{{ t.nav.main_label }}">
+            <a href="{{ projects_url }}"><span>{{ t.nav.projects }}</span><span class="site-menu__count">{{ products_count }}</span></a>
+            <a href="{{ home_url }}#about"><span>{{ t.nav.about }}</span></a>
+            <a href="{{ blog_url }}"><span>{{ t.nav.blog }}</span></a>
+            <a href="{{ home_url }}#contact"><span>{{ t.nav.contact }}</span></a>
+        </nav>
+
+        <div class="site-menu__secondary">
+            {% if elense_etsy_href != "" %}
+            <a href="{{ elense_etsy_href }}" target="_blank" rel="noopener noreferrer" data-analytics-event="etsy_click" data-analytics-category="menu">{{ t.footer.etsy_shop }}</a>
+            {% endif %}
+            {% if elense_privacy_page %}
+            <a href="{{ elense_privacy_page.url | relative_url }}">{{ t.footer.privacy_policy }}</a>
+            {% endif %}
+        </div>
+
+        <div class="site-menu__foot">
+            <div class="site-menu__row">
+                <span class="site-eyebrow">{{ t.nav.language }}</span>
+                <div class="site-lang-toggle" role="group" aria-label="{{ t.nav.language }}">
+                    {% if current_lang == "pl" %}
+                    <span aria-current="true">PL</span><a href="{{ lang_switch_url | relative_url }}" lang="en" hreflang="en">EN</a>
+                    {% else %}
+                    <a href="{{ lang_switch_url | relative_url }}" lang="pl" hreflang="pl">PL</a><span aria-current="true">EN</span>
+                    {% endif %}
+                </div>
             </div>
-
+            {% if elense_whatsapp_href != "" or elense_email != "" or elense_instagram_href != "" %}
+            <div class="site-menu__contact">
+                <span class="site-eyebrow">{{ t.nav.get_in_touch }}</span>
+                <div class="site-menu__contact-links">
+                    {% if elense_whatsapp_href != "" %}<a href="{{ elense_whatsapp_href }}" target="_blank" rel="noopener noreferrer" data-analytics-event="whatsapp_click" data-analytics-category="menu">{{ t.contact.whatsapp }}</a>{% endif %}
+                    {% if elense_email != "" %}<a href="mailto:{{ elense_email }}" data-analytics-event="contact_email_click" data-analytics-category="menu">{{ t.contact.email }}</a>{% endif %}
+                    {% if elense_instagram_href != "" %}<a href="{{ elense_instagram_href }}" target="_blank" rel="noopener noreferrer" data-analytics-event="instagram_click" data-analytics-category="menu">{{ t.contact.instagram }}</a>{% endif %}
+                </div>
+            </div>
+            {% endif %}
         </div>
     </div>
-</nav>
-<!-- Bulma Navbar JS -->
+</header>
 <script>
     document.addEventListener('DOMContentLoaded', function () {
-        var burger = document.querySelector('#navbar .navbar-burger');
-        var menu = burger ? document.getElementById(burger.dataset.target) : null;
-        if (!burger || !menu) {
+        var header = document.getElementById('navbar');
+        var burger = header ? header.querySelector('.site-header__burger') : null;
+        var menu = document.getElementById('site-menu');
+        if (!header || !burger || !menu) {
             return;
         }
+        var desktop = window.matchMedia('(min-width: 1180px)');
         function setOpen(open) {
-            burger.classList.toggle('is-active', open);
-            menu.classList.toggle('is-active', open);
+            if (open) {
+                header.style.setProperty('--site-header-h', header.querySelector('.site-header__inner').offsetHeight + 'px');
+            }
+            menu.hidden = !open;
+            header.classList.toggle('is-menu-open', open);
+            document.documentElement.classList.toggle('has-menu-open', open);
             burger.setAttribute('aria-expanded', open ? 'true' : 'false');
         }
         burger.addEventListener('click', function () {
-            setOpen(!menu.classList.contains('is-active'));
+            setOpen(menu.hidden);
         });
         menu.addEventListener('click', function (event) {
             if (event.target.closest('a')) {
                 setOpen(false);
             }
         });
-        document.addEventListener('keydown', function (event) {
-            if (event.key === 'Escape') {
+        header.addEventListener('click', function (event) {
+            if (event.target.closest('.snipcart-checkout')) {
                 setOpen(false);
             }
         });
+        document.addEventListener('keydown', function (event) {
+            if (event.key === 'Escape' && !menu.hidden) {
+                setOpen(false);
+                burger.focus();
+            }
+        });
+        function onViewportChange(event) {
+            if (event.matches) {
+                setOpen(false);
+            }
+        }
+        if (desktop.addEventListener) {
+            desktop.addEventListener('change', onViewportChange);
+        } else if (desktop.addListener) {
+            desktop.addListener(onViewportChange);
+        }
     });
 </script>

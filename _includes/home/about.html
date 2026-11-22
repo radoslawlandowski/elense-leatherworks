@@ -1,0 +1,12 @@
+<section class="home-about" id="about">
+  <div class="home-about__copy">
+    <p class="eyebrow">{{ t.nav.about }}</p>
+    <blockquote class="home-about__quote">„{{ t.home.about_quote }}”</blockquote>
+    <p class="home-about__body">{{ t.home.about_body }}</p>
+    <p class="home-about__author">
+      <span class="home-about__name">{{ site['author-name'] }}</span>
+      <span class="home-about__role">{% if current_lang == "pl" and site['author-about-pl'] %}{{ site['author-about-pl'] }}{% else %}{{ site['author-about'] }}{% endif %}</span>
+    </p>
+  </div>
+  <img class="home-about__photo" src="{{ site.data.home.images.about | relative_url }}" alt="{{ t.home.about_alt }}" width="2048" height="1365" loading="lazy" decoding="async">
+</section>

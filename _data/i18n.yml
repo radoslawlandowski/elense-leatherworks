@@ -8,17 +8,25 @@ en:
     home: /en/
     projects: /en/products/
     blog: /en/blog/
+  header:
+    topbar:
+      - Handmade in Poland
+      - 12-month workmanship warranty
+      - Personalization on request
   nav:
-    home: HOME
-    projects: PRODUCTS
-    about: ABOUT
-    contact: CONTACT
-    blog: BLOG
-    cart: CART
+    home: Home
+    projects: Products
+    about: About
+    contact: Contact
+    blog: Journal
+    cart: Cart
     menu: Menu
+    main_label: Main navigation
+    language: Language
+    get_in_touch: Get in touch
   breadcrumbs:
     home: Home
-    blog: Blog
+    blog: Journal
     projects: Products
   home:
     read_more: Read More
@@ -26,6 +34,47 @@ en:
     experience_quote: Elense transforms everyday objects into daily rituals through leather craftsmanship, personalization, and tactile comfort.
     view_all_products: View all products
     view_all_products_note: Browse the complete catalog with filters, availability, and detailed product pages.
+    eyebrow: Elense Experience
+    title_lead: Everyday objects that become a
+    title_accent: ritual
+    intro: Hand-stitched leather accessories for the home. Made from vegetable-tanned leather with traditional leathercraft techniques — since 2020, in Poland.
+    cta_products: View products
+    cta_studio: Meet the studio
+    hero_alt_main: Elense leather tray on an oak table
+    hero_alt_detail: Leather organizer with glasses on a sideboard
+    trust:
+      - title: Vegetable-tanned leather
+        text: Natural, develops a patina over time
+      - title: Cut and stitched by hand
+        text: From start to finish in Poland
+      - title: Personalization
+        text: Selected products with your own detail
+      - title: 12-month warranty
+        text: Repair or replacement for workmanship defects
+    collection_eyebrow: Collection
+    featured_heading: Selected products
+    all_products: All products
+    photo_placeholder: Product photo
+    pillars_eyebrow: The Elense Experience philosophy
+    pillars_heading: Three pillars of every design
+    pillars_alt: Hand-stitched edge of a leather tray
+    pillars:
+      - title: Lasting craftsmanship
+        text: Vegetable-tanned leather and hand stitching that hold up better through years of daily use.
+      - title: Personalization
+        text: Selected products are made with an individual detail, agreed before you order.
+      - title: Everyday comfort
+        text: Proportions, leather thickness and edge finishing chosen so that ordinary gestures feel satisfying.
+    pillars_link: Read the Elense philosophy
+    about_quote: I make leather accessories for the home because everyday rituals shape the quality of life.
+    about_body: Since 2020 I have been making goods from vegetable-tanned leather using historical leathercraft techniques. Every product exists so that ordinary gestures bring more satisfaction.
+    about_alt: Leather tray on an oak side table
+    journal_heading: Craft and design
+    all_posts: All posts
+    read_post: Read post
+    contact_eyebrow: Custom orders
+    contact_heading: Have an idea for personalization or a project of your own?
+    contact_text: Write wherever suits you best and we will settle the details before you order.
   about:
     heading: About Elense
     lead: My name is Radosław Landowski and since 2020 I create leather goods based on traditionally manufactured vegetable-tanned leathers using historical techniques of leathercraft. Reaching for Elense leather goods means supporting traditional craftsmanship and brings back handcrafted quality to the modern world.
@@ -46,7 +95,12 @@ en:
     find_me: You can find me here
     unavailable: Contact details will be available soon.
   footer:
-    back_to_top: BACK TO TOP
+    back_to_top: Back to top
+    shop: Shop
+    studio: Studio
+    information: Information
+    etsy_shop: Etsy shop
+    privacy_policy: Privacy policy
     more_links: More Links
     subscribe_rss: Subscribe via RSS
     recent_posts: Recent Posts
@@ -59,6 +113,9 @@ en:
     no_results: No Results Found
     published_on: Published on
     min_read: min read
+    newer_post: Newer post
+    older_post: Older post
+    back_home: Back to home
   post:
     ask_product: ASK ABOUT PRODUCT
     ask_subject_prefix: Product inquiry
@@ -75,6 +132,22 @@ en:
     ask_product: ASK ABOUT PRODUCT
     categories: Categories
     description: Description
+    per_piece: per piece
+    also_on_etsy: Also available on Etsy
+    quantity: Quantity
+    decrease_quantity: Decrease quantity
+    increase_quantity: Increase quantity
+    personalization: Personalization
+    personalization_optional: optional
+    personalization_placeholder: e.g. initials
+    personalization_note: I will confirm feasibility before making your order.
+    gallery_label: Product photos
+    you_may_like: You may also like
+    from_journal: From the journal
+    assurances:
+      - 12-month workmanship warranty
+      - Cut and stitched by hand in Poland
+      - Personalization on request
     features: Key Features
     warranty: Warranty
     how_to_buy: How to Buy
@@ -116,6 +189,8 @@ en:
     availability_filter_label: Availability
     all_tags: All tags
     all_availability: All availability
+    all: All
+    in_stock_only: In stock only
     clear_filters: Clear
     results_count: "{count} products found"
     no_results: No products match your current search and filters.
@@ -130,17 +205,25 @@ pl:
     home: /pl/
     projects: /pl/produkty/
     blog: /pl/blog/
+  header:
+    topbar:
+      - Ręcznie szyte w Polsce
+      - Gwarancja wykonania 12 miesięcy
+      - Personalizacja na życzenie
   nav:
-    home: START
-    projects: PRODUKTY
-    about: O MNIE
-    contact: KONTAKT
-    blog: BLOG
-    cart: KOSZYK
+    home: Start
+    projects: Produkty
+    about: O pracowni
+    contact: Kontakt
+    blog: Dziennik
+    cart: Koszyk
     menu: Menu
+    main_label: Główna nawigacja
+    language: Język
+    get_in_touch: Napisz do mnie
   breadcrumbs:
     home: Start
-    blog: Blog
+    blog: Dziennik
     projects: Produkty
   home:
     read_more: Czytaj więcej
@@ -148,6 +231,47 @@ pl:
     experience_quote: Elense Experience nadaje codziennym przedmiotom wyższą jakość poprzez rzemiosło skórzane, personalizację i komfort użytkowania.
     view_all_products: Zobacz wszystkie produkty
     view_all_products_note: Przeglądaj pełny katalog z filtrami, dostępnością i szczegółowymi kartami produktów.
+    eyebrow: Elense Experience
+    title_lead: Codzienne przedmioty, które stają się
+    title_accent: rytuałem
+    intro: Ręcznie szyte akcesoria skórzane do domu. Ze skóry garbowanej roślinnie, tradycyjnymi technikami kaletniczymi — od 2020 roku, w Polsce.
+    cta_products: Zobacz produkty
+    cta_studio: Poznaj pracownię
+    hero_alt_main: Skórzana taca Elense na dębowym stole
+    hero_alt_detail: Skórzany organizer z okularami na komodzie
+    trust:
+      - title: Skóra garbowana roślinnie
+        text: Naturalna, z czasem nabiera patyny
+      - title: Cięte i szyte ręcznie
+        text: Od początku do końca w Polsce
+      - title: Personalizacja
+        text: Wybrane produkty z Twoim detalem
+      - title: 12 miesięcy gwarancji
+        text: Naprawa lub wymiana przy wadzie wykonania
+    collection_eyebrow: Kolekcja
+    featured_heading: Wybrane produkty
+    all_products: Wszystkie produkty
+    photo_placeholder: Zdjęcie produktu
+    pillars_eyebrow: Filozofia Elense Experience
+    pillars_heading: Trzy filary każdego projektu
+    pillars_alt: Ręczny ścieg na krawędzi skórzanej tacy
+    pillars:
+      - title: Trwałe rzemiosło
+        text: Skóra garbowana roślinnie i ręczne szycie, które lepiej znosi lata codziennego użytkowania.
+      - title: Personalizacja
+        text: Wybrane produkty wykonuję z indywidualnym detalem — ustalamy go przed zamówieniem.
+      - title: Wygoda codziennego użytkowania
+        text: Proporcje, grubość skóry i wykończenie krawędzi dobrane tak, by zwykłe gesty dawały satysfakcję.
+    pillars_link: Poznaj filozofię Elense
+    about_quote: Tworzę akcesoria skórzane do home decor, bo to codzienne rytuały budują jakość życia.
+    about_body: Od 2020 roku tworzę wyroby ze skór garbowanych roślinnie, sięgając po historyczne techniki kaletnicze. Każdy produkt powstaje po to, aby zwykłe gesty dawały większą satysfakcję.
+    about_alt: Skórzana taca na dębowym stoliku
+    journal_heading: Rzemiosło i design
+    all_posts: Wszystkie wpisy
+    read_post: Czytaj wpis
+    contact_eyebrow: Zamówienia indywidualne
+    contact_heading: Masz pomysł na personalizację albo własny projekt?
+    contact_text: Napisz tam, gdzie Ci najwygodniej — ustalimy szczegóły przed zamówieniem.
   about:
     heading: O Elense Experience
     lead: Tworzę akcesoria skórzane do home decor, bo to codzienne rytuały budują jakość życia.
@@ -168,7 +292,12 @@ pl:
     find_me: Znajdziesz mnie tutaj
     unavailable: Dane kontaktowe będą dostępne wkrótce.
   footer:
-    back_to_top: DO GÓRY
+    back_to_top: Do góry
+    shop: Sklep
+    studio: Pracownia
+    information: Informacje
+    etsy_shop: Sklep na Etsy
+    privacy_policy: Polityka prywatności
     more_links: Więcej linków
     subscribe_rss: Subskrybuj RSS
     recent_posts: Ostatnie wpisy
@@ -181,6 +310,9 @@ pl:
     no_results: Brak wyników
     published_on: Opublikowano
     min_read: min czytania
+    newer_post: Nowszy wpis
+    older_post: Starszy wpis
+    back_home: Wróć na stronę główną
   post:
     ask_product: ZAPYTAJ O PRODUKT
     ask_subject_prefix: Zapytanie o produkt
@@ -197,6 +329,22 @@ pl:
     ask_product: ZAPYTAJ O PRODUKT
     categories: Kategorie
     description: Opis
+    per_piece: za sztukę
+    also_on_etsy: Dostępne także na Etsy
+    quantity: Ilość
+    decrease_quantity: Zmniejsz ilość
+    increase_quantity: Zwiększ ilość
+    personalization: Personalizacja
+    personalization_optional: opcjonalnie
+    personalization_placeholder: np. inicjały
+    personalization_note: Możliwość wykonania potwierdzę przed realizacją zamówienia.
+    gallery_label: Zdjęcia produktu
+    you_may_like: Może Ci się spodobać
+    from_journal: Z dziennika
+    assurances:
+      - 12 miesięcy gwarancji na wykonanie
+      - Wycinane i szyte ręcznie w Polsce
+      - Personalizacja na życzenie
     features: Cechy charakterystyczne
     warranty: Gwarancja
     how_to_buy: Jak kupić
@@ -238,6 +386,8 @@ pl:
     availability_filter_label: Dostępność
     all_tags: Wszystkie tagi
     all_availability: Każda dostępność
+    all: Wszystkie
+    in_stock_only: Tylko dostępne od ręki
     clear_filters: Wyczyść
     results_count: "Znaleziono produktów: {count}"
     no_results: Brak produktów pasujących do bieżącego wyszukiwania i filtrów.

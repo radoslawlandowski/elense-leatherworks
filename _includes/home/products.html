@@ -1,0 +1,15 @@
+{% assign home_products = site.projects | where: "lang", current_lang | sort: "date" | reverse %}
+<section class="home-section" id="projects">
+  <div class="home-section__head">
+    <div>
+      <p class="eyebrow">{{ t.home.collection_eyebrow }}</p>
+      <h2 class="home-section__title">{{ t.home.featured_heading }}</h2>
+    </div>
+    <a class="text-link" href="{{ t.routes.projects | relative_url }}">{{ t.home.all_products }}</a>
+  </div>
+  <div class="product-grid">
+    {% for project in home_products limit: site.data.home.featured_products %}
+      {% include product-tile.html project=project %}
+    {% endfor %}
+  </div>
+</section>
