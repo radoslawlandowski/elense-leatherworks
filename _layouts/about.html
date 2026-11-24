@@ -1,0 +1,53 @@
+---
+layout: compress
+---
+{% comment %}
+The studio page. The story comes from the page's Markdown body; `heading` and `lead`
+in the front matter fill the page header. The pillars and contact sections are the same
+includes the home page uses.
+{% endcomment %}
+{% assign current_lang = page.lang | default: "en" %}
+{% assign t = site.data.i18n[current_lang] %}
+<!DOCTYPE html>
+<html lang="{{ current_lang }}">
+{% include head.html %}
+
+<body>
+    {% include navbar.html %}
+    {% include breadcrumbs.html %}
+
+    <main id="main">
+        <header class="catalog-head">
+            <div>
+                <p class="eyebrow">{{ t.about.page_eyebrow }}</p>
+                <h1 class="catalog-head__title">{{ page.heading | default: page.title }}</h1>
+            </div>
+            {% if page.lead %}<p class="catalog-head__intro">{{ page.lead }}</p>{% endif %}
+        </header>
+
+        <section class="home-about home-about--page">
+            <div class="home-about__copy">
+                <blockquote class="home-about__quote">{% if current_lang == "pl" %}„{{ t.home.about_quote }}”{% else %}“{{ t.home.about_quote }}”{% endif %}</blockquote>
+                <div class="article__body about-story">
+                    {{ content }}
+                </div>
+                <p class="home-about__author">
+                    <span class="home-about__name">{{ site['author-name'] }}</span>
+                    <span class="home-about__role">{% if current_lang == "pl" and site['author-about-pl'] %}{{ site['author-about-pl'] }}{% else %}{{ site['author-about'] }}{% endif %}</span>
+                </p>
+                <div class="about-actions">
+                    <a class="button is-primary" href="{{ t.routes.projects | relative_url }}">{{ t.about.cta_products }}</a>
+                    <a class="text-link" href="{{ t.routes.contact | relative_url }}">{{ t.about.cta_contact }}</a>
+                </div>
+            </div>
+            {% include img.html src=site.data.home.images.about_page alt=t.home.hero_alt_detail class="home-about__photo" sizes="(max-width: 900px) 100vw, 50vw" loading="eager" %}
+        </section>
+
+        {% include home/pillars.html %}
+        {% include home/contact.html %}
+    </main>
+
+    {% include footer.html %}
+</body>
+
+</html>

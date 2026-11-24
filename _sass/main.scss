@@ -29,7 +29,12 @@ $body-color: $elense-ink;
 
 html {
     scroll-behavior: smooth;
-    scroll-padding-top: 7rem;
+    // Height of the sticky header; navbar.html refines it at runtime.
+    scroll-padding-top: 6.0625rem;
+
+    @media (max-width: 1179px) {
+        scroll-padding-top: 4.0625rem;
+    }
     background-color: $body-background-color;
 }
 

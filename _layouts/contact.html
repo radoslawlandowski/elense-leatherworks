@@ -1,0 +1,111 @@
+---
+layout: compress
+---
+{% comment %}
+The contact page. Channels come from _config.yml (through contact-vars.html), the text
+from the page's Markdown body. Seller details and the links to the shop's legal pages
+show up once _data/shop.yml is filled in and those pages are published.
+{% endcomment %}
+{% assign current_lang = page.lang | default: "en" %}
+{% assign t = site.data.i18n[current_lang] %}
+{% include contact-vars.html %}
+{% assign contact_seller = site.data.shop.seller %}
+{% assign contact_whatsapp_label = site.whatsapp_number | default: "" %}
+{% assign contact_whatsapp_first = contact_whatsapp_label | slice: 0 %}
+{% if contact_whatsapp_label.size == 12 and contact_whatsapp_first == "+" %}
+  {% capture contact_whatsapp_label %}{{ contact_whatsapp_label | slice: 0, 3 }} {{ contact_whatsapp_label | slice: 3, 3 }} {{ contact_whatsapp_label | slice: 6, 3 }} {{ contact_whatsapp_label | slice: 9, 3 }}{% endcapture %}
+{% endif %}
+{% assign contact_legal_keys = "shipping,returns,terms" | split: "," %}
+{% capture contact_legal_links %}{% for contact_legal_key in contact_legal_keys %}{% assign contact_legal_page = site.pages | where: "translation_key", contact_legal_key | where: "lang", current_lang | first %}{% if contact_legal_page %}<li><a href="{{ contact_legal_page.url | relative_url }}">{{ contact_legal_page.nav_title | default: contact_legal_page.title }}</a></li>{% endif %}{% endfor %}{% endcapture %}
+{% assign contact_legal_links = contact_legal_links | strip %}
+<!DOCTYPE html>
+<html lang="{{ current_lang }}">
+{% include head.html %}
+
+<body>
+    {% include navbar.html %}
+    {% include breadcrumbs.html %}
+
+    <main id="main">
+        <header class="catalog-head">
+            <div>
+                <p class="eyebrow">{{ t.contact.page_eyebrow }}</p>
+                <h1 class="catalog-head__title">{{ page.heading | default: page.title }}</h1>
+            </div>
+            {% if page.lead %}<p class="catalog-head__intro">{{ page.lead }}</p>{% endif %}
+        </header>
+
+        <section class="contact-page">
+            <ul class="contact-channels" aria-label="{{ t.contact.channels_label }}">
+                {% if elense_whatsapp_href != "" %}
+                <li>
+                    <a class="contact-channel" href="{{ elense_whatsapp_href }}" target="_blank" rel="noopener noreferrer" data-analytics-event="whatsapp_click" data-analytics-category="contact_page" data-analytics-label="{{ elense_whatsapp_href }}">
+                        <span class="contact-channel__label">{{ t.contact.whatsapp }}</span>
+                        <span class="contact-channel__value">{{ contact_whatsapp_label | default: t.contact.whatsapp }}</span>
+                    </a>
+                </li>
+                {% endif %}
+                {% if elense_email != "" %}
+                <li>
+                    <a class="contact-channel" href="mailto:{{ elense_email }}" data-analytics-event="contact_email_click" data-analytics-category="contact_page" data-analytics-label="{{ elense_email }}">
+                        <span class="contact-channel__label">{{ t.contact.email }}</span>
+                        <span class="contact-channel__value">{{ elense_email }}</span>
+                    </a>
+                </li>
+                {% endif %}
+                {% if elense_instagram_href != "" %}
+                <li>
+                    <a class="contact-channel" href="{{ elense_instagram_href }}" target="_blank" rel="noopener noreferrer" data-analytics-event="instagram_click" data-analytics-category="contact_page" data-analytics-label="{{ elense_instagram_href }}">
+                        <span class="contact-channel__label">{{ t.contact.instagram }}</span>
+                        <span class="contact-channel__value">{% if elense_instagram contains "://" %}{{ t.contact.instagram }}{% else %}@{{ elense_instagram }}{% endif %}</span>
+                    </a>
+                </li>
+                {% endif %}
+                {% if elense_etsy_href != "" %}
+                <li>
+                    <a class="contact-channel" href="{{ elense_etsy_href }}" target="_blank" rel="noopener noreferrer" data-analytics-event="etsy_click" data-analytics-category="contact_page" data-analytics-label="{{ elense_etsy_href }}">
+                        <span class="contact-channel__label">{{ t.contact.etsy }}</span>
+                        <span class="contact-channel__value">{{ t.contact.etsy_shop }}</span>
+                    </a>
+                </li>
+                {% endif %}
+                {% if elense_whatsapp_href == "" and elense_email == "" and elense_instagram_href == "" %}
+                <li class="contact-channels__empty">{{ t.contact.unavailable }}</li>
+                {% endif %}
+            </ul>
+
+            <div class="contact-page__body">
+                <div class="article__body">
+                    {{ content }}
+                </div>
+
+                {% if contact_legal_links != "" %}
+                <div class="contact-page__block">
+                    <h2>{{ t.contact.info_heading }}</h2>
+                    <ul class="contact-page__links">
+                        {{ contact_legal_links }}
+                    </ul>
+                </div>
+                {% endif %}
+
+                {% if contact_seller.legal_name %}
+                <div class="contact-page__block">
+                    <h2>{{ t.contact.seller_heading }}</h2>
+                    <address class="contact-page__seller">
+                        <span>{{ contact_seller.legal_name }}</span>
+                        {% if contact_seller.street %}<span>{{ contact_seller.street }}</span>{% endif %}
+                        {% if contact_seller.city %}<span>{{ contact_seller.postal_code }} {{ contact_seller.city }}</span>{% endif %}
+                        {% if contact_seller.nip %}<span>{{ t.contact.tax_id }}: {{ contact_seller.nip }}</span>{% endif %}
+                        {% if contact_seller.regon %}<span>{{ t.contact.regon }}: {{ contact_seller.regon }}</span>{% endif %}
+                        {% if contact_seller.phone %}<span>{{ t.contact.phone }}: {{ contact_seller.phone }}</span>{% endif %}
+                    </address>
+                </div>
+                {% endif %}
+            </div>
+        </section>
+    </main>
+
+    {% include footer.html %}
+</body>
+
+</html>

@@ -8,6 +8,8 @@ en:
     home: /en/
     projects: /en/products/
     blog: /en/blog/
+    about: /en/about/
+    contact: /en/contact/
   header:
     topbar:
       - Handmade in Poland
@@ -69,12 +71,14 @@ en:
     about_quote: I make leather accessories for the home because everyday rituals shape the quality of life.
     about_body: Since 2020 I have been making goods from vegetable-tanned leather using historical leathercraft techniques. Every product exists so that ordinary gestures bring more satisfaction.
     about_alt: Leather tray on an oak side table
+    about_link: More about the studio
     journal_heading: Craft and design
     all_posts: All posts
     read_post: Read post
     contact_eyebrow: Custom orders
     contact_heading: Have an idea for personalization or a project of your own?
     contact_text: Write wherever suits you best and we will settle the details before you order.
+    contact_link: All contact details
   about:
     heading: About Elense
     lead: My name is Radosław Landowski and since 2020 I create leather goods based on traditionally manufactured vegetable-tanned leathers using historical techniques of leathercraft. Reaching for Elense leather goods means supporting traditional craftsmanship and brings back handcrafted quality to the modern world.
@@ -82,6 +86,9 @@ en:
     body_secondary:
     contact_me: Contact Me
     blog: Blog
+    page_eyebrow: The studio
+    cta_products: View products
+    cta_contact: Get in touch
   contact:
     heading: Contact
     intro: Would you like to know more about Elense products? Do you have a customization idea or even your own project on your mind? Or maybe you're wondering on how to buy a product of your liking? Reach me anywhere you like.
@@ -94,6 +101,14 @@ en:
     tweet_twitter: Tweet me on Twitter
     find_me: You can find me here
     unavailable: Contact details will be available soon.
+    page_eyebrow: Get in touch
+    channels_label: Ways to reach me
+    etsy_shop: Elense Leatherworks shop
+    seller_heading: Seller details
+    tax_id: Tax ID (NIP)
+    regon: REGON
+    phone: Phone
+    info_heading: Before you order
   footer:
     back_to_top: Back to top
     shop: Shop
@@ -220,6 +235,8 @@ pl:
     home: /pl/
     projects: /pl/produkty/
     blog: /pl/blog/
+    about: /pl/o-pracowni/
+    contact: /pl/kontakt/
   header:
     topbar:
       - Ręcznie szyte w Polsce
@@ -281,18 +298,23 @@ pl:
     about_quote: Tworzę akcesoria skórzane do home decor, bo to codzienne rytuały budują jakość życia.
     about_body: Od 2020 roku tworzę wyroby ze skór garbowanych roślinnie, sięgając po historyczne techniki kaletnicze. Każdy produkt powstaje po to, aby zwykłe gesty dawały większą satysfakcję.
     about_alt: Skórzana taca na dębowym stoliku
+    about_link: Więcej o pracowni
     journal_heading: Rzemiosło i design
     all_posts: Wszystkie wpisy
     read_post: Czytaj wpis
     contact_eyebrow: Zamówienia indywidualne
     contact_heading: Masz pomysł na personalizację albo własny projekt?
     contact_text: Napisz tam, gdzie Ci najwygodniej — ustalimy szczegóły przed zamówieniem.
+    contact_link: Wszystkie dane kontaktowe
   about:
     heading: O Elense Experience
     lead: Tworzę akcesoria skórzane do home decor, bo to codzienne rytuały budują jakość życia.
     body_primary: "Elense Experience to filozofia projektowania oparta na trzech filarach: trwałym rzemiośle, personalizacji i wygodzie codziennego użytkowania."
     body_secondary: Od kieszonek na sztućce i podkładek po uchwyty i oprawy, każdy produkt powstaje po to, aby zwykłe gesty dawały większą satysfakcję.
     contact_me: Skontaktuj się
+    page_eyebrow: Pracownia
+    cta_products: Zobacz produkty
+    cta_contact: Napisz do mnie
     blog: Poczytaj o standardach skórnictwa Elense
   contact:
     heading: Kontakt
@@ -306,6 +328,14 @@ pl:
     tweet_twitter: Napisz na Twitterze
     find_me: Znajdziesz mnie tutaj
     unavailable: Dane kontaktowe będą dostępne wkrótce.
+    page_eyebrow: Napisz do mnie
+    channels_label: Jak się ze mną skontaktować
+    etsy_shop: Sklep Elense Leatherworks
+    seller_heading: Dane sprzedawcy
+    tax_id: NIP
+    regon: REGON
+    phone: Telefon
+    info_heading: Przed zamówieniem
   footer:
     back_to_top: Do góry
     shop: Sklep
