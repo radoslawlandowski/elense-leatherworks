@@ -19,5 +19,8 @@
     {% if elense_whatsapp_href == "" and elense_email == "" and elense_instagram_href == "" %}
     <p class="home-contact__text">{{ t.contact.unavailable }}</p>
     {% endif %}
+    {% unless page.translation_key == "contact" %}
+    <a class="text-link home-contact__link" href="{{ t.routes.contact | relative_url }}">{{ t.home.contact_link }}</a>
+    {% endunless %}
   </div>
 </section>

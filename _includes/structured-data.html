@@ -175,7 +175,7 @@ Shipping and return details come from _data/shop.yml and are left out while it i
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "WebPage",
+  "@type": {{ page.schema_type | default: "WebPage" | jsonify }},
   "name": {{ page.title | default: site_name | jsonify }},
   "description": {{ meta_description | jsonify }},
   "url": {{ canonical_url | jsonify }},

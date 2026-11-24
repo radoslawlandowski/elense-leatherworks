@@ -14,6 +14,11 @@
       {% include journal-card.html post=post %}
       {% endfor %}
     </div>
+    {% if home_posts.size > site.data.home.journal_posts %}
+    <p class="home-section__more">
+      <a class="button" href="{{ t.routes.blog | relative_url }}">{{ t.home.all_posts }} ({{ home_posts.size }})</a>
+    </p>
+    {% endif %}
   </div>
 </section>
 {% endif %}

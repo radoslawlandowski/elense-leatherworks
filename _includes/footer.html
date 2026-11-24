@@ -31,9 +31,9 @@
 
             <nav class="site-footer__col" aria-label="{{ t.footer.studio }}">
                 <span class="site-footer__heading">{{ t.footer.studio }}</span>
-                <a href="{{ home_url }}#about">{{ t.nav.about }}</a>
+                <a href="{{ routes.about | relative_url }}">{{ t.nav.about }}</a>
                 <a href="{{ routes.blog | relative_url }}">{{ t.nav.blog }}</a>
-                <a href="{{ home_url }}#contact">{{ t.nav.contact }}</a>
+                <a href="{{ routes.contact | relative_url }}">{{ t.nav.contact }}</a>
                 {% if elense_instagram_href != "" %}
                 <a href="{{ elense_instagram_href }}" target="_blank" rel="noopener noreferrer" data-analytics-event="instagram_click" data-analytics-category="footer">{{ t.contact.instagram }}</a>
                 {% endif %}

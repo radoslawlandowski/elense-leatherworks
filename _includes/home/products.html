@@ -12,4 +12,9 @@
       {% include product-tile.html project=project %}
     {% endfor %}
   </div>
+  {% if home_products.size > site.data.home.featured_products %}
+  <p class="home-section__more">
+    <a class="button" href="{{ t.routes.projects | relative_url }}">{{ t.home.view_all_products }} ({{ home_products.size }})</a>
+  </p>
+  {% endif %}
 </section>
