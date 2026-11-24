@@ -3,8 +3,8 @@ layout: compress
 ---
 {% comment %}
 The studio page. The story comes from the page's Markdown body; `heading` and `lead`
-in the front matter fill the page header. The pillars and contact sections are the same
-includes the home page uses.
+in the front matter fill the page header. The pillars, Instagram and contact sections are
+the same includes the home page uses.
 {% endcomment %}
 {% assign current_lang = page.lang | default: "en" %}
 {% assign t = site.data.i18n[current_lang] %}
@@ -44,6 +44,7 @@ includes the home page uses.
         </section>
 
         {% include home/pillars.html %}
+        {% include home/instagram.html %}
         {% include home/contact.html %}
     </main>
 
