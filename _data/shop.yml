@@ -6,14 +6,15 @@
 # Strony prawne (pl/regulamin.md itd.) mają `published: false` — włącz je po uzupełnieniu
 # tych danych i sprawdzeniu treści.
 
+# Dane z CEIDG (wpis sprawdzony 2026-11-24, status: aktywny, czynny podatnik VAT).
 seller:
-  legal_name:        # pełna nazwa z CEIDG, np. "Elense Leatherworks Radosław Landowski"
-  street:            # ulica i numer
-  postal_code:
-  city:
+  legal_name: "Radosław Landowski Elense"   # firma przedsiębiorcy z CEIDG
+  street: "ul. Jana Heweliusza 11/811"       # stałe miejsce wykonywania działalności
+  postal_code: "80-890"
+  city: "Gdańsk"
   country: PL
-  nip:
-  regon:
+  nip: "5842798811"
+  regon: "387491972"
   phone:             # opcjonalnie; gdy puste, strony pokazują tylko e-mail
   complaints_email:  # opcjonalnie; gdy puste, używany jest e-mail z _config.yml
 
