@@ -1,0 +1,6 @@
+---
+layout: null
+permalink: /feeds/products-en.xml
+sitemap: false
+---
+{% include product-feed.xml lang="en" %}

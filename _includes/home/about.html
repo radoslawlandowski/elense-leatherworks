@@ -8,5 +8,5 @@
       <span class="home-about__role">{% if current_lang == "pl" and site['author-about-pl'] %}{{ site['author-about-pl'] }}{% else %}{{ site['author-about'] }}{% endif %}</span>
     </p>
   </div>
-  <img class="home-about__photo" src="{{ site.data.home.images.about | relative_url }}" alt="{{ t.home.about_alt }}" width="2048" height="1365" loading="lazy" decoding="async">
+  {% include img.html src=site.data.home.images.about alt=t.home.about_alt class="home-about__photo" sizes="(max-width: 900px) 100vw, 50vw" %}
 </section>

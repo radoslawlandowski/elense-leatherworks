@@ -1,0 +1,26 @@
+{% comment %}
+Lists the real photos of a product: the hero first, then the gallery, without
+placeholders (.svg) and without repeats. Pass product=<document>.
+Sets `product_photos` (site-relative paths) and `product_photo_alts` (same order).
+{% endcomment %}
+{% assign ph = include.product %}
+{% assign product_photos = "" | split: "" %}
+{% assign product_photo_alts = "" | split: "" %}
+{% assign ph_hero = ph.post-image | default: "" %}
+{% assign ph_hero_ext = ph_hero | slice: -4, 4 | downcase %}
+{% if ph_hero != "" and ph_hero_ext != ".svg" %}
+  {% assign product_photos = product_photos | push: ph_hero %}
+  {% assign ph_hero_alt = ph.hero_alt | default: ph.title %}
+  {% assign product_photo_alts = product_photo_alts | push: ph_hero_alt %}
+{% endif %}
+{% for ph_item in ph.gallery %}
+  {% assign ph_src = ph_item.href | default: ph_item.imgSrc | default: ph_item.image | default: "" %}
+  {% assign ph_ext = ph_src | slice: -4, 4 | downcase %}
+  {% if ph_src != "" and ph_ext != ".svg" %}
+    {% unless product_photos contains ph_src %}
+      {% assign product_photos = product_photos | push: ph_src %}
+      {% assign ph_alt = ph_item.alt | default: ph.title %}
+      {% assign product_photo_alts = product_photo_alts | push: ph_alt %}
+    {% endunless %}
+  {% endif %}
+{% endfor %}

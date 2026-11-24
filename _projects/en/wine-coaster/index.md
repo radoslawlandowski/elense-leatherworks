@@ -1,14 +1,12 @@
 ---
 title: Sommelier Wine Coaster
+seo_title: "Leather Wine Glass Coaster, Hand-Stitched | Elense"
 layout: project-product
 lang: en
 translation_key: wine-coaster
 permalink: "/en/products/wine-coaster/"
 post-image: "/projects/en/wine-coaster/hero.svg"
 description: Hand-stitched leather coaster for wine glasses that protects the table and adds a refined look to every setting.
-price: 39 PLN / piece
-price_amount: 39
-price_currency: PLN
 availability: In stock
 availability_schema: https://schema.org/InStock
 shopify_url: ""

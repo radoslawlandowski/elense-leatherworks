@@ -1,0 +1,18 @@
+{% comment %}
+Responsive image. Pass src= (site-relative path), alt=, and optionally class=, sizes=,
+loading= ("lazy" by default, "eager" for above-the-fold), fetchpriority=.
+When scripts/build_images.py has processed the file (entry in _data/images.yml) the tag
+gets width/height and a WebP srcset; otherwise it is a plain <img>.
+{% endcomment %}
+{%- assign img_src = include.src -%}
+{%- assign img_meta = site.data.images[img_src] -%}
+{%- assign img_loading = include.loading | default: "lazy" -%}
+{%- if img_src contains '://' -%}{%- assign img_url = img_src -%}{%- else -%}{%- assign img_url = img_src | relative_url -%}{%- endif -%}
+{%- capture img_srcset -%}
+  {%- if img_meta and img_meta.webp -%}
+    {%- for img_w in img_meta.webp -%}
+      {{ img_meta.base | append: "-" | append: img_w | append: ".webp" | relative_url }} {{ img_w }}w{% unless forloop.last %}, {% endunless %}
+    {%- endfor -%}
+  {%- endif -%}
+{%- endcapture -%}
+<img src="{{ img_url }}"{% if img_srcset != "" %} srcset="{{ img_srcset | strip }}" sizes="{{ include.sizes | default: '100vw' }}"{% endif %} alt="{{ include.alt | escape }}"{% if img_meta %} width="{{ img_meta.width }}" height="{{ img_meta.height }}"{% endif %}{% if include.class %} class="{{ include.class }}"{% endif %}{% if include.hidden %} aria-hidden="true"{% endif %}{% if img_loading == "lazy" %} loading="lazy"{% endif %} decoding="async"{% if include.fetchpriority %} fetchpriority="{{ include.fetchpriority }}"{% endif %}>

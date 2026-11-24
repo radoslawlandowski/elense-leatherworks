@@ -1,0 +1,247 @@
+{% comment %}
+JSON-LD for the current page. Included from meta.html, which sets full_title,
+meta_description, canonical_url, locale_code, meta_image_resolved, site_name and, on
+product pages, the product_price_* and product_photos variables.
+Shipping and return details come from _data/shop.yml and are left out while it is empty.
+{% endcomment %}
+{% assign sd_shop = site.data.shop %}
+{% assign sd_org_id = '/' | absolute_url | append: '#organization' %}
+{% assign sd_logo = site['logo-image'] | default: '/assets/images/logo-exact.png' | absolute_url %}
+
+{% if page.layout == "post" %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": {{ page.title | default: site_name | jsonify }},
+  "description": {{ meta_description | jsonify }},
+  "mainEntityOfPage": {{ canonical_url | jsonify }},
+  "inLanguage": {{ locale_code | jsonify }},
+  "datePublished": {{ page.date | date_to_xmlschema | jsonify }},
+  "dateModified": {{ page.last_modified_at | default: page.date | date_to_xmlschema | jsonify }},
+  "author": {
+    "@type": "Person",
+    "name": {{ site["author-name"] | jsonify }}
+  },
+  "publisher": {
+    "@type": "Organization",
+    "@id": {{ sd_org_id | jsonify }},
+    "name": {{ site_name | jsonify }},
+    "logo": {
+      "@type": "ImageObject",
+      "url": {{ sd_logo | jsonify }}
+    }
+  },
+  "image": [{{ meta_image_resolved | jsonify }}]
+}
+</script>
+{% elsif page.layout == "blog" %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Blog",
+  "name": {{ full_title | jsonify }},
+  "description": {{ meta_description | jsonify }},
+  "url": {{ canonical_url | jsonify }},
+  "inLanguage": {{ locale_code | jsonify }},
+  "blogPost": [
+    {% assign localized_posts = site.posts | where: "lang", current_lang %}
+    {% for post in localized_posts limit:10 %}
+    {
+      "@type": "BlogPosting",
+      "headline": {{ post.title | jsonify }},
+      "url": {{ post.url | absolute_url | jsonify }},
+      "datePublished": {{ post.date | date_to_xmlschema | jsonify }}
+    }{% unless forloop.last %},{% endunless %}
+    {% endfor %}
+  ]
+}
+</script>
+{% elsif page.layout == "project-product" %}
+{% comment %}Delivery: zones priced in the currency of this page, one entry per country.{% endcomment %}
+{% assign sd_handling = sd_shop.handling_days.made_to_order %}
+{% if page.availability_schema contains "InStock" %}{% assign sd_handling = sd_shop.handling_days.in_stock %}{% endif %}
+{% assign sd_ship_count = 0 %}
+{% assign sd_countries = "" %}
+{% capture sd_shipping %}
+  {% for sd_zone in sd_shop.shipping_zones %}
+    {% assign sd_zone_currency = sd_zone.currency | upcase %}
+    {% if sd_zone_currency == product_price_currency %}
+      {% for sd_country in sd_zone.countries %}
+        {% capture sd_countries %}{{ sd_countries }}{% if sd_countries != "" %},{% endif %}{{ sd_country | jsonify }}{% endcapture %}
+        {% if sd_zone.rate != nil %}
+          {% assign sd_rate = sd_zone.rate %}
+          {% if sd_zone.free_from and product_price_amount >= sd_zone.free_from %}{% assign sd_rate = 0 %}{% endif %}
+          {% if sd_ship_count > 0 %},{% endif %}
+          {
+            "@type": "OfferShippingDetails",
+            "shippingRate": { "@type": "MonetaryAmount", "value": {{ sd_rate | jsonify }}, "currency": {{ sd_zone_currency | jsonify }} },
+            "shippingDestination": { "@type": "DefinedRegion", "addressCountry": {{ sd_country | jsonify }} }
+            {% if sd_handling.max or sd_zone.transit_days.max %},
+            "deliveryTime": {
+              "@type": "ShippingDeliveryTime"
+              {% if sd_handling.max %},
+              "handlingTime": { "@type": "QuantitativeValue", "minValue": {{ sd_handling.min | default: 0 | jsonify }}, "maxValue": {{ sd_handling.max | jsonify }}, "unitCode": "DAY" }
+              {% endif %}
+              {% if sd_zone.transit_days.max %},
+              "transitTime": { "@type": "QuantitativeValue", "minValue": {{ sd_zone.transit_days.min | default: 1 | jsonify }}, "maxValue": {{ sd_zone.transit_days.max | jsonify }}, "unitCode": "DAY" }
+              {% endif %}
+            }
+            {% endif %}
+          }
+          {% assign sd_ship_count = sd_ship_count | plus: 1 %}
+        {% endif %}
+      {% endfor %}
+    {% endif %}
+  {% endfor %}
+{% endcapture %}
+{% assign sd_returns_page = site.pages | where: "translation_key", "returns" | where: "lang", current_lang | first %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Product",
+  "@id": {{ canonical_url | append: "#product" | jsonify }},
+  "name": {{ page.title | jsonify }},
+  "description": {{ page.description | default: meta_description | strip_html | strip_newlines | strip | jsonify }},
+  {% if product_photos.size > 0 %}
+  "image": [{% for sd_photo in product_photos %}{{ sd_photo | absolute_url | jsonify }}{% unless forloop.last %},{% endunless %}{% endfor %}],
+  {% endif %}
+  "brand": {
+    "@type": "Brand",
+    "name": {{ site_name | jsonify }}
+  },
+  "sku": {{ page.sku | default: page.translation_key | default: page.slug | jsonify }},
+  {% if page.material %}"material": {{ page.material | jsonify }},{% endif %}
+  {% if page.color %}"color": {{ page.color | jsonify }},{% endif %}
+  "url": {{ canonical_url | jsonify }},
+  "category": {{ page.tags | join: ", " | jsonify }}{% if product_price_amount %},
+  "offers": {
+    "@type": "Offer",
+    "priceCurrency": {{ product_price_currency | jsonify }},
+    "price": {{ product_price_amount | jsonify }},
+    "availability": {{ page.availability_schema | default: "https://schema.org/InStock" | jsonify }},
+    "url": {{ canonical_url | jsonify }},
+    "itemCondition": "https://schema.org/NewCondition",
+    "seller": {
+      "@type": "Organization",
+      "@id": {{ sd_org_id | jsonify }},
+      "name": {{ site_name | jsonify }}
+    }
+    {% if sd_ship_count > 0 %},
+    "shippingDetails": [{{ sd_shipping }}]
+    {% endif %}
+    {% if sd_shop.returns.days and sd_countries != "" %},
+    "hasMerchantReturnPolicy": {
+      "@type": "MerchantReturnPolicy",
+      "applicableCountry": [{{ sd_countries }}],
+      "returnPolicyCategory": "https://schema.org/MerchantReturnFiniteReturnWindow",
+      "merchantReturnDays": {{ sd_shop.returns.days | jsonify }},
+      "returnMethod": "https://schema.org/ReturnByMail"
+      {% if sd_shop.returns.shipping_paid_by == "seller" %},
+      "returnFees": "https://schema.org/FreeReturn"
+      {% elsif sd_shop.returns.shipping_paid_by == "customer" %},
+      "returnFees": "https://schema.org/ReturnFeesCustomerResponsibility"
+      {% endif %}
+      {% if sd_returns_page %},
+      "merchantReturnLink": {{ sd_returns_page.url | absolute_url | jsonify }}
+      {% endif %}
+    }
+    {% endif %}
+  }{% endif %}
+}
+</script>
+{% elsif page.layout == "project" %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "CollectionPage",
+  "name": {{ full_title | jsonify }},
+  "description": {{ meta_description | jsonify }},
+  "url": {{ canonical_url | jsonify }},
+  "inLanguage": {{ locale_code | jsonify }},
+  "hasPart": [
+    {% assign localized_projects = site.projects | where: "lang", current_lang %}
+    {% for project in localized_projects limit:20 %}
+    {
+      "@type": "Product",
+      "name": {{ project.title | jsonify }},
+      "url": {{ project.url | absolute_url | jsonify }}
+    }{% unless forloop.last %},{% endunless %}
+    {% endfor %}
+  ]
+}
+</script>
+{% else %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": {{ page.title | default: site_name | jsonify }},
+  "description": {{ meta_description | jsonify }},
+  "url": {{ canonical_url | jsonify }},
+  "inLanguage": {{ locale_code | jsonify }}
+}
+</script>
+{% endif %}
+
+{% capture sd_same_as %}
+  {% assign sd_social_count = 0 %}
+  {% if site.instagram_username and site.instagram_username != "" %}
+    {% if sd_social_count > 0 %},{% endif %}{{ "https://www.instagram.com/" | append: site.instagram_username | jsonify }}{% assign sd_social_count = sd_social_count | plus: 1 %}
+  {% endif %}
+  {% if site.facebook_username and site.facebook_username != "" %}
+    {% if sd_social_count > 0 %},{% endif %}{{ "https://www.facebook.com/" | append: site.facebook_username | jsonify }}{% assign sd_social_count = sd_social_count | plus: 1 %}
+  {% endif %}
+  {% if site.pinterest_username and site.pinterest_username != "" %}
+    {% if sd_social_count > 0 %},{% endif %}{{ "https://www.pinterest.com/" | append: site.pinterest_username | jsonify }}{% assign sd_social_count = sd_social_count | plus: 1 %}
+  {% endif %}
+  {% if site.youtube_channel_id and site.youtube_channel_id != "" %}
+    {% if sd_social_count > 0 %},{% endif %}{{ "https://www.youtube.com/channel/" | append: site.youtube_channel_id | jsonify }}{% assign sd_social_count = sd_social_count | plus: 1 %}
+  {% endif %}
+  {% if site.etsy_url and site.etsy_url != "" %}
+    {% if sd_social_count > 0 %},{% endif %}{{ site.etsy_url | jsonify }}{% assign sd_social_count = sd_social_count | plus: 1 %}
+  {% endif %}
+{% endcapture %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "OnlineStore",
+  "@id": {{ sd_org_id | jsonify }},
+  "name": {{ site_name | jsonify }},
+  "url": {{ '/' | absolute_url | jsonify }},
+  "logo": {{ sd_logo | jsonify }}
+  {% if sd_shop.seller.legal_name %},
+  "legalName": {{ sd_shop.seller.legal_name | jsonify }}
+  {% endif %}
+  {% if site.email and site.email != "" %},
+  "email": {{ site.email | jsonify }}
+  {% endif %}
+  {% if sd_shop.seller.nip %},
+  "vatID": {{ sd_shop.seller.nip | prepend: "PL" | jsonify }}
+  {% endif %}
+  {% if sd_shop.seller.street and sd_shop.seller.city %},
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": {{ sd_shop.seller.street | jsonify }},
+    "postalCode": {{ sd_shop.seller.postal_code | jsonify }},
+    "addressLocality": {{ sd_shop.seller.city | jsonify }},
+    "addressCountry": {{ sd_shop.seller.country | default: "PL" | jsonify }}
+  }
+  {% endif %}
+  {% if site['author-name'] %},
+  "founder": { "@type": "Person", "name": {{ site['author-name'] | jsonify }} }
+  {% endif %}
+  {% if sd_social_count > 0 %},
+  "sameAs": [{{ sd_same_as | strip }}]
+  {% endif %}
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": {{ site_name | jsonify }},
+  "url": {{ '/' | absolute_url | jsonify }},
+  "inLanguage": [{{ 'en-US' | jsonify }}, {{ 'pl-PL' | jsonify }}]
+}
+</script>

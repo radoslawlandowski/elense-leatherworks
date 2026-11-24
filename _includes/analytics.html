@@ -1,0 +1,11 @@
+{% comment %}
+Google Analytics 4 and Meta Pixel. Nothing is loaded until an ID is set in _config.yml
+(`google-analytics`, `meta_pixel_id`) and the visitor agrees in the cookie banner
+(_includes/consent-banner.html). The logic lives in assets/js/tracking.js.
+{% endcomment %}
+{% assign tracking_ga = site['google-analytics'] | default: "" %}
+{% assign tracking_pixel = site.meta_pixel_id | default: "" %}
+{% if tracking_ga != "" or tracking_pixel != "" %}
+<script>window.elenseTracking = { ga: {{ tracking_ga | jsonify }}, pixel: {{ tracking_pixel | jsonify }} };</script>
+<script src="{{ '/assets/js/tracking.js' | relative_url }}" defer></script>
+{% endif %}

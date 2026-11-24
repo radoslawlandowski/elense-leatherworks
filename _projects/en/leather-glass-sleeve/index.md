@@ -1,14 +1,12 @@
 ---
 title: Leather Glass Sleeve
+seo_title: "Leather Glass Sleeve, Hand-Stitched | Elense"
 layout: project-product
 lang: en
 translation_key: glass-holder
 permalink: "/en/products/leather-glass-sleeve/"
 post-image: "/projects/en/leather-glass-sleeve/hero.svg"
 description: Ergonomic leather sleeve that improves grip and reduces heat or cold transfer while holding your glass.
-price: 59 PLN / piece
-price_amount: 59
-price_currency: PLN
 availability: In stock
 availability_schema: https://schema.org/InStock
 shopify_url: ""

@@ -2456,3 +2456,108 @@ html body .snipcart {
         grid-template-columns: repeat(2, minmax(0, 1fr));
     }
 }
+
+// ---------- Cookie banner ----------
+.consent {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 900;
+    border-top: 1px solid $elense-line;
+    background: $elense-paper;
+    color: $elense-ink;
+    box-shadow: 0 -12px 30px -18px rgba(42, 29, 20, 0.35);
+
+    &[hidden] {
+        display: none;
+    }
+}
+
+.consent__inner {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 1.5rem 2.5rem;
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 1.25rem 2.5rem;
+}
+
+.consent__title {
+    margin-bottom: 0.25rem;
+    font-family: $font-serif;
+    font-size: 1.375rem;
+    font-weight: 500;
+}
+
+.consent__text {
+    max-width: 46rem;
+    font-size: 0.9375rem;
+    color: $elense-soft;
+
+    a {
+        color: $elense-ink;
+        text-decoration: underline;
+        text-underline-offset: 0.2em;
+    }
+}
+
+.consent__options {
+    display: grid;
+    gap: 0.5rem;
+    margin-top: 0.875rem;
+    font-size: 0.9375rem;
+
+    &[hidden] {
+        display: none;
+    }
+
+    label {
+        display: flex;
+        align-items: baseline;
+        gap: 0.625rem;
+    }
+
+    input {
+        flex: none;
+        accent-color: $elense-ink;
+    }
+}
+
+.consent__actions {
+    display: flex;
+    flex: none;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.75rem;
+
+    [hidden] {
+        display: none;
+    }
+}
+
+.consent__settings {
+    -webkit-appearance: none;
+    appearance: none;
+    border: 0;
+    padding: 0.5rem 0.25rem;
+    background: transparent;
+    color: $elense-ink;
+    font-size: 0.9375rem;
+    text-decoration: underline;
+    text-underline-offset: 0.2em;
+    cursor: pointer;
+}
+
+@media (max-width: 900px) {
+    .consent__inner {
+        flex-direction: column;
+        align-items: stretch;
+        padding: 1.125rem 1.25rem;
+    }
+
+    .consent__actions .button {
+        flex: 1 1 9rem;
+    }
+}

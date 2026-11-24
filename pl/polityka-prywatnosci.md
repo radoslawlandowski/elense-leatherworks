@@ -8,7 +8,7 @@ description: Polityka prywatności Elense Leatherworks — jakie dane zbieramy, 
 keywords: polityka prywatności, RODO, ochrona danych, Elense Leatherworks
 ---
 
-**Ostatnia aktualizacja: 7 lipca 2026**
+**Ostatnia aktualizacja: 23 listopada 2026**
 
 ## 1. Administrator danych
 
@@ -32,7 +32,7 @@ Nie zbieramy danych szczególnych kategorii (wrażliwych) i nie prowadzimy zauto
 | Realizacja zamówienia i obsługa reklamacji | Wykonanie umowy (art. 6 ust. 1 lit. b RODO) |
 | Odpowiedź na zapytanie kontaktowe | Prawnie uzasadniony interes administratora (art. 6 ust. 1 lit. f RODO) |
 | Marketing i prowadzenie profili marki w mediach społecznościowych (Pinterest, Instagram, Etsy) | Prawnie uzasadniony interes administratora (art. 6 ust. 1 lit. f RODO) |
-| Analiza ruchu na stronie | Zgoda (art. 6 ust. 1 lit. a RODO), o ile dotyczy cookies analitycznych |
+| Analiza ruchu na stronie i pomiar skuteczności reklam | Zgoda (art. 6 ust. 1 lit. a RODO) wyrażona w banerze cookies |
 
 ## 4. Odbiorcy danych
 
@@ -42,6 +42,7 @@ Dane mogą być udostępniane zaufanym dostawcom usług, którzy przetwarzają j
 - **Etsy** — jeśli dokonujesz zakupu za pośrednictwem naszego sklepu na Etsy, obowiązuje tam dodatkowo polityka prywatności Etsy.
 - **Pinterest i Meta (Instagram)** — w zakresie, w jakim publikujemy i zarządzamy treścią promocyjną na tych platformach; nie przekazujemy im danych osobowych klientów, korzystamy z ich API wyłącznie do publikacji treści marketingowych.
 - **Google Analytics** — jeśli usługa jest aktywna, w celu analizy ruchu na stronie.
+- **Meta Pixel (Facebook, Instagram)** — jeśli usługa jest aktywna i wyrazisz zgodę na cookies marketingowe, w celu pomiaru skuteczności reklam.
 
 Nie sprzedajemy danych osobowych osobom trzecim.
 
@@ -65,7 +66,7 @@ Aby skorzystać z tych praw, napisz na [radoslaw@elenseleatherworks.com](mailto:
 
 ## 7. Cookies
 
-Strona wykorzystuje pliki cookies niezbędne do działania koszyka zakupowego oraz, opcjonalnie, cookies analityczne. Możesz zarządzać cookies w ustawieniach swojej przeglądarki.
+Strona wykorzystuje pliki cookies niezbędne do działania koszyka zakupowego. Cookies analityczne (Google Analytics) i marketingowe (Meta Pixel) są włączane dopiero po wyrażeniu zgody w banerze cookies; bez zgody narzędzia te nie są w ogóle ładowane. Zgodę możesz zmienić lub wycofać w każdej chwili, klikając „Ustawienia cookies” w stopce strony. Cookies możesz też usunąć w ustawieniach przeglądarki.
 
 ## 8. Zmiany w polityce prywatności
 

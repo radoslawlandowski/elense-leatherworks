@@ -1,7 +1,7 @@
 {% assign philosophy_post = site.posts | where: "lang", current_lang | where: "translation_key", site.data.home.philosophy_post_key | first %}
 <section class="home-pillars">
   <div class="home-pillars__inner">
-    <img class="home-pillars__photo" src="{{ site.data.home.images.pillars | relative_url }}" alt="{{ t.home.pillars_alt }}" width="1365" height="2048" loading="lazy" decoding="async">
+    {% include img.html src=site.data.home.images.pillars alt=t.home.pillars_alt class="home-pillars__photo" sizes="(max-width: 900px) 100vw, 50vw" %}
     <div class="home-pillars__copy">
       <p class="eyebrow eyebrow--brass">{{ t.home.pillars_eyebrow }}</p>
       <h2 class="home-section__title">{{ t.home.pillars_heading }}</h2>

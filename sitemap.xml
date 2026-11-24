@@ -4,7 +4,8 @@ permalink: /sitemap.xml
 ---
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
-        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+        xmlns:xhtml="http://www.w3.org/1999/xhtml"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   {% assign has_site_origin = false %}
   {% if site.url and site.url != "" %}
     {% assign has_site_origin = true %}
@@ -56,8 +57,15 @@ permalink: /sitemap.xml
       {% if pl_alt %}
     <xhtml:link rel="alternate" hreflang="pl" href="{{ pl_alt }}" />
       {% endif %}
-      {% if en_alt or pl_alt %}
-    <xhtml:link rel="alternate" hreflang="x-default" href="{{ '/' | absolute_url }}" />
+      {% assign default_alt = en_alt | default: pl_alt %}
+      {% if default_alt %}
+    <xhtml:link rel="alternate" hreflang="x-default" href="{{ default_alt }}" />
+      {% endif %}
+      {% if doc.collection == 'projects' %}
+        {% include product-photos.html product=doc %}
+        {% for photo in product_photos %}
+    <image:image><image:loc>{{ photo | absolute_url }}</image:loc></image:image>
+        {% endfor %}
       {% endif %}
       {% assign doc_lastmod = doc.last_modified_at | default: doc.date %}
       {% if doc_lastmod %}

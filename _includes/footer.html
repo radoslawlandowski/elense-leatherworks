@@ -41,8 +41,20 @@
 
             <nav class="site-footer__col" aria-label="{{ t.footer.information }}">
                 <span class="site-footer__heading">{{ t.footer.information }}</span>
+                {% assign footer_legal_keys = "terms,shipping,returns" | split: "," %}
+                {% for footer_legal_key in footer_legal_keys %}
+                  {% assign footer_legal_page = site.pages | where: "translation_key", footer_legal_key | where: "lang", current_lang | first %}
+                  {% if footer_legal_page %}
+                <a href="{{ footer_legal_page.url | relative_url }}">{{ footer_legal_page.nav_title | default: footer_legal_page.title }}</a>
+                  {% endif %}
+                {% endfor %}
                 {% if elense_privacy_page %}
                 <a href="{{ elense_privacy_page.url | relative_url }}">{{ t.footer.privacy_policy }}</a>
+                {% endif %}
+                {% assign footer_ga = site['google-analytics'] | default: "" %}
+                {% assign footer_pixel = site.meta_pixel_id | default: "" %}
+                {% if footer_ga != "" or footer_pixel != "" %}
+                <button type="button" data-consent-open>{{ t.consent.reopen }}</button>
                 {% endif %}
                 {% if elense_email != "" %}
                 <a href="mailto:{{ elense_email }}" data-analytics-event="contact_email_click" data-analytics-category="footer">{{ elense_email }}</a>
@@ -57,4 +69,5 @@
         </div>
     </div>
 </footer>
+{% include consent-banner.html %}
 {% include snipcart.html %}

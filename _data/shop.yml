@@ -1,0 +1,59 @@
+# Dane sklepu — jedno miejsce, z którego czytają: regulamin, strony dostawy i zwrotów,
+# dane strukturalne produktów (Google) oraz plik produktowy (Google Merchant Center, Meta).
+#
+# Puste pola są pomijane: dopóki nie wpiszesz kosztów dostawy i zasad zwrotów,
+# strona nie podaje ich Google ani w pliku produktowym.
+# Strony prawne (pl/regulamin.md itd.) mają `published: false` — włącz je po uzupełnieniu
+# tych danych i sprawdzeniu treści.
+
+seller:
+  legal_name:        # pełna nazwa z CEIDG, np. "Elense Leatherworks Radosław Landowski"
+  street:            # ulica i numer
+  postal_code:
+  city:
+  country: PL
+  nip:
+  regon:
+  phone:             # opcjonalnie; gdy puste, strony pokazują tylko e-mail
+  complaints_email:  # opcjonalnie; gdy puste, używany jest e-mail z _config.yml
+
+# Czas przygotowania zamówienia do wysyłki (dni robocze).
+handling_days:
+  in_stock:
+    min:
+    max:
+  made_to_order:
+    min:
+    max:
+
+# Strefy dostawy. `currency` łączy strefę z wersją językową (PLN -> /pl/, USD -> /en/).
+# `rate` to koszt dostawy w tej walucie (0 = darmowa), `free_from` to próg darmowej dostawy.
+shipping_zones:
+  - id: pl
+    countries: [PL]
+    currency: PLN
+    carrier:           # np. "InPost Paczkomat"
+    rate:
+    free_from:
+    transit_days:
+      min:
+      max:
+  - id: us
+    countries: [US]
+    currency: USD
+    carrier:
+    rate:
+    free_from:
+    transit_days:
+      min:
+      max:
+
+# Zwroty (odstąpienie od umowy). W UE konsument ma ustawowo co najmniej 14 dni;
+# prawo to nie obejmuje rzeczy wykonanych na indywidualne zamówienie (personalizacja).
+returns:
+  days:                # np. 14
+  shipping_paid_by:    # customer | seller — kto płaci za odesłanie
+
+payments:              # metody płatności włączone w Snipcart, np. ["karta płatnicza", "BLIK"]
+  pl: []
+  en: []

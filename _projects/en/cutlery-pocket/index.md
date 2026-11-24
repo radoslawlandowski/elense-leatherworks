@@ -1,14 +1,12 @@
 ---
 title: Leather Cutlery Pocket
+seo_title: "Leather Cutlery Pocket for Table Settings | Elense"
 layout: project-product
 lang: en
 translation_key: cutlery-pocket
 permalink: "/en/products/cutlery-pocket/"
 post-image: "/projects/en/cutlery-pocket/hero.svg"
 description: Elegant leather pocket for cutlery and napkin, designed to keep place settings tidy and visually premium.
-price: 49 PLN / piece
-price_amount: 49
-price_currency: PLN
 availability: Made to order
 availability_schema: https://schema.org/PreOrder
 shopify_url: ""

@@ -1,14 +1,12 @@
 ---
 title: Skórzana Kieszonka na Sztućce
+seo_title: "Skórzana kieszonka na sztućce i serwetkę | Elense"
 layout: project-product
 lang: pl
 translation_key: cutlery-pocket
 permalink: "/pl/produkty/kieszonka-na-sztucce/"
 post-image: "/projects/pl/kieszonka-na-sztucce/hero.svg"
 description: Elegancka kieszonka stołowa na sztućce i serwetkę, która porządkuje nakrycie i buduje efekt premium.
-price: 49 PLN / szt.
-price_amount: 49
-price_currency: PLN
 availability: Na zamówienie
 availability_schema: https://schema.org/PreOrder
 shopify_url: ""

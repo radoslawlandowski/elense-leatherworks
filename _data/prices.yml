@@ -1,0 +1,42 @@
+# Ceny produktów — jedno miejsce dla obu wersji językowych.
+# Klucz to `translation_key` produktu (ten sam w _projects/pl i _projects/en).
+#
+# amounts: cena w każdej walucie koszyka (pl -> PLN, en -> USD; patrz _data/i18n.yml).
+#   Produkt można dodać do koszyka tylko w tym języku, w którego walucie ma cenę.
+#   Puste pole = brak ceny w tej walucie = przycisk „Dodaj do koszyka” jest ukryty.
+# per_piece: true dopisuje przy cenie „za sztukę”.
+
+leather-valet-tray-organizer:
+  amounts:
+    pln:        # TODO: brak ceny w PLN — w wersji polskiej nie da się go kupić
+    usd: 24     # TODO: cena testowa — zweryfikuj przed publikacją
+
+leather-tray:
+  per_piece: true
+  amounts:
+    pln: 89
+    usd:        # TODO: brak ceny w USD — w wersji angielskiej nie da się go kupić
+
+leather-box:
+  per_piece: true
+  amounts:
+    pln: 119
+    usd:        # TODO: brak ceny w USD
+
+glass-holder:
+  per_piece: true
+  amounts:
+    pln: 59
+    usd:        # TODO: brak ceny w USD
+
+cutlery-pocket:
+  per_piece: true
+  amounts:
+    pln: 49
+    usd:        # TODO: brak ceny w USD
+
+wine-coaster:
+  per_piece: true
+  amounts:
+    pln: 39
+    usd:        # TODO: brak ceny w USD

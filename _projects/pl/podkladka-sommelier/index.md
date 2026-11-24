@@ -1,14 +1,12 @@
 ---
 title: Podkładka Sommelier
+seo_title: "Skórzana podkładka pod kieliszek do wina | Elense"
 layout: project-product
 lang: pl
 translation_key: wine-coaster
 permalink: "/pl/produkty/podkladka-sommelier/"
 post-image: "/projects/pl/podkladka-sommelier/hero.svg"
 description: Ręcznie szyta podkładka pod kieliszek do wina, która chroni blat i dodaje stołowi eleganckiego charakteru.
-price: 39 PLN / szt.
-price_amount: 39
-price_currency: PLN
 availability: Dostępne od ręki
 availability_schema: https://schema.org/InStock
 shopify_url: ""
