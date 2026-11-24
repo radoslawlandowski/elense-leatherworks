@@ -70,6 +70,11 @@
         </a>
 
         <div class="site-header__tools">
+            {% if elense_instagram_href != "" %}
+            <a class="site-social" href="{{ elense_instagram_href }}" target="_blank" rel="noopener noreferrer" aria-label="{{ t.instagram.label }}" data-analytics-event="instagram_click" data-analytics-category="header">
+                <svg class="site-icon" aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor"><rect x="4" y="4" width="16" height="16" rx="4.5"></rect><circle cx="12" cy="12" r="3.7"></circle><path d="M16.6 7.4h.01"></path></svg>
+            </a>
+            {% endif %}
             <div class="site-lang" role="group" aria-label="{{ t.nav.language }}">
                 {% if current_lang == "pl" %}
                 <span aria-current="true">PL</span><span aria-hidden="true">/</span><a href="{{ lang_switch_url | relative_url }}" lang="en" hreflang="en">EN</a>

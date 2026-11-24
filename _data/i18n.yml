@@ -79,6 +79,12 @@ en:
     contact_heading: Have an idea for personalization or a project of your own?
     contact_text: Write wherever suits you best and we will settle the details before you order.
     contact_link: All contact details
+  instagram:
+    eyebrow: Instagram
+    heading: The studio archive since 2020
+    text: Since May 2020 I have been posting what leaves the bench on Instagram — trays, boxes and card holders, finished pieces and the making of them.
+    follow: Follow
+    label: Elense Leatherworks on Instagram
   about:
     heading: About Elense
     lead: My name is Radosław Landowski and since 2020 I create leather goods based on traditionally manufactured vegetable-tanned leathers using historical techniques of leathercraft. Reaching for Elense leather goods means supporting traditional craftsmanship and brings back handcrafted quality to the modern world.
@@ -141,14 +147,14 @@ en:
     related_products_heading: Related Products
   product:
     discover_product: DISCOVER PRODUCT
-    buy_etsy: VIEW ON ETSY
+    buy_etsy: BUY ON ETSY
     buy_shopify: BUY ON SHOPIFY
     add_to_cart: ADD TO CART
     ask_product: ASK ABOUT PRODUCT
     categories: Categories
     description: Description
     per_piece: per piece
-    also_on_etsy: Also available on Etsy
+    etsy_shop_link: Visit the Elense shop on Etsy
     quantity: Quantity
     decrease_quantity: Decrease quantity
     increase_quantity: Increase quantity
@@ -306,6 +312,12 @@ pl:
     contact_heading: Masz pomysł na personalizację albo własny projekt?
     contact_text: Napisz tam, gdzie Ci najwygodniej — ustalimy szczegóły przed zamówieniem.
     contact_link: Wszystkie dane kontaktowe
+  instagram:
+    eyebrow: Instagram
+    heading: Archiwum prac od 2020 roku
+    text: Od maja 2020 roku pokazuję na Instagramie to, co powstaje w pracowni — tace, pudełka i etui na karty, gotowe przedmioty i etapy pracy nad nimi.
+    follow: Obserwuj
+    label: Elense Leatherworks na Instagramie
   about:
     heading: O Elense Experience
     lead: Tworzę akcesoria skórzane do home decor, bo to codzienne rytuały budują jakość życia.
@@ -375,7 +387,7 @@ pl:
     categories: Kategorie
     description: Opis
     per_piece: za sztukę
-    also_on_etsy: Dostępne także na Etsy
+    etsy_shop_link: Zobacz sklep Elense na Etsy
     quantity: Ilość
     decrease_quantity: Zmniejsz ilość
     increase_quantity: Zwiększ ilość

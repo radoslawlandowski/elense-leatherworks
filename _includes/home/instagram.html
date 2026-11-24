@@ -1,0 +1,34 @@
+{% comment %}
+Instagram section: a short invitation to the studio's profile and, when _data/instagram.yml
+lists photos, a grid of them linking to the posts. Used on the home page, the studio page
+and under blog posts. Renders nothing when no Instagram account is set in _config.yml.
+{% endcomment %}
+{% include contact-vars.html %}
+{% if elense_instagram_href != "" %}
+{% assign ig_posts = site.data.instagram.posts | default: "" %}
+{% assign ig_count = ig_posts | size %}
+{% assign ig_handle = "" %}
+{% unless elense_instagram contains "://" %}{% assign ig_handle = elense_instagram | prepend: "@" %}{% endunless %}
+<section class="home-instagram{% if ig_count == 0 %} home-instagram--plain{% endif %}" id="instagram">
+  <div class="home-instagram__inner">
+    <div class="home-instagram__copy">
+      <p class="eyebrow">{{ t.instagram.eyebrow }}</p>
+      <h2 class="home-section__title">{{ t.instagram.heading }}</h2>
+      <p class="home-instagram__text">{{ t.instagram.text }}</p>
+      <a class="button is-primary" href="{{ elense_instagram_href }}" target="_blank" rel="noopener noreferrer" data-analytics-event="instagram_click" data-analytics-category="instagram_section" data-analytics-label="{{ elense_instagram_href }}">{{ t.instagram.follow }}{% if ig_handle != "" %} {{ ig_handle }}{% endif %}</a>
+    </div>
+    {% if ig_count > 0 %}
+    <ul class="home-instagram__grid" aria-label="{{ t.instagram.label }}">
+      {% for ig_post in ig_posts limit: 6 %}
+      {% assign ig_alt = ig_post.alt[current_lang] | default: ig_post.alt.en | default: t.instagram.label %}
+      <li>
+        <a href="{{ ig_post.url | default: elense_instagram_href }}" target="_blank" rel="noopener noreferrer" data-analytics-event="instagram_click" data-analytics-category="instagram_grid" data-analytics-label="{{ ig_post.url | default: elense_instagram_href }}">
+          {% include img.html src=ig_post.image alt=ig_alt sizes="(max-width: 900px) 33vw, 20vw" %}
+        </a>
+      </li>
+      {% endfor %}
+    </ul>
+    {% endif %}
+  </div>
+</section>
+{% endif %}

@@ -1,0 +1,17 @@
+# Zdjęcia w sekcji „Instagram” (strona główna, „O pracowni”, wpisy na blogu).
+# Nazwa konta pochodzi z `instagram_username` w _config.yml.
+#
+# Każda pozycja to jedno zdjęcie w siatce (pokazywanych jest pierwszych 6):
+#   image: plik w repozytorium, np. /assets/images/instagram/okragle-pudelko.jpg
+#   url:   link do posta na Instagramie; bez niego kafelek prowadzi do profilu
+#   alt:   opis zdjęcia po polsku i angielsku
+#
+# Pusta lista = sekcja pokazuje sam tekst i przycisk „Obserwuj”.
+#
+# posts:
+#   - image: /assets/images/instagram/okragle-pudelko.jpg
+#     url: https://www.instagram.com/p/XXXXXXXXXXX/
+#     alt:
+#       pl: Okrągłe skórzane pudełko z uchwytem
+#       en: Round leather box with a handle
+posts: []

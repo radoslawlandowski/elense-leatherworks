@@ -41,10 +41,21 @@ layout: compress
 {% else %}
   {% assign project_hero_image_resolved = project_hero_image | relative_url %}
 {% endif %}
-{% assign product_etsy_url = page.etsy_url | default: "" %}
-{% if product_etsy_url == "" %}
-  {% assign product_etsy_url = site.etsy_url | default: "" %}
+{% comment %}
+Etsy: `etsy_url` in the product front matter is the link to that product's own Etsy listing.
+When this language version has none, the listing of the other language version is used.
+A product with a listing gets a "Buy on Etsy" button; one without gets a small link to the shop.
+{% endcomment %}
+{% assign product_etsy_listing = page.etsy_url | default: "" %}
+{% if product_etsy_listing == "" and page.translation_key %}
+  {% assign product_etsy_siblings = site.projects | where: "translation_key", page.translation_key %}
+  {% for product_etsy_sibling in product_etsy_siblings %}
+    {% if product_etsy_listing == "" and product_etsy_sibling.etsy_url and product_etsy_sibling.etsy_url != "" %}
+      {% assign product_etsy_listing = product_etsy_sibling.etsy_url %}
+    {% endif %}
+  {% endfor %}
 {% endif %}
+{% assign product_etsy_shop = site.etsy_url | default: "" %}
 
 {% assign has_primary_purchase_cta = false %}
 {% if shopify_url and shopify_url != "" %}
@@ -145,11 +156,17 @@ layout: compress
         {% if shopify_url and shopify_url != "" %}
         <a href="{{ shopify_url }}" target="_blank" rel="noopener noreferrer" class="button is-primary" data-analytics-event="shopify_click" data-analytics-label="{{ page.title }}">{{ p.buy_shopify }}</a>
         {% endif %}
-        {% if contact_email and contact_email != "" %}
-        <a href="mailto:{{ contact_email }}?subject={{ inquiry_subject }}: {{ page.title }}" class="button{% unless has_primary_purchase_cta %} is-primary{% endunless %}" data-analytics-event="contact_email_click" data-analytics-label="{{ page.title }}">{{ p.ask_product }}</a>
+        {% if product_etsy_listing != "" %}
+        <a href="{{ product_etsy_listing }}" target="_blank" rel="noopener noreferrer" class="button product__etsy-button{% unless has_primary_purchase_cta %} is-primary{% endunless %}" data-analytics-event="etsy_click" data-analytics-category="product" data-analytics-label="{{ page.title }}">
+          <span>{{ p.buy_etsy }}</span>
+          <svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M8 5h11v11"></path><path d="M19 5L5 19"></path></svg>
+        </a>
         {% endif %}
-        {% if product_etsy_url != "" %}
-        <a href="{{ product_etsy_url }}" target="_blank" rel="noopener noreferrer" class="product__etsy" data-analytics-event="etsy_click" data-analytics-category="product" data-analytics-label="{{ page.title }}">{{ p.also_on_etsy }}</a>
+        {% if contact_email and contact_email != "" %}
+        <a href="mailto:{{ contact_email }}?subject={{ inquiry_subject }}: {{ page.title }}" class="button{% unless has_primary_purchase_cta or product_etsy_listing != "" %} is-primary{% endunless %}" data-analytics-event="contact_email_click" data-analytics-label="{{ page.title }}">{{ p.ask_product }}</a>
+        {% endif %}
+        {% if product_etsy_listing == "" and product_etsy_shop != "" %}
+        <a href="{{ product_etsy_shop }}" target="_blank" rel="noopener noreferrer" class="product__etsy" data-analytics-event="etsy_click" data-analytics-category="product_shop" data-analytics-label="{{ page.title }}">{{ p.etsy_shop_link }}</a>
         {% endif %}
       </div>
 
