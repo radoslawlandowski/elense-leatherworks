@@ -137,6 +137,7 @@ exclude:
   - LICENSE
   - README.md
   - renovate.json
+  - docs/
   - scripts/
   - .sass-cache/
   - .jekyll-cache/
