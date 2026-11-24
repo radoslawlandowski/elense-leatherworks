@@ -1,14 +1,12 @@
 ---
 title: Small Leather Box
+seo_title: "Small Handmade Leather Box for Essentials | Elense"
 layout: project-product
 lang: en
 translation_key: leather-box
 permalink: "/en/products/small-leather-box/"
 post-image: "/projects/en/small-leather-box/hero.svg"
 description: Compact leather storage box for everyday essentials, combining handcrafted detail with practical utility.
-price: 119 PLN / piece
-price_amount: 119
-price_currency: PLN
 availability: Made to order
 availability_schema: https://schema.org/PreOrder
 shopify_url: ""

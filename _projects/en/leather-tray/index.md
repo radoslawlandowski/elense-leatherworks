@@ -1,14 +1,12 @@
 ---
 title: Leather Tray
+seo_title: "Handmade Leather Tray for Desk & Dresser | Elense"
 layout: project-product
 lang: en
 translation_key: leather-tray
 permalink: "/en/products/leather-tray/"
 post-image: "/projects/en/leather-tray/hero.svg"
 description: A handcrafted leather tray that keeps your desk or dresser organised while adding a refined, natural touch to any surface.
-price: 89 PLN / piece
-price_amount: 89
-price_currency: PLN
 availability: In stock
 availability_schema: https://schema.org/InStock
 shopify_url: ""

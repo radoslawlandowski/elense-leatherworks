@@ -1,10 +1,10 @@
 # Photos used by the home page sections.
 images:
-  hero_main: /projects/pl/skorzany-organizer-biurkowy/1-DSCF1286.jpg
-  hero_detail: /projects/pl/skorzany-organizer-biurkowy/7-DSCF1255.jpg
-  pillars: /projects/pl/skorzany-organizer-biurkowy/4-DSCF1279.jpg
-  about: /projects/pl/skorzany-organizer-biurkowy/5-DSCF1270.jpg
-  contact: /projects/pl/skorzany-organizer-biurkowy/6-DSCF1262.jpg
+  hero_main: /assets/images/products/leather-valet-tray/leather-valet-tray-oak-table.jpg
+  hero_detail: /assets/images/products/leather-valet-tray/leather-valet-tray-sunglasses-sideboard.jpg
+  pillars: /assets/images/products/leather-valet-tray/leather-valet-tray-hand-stitching.jpg
+  about: /assets/images/products/leather-valet-tray/leather-valet-tray-suede-lining-top-view.jpg
+  contact: /assets/images/products/leather-valet-tray/leather-valet-tray-stone-countertop.jpg
 
 # Post linked from the pillars section.
 philosophy_post_key: elense-experience-philosophy

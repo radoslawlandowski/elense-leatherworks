@@ -9,7 +9,7 @@
     </div>
   </div>
   <div class="home-hero__media">
-    <img class="home-hero__photo" src="{{ site.data.home.images.hero_main | relative_url }}" alt="{{ t.home.hero_alt_main }}" width="1365" height="2048" fetchpriority="high">
-    <img class="home-hero__inset" src="{{ site.data.home.images.hero_detail | relative_url }}" alt="{{ t.home.hero_alt_detail }}" width="2048" height="1365">
+    {% include img.html src=site.data.home.images.hero_main alt=t.home.hero_alt_main class="home-hero__photo" sizes="(max-width: 900px) 90vw, 40vw" loading="eager" fetchpriority="high" %}
+    {% include img.html src=site.data.home.images.hero_detail alt=t.home.hero_alt_detail class="home-hero__inset" sizes="(max-width: 900px) 45vw, 23vw" loading="eager" %}
   </div>
 </section>

@@ -1,0 +1,59 @@
+{%- comment -%}
+Product feed in Google's RSS 2.0 format — accepted by Google Merchant Center and the Meta
+(Facebook / Instagram) catalog. Pass lang=. A product is listed only when it has a real
+photo and a price in the currency of that language. IDs match the cart and the pixel.
+{%- endcomment -%}
+{%- assign feed_t = site.data.i18n[include.lang] -%}
+{%- assign feed_products = site.projects | where: "lang", include.lang | sort: "date" | reverse -%}
+{%- assign feed_shop = site.data.shop -%}
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:g="http://base.google.com/ns/1.0">
+<channel>
+<title>{{ site.title | xml_escape }}</title>
+<link>{{ feed_t.routes.home | absolute_url }}</link>
+<description>{{ feed_t.site_description | xml_escape }}</description>
+{%- for product in feed_products -%}
+{%- capture feed_discard -%}{% include product-price.html product=product %}{% include product-photos.html product=product %}{%- endcapture -%}
+{%- if product_price_buyable and product_photos.size > 0 %}
+<item>
+<g:id>{{ product.translation_key | default: product.slug | xml_escape }}</g:id>
+<g:title>{{ product.title | xml_escape }}</g:title>
+<g:description>{{ product.description | append: " " | append: product.content | strip_html | normalize_whitespace | truncate: 4900 | xml_escape }}</g:description>
+<g:link>{{ product.url | absolute_url }}</g:link>
+<g:image_link>{{ product_photos.first | absolute_url }}</g:image_link>
+{%- for photo in product_photos offset: 1 limit: 10 %}
+<g:additional_image_link>{{ photo | absolute_url }}</g:additional_image_link>
+{%- endfor %}
+<g:price>{{ product_price_amount | money2 }} {{ product_price_currency }}</g:price>
+<g:availability>{% if product.availability_schema contains "InStock" %}in_stock{% elsif product.availability_schema contains "OutOfStock" %}out_of_stock{% else %}backorder{% endif %}</g:availability>
+<g:condition>new</g:condition>
+<g:brand>{{ site.title | xml_escape }}</g:brand>
+<g:identifier_exists>no</g:identifier_exists>
+{%- if product.google_product_category %}
+<g:google_product_category>{{ product.google_product_category | xml_escape }}</g:google_product_category>
+{%- endif %}
+{%- assign feed_type = product.tags | first -%}
+{%- if feed_type and feed_type != "" %}
+<g:product_type>{{ feed_type | xml_escape }}</g:product_type>
+{%- endif %}
+{%- if product.material %}
+<g:material>{{ product.material | xml_escape }}</g:material>
+{%- endif %}
+{%- if product.color %}
+<g:color>{{ product.color | xml_escape }}</g:color>
+{%- endif %}
+{%- for zone in feed_shop.shipping_zones -%}
+{%- assign zone_currency = zone.currency | upcase -%}
+{%- if zone.rate != nil and zone_currency == product_price_currency -%}
+{%- assign zone_rate = zone.rate -%}
+{%- if zone.free_from and product_price_amount >= zone.free_from -%}{%- assign zone_rate = 0 -%}{%- endif -%}
+{%- for country in zone.countries %}
+<g:shipping><g:country>{{ country }}</g:country>{% if zone.carrier %}<g:service>{{ zone.carrier | xml_escape }}</g:service>{% endif %}<g:price>{{ zone_rate | money2 }} {{ zone_currency }}</g:price></g:shipping>
+{%- endfor -%}
+{%- endif -%}
+{%- endfor %}
+</item>
+{%- endif -%}
+{%- endfor %}
+</channel>
+</rss>

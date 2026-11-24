@@ -1,6 +1,6 @@
 {% include contact-vars.html %}
 <section class="home-contact" id="contact">
-  <img class="home-contact__bg" src="{{ site.data.home.images.contact | relative_url }}" alt="" aria-hidden="true" width="2048" height="1365" loading="lazy" decoding="async">
+  {% include img.html src=site.data.home.images.contact alt="" hidden=true class="home-contact__bg" sizes="100vw" %}
   <div class="home-contact__inner">
     <p class="eyebrow eyebrow--brass">{{ t.home.contact_eyebrow }}</p>
     <h2 class="home-section__title">{{ t.home.contact_heading }}</h2>

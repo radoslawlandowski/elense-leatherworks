@@ -8,7 +8,7 @@ description: Elense Leatherworks privacy policy — what data we collect, why, a
 keywords: privacy policy, GDPR, data protection, Elense Leatherworks
 ---
 
-**Last updated: July 7, 2026**
+**Last updated: November 23, 2026**
 
 ## 1. Data Controller
 
@@ -32,7 +32,7 @@ We do not collect special categories of data and do not perform automated profil
 | Order fulfillment and handling complaints | Performance of a contract (GDPR Art. 6(1)(b)) |
 | Responding to contact inquiries | Legitimate interest of the controller (GDPR Art. 6(1)(f)) |
 | Marketing and managing the brand's social media presence (Pinterest, Instagram, Etsy) | Legitimate interest of the controller (GDPR Art. 6(1)(f)) |
-| Website traffic analysis | Consent (GDPR Art. 6(1)(a)), where analytics cookies are used |
+| Website traffic analysis and advertising measurement | Consent (GDPR Art. 6(1)(a)) given in the cookie banner |
 
 ## 4. Recipients of Data
 
@@ -42,6 +42,7 @@ Data may be shared with trusted service providers who process it on our behalf:
 - **Etsy** — if you purchase through our Etsy shop, Etsy's own privacy policy also applies.
 - **Pinterest and Meta (Instagram)** — to the extent we publish and manage promotional content on these platforms; we do not share customer personal data with them, we use their APIs solely to publish marketing content.
 - **Google Analytics** — if active, for website traffic analysis.
+- **Meta Pixel (Facebook, Instagram)** — if active and you consent to marketing cookies, to measure advertising performance.
 
 We do not sell personal data to third parties.
 
@@ -65,7 +66,7 @@ To exercise these rights, contact us at [radoslaw@elenseleatherworks.com](mailto
 
 ## 7. Cookies
 
-The site uses cookies necessary for the shopping cart to function, and, optionally, analytics cookies. You can manage cookies in your browser settings.
+The site uses cookies necessary for the shopping cart to function. Analytics cookies (Google Analytics) and marketing cookies (Meta Pixel) are switched on only after you consent in the cookie banner; without consent these tools are not loaded at all. You can change or withdraw your consent at any time with "Cookie settings" in the page footer. You can also delete cookies in your browser settings.
 
 ## 8. Changes to This Policy
 

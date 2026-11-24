@@ -1,14 +1,13 @@
 ---
 title: "Leather Valet Tray & Desk Organizer"
+seo_title: "Leather Valet Tray & Desk Organizer, Handmade | Elense"
 layout: project-product
 lang: en
 translation_key: leather-valet-tray-organizer
 permalink: "/en/products/leather-valet-tray/"
-post-image: "/projects/en/leather-valet-tray/1-DSCF1286.jpg"
+post-image: "/assets/images/products/leather-valet-tray/leather-valet-tray-oak-table.jpg"
+hero_alt: "Hand-stitched leather valet tray on an oak table"
 description: "A handmade leather valet tray that keeps keys, wallet, and everyday essentials organized on any desk, dresser, or entryway surface."
-price: 24 USD  # TODO: cena testowa (fixture) — zweryfikuj przed publikacją
-price_amount: 24
-price_currency: USD
 availability: "In stock"
 availability_schema: https://schema.org/InStock
 shopify_url: ""
@@ -23,19 +22,20 @@ tags:
 - "Organization"
 - "Genuine leather"
 date: 2026-07-06
+material: "full-grain leather, suede"
 gallery:
-- href: "/projects/en/leather-valet-tray/5-DSCF1270.jpg"
-  imgSrc: "/projects/en/leather-valet-tray/5-DSCF1270.jpg"
-  alt: "Leather Valet Tray & Desk Organizer - 1"
-- href: "/projects/en/leather-valet-tray/7-DSCF1255.jpg"
-  imgSrc: "/projects/en/leather-valet-tray/7-DSCF1255.jpg"
-  alt: "Leather Valet Tray & Desk Organizer - 2"
-- href: "/projects/en/leather-valet-tray/4-DSCF1279.jpg"
-  imgSrc: "/projects/en/leather-valet-tray/4-DSCF1279.jpg"
-  alt: "Leather Valet Tray & Desk Organizer - 3"
-- href: "/projects/en/leather-valet-tray/6-DSCF1262.jpg"
-  imgSrc: "/projects/en/leather-valet-tray/6-DSCF1262.jpg"
-  alt: "Leather Valet Tray & Desk Organizer - 4"
+- href: "/assets/images/products/leather-valet-tray/leather-valet-tray-suede-lining-top-view.jpg"
+  imgSrc: "/assets/images/products/leather-valet-tray/leather-valet-tray-suede-lining-top-view.jpg"
+  alt: "Leather valet tray with suede lining on an oak side table, seen from above"
+- href: "/assets/images/products/leather-valet-tray/leather-valet-tray-sunglasses-sideboard.jpg"
+  imgSrc: "/assets/images/products/leather-valet-tray/leather-valet-tray-sunglasses-sideboard.jpg"
+  alt: "Leather desk organizer holding sunglasses on a sideboard"
+- href: "/assets/images/products/leather-valet-tray/leather-valet-tray-hand-stitching.jpg"
+  imgSrc: "/assets/images/products/leather-valet-tray/leather-valet-tray-hand-stitching.jpg"
+  alt: "Hand-stitched corner of a leather valet tray"
+- href: "/assets/images/products/leather-valet-tray/leather-valet-tray-stone-countertop.jpg"
+  imgSrc: "/assets/images/products/leather-valet-tray/leather-valet-tray-stone-countertop.jpg"
+  alt: "Leather catchall tray on a stone countertop"
 ---
 
 The Leather Valet Tray is cut and stitched by hand from full-grain leather, lined with soft suede. It sits flat, holds its shape, and keeps everyday essentials in one place.

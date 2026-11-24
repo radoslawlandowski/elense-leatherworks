@@ -1,14 +1,12 @@
 ---
 title: Małe Skórzane Pudełko
+seo_title: "Małe pudełko skórzane na drobiazgi, ręcznie szyte | Elense"
 layout: project-product
 lang: pl
 translation_key: leather-box
 permalink: "/pl/produkty/male-skorzane-pudelko/"
 post-image: "/projects/pl/male-skorzane-pudelko/hero.svg"
 description: Kompaktowe skórzane pudełko na codzienne drobiazgi, łączące rzemieślnicze wykończenie z praktycznym zastosowaniem.
-price: 119 PLN / szt.
-price_amount: 119
-price_currency: PLN
 availability: Na zamówienie
 availability_schema: https://schema.org/PreOrder
 shopify_url: ""

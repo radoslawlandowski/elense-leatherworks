@@ -4,8 +4,8 @@
 {% assign tile_t = site.data.i18n[tile_lang] %}
 {% assign tile_image = tile.post-image | default: "" %}
 {% assign tile_image_ext = tile_image | slice: -4, 4 | downcase %}
-{% unless tile_image contains '://' %}{% assign tile_image = tile_image | relative_url %}{% endunless %}
-{% include price-format.html amount=tile.price_amount currency=tile.price_currency %}
+{% include product-price.html product=tile %}
+{% include price-format.html amount=product_price_amount currency=product_price_currency %}
 {% assign tile_price = formatted_price %}
 {% assign tile_tags = "" %}
 {% if tile.tags %}
@@ -19,7 +19,7 @@
     {% if tile_image_ext == '.svg' or tile.post-image == '' %}
     <span class="product-tile__placeholder">{{ tile_t.home.photo_placeholder }}</span>
     {% else %}
-    <img src="{{ tile_image }}" alt="{{ tile.title | escape }}" loading="lazy" decoding="async">
+    {% assign tile_alt = tile.hero_alt | default: tile.title %}{% include img.html src=tile_image alt=tile_alt sizes="(max-width: 640px) 100vw, (max-width: 1100px) 50vw, 400px" %}
     {% endif %}
     {% if tile.availability and tile.availability != "" %}
     <span class="product-tile__badge">{{ tile.availability }}</span>

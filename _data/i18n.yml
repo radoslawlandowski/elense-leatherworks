@@ -176,6 +176,21 @@ en:
       - Durable finish with attention to detail.
       - Design intended for everyday use.
     default_warranty: Product includes a 12-month workmanship warranty. If a production defect appears, we will repair or replace the product.
+  consent:
+    title: Cookies
+    text: I use cookies to run the cart and, with your consent, to measure traffic and advertising. You can change your choice at any time.
+    more: Privacy policy
+    accept: Accept all
+    reject: Necessary only
+    settings: Settings
+    save: Save my choice
+    reopen: Cookie settings
+    necessary: Necessary
+    necessary_note: "— the cart and checkout. Always on."
+    analytics: Analytics
+    analytics_note: "— Google Analytics, to see which pages are visited."
+    marketing: Marketing
+    marketing_note: "— Meta Pixel, to measure Facebook and Instagram ads."
   cart:
     order_note_label: "Order note"
     order_note_placeholder: "Add a note to your order (optional)..."
@@ -373,6 +388,21 @@ pl:
       - Trwałe wykończenie i dbałość o detal.
       - Projekt dopasowany do codziennego użycia.
     default_warranty: Produkt objęty jest 12-miesięczną gwarancją na wykonanie. W przypadku wady produkcyjnej zapewniamy naprawę lub wymianę.
+  consent:
+    title: Pliki cookies
+    text: Używam plików cookies do działania koszyka oraz — za Twoją zgodą — do pomiaru ruchu i reklam. Wybór możesz zmienić w każdej chwili.
+    more: Polityka prywatności
+    accept: Akceptuję wszystkie
+    reject: Tylko niezbędne
+    settings: Ustawienia
+    save: Zapisz wybór
+    reopen: Ustawienia cookies
+    necessary: Niezbędne
+    necessary_note: "— koszyk i zamówienie. Zawsze włączone."
+    analytics: Analityczne
+    analytics_note: "— Google Analytics, żeby wiedzieć, które strony są odwiedzane."
+    marketing: Marketingowe
+    marketing_note: "— Meta Pixel, do pomiaru reklam na Facebooku i Instagramie."
   cart:
     order_note_label: "Uwaga do zamówienia"
     order_note_placeholder: "Dodaj uwagę do zamówienia (opcjonalnie)..."

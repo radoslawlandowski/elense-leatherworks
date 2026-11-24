@@ -22,7 +22,9 @@ $font-sans: 'Jost', 'Helvetica Neue', Arial, sans-serif;
 $body-background-color: $elense-ivory;
 $body-color: $elense-ink;
 
-@import url('https://cdn.jsdelivr.net/npm/bulma@0.8.2/css/bulma.min.css');
+// Bulma 0.8.2 and the fonts are bundled into this stylesheet: one request, no third-party hosts.
+@import "vendor/bulma.min";
+@import "fonts";
 
 
 html {

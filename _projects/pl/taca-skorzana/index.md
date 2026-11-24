@@ -1,14 +1,12 @@
 ---
 title: Taca Skórzana
+seo_title: "Taca skórzana ręcznie szyta na biurko i komodę | Elense"
 layout: project-product
 lang: pl
 translation_key: leather-tray
 permalink: "/pl/produkty/taca-skorzana/"
 post-image: "/projects/pl/taca-skorzana/hero.svg"
 description: Ręcznie wykonana taca skórzana, która porządkuje biurko lub komodę i dodaje każdej powierzchni naturalnego, eleganckiego charakteru.
-price: 89 PLN / szt.
-price_amount: 89
-price_currency: PLN
 availability: Dostępne od ręki
 availability_schema: https://schema.org/InStock
 shopify_url: ""

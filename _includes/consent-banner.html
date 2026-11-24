@@ -1,0 +1,29 @@
+{% comment %}Cookie banner. Rendered only when Google Analytics or Meta Pixel is configured; driven by assets/js/tracking.js.{% endcomment %}
+{% assign consent_ga = site['google-analytics'] | default: "" %}
+{% assign consent_pixel = site.meta_pixel_id | default: "" %}
+{% if consent_ga != "" or consent_pixel != "" %}
+{% assign consent_t = site.data.i18n[current_lang].consent %}
+<div class="consent" id="consent-banner" role="region" aria-labelledby="consent-title" hidden>
+  <div class="consent__inner">
+    <div class="consent__copy">
+      <p class="consent__title" id="consent-title">{{ consent_t.title }}</p>
+      <p class="consent__text">{{ consent_t.text }}{% if elense_privacy_page %} <a href="{{ elense_privacy_page.url | relative_url }}">{{ consent_t.more }}</a>{% endif %}</p>
+      <div class="consent__options" hidden>
+        <label><input type="checkbox" checked disabled> <span><strong>{{ consent_t.necessary }}</strong> {{ consent_t.necessary_note }}</span></label>
+        {% if consent_ga != "" %}
+        <label><input type="checkbox" data-consent="analytics"> <span><strong>{{ consent_t.analytics }}</strong> {{ consent_t.analytics_note }}</span></label>
+        {% endif %}
+        {% if consent_pixel != "" %}
+        <label><input type="checkbox" data-consent="marketing"> <span><strong>{{ consent_t.marketing }}</strong> {{ consent_t.marketing_note }}</span></label>
+        {% endif %}
+      </div>
+    </div>
+    <div class="consent__actions">
+      <button type="button" class="button is-primary" data-consent-action="accept">{{ consent_t.accept }}</button>
+      <button type="button" class="button is-primary" data-consent-action="reject">{{ consent_t.reject }}</button>
+      <button type="button" class="button" data-consent-action="save" hidden>{{ consent_t.save }}</button>
+      <button type="button" class="consent__settings" data-consent-action="settings">{{ consent_t.settings }}</button>
+    </div>
+  </div>
+</div>
+{% endif %}

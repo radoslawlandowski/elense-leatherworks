@@ -1,14 +1,13 @@
 ---
 title: "Skórzany Organizer Biurkowy z Tacą"
+seo_title: "Skórzany organizer na biurko z tacą na klucze | Elense"
 layout: project-product
 lang: pl
 translation_key: leather-valet-tray-organizer
 permalink: "/pl/produkty/skorzany-organizer-biurkowy/"
-post-image: "/projects/pl/skorzany-organizer-biurkowy/1-DSCF1286.jpg"
+post-image: "/assets/images/products/leather-valet-tray/leather-valet-tray-oak-table.jpg"
+hero_alt: "Ręcznie szyty skórzany organizer z tacą na dębowym stole"
 description: "Ręcznie wykonany skórzany organizer z tacą, który porządkuje klucze, portfel i drobiazgi na biurku, komodzie lub w przedpokoju."
-price: 24 USD  # TODO: cena testowa (fixture) — zweryfikuj przed publikacją
-price_amount: 24
-price_currency: USD
 availability: "Dostępne od ręki"
 availability_schema: https://schema.org/InStock
 shopify_url: ""
@@ -23,19 +22,20 @@ tags:
 - "Organizacja"
 - "Skóra naturalna"
 date: 2026-07-06
+material: "skóra naturalna pełnolicowa, zamsz"
 gallery:
-- href: "/projects/pl/skorzany-organizer-biurkowy/5-DSCF1270.jpg"
-  imgSrc: "/projects/pl/skorzany-organizer-biurkowy/5-DSCF1270.jpg"
-  alt: "Skórzany Organizer Biurkowy z Tacą - 1"
-- href: "/projects/pl/skorzany-organizer-biurkowy/7-DSCF1255.jpg"
-  imgSrc: "/projects/pl/skorzany-organizer-biurkowy/7-DSCF1255.jpg"
-  alt: "Skórzany Organizer Biurkowy z Tacą - 2"
-- href: "/projects/pl/skorzany-organizer-biurkowy/4-DSCF1279.jpg"
-  imgSrc: "/projects/pl/skorzany-organizer-biurkowy/4-DSCF1279.jpg"
-  alt: "Skórzany Organizer Biurkowy z Tacą - 3"
-- href: "/projects/pl/skorzany-organizer-biurkowy/6-DSCF1262.jpg"
-  imgSrc: "/projects/pl/skorzany-organizer-biurkowy/6-DSCF1262.jpg"
-  alt: "Skórzany Organizer Biurkowy z Tacą - 4"
+- href: "/assets/images/products/leather-valet-tray/leather-valet-tray-suede-lining-top-view.jpg"
+  imgSrc: "/assets/images/products/leather-valet-tray/leather-valet-tray-suede-lining-top-view.jpg"
+  alt: "Skórzana taca z zamszową wyściółką na dębowym stoliku, widok z góry"
+- href: "/assets/images/products/leather-valet-tray/leather-valet-tray-sunglasses-sideboard.jpg"
+  imgSrc: "/assets/images/products/leather-valet-tray/leather-valet-tray-sunglasses-sideboard.jpg"
+  alt: "Skórzany organizer z okularami przeciwsłonecznymi na komodzie"
+- href: "/assets/images/products/leather-valet-tray/leather-valet-tray-hand-stitching.jpg"
+  imgSrc: "/assets/images/products/leather-valet-tray/leather-valet-tray-hand-stitching.jpg"
+  alt: "Ręczny ścieg na narożniku skórzanej tacy"
+- href: "/assets/images/products/leather-valet-tray/leather-valet-tray-stone-countertop.jpg"
+  imgSrc: "/assets/images/products/leather-valet-tray/leather-valet-tray-stone-countertop.jpg"
+  alt: "Skórzana taca na drobiazgi na kamiennym blacie"
 ---
 
 Skórzany Organizer Biurkowy to ręcznie wycinana i szyta taca z pełnolicowej skóry, wyściełana miękkim zamszem. Trzyma formę i porządkuje klucze, portfel czy zegarek w jednym miejscu.

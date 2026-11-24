@@ -1,14 +1,12 @@
 ---
 title: Skórzany Uchwyt na Szklankę
+seo_title: "Skórzany uchwyt na szklankę, ręcznie szyty | Elense"
 layout: project-product
 lang: pl
 translation_key: glass-holder
 permalink: "/pl/produkty/skorzany-uchwyt-na-szklanke/"
 post-image: "/projects/pl/skorzany-uchwyt-na-szklanke/hero.svg"
 description: Ergonomiczny uchwyt skórzany, który poprawia komfort trzymania szklanki i ogranicza odczuwanie temperatury.
-price: 59 PLN / szt.
-price_amount: 59
-price_currency: PLN
 availability: Dostępne od ręki
 availability_schema: https://schema.org/InStock
 shopify_url: ""

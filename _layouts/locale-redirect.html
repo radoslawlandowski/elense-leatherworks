@@ -1,26 +1,31 @@
 ---
 layout: compress
 ---
+{% comment %}
+The bare domain: sends Polish browsers to /pl/ and everyone else to /en/.
+Search engines get one canonical (/en/) and both language alternates; the page itself
+is not listed in the sitemap.
+{% endcomment %}
 <!DOCTYPE html>
 <html lang="en">
-{% include head.html %}
-<body>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{ site.title }}</title>
+  <link rel="canonical" href="{{ '/en/' | absolute_url }}">
+  <link rel="alternate" hreflang="en" href="{{ '/en/' | absolute_url }}">
+  <link rel="alternate" hreflang="pl" href="{{ '/pl/' | absolute_url }}">
+  <link rel="alternate" hreflang="x-default" href="{{ '/en/' | absolute_url }}">
   <script>
     (function () {
-      function normalizePath(path) {
-        return (path || "/").replace(/index\.html$/, "").replace(/\/+$/, "") || "/";
-      }
       var preferred = (navigator.languages && navigator.languages[0]) || navigator.language || "en";
       var lang = String(preferred).toLowerCase().indexOf("pl") === 0 ? "pl" : "en";
-      var target = lang === "pl" ? "{{ '/pl/' | relative_url }}" : "{{ '/en/' | relative_url }}";
-      if (normalizePath(window.location.pathname) !== normalizePath(target)) {
-        window.location.replace(target);
-      }
+      window.location.replace(lang === "pl" ? "{{ '/pl/' | relative_url }}" : "{{ '/en/' | relative_url }}");
     })();
   </script>
-  <noscript>
-    <meta http-equiv="refresh" content="0; url={{ '/en/' | relative_url }}">
-  </noscript>
-  <link rel="canonical" href="{{ '/en/' | absolute_url }}">
+  <noscript><meta http-equiv="refresh" content="0; url={{ '/en/' | relative_url }}"></noscript>
+</head>
+<body>
+  <p><a href="{{ '/en/' | relative_url }}">English</a> · <a href="{{ '/pl/' | relative_url }}" lang="pl">Polski</a></p>
 </body>
 </html>
