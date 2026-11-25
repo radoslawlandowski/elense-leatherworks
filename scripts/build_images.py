@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 """Prepare photos for the site.
 
-For every JPG/PNG photo under assets/images/products/ and assets/images/content/ this
-writes WebP copies at several widths next to the original and records the original size
+For every JPG/PNG photo under assets/images/products/, assets/images/content/ and
+assets/images/instagram/ this writes WebP copies at several widths next to the original and records the original size
 in _data/images.yml. The templates (_includes/img.html) use that file to add width,
 height and a srcset, so browsers download a size that fits the screen.
 
@@ -17,7 +17,7 @@ from pathlib import Path
 from PIL import Image, ImageOps
 
 ROOT = Path(__file__).resolve().parent.parent
-PHOTO_DIRS = ["assets/images/products", "assets/images/content"]
+PHOTO_DIRS = ["assets/images/products", "assets/images/content", "assets/images/instagram"]
 # Files that only need their size recorded (no resized copies).
 SIZE_ONLY = ["assets/images/meta.jpg"]
 WIDTHS = [480, 800, 1200, 1600]
