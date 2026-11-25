@@ -25,6 +25,36 @@
   height: 1365
   base: "/assets/images/products/leather-valet-tray/leather-valet-tray-sunglasses-sideboard"
   webp: [480, 800, 1200, 1600, 2048]
+"/assets/images/instagram/2020-05-07.jpg":
+  width: 1080
+  height: 1080
+  base: "/assets/images/instagram/2020-05-07"
+  webp: [480, 800, 1080]
+"/assets/images/instagram/2020-05-24.jpg":
+  width: 1080
+  height: 1080
+  base: "/assets/images/instagram/2020-05-24"
+  webp: [480, 800, 1080]
+"/assets/images/instagram/2020-05-26.jpg":
+  width: 1080
+  height: 1080
+  base: "/assets/images/instagram/2020-05-26"
+  webp: [480, 800, 1080]
+"/assets/images/instagram/2020-07-11.jpg":
+  width: 1080
+  height: 860
+  base: "/assets/images/instagram/2020-07-11"
+  webp: [480, 800, 1080]
+"/assets/images/instagram/2020-11-23.jpg":
+  width: 1080
+  height: 1080
+  base: "/assets/images/instagram/2020-11-23"
+  webp: [480, 800, 1080]
+"/assets/images/instagram/2022-01-08.jpg":
+  width: 1080
+  height: 1080
+  base: "/assets/images/instagram/2022-01-08"
+  webp: [480, 800, 1080]
 "/assets/images/meta.jpg":
   width: 1280
   height: 720

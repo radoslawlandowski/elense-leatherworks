@@ -2,16 +2,45 @@
 # Nazwa konta pochodzi z `instagram_username` w _config.yml.
 #
 # Każda pozycja to jedno zdjęcie w siatce (pokazywanych jest pierwszych 6):
-#   image: plik w repozytorium, np. /assets/images/instagram/okragle-pudelko.jpg
+#   image: plik w repozytorium, np. /assets/images/instagram/2022-01-08.jpg
 #   url:   link do posta na Instagramie; bez niego kafelek prowadzi do profilu
 #   alt:   opis zdjęcia po polsku i angielsku
 #
-# Pusta lista = sekcja pokazuje sam tekst i przycisk „Obserwuj”.
+# Pusta lista (`posts: []`) = sekcja pokazuje sam tekst i przycisk „Obserwuj”.
 #
-# posts:
-#   - image: /assets/images/instagram/okragle-pudelko.jpg
-#     url: https://www.instagram.com/p/XXXXXXXXXXX/
-#     alt:
-#       pl: Okrągłe skórzane pudełko z uchwytem
-#       en: Round leather box with a handle
-posts: []
+# Po dodaniu lub podmianie zdjęcia uruchom `python3 scripts/build_images.py`
+# (tworzy lżejsze kopie WebP i zapisuje wymiary w _data/images.yml).
+#
+# Obecny zestaw: 6 postów z największą liczbą polubień (stan na 2026-11-24),
+# zdjęcia pobrane z profilu @elenseleatherworks, nazwy plików = data posta.
+posts:
+  - image: /assets/images/instagram/2020-05-07.jpg
+    url: https://www.instagram.com/p/B_5JHaKgvPk/
+    alt:
+      pl: Czarna skórzana taca z pikowanym dnem i falowanymi bokami na starych deskach
+      en: Black leather tray with a quilted base and curved sides on weathered planks
+  - image: /assets/images/instagram/2022-01-08.jpg
+    url: https://www.instagram.com/p/CYeE5wlMGHL/
+    alt:
+      pl: Okrągła szkatułka na biżuterię z ciemnozielonej skóry z koniakowym uchwytem
+      en: Round jewelry box in dark green leather with a cognac handle
+  - image: /assets/images/instagram/2020-05-24.jpg
+    url: https://www.instagram.com/p/CAklCOtg4-q/
+    alt:
+      pl: Koniakowa skórzana taca z tłoczeniem Elense i zegarkiem w środku
+      en: Cognac leather valet tray stamped Elense, with a watch inside
+  - image: /assets/images/instagram/2020-11-23.jpg
+    url: https://www.instagram.com/p/CH7sPnfAu8t/
+    alt:
+      pl: Ręcznie szyty skórzany uchwyt z mosiężnymi kółkami na macie do cięcia
+      en: Hand-stitched leather handle with brass rings on a cutting mat
+  - image: /assets/images/instagram/2020-07-11.jpg
+    url: https://www.instagram.com/p/CCgj0cagbwI/
+    alt:
+      pl: Czarne skórzane pudełko z uchwytem i białym ściegiem
+      en: Black leather box with a handle and white stitching
+  - image: /assets/images/instagram/2020-05-26.jpg
+    url: https://www.instagram.com/p/CAqNa_eg80U/
+    alt:
+      pl: "Narożnik koniakowej tacy: wykończona krawędź i ręczny ścieg"
+      en: "Corner of a cognac leather tray: finished edge and hand stitching"
